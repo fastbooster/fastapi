@@ -14,9 +14,9 @@ from authentication import (AuthChecker, authenticate_user, create_access_token,
                             encode_password,
                             verify_password,
                             get_current_user)
-from models import UserModel
-from forms import ChangePwdForm
-from utils.mysql import get_db
+from app.models.user import UserModel
+from forms.user import ChangePwdForm
+from app.core.mysql import get_db
 
 router = APIRouter()
 

@@ -17,8 +17,8 @@ from jose import JWTError, jwt
 from passlib.context import CryptContext
 from sqlalchemy.orm import Session
 
-from models import UserModel
-from utils.mysql import get_db
+from app.models.user import UserModel
+from app.core.mysql import get_db
 
 
 class BearAuthException(Exception):
