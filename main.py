@@ -13,7 +13,7 @@ from dotenv import load_dotenv
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
-from routes import auth
+from app.api.main import api_router
 
 load_dotenv()
 RUNTIME_MODE = os.getenv("RUNTIME_MODE")
@@ -23,13 +23,12 @@ docs_url = None if RUNTIME_MODE == "PROD" else "/docs"
 redoc_url = None if RUNTIME_MODE == "PROD" else "/redoc"
 
 app = FastAPI(openapi_url=openapi_url, docs_url=docs_url, redoc_url=redoc_url)
-app.include_router(auth.router, prefix="/api/auth")
+app.include_router(api_router, prefix="/api/v1")
 
 # https://github.com/tiangolo/fastapi/discussions/10968
-origins = ["*"]
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=origins,
+    allow_origins=["*"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],

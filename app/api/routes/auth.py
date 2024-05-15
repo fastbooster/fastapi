@@ -21,14 +21,16 @@ from utils.mysql import get_db
 router = APIRouter()
 
 
-@router.post("/token", summary="用户登录", tags=["用户管理"])
+@router.post("/token", summary="用户登录")
 def authorize(request: Request, form: OAuth2PasswordRequestForm = Depends(), db: Session = Depends(get_db)):
-    user = authenticate_user(db=db, employee_id=form.username, password=form.password)
+    user = authenticate_user(
+        db=db, employee_id=form.username, password=form.password)
     if not user:
         raise HTTPException(status_code=401, detail="工号或密码错误")
     try:
         access_token = create_access_token(data=user.employee_id)
-        chg_pwd = True if user.password_hash == encode_password("123456") or form.password == "123456" else False
+        chg_pwd = True if user.password_hash == encode_password(
+            "123456") or form.password == "123456" else False
 
         # user.access_token = access_token
         # user.last_login_at = int(time.time())
@@ -49,14 +51,14 @@ def authorize(request: Request, form: OAuth2PasswordRequestForm = Depends(), db:
             status_code=500, detail=f"未知错误，请联系技术支持: {e}")
 
 
-@router.post("/logout", summary="用户登出", tags=["用户管理"])
+@router.post("/logout", summary="用户登出")
 def logout():
     pass
 
 
-@router.post("/change_password", summary="修改密码", tags=["用户管理"], dependencies=[Depends(AuthChecker())])
+@router.post("/change_password", summary="修改密码", dependencies=[Depends(AuthChecker())])
 def change_password(form: ChangePwdForm, user: UserModel = Depends(get_current_user),
-                          db: Session = Depends(get_db)):
+                    db: Session = Depends(get_db)):
     if not validate_password(form.new_pwd):
         raise HTTPException(status_code=400, detail="新密码过于简单，请重新输入")
     if not verify_password(form.old_pwd, user.password_hash):
