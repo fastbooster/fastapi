@@ -1,0 +1,52 @@
+# 注意：忽略文件后不能包含中文，即忽略文件不可和注释写在一行
+# 忽略文件本身也不能包含非 ASCII 字符
+
+# 忽略所有 .pyc 文件，这些是 Python 编译后的字节码文件
+
+*.pyc
+
+# 忽略所有 .pyo 文件，这些是优化编译后的 Python 字节码文件
+
+*.pyo
+
+# 忽略所有日志文件、日志文件夹和临时文件
+
+*.log
+logs/
+tmp/
+
+# 忽略所有测试报告和覆盖率数据
+
+*.coverage
+htmlcov/
+.coverage
+
+# 忽略虚拟环境目录，通常使用 venv 或 virtualenv 创建
+venv/
+.venv/
+env/
+
+# 忽略数据库迁移文件，如果使用 Django 或其他框架的迁移系统
+migrations/
+
+# 忽略 IDE 配置和缓存文件
+.idea/
+.vscode/
+.DS_Store
+
+# 忽略 Docker 相关文件和目录
+.dockerignore
+Dockerfile
+docker-compose.yml
+
+# 忽略 Git 相关文件和目录
+.git/
+.gitignore
+
+# 忽略其他敏感文件，如密钥、配置文件等
+secret.key
+config.ini
+
+# 忽略其他不必要的文件
+.DS_Store
+Thumbs.db
