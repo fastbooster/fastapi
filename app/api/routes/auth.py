@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 # -*- encoding: utf-8 -*-
-# File: start.py
+# File: auth.py
 # Author: Super Junior
 # Email: easelify@gmail.com
 # Time: 2024/05/15 21:12
@@ -9,7 +9,7 @@ from fastapi import APIRouter, Request, HTTPException, Depends
 from fastapi.security import OAuth2PasswordRequestForm
 from sqlalchemy.orm import Session
 
-from authentication import (AuthChecker, authenticate_user, create_access_token,
+from app.core.security import (AuthChecker, authenticate_user, create_access_token,
                             validate_password,
                             encode_password,
                             verify_password,
