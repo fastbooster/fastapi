@@ -53,6 +53,10 @@ engine = create_engine(
 Session = sessionmaker(bind=engine, autoflush=False, autocommit=False)
 
 
+def get_url() -> str:
+    return 'mysql+pymysql://{user}:{password}@{host}:{port}/{database}'.format(**MYSQL_CONFIG)
+
+
 def get_db():
     """
     上下文管理器，用于获取数据库会话对象，并在上下文结束时自动关闭会话。
