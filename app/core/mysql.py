@@ -24,6 +24,7 @@ MYSQL_CONFIG = {
     'user': os.getenv("DB_USER"),
     'password': os.getenv("DB_PASS"),
     'database': os.getenv("DB_NAME"),
+    'charset': os.getenv("DB_CHARSET"),
 }
 
 # 创建 PyMySQL 连接池
@@ -40,7 +41,7 @@ db_pool = PooledDB(
 
 # 使用 SQLAlchemy 创建 Engine，并指定连接池作为连接源
 engine = create_engine(
-    'mysql+pymysql://{user}:{password}@{host}:{port}/{database}'.format(
+    'mysql+pymysql://{user}:{password}@{host}:{port}/{database}?charset={charset}'.format(
         **MYSQL_CONFIG),
     pool_pre_ping=True,  # 在每次获取连接时检查连接是否有效
     pool_recycle=3600,  # 每小时回收一次连接
@@ -54,7 +55,7 @@ Session = sessionmaker(bind=engine, autoflush=False, autocommit=False)
 
 
 def get_url() -> str:
-    return 'mysql+pymysql://{user}:{password}@{host}:{port}/{database}'.format(**MYSQL_CONFIG)
+    return 'mysql+pymysql://{user}:{password}@{host}:{port}/{database}?charset={charset}'.format(**MYSQL_CONFIG)
 
 
 def get_db():

@@ -13,6 +13,9 @@ class RoleModel(Base):
     __tablename__ = 'role'
     __table_args__ = {'comment': '角色表'}
 
+    mysql_charset = 'utf8mb4'
+    mysql_collate = 'utf8mb4_unicode_ci'
+
     id = Column(Integer, primary_key=True, autoincrement=True, comment='ID')
     name = Column(String(50), nullable=False, comment='角色名称')
     permissions = Column(Text, comment='权限列表')  # json格式
@@ -25,6 +28,9 @@ class RoleModel(Base):
 class PermissionModel(Base):
     __tablename__ = 'permission'
     __table_args__ = {'comment': '权限表'}
+
+    mysql_charset = 'utf8mb4'
+    mysql_collate = 'utf8mb4_unicode_ci'
 
     id = Column(Integer, primary_key=True, autoincrement=True, comment='ID')
     pid = Column(Integer, server_default='0', comment='上级ID')
@@ -41,6 +47,9 @@ class PermissionModel(Base):
 class UserModel(Base):
     __tablename__ = 'user'
     __table_args__ = {'comment': '用户表'}
+
+    mysql_charset = 'utf8mb4'
+    mysql_collate = 'utf8mb4_unicode_ci'
 
     id = Column(Integer, primary_key=True, autoincrement=True, comment='ID')
     pid = Column(Integer, server_default='0', comment='所属上级')
@@ -94,6 +103,9 @@ class UserModel(Base):
 class LoginlogModel(Base):
     __tablename__ = 'loginlog'
     __table_args__ = {'comment': '登录日志'}
+
+    mysql_charset = 'utf8mb4'
+    mysql_collate = 'utf8mb4_unicode_ci'
 
     id = Column(Integer, primary_key=True, autoincrement=True, comment='ID')
     user_id = Column(Integer, nullable=False, comment='用户ID')
