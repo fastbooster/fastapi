@@ -100,6 +100,28 @@ class UserModel(Base):
         return f"<UserModel(id={self.id}, nickname='{self.nickname}')>"
 
 
+class UsermetaModel(Base):
+    __tablename__ = 'user'
+    __table_args__ = {'comment': '用户元数据'}
+
+    mysql_charset = 'utf8mb4'
+    mysql_collate = 'utf8mb4_unicode_ci'
+
+    id = Column(Integer, primary_key=True, autoincrement=True, comment='ID')
+    user_id = Column(Integer, nullable=False, comment='用户ID')
+    meta_key = Column(String(50), nullable=False, comment='键')
+    meta_val = Column(Text, comment='值')
+    created_at = Column(TIMESTAMP, server_default=text(
+        'CURRENT_TIMESTAMP'), comment='创建时间')
+    updated_at = Column(TIMESTAMP, server_default=text(
+        'CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'), comment='更新时间')
+
+    idx_search = Index('idx_search', [user_id, meta_key])
+
+    def __repr__(self):
+        return f"<UsermetaModel(id={self.id}, user_id='{self.user_id}', meta_key='{self.meta_key}')>"
+
+
 class LoginlogModel(Base):
     __tablename__ = 'loginlog'
     __table_args__ = {'comment': '登录日志'}
