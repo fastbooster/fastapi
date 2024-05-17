@@ -10,8 +10,9 @@ from app.models.base import Base
 
 
 class RoleModel(Base):
-    __tablename__ = 'role'
-    __table_args__ = {'comment': '角色表'}
+    __tablename__ = 'user_role'
+    __table_args__ = {'mysql_engine': 'InnoDB',
+                      'mariadb_engine': 'InnoDB', 'comment': '角色表'}
 
     mysql_charset = 'utf8mb4'
     mysql_collate = 'utf8mb4_unicode_ci'
@@ -26,8 +27,9 @@ class RoleModel(Base):
 
 
 class PermissionModel(Base):
-    __tablename__ = 'permission'
-    __table_args__ = {'comment': '权限表'}
+    __tablename__ = 'user_permission'
+    __table_args__ = {'mysql_engine': 'InnoDB',
+                      'mariadb_engine': 'InnoDB', 'comment': '权限表'}
 
     mysql_charset = 'utf8mb4'
     mysql_collate = 'utf8mb4_unicode_ci'
@@ -45,8 +47,9 @@ class PermissionModel(Base):
 
 
 class UserModel(Base):
-    __tablename__ = 'user'
-    __table_args__ = {'comment': '用户表'}
+    __tablename__ = 'user_account'
+    __table_args__ = {'mysql_engine': 'InnoDB',
+                      'mariadb_engine': 'InnoDB', 'comment': '用户表'}
 
     mysql_charset = 'utf8mb4'
     mysql_collate = 'utf8mb4_unicode_ci'
@@ -101,8 +104,9 @@ class UserModel(Base):
 
 
 class UsermetaModel(Base):
-    __tablename__ = 'usermeta'
-    __table_args__ = {'comment': '用户元数据'}
+    __tablename__ = 'user_metadata'
+    __table_args__ = {'mysql_engine': 'InnoDB',
+                      'mariadb_engine': 'InnoDB', 'comment': '用户元数据'}
 
     mysql_charset = 'utf8mb4'
     mysql_collate = 'utf8mb4_unicode_ci'
@@ -123,8 +127,9 @@ class UsermetaModel(Base):
 
 
 class LoginlogModel(Base):
-    __tablename__ = 'loginlog'
-    __table_args__ = {'comment': '登录日志'}
+    __tablename__ = 'user_loginlog'
+    __table_args__ = {'mysql_engine': 'InnoDB',
+                      'mariadb_engine': 'InnoDB', 'comment': '登录日志'}
 
     mysql_charset = 'utf8mb4'
     mysql_collate = 'utf8mb4_unicode_ci'

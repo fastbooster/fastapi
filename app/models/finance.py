@@ -10,8 +10,9 @@ from app.models.base import Base
 
 
 class BalanceModel(Base):
-    __tablename__ = 'balance'
-    __table_args__ = {'comment': '余额日志'}
+    __tablename__ = 'user_balance'
+    __table_args__ = {'mysql_engine': 'InnoDB',
+                      'mariadb_engine': 'InnoDB', 'comment': '余额日志'}
 
     mysql_charset = 'utf8mb4'
     mysql_collate = 'utf8mb4_unicode_ci'
@@ -39,8 +40,9 @@ class BalanceModel(Base):
 
 
 class PointModel(Base):
-    __tablename__ = 'point'
-    __table_args__ = {'comment': '积分日志'}
+    __tablename__ = 'user_point'
+    __table_args__ = {'mysql_engine': 'InnoDB',
+                      'mariadb_engine': 'InnoDB', 'comment': '积分日志'}
 
     mysql_charset = 'utf8mb4'
     mysql_collate = 'utf8mb4_unicode_ci'

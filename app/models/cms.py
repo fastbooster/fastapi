@@ -12,7 +12,8 @@ from app.models.base import Base
 
 class PostCategoryModel(Base):
     __tablename__ = 'cms_post_category'
-    __table_args__ = {'mysql_engine': 'InnoDB', 'mariadb_engine': 'InnoDB', 'comment': '文章分类'}
+    __table_args__ = {'mysql_engine': 'InnoDB',
+                      'mariadb_engine': 'InnoDB', 'comment': '文章分类'}
 
     mysql_charset = 'utf8mb4'
     mysql_collate = 'utf8mb4_unicode_ci'
@@ -37,7 +38,8 @@ class PostCategoryModel(Base):
 
 class PostModel(Base):
     __tablename__ = 'cms_post'
-    __table_args__ = {'mysql_engine': 'InnoDB', 'mariadb_engine': 'InnoDB', 'comment': '文章表'}
+    __table_args__ = {'mysql_engine': 'InnoDB',
+                      'mariadb_engine': 'InnoDB', 'comment': '文章表'}
 
     mysql_charset = 'utf8mb4'
     mysql_collate = 'utf8mb4_unicode_ci'
