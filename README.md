@@ -9,7 +9,7 @@ fastapi                     // 根目录
 |   |-- alembic             // 数据库迁移工具
 |   |-- api                 // API接口应用目录, 如需开发多个应用可参考此目录
 |   |-- core                // 核心组件目录
-|   |-- forms               // 表单目录
+|   |-- schemas             // 表单目录 (pydantic schemas)
 |   |-- models              // 模型目录
 |   |-- utils               // 助手工具
 |   ...                     // 待完善...

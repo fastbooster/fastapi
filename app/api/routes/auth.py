@@ -14,7 +14,7 @@ from app.core.security import (AuthChecker, authenticate_user_by_password, creat
                                verify_password,
                                get_current_user)
 from app.models.user import UserModel
-from app.forms.user import ChangePwdForm
+from app.schemas.user import ChangePwdForm
 from app.core.mysql import get_session
 
 router = APIRouter()
