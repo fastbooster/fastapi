@@ -17,12 +17,12 @@ load_dotenv()
 
 
 # 配置 MySQL 连接参数
-pool_size = int(os.getenv("DB_POOL"))
+pool_size = int(os.getenv("DB_POOL_SIZE"))
 MYSQL_CONFIG = {
     'host': os.getenv("DB_HOST"),
     'port': int(os.getenv("DB_PORT")),
     'user': os.getenv("DB_USER"),
-    'password': os.getenv("DB_PASS"),
+    'password': os.getenv("DB_PWD"),
     'database': os.getenv("DB_NAME"),
     'charset': os.getenv("DB_CHARSET"),
 }
