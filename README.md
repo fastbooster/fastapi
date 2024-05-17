@@ -82,9 +82,13 @@ alembic --help
 ```
 
 
-### 初始化权限菜单
+### 初始化必要数据
 
 ```shell
+# 1. 初始化权限菜单
 # 更新权限菜单后可反复执行此命令
 python app/utils/init_permissions.py
+
+# 2. 初始化用户
+python app/utils/init_user.py
 ```
