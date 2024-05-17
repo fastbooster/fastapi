@@ -7,7 +7,18 @@
 
 from fastapi import APIRouter
 
-from app.api.routes import auth
+from app.api import routes, frontend, backend
+
 
 api_router = APIRouter()
-api_router.include_router(auth.router, prefix="/auth", tags=["users"])
+
+# 通用路由
+api_router.include_router(routes.auth.router, prefix="/auth", tags=["users"])
+
+# 前端路由
+api_router.include_router(
+    frontend.user.router, prefix="/portal", tags=['portal_user'])
+
+# 后端路由
+api_router.include_router(
+    backend.user.router, prefix="/admin", tags=['admin_user'])

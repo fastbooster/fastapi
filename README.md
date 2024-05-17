@@ -4,11 +4,15 @@
 ### 目录结构
 
 ```shell
-fastapi                     // 根目录
+.                           // 根目录
 |-- app                     // 应用目录
 |   |-- alembic             // 数据库迁移工具
-|   |-- api                 // API接口应用目录, 如需开发多个应用可参考此目录
+|   |-- api                 // API目录
+|   |-- |-- routes          // 通用路由
+|   |-- |-- frontend        // 前端路由
+|   |-- |-- backend         // 后端路由
 |   |-- core                // 核心组件目录
+|   |-- services            // 服务类 (CRUD+)
 |   |-- schemas             // 表单目录 (pydantic schemas)
 |   |-- models              // 模型目录 (SQLAlchemy ORM)
 |   |-- utils               // 助手工具
