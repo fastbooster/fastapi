@@ -10,7 +10,7 @@ fastapi                     // 根目录
 |   |-- api                 // API接口应用目录, 如需开发多个应用可参考此目录
 |   |-- core                // 核心组件目录
 |   |-- schemas             // 表单目录 (pydantic schemas)
-|   |-- models              // 模型目录
+|   |-- models              // 模型目录 (SQLAlchemy ORM)
 |   |-- utils               // 助手工具
 |   ...                     // 待完善...
 ```
@@ -75,4 +75,12 @@ alembic downgrade version_id
 
 # 5. 查看帮助
 alembic --help
+```
+
+
+### 初始化权限菜单
+
+```shell
+# 更新权限菜单后可反复执行此命令
+python app/utils/init_permissions.py
 ```
