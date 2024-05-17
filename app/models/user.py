@@ -101,7 +101,7 @@ class UserModel(Base):
 
 
 class UsermetaModel(Base):
-    __tablename__ = 'user'
+    __tablename__ = 'usermeta'
     __table_args__ = {'comment': '用户元数据'}
 
     mysql_charset = 'utf8mb4'
@@ -116,7 +116,7 @@ class UsermetaModel(Base):
     updated_at = Column(TIMESTAMP, server_default=text(
         'CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'), comment='更新时间')
 
-    idx_search = Index('idx_search', [user_id, meta_key])
+    idx_search = Index('idx_search', user_id, meta_key)
 
     def __repr__(self):
         return f"<UsermetaModel(id={self.id}, user_id='{self.user_id}', meta_key='{self.meta_key}')>"
