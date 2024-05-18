@@ -14,7 +14,7 @@ from app.core.mysql import get_session
 router = APIRouter()
 
 
-@router.get("/users", summary="用户列表")
+@router.get("/users", dependencies=[Depends(check_permission('UserList'))], summary="用户列表")
 def user_list():
     pass
 

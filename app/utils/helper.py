@@ -11,6 +11,7 @@ import json
 import os
 import random
 import time
+import datetime
 from typing import Type
 
 import numpy as np
@@ -33,3 +34,10 @@ def get_last_day_of_month_by_year(year: int) -> list:
         month_days[month] = days_in_month
 
     return ["{:04d}-{:02d}-{:02d}".format(year, month, days) for month, days in month_days.items()]
+
+
+def serialize_datetime(obj):
+    '''JSON序列化datetime类时间'''
+    if isinstance(obj, datetime.datetime):
+        return obj.isoformat()
+    raise TypeError("Type not serializable")

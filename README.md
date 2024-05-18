@@ -11,6 +11,7 @@
 |   |-- |-- routes          // 通用路由
 |   |-- |-- frontend        // 前端路由
 |   |-- |-- backend         // 后端路由
+|   |-- constants           // 常量目录
 |   |-- core                // 核心组件目录
 |   |-- services            // 服务类 (CRUD+)
 |   |-- schemas             // 表单目录 (pydantic schemas)

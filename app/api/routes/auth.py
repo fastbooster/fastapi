@@ -5,6 +5,8 @@
 # Email: easelify@gmail.com
 # Time: 2024/05/15 21:12
 
+import json
+
 from fastapi import APIRouter, HTTPException, Depends
 from fastapi.security import OAuth2PasswordRequestForm
 
@@ -14,8 +16,13 @@ from app.core.security import (AuthChecker, authenticate_user_by_password, creat
                                verify_password,
                                get_current_user)
 from app.models.user import UserModel
+from app.models.user import RoleModel
 from app.schemas.user import ChangePwdForm
+from app.core.redis import get_redis
 from app.core.mysql import get_session
+from app.utils.helper import serialize_datetime
+
+from app.constants.constants import REDIS_AUTH_TTL, REDIS_AUTH_USER_PREFIX
 
 router = APIRouter()
 
@@ -30,7 +37,22 @@ def authorize(form: OAuth2PasswordRequestForm = Depends()):
     subject = f'{user_data['id']}'
     access_token = create_access_token(subject=subject)
 
-    # TODO: 返回信息过滤
+    # 获取用户权限列表
+    if user_data['role_id']:
+        with get_session() as db:
+            # 目前只支持单用户单角色模式
+            user_role = (db.query(RoleModel)
+                         .filter_by(id=user_data['role_id'])
+                         .first())
+            if user_role:
+                user_data['permissions'] = user_role.permissions
+
+    with get_redis() as redis:
+        redis.set(f'{REDIS_AUTH_USER_PREFIX}{user_data['id']}',
+                  json.dumps(user_data, default=serialize_datetime),
+                  ex=REDIS_AUTH_TTL)
+
+    # TODO: 登录日志
 
     return {
         'token_type': 'bearer',

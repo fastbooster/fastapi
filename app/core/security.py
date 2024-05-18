@@ -6,6 +6,7 @@
 # Time: 2024/05/15 21:12
 
 import os
+import json
 import secrets
 import hashlib
 import hmac
@@ -21,7 +22,9 @@ from passlib.context import CryptContext
 from sqlalchemy.orm import Session
 
 from app.models.user import UserModel
+from app.core.redis import get_redis
 from app.core.mysql import get_session
+from app.constants.constants import REDIS_AUTH_USER_PREFIX, REDIS_AUTH_TTL
 
 
 class BearAuthException(Exception):
@@ -32,9 +35,19 @@ pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
 
 oauth2_scheme = OAuth2PasswordBearer(tokenUrl="/api/v1/auth/token")
 
-SECRET_KEY = secrets.token_urlsafe(32)  # 这是 jwttoken 的密钥, 无需固定值, 每次重启所有登录都会失效
 ALGORITHM = 'HS256'
-ACCESS_TOKEN_EXPIRE_MINUTES = 1440
+
+# 这是 jwttoken 的密钥, 无需固定值, 每次重启所有登录都会失效
+SECRET_KEY = secrets.token_urlsafe(32) if os.getenv(
+    'RUNTIME_MODE') == 'dev' else 'fastapi'
+
+
+def raise_forbidden():
+    raise HTTPException(
+        status_code=status.HTTP_401_UNAUTHORIZED,
+        detail='Could not validate bearer token',
+        headers={'www-authenticate': 'Bearer'}
+    )
 
 
 def validate_password(password) -> bool:
@@ -63,7 +76,7 @@ def get_password_hash(password) -> str:
 
 
 def create_access_token(subject: str | Any) -> str:
-    expire = datetime.utcnow() + timedelta(minutes=ACCESS_TOKEN_EXPIRE_MINUTES)
+    expire = datetime.utcnow() + timedelta(seconds=REDIS_AUTH_TTL)
     # 注意: sub 必须强制为字符串，否则会解码失败
     to_encode = {"exp": expire, "sub": str(subject)}
     encoded_jwt = jwt.encode(to_encode, SECRET_KEY, algorithm=ALGORITHM)
@@ -82,9 +95,6 @@ def get_token_payload(token: str = Depends(oauth2_scheme)) -> str | Any:
 
 
 def authenticate_user_by_password(password: str, phone: str = None, email: str = None) -> dict | bool:
-    """
-    TODO: 登录日志
-    """
     with get_session() as db:
         if phone is not None:
             user = db.query(UserModel).filter_by(phone=phone).first()
@@ -96,7 +106,10 @@ def authenticate_user_by_password(password: str, phone: str = None, email: str =
     if not user or not verify_password(password, user.password_salt, user.password_hash):
         return False
 
-    return user.__dict__
+    user_data = user.__dict__
+    user_data.pop('_sa_instance_state', None)
+
+    return user_data
 
 
 def get_current_user_id(token: str = Depends(oauth2_scheme)) -> int:
@@ -105,11 +118,7 @@ def get_current_user_id(token: str = Depends(oauth2_scheme)) -> int:
         user_id = get_token_payload(token)
     except BearAuthException:
         logger.warning('Could not validate bearer token')
-        raise HTTPException(
-            status_code=status.HTTP_401_UNAUTHORIZED,
-            detail='Could not validate bearer token',
-            headers={'www-authenticate': 'Bearer'}
-        )
+        raise_forbidden()
 
     return int(user_id)
 
@@ -120,26 +129,42 @@ def get_current_user(token: str = Depends(oauth2_scheme)) -> dict:
         user_id = get_token_payload(token)
     except BearAuthException:
         logger.warning('Could not validate bearer token')
-        raise HTTPException(
-            status_code=status.HTTP_401_UNAUTHORIZED,
-            detail='Could not validate bearer token',
-            headers={'www-authenticate': 'Bearer'}
-        )
+        raise_forbidden()
 
     with get_session() as db:
         user = db.query(UserModel).filter_by(id=user_id).first()
 
     if not user:
-        raise HTTPException(
-            status_code=status.HTTP_401_UNAUTHORIZED,
-            detail='Unauthorized, could not validate credentials.',
-            headers={'www-authenticate': 'Bearer'}
-        )
-    return user.__dict__
+        raise_forbidden()
+
+    user_data = user.__dict__
+    user_data.pop('_sa_instance_state', None)
+
+    return user_data
+
+
+def get_current_user_from_cache(token: str = Depends(oauth2_scheme)) -> dict:
+    """根据 token 从登录缓存中获取用户信息"""
+    try:
+        user_id = get_token_payload(token)
+    except BearAuthException:
+        logger.warning('Could not validate bearer token')
+        raise_forbidden()
+
+    with get_redis() as redis:
+        user_data = json.loads(redis.get(f'{REDIS_AUTH_USER_PREFIX}{user_id}'))
+
+    if not user_data:
+        logger.warning('Could not validate bearer token')
+        raise_forbidden()
+
+    return user_data
 
 
 class AuthChecker:
     """
+    ### 是否登录检测
+
     如果不需要详细的用户信息，使用 get_current_user_id() 即可不经过查数据库
     或者使用 Redis 解决方案
     """
@@ -155,16 +180,18 @@ class AuthChecker:
 
 def check_permission(component_name: str):
     '''
-    创建一个新的函数来封装权限检查逻辑和 component_name 参数
+    #### 菜单权限检测
+
     该函数接受 component_name 参数，并返回一个内部函数 permission_checker函数
     permission_checker 函数负责实际的权限检查逻辑，并接受通过 Depends 注入的 user_id，
     这样，component_name 就可以作为一个参数传递给 check_permission，而不是直接传递给 Depends
     TOOD: 细化权限粒度，而不是只检查菜单权限
     '''
-    async def permission_checker(user_id: int = Depends(get_current_user_id)) -> None:
-        # TODO: 根据 component_name + user_id 判断当前是是否拥有当前菜单的权限
-        # print(component_name, user_id)
-        # if not xxx:
-        #     raise HTTPException(status_code=status.HTTP_403_FORBIDDEN, detail="Forbidden")
-        pass
+    async def permission_checker(user_data: dict = Depends(get_current_user_from_cache)) -> None:
+        if component_name not in user_data['permissions'].split(','):
+            logger.warning(f'用户 (id={user_data["id"]}, nickname={
+                           user_data["nickname"]}) 尝试访问未授权的权限组件 {component_name}')
+            raise HTTPException(
+                status_code=status.HTTP_403_FORBIDDEN, detail="Forbidden")
+
     return permission_checker
