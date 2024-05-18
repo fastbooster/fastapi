@@ -96,3 +96,24 @@ python app/utils/init_role.py
 # 3. 初始化用户
 python app/utils/init_user.py
 ```
+
+
+### 接口开发指南
+
+1. 创建接口路由文件，如：`./app/api/backend/user.py`
+
+2. 将其加入到包，以方便导入，如：`./app/api/backend/__init__.py`
+
+3. 将路由加入到路由组 `./app/api/main.py` 并定义前缀和文档 `tags`
+
+4. 后台路由菜单级鉴权，添加依赖注入即可，如：`dependencies=[Depends(check_permission('UserList'))]`
+   这里的 `UserList` 是权限菜单定义的前端组件名称，详见: `./app/utils/init_permissions.py`
+
+参考文档：[Dependencies in path operation decorators](https://fastapi.tiangolo.com/tutorial/dependencies/dependencies-in-path-operation-decorators/)
+
+
+### 参考文档列表
+
+1. [FastAPI](https://fastapi.tiangolo.com/)
+2. [RedisPy](https://redis.io/docs/latest/develop/connect/clients/python/)
+3. [Celery](https://docs.celeryq.dev/en/stable/index.html)
