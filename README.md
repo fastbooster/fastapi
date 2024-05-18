@@ -89,6 +89,9 @@ alembic --help
 # 更新权限菜单后可反复执行此命令
 python app/utils/init_permissions.py
 
-# 2. 初始化用户
+# 2. 初始化角色
+python app/utils/init_role.py
+
+# 3. 初始化用户
 python app/utils/init_user.py
 ```
