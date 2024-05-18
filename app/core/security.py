@@ -148,6 +148,23 @@ class AuthChecker:
     # def __call__(self, user: dict = Depends(get_current_user)) -> dict:
     #     return user
 
-    # 不需要用户详细信息时使用, 仅检测 token 是否有效，并返回用户ID，不查数据库
-    def __call__(self, user_id: int = Depends(get_current_user_id)) -> int:
-        return int(user_id)
+    # 不需要用户详细信息时使用, 仅检测 token 是否有效，不查数据库
+    def __call__(self, user_id: int = Depends(get_current_user_id)) -> None:
+        pass
+
+
+def check_permission(component_name: str):
+    '''
+    创建一个新的函数来封装权限检查逻辑和 component_name 参数
+    该函数接受 component_name 参数，并返回一个内部函数 permission_checker函数
+    permission_checker 函数负责实际的权限检查逻辑，并接受通过 Depends 注入的 user_id，
+    这样，component_name 就可以作为一个参数传递给 check_permission，而不是直接传递给 Depends
+    TOOD: 细化权限粒度，而不是只检查菜单权限
+    '''
+    async def permission_checker(user_id: int = Depends(get_current_user_id)) -> None:
+        # TODO: 根据 component_name + user_id 判断当前是是否拥有当前菜单的权限
+        # print(component_name, user_id)
+        # if not xxx:
+        #     raise HTTPException(status_code=status.HTTP_403_FORBIDDEN, detail="Forbidden")
+        pass
+    return permission_checker

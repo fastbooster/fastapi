@@ -27,7 +27,8 @@ def authorize(form: OAuth2PasswordRequestForm = Depends()):
     if not user_data:
         raise HTTPException(status_code=401, detail="账号或密码错误")
 
-    access_token = create_access_token(subject=user_data['id'])
+    subject = f'{user_data['id']}'
+    access_token = create_access_token(subject=subject)
 
     # TODO: 返回信息过滤
 
