@@ -9,7 +9,7 @@ from loguru import logger
 
 from fastapi import APIRouter, HTTPException, Depends
 
-from app.core.security import check_permission
+from app.core.security import check_permission, get_current_user_id
 from app.services import user as UserService
 from app.core.mysql import get_session
 
@@ -53,4 +53,18 @@ def edit_user(params: UserEditForm):
     except Exception as e:
         logger.error(f'编辑用户失败：{e}')
         raise HTTPException(status_code=500, detail='编辑用户失败')
+    return RESPONSE_OK
+
+
+@router.delete("/users/{user_id}", dependencies=[Depends(check_permission('UserList'))], summary="删除用户",)
+def delete_user(user_id: int, curret_user_id: int = Depends(get_current_user_id)):
+    if user_id == curret_user_id:
+        raise HTTPException(status_code=403, detail='不能删除自己')
+    try:
+        UserService.delete_user(user_id)
+    except ValueError as e:
+        raise HTTPException(status_code=400, detail=f'{e}')
+    except Exception as e:
+        logger.error(f'删除用户失败：{e}')
+        raise HTTPException(status_code=500, detail='删除用户失败')
     return RESPONSE_OK

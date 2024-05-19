@@ -16,6 +16,13 @@ from app.models.user import UserModel
 from app.schemas.user import UserSearchQuery, UserAddForm, UserEditForm
 
 
+def safe_whitelist_fields(user_data: dict) -> dict:
+    safe_fields = ['id', 'phone_code', 'phone', 'email', 'nickname', 'gender', 'avatar',
+                   'promotion_code', 'wechat_openid', 'wechat_unionid'
+                   'join_ip', 'join_at']
+    return {k: v for k, v in user_data.items() if k in safe_fields}
+
+
 def get_user(id: int) -> UserModel | None:
     with get_session() as db:
         user = db.query(UserModel).filter(UserModel.id == id).first()
@@ -100,8 +107,9 @@ def edit_user(params: UserEditForm) -> bool:
     return True
 
 
-def safe_whitelist_fields(user_data: dict) -> dict:
-    safe_fields = ['id', 'phone_code', 'phone', 'email', 'nickname', 'gender', 'avatar',
-                   'promotion_code', 'wechat_openid', 'wechat_unionid'
-                   'join_ip', 'join_at']
-    return {k: v for k, v in user_data.items() if k in safe_fields}
+def delete_user(id: int) -> bool:
+    with get_session() as db:
+        # TODO: 关联数据删除
+        db.query(UserModel).filter_by(id=id).delete()
+        db.commit()
+    return True
