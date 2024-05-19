@@ -13,3 +13,6 @@ REDIS_AUTH_TTL = 86400
 
 # user:1
 REDIS_AUTH_USER_PREFIX = 'logged_user:'
+
+# [hash] 系统参数配置
+REDIS_SYSTEM_OPTIONS_AUTOLOAD = 'system_options_autoload'
