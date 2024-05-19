@@ -5,12 +5,15 @@
 # Email: easelify@gmail.com
 # Time: 2024/05/17 16:50
 
-from sqlalchemy.sql.expression import asc, desc
+import secrets
 
+from sqlalchemy.sql.expression import asc, desc, or_
+
+from app.core.security import encode_password
 from app.core.mysql import get_session
 from app.models.user import UserModel
 
-from app.schemas.user import UserSearchQuery
+from app.schemas.user import UserSearchQuery, UserAddForm
 
 
 def get_user(id: int) -> UserModel | None:
@@ -42,6 +45,33 @@ def get_user_list(params: UserSearchQuery) -> list[UserModel]:
             query.offset(offset).limit(params.size)
 
     return query.all()
+
+
+def add_user(params: UserAddForm) -> bool:
+    if params.phone is None and params.email is None:
+        raise ValueError('手机或邮箱至少填写一项')
+
+    with get_session() as db:
+        exists_count = db.query(UserModel).filter(
+            or_(UserModel.phone == params.phone, UserModel.email == params.email)).count()
+        if exists_count > 0:
+            raise ValueError('手机或邮箱已存在')
+
+        password_salt = secrets.token_urlsafe(32)
+        password_hash = encode_password(params.password, password_salt)
+        user_model = UserModel(
+            phone=params.phone,
+            email=params.email,
+            nickname=params.nickname,
+            password_salt=password_salt,
+            password_hash=password_hash,
+            role_id=params.role_id,
+            gender=params.gender.value,
+        )
+
+        db.add(user_model)
+        db.commit()
+    return True
 
 
 def safe_whitelist_fields(user_data: dict) -> dict:
