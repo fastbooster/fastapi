@@ -13,7 +13,7 @@ from app.core.security import check_permission
 from app.services import user as UserService
 from app.core.mysql import get_session
 
-from app.schemas.user import UserSearchQuery, UserAddForm
+from app.schemas.user import UserSearchQuery, UserAddForm, UserEditForm
 from app.constants.constants import RESPONSE_OK
 
 router = APIRouter()
@@ -41,4 +41,16 @@ def add_user(params: UserAddForm):
     except Exception as e:
         logger.error(f'添加用户失败：{e}')
         raise HTTPException(status_code=500, detail='添加用户失败')
+    return RESPONSE_OK
+
+
+@router.put("/users", dependencies=[Depends(check_permission('UserList'))], summary="编辑用户")
+def edit_user(params: UserEditForm):
+    try:
+        UserService.edit_user(params)
+    except ValueError as e:
+        raise HTTPException(status_code=400, detail=f'{e}')
+    except Exception as e:
+        logger.error(f'编辑用户失败：{e}')
+        raise HTTPException(status_code=500, detail='编辑用户失败')
     return RESPONSE_OK

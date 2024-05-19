@@ -39,8 +39,27 @@ class UserAddForm(BaseModel):
     email: EmailStr = Field(None, description="与 phone 二者必填其一")
     nickname: str
     password: str
-    gender: GenderType = GenderType.UNKNOWN
+    gender: Optional[GenderType] = GenderType.UNKNOWN
     role_id: Optional[int] = 0
+
+    @validator("phone")
+    def validate_cell_phone_number(cls, v):
+        match = re.match(r'^1\d{10}$', v)
+        if len(v) != 11:
+            raise ValueError('手机号码长度必须为 11 位')
+        elif match is None:
+            raise ValueError('手机号码格式不正确')
+        return v
+
+
+class UserEditForm(BaseModel):
+    id: int
+    phone: str = Field(None, description="手机")
+    email: EmailStr = Field(None, description="邮箱")
+    nickname: Optional[str] = None
+    password: Optional[str] = None
+    gender: Optional[GenderType] = GenderType.UNKNOWN
+    role_id: Optional[int] = -1
 
     @validator("phone")
     def validate_cell_phone_number(cls, v):

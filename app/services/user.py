@@ -13,7 +13,7 @@ from app.core.security import encode_password
 from app.core.mysql import get_session
 from app.models.user import UserModel
 
-from app.schemas.user import UserSearchQuery, UserAddForm
+from app.schemas.user import UserSearchQuery, UserAddForm, UserEditForm
 
 
 def get_user(id: int) -> UserModel | None:
@@ -70,6 +70,32 @@ def add_user(params: UserAddForm) -> bool:
         )
 
         db.add(user_model)
+        db.commit()
+    return True
+
+
+def edit_user(params: UserEditForm) -> bool:
+    with get_session() as db:
+        user_model = db.query(UserModel).filter_by(id=params.id).first()
+        if user_model is None:
+            raise ValueError(f'用户不存在(id={params.id})')
+
+        # TODO: phone, email 唯一性校验
+        if params.email is not None:
+            user_model.email = params.email
+        if params.phone is not None:
+            user_model.phone = params.phone
+        if params.nickname is not None:
+            user_model.nickname = params.nickname
+        if params.password is not None:
+            user_model.password_salt = secrets.token_urlsafe(32)
+            user_model.password_hash = encode_password(
+                params.password, user_model.password_salt)
+        if params.gender is not None:
+            user_model.gender = params.gender.value
+        if params.role_id > -1:
+            user_model.role_id = params.role_id
+
         db.commit()
     return True
 
