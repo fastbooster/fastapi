@@ -24,7 +24,7 @@ from app.core.redis import get_redis
 from app.core.mysql import get_session
 from app.utils.helper import serialize_datetime
 
-from app.constants.constants import REDIS_AUTH_TTL, REDIS_AUTH_USER_PREFIX
+from app.constants.constants import RESPONSE_OK, REDIS_AUTH_TTL, REDIS_AUTH_USER_PREFIX
 
 router = APIRouter()
 
@@ -88,4 +88,4 @@ def change_password(form: ChangePwdForm, user_data: dict = Depends(get_current_u
         user.password_hash = encode_password(form.new_pwd, user.password_salt)
         db.commit()
 
-    return {"status": "OK"}
+    return RESPONSE_OK
