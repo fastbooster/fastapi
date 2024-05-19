@@ -58,7 +58,7 @@ def authorize(request: Request, form: OAuth2PasswordRequestForm = Depends()):
         loginlog = LoginlogModel(
             user_id=user_data['id'],
             nickname=user_data['nickname'],
-            ipaddr=request.client.host,
+            ip=request.client.host,
             user_agent=str(request.headers.get('User-Agent')),
         )
         db.add(loginlog)

@@ -1,8 +1,8 @@
 """Init
 
-Revision ID: d4fe362438bd
+Revision ID: c27f03620d9f
 Revises: 
-Create Date: 2024-05-17 14:16:52.836053
+Create Date: 2024-05-19 13:33:19.721300
 
 """
 from typing import Sequence, Union
@@ -12,7 +12,7 @@ import sqlalchemy as sa
 from sqlalchemy.dialects import mysql
 
 # revision identifiers, used by Alembic.
-revision: str = 'd4fe362438bd'
+revision: str = 'c27f03620d9f'
 down_revision: Union[str, None] = None
 branch_labels: Union[str, Sequence[str], None] = None
 depends_on: Union[str, Sequence[str], None] = None
@@ -81,6 +81,7 @@ def upgrade() -> None:
     sa.Column('role_id', sa.Integer(), server_default='0', nullable=True, comment='角色ID'),
     sa.Column('is_admin', sa.SmallInteger(), server_default='0', nullable=True, comment='是否管理员'),
     sa.Column('is_robot', sa.SmallInteger(), server_default='0', nullable=True, comment='是否机器人'),
+    sa.Column('status', sa.SmallInteger(), server_default='1', nullable=True, comment='状态'),
     sa.Column('auto_memo', sa.String(length=255), nullable=True, comment='自动备注'),
     sa.Column('back_memo', sa.String(length=255), nullable=True, comment='后台备注'),
     sa.Column('wechat_openid', sa.String(length=50), nullable=True, comment='OpenID'),
@@ -88,7 +89,7 @@ def upgrade() -> None:
     sa.Column('wechat_refresh_token', sa.String(length=255), nullable=True, comment='微信RefreshToken'),
     sa.Column('wechat_access_token', sa.String(length=255), nullable=True, comment='微信AccessToken'),
     sa.Column('wechat_access_token_expired_at', sa.Integer(), nullable=True, comment='微信AccessToken过期时间'),
-    sa.Column('join_ip', sa.Integer(), nullable=True, comment='注册IP'),
+    sa.Column('join_ip', sa.String(length=50), nullable=True, comment='注册IP'),
     sa.Column('join_at', sa.TIMESTAMP(), nullable=True, comment='注册时间'),
     sa.Column('created_at', sa.TIMESTAMP(), server_default=sa.text('CURRENT_TIMESTAMP'), nullable=True, comment='创建时间'),
     sa.Column('updated_at', sa.TIMESTAMP(), server_default=sa.text('CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'), nullable=True, comment='更新时间'),
@@ -126,7 +127,7 @@ def upgrade() -> None:
     sa.Column('id', sa.Integer(), autoincrement=True, nullable=False, comment='ID'),
     sa.Column('user_id', sa.Integer(), nullable=False, comment='用户ID'),
     sa.Column('nickname', sa.String(length=50), nullable=True, comment='昵称'),
-    sa.Column('ipaddr', sa.String(length=50), nullable=True, comment='IP地址'),
+    sa.Column('ip', sa.String(length=50), nullable=True, comment='IP地址'),
     sa.Column('user_agent', sa.String(length=500), nullable=True, comment='浏览器信息'),
     sa.Column('created_at', sa.TIMESTAMP(), server_default=sa.text('CURRENT_TIMESTAMP'), nullable=True, comment='创建时间'),
     sa.PrimaryKeyConstraint('id'),

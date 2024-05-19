@@ -27,7 +27,7 @@ def get_user_list(params: PaginationParams) -> list[UserModel]:
 
     with get_session() as db:
         items = db.query(UserModel).offset(offset).limit(
-            params.size).all() if export != 1 else db.query(UserModel).all()
+            params.size).all() if export else db.query(UserModel).all()
 
     return items
 

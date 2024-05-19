@@ -73,6 +73,7 @@ class UserModel(Base):
     role_id = Column(Integer, server_default='0', comment='角色ID')
     is_admin = Column(SmallInteger, server_default='0', comment='是否管理员')
     is_robot = Column(SmallInteger, server_default='0', comment='是否机器人')
+    status = Column(SmallInteger, server_default='1', comment='状态')
 
     auto_memo = Column(String(255), comment='自动备注')
     back_memo = Column(String(255), comment='后台备注')
@@ -84,7 +85,7 @@ class UserModel(Base):
     wechat_access_token_expired_at = Column(
         Integer, comment='微信AccessToken过期时间')
 
-    join_ip = Column(Integer, comment='注册IP')
+    join_ip = Column(String(50), comment='注册IP')
     join_at = Column(TIMESTAMP, comment='注册时间')
 
     created_at = Column(TIMESTAMP, server_default=text(
@@ -137,7 +138,7 @@ class LoginlogModel(Base):
     id = Column(Integer, primary_key=True, autoincrement=True, comment='ID')
     user_id = Column(Integer, nullable=False, comment='用户ID')
     nickname = Column(String(50), comment='昵称')
-    ipaddr = Column(String(50), comment='IP地址')
+    ip = Column(String(50), comment='IP地址')
     user_agent = Column(String(500), comment='浏览器信息')
     created_at = Column(TIMESTAMP, server_default=text(
         'CURRENT_TIMESTAMP'), comment='创建时间')
