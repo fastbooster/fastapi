@@ -78,3 +78,33 @@ class PostModel(Base):
 
     def __repr__(self):
         return f"<PostModel(id={self.id}, title='{self.title}')>"
+
+
+class MediaModel(Base):
+    __tablename__ = 'cms_media'
+    __table_args__ = {'mysql_engine': 'InnoDB',
+                      'mariadb_engine': 'InnoDB', 'comment': '媒体文件'}
+
+    mysql_charset = 'utf8mb4'
+    mysql_collate = 'utf8mb4_unicode_ci'
+
+    id = Column(Integer, primary_key=True, autoincrement=True, comment='ID')
+    file_name = Column(String(255), comment='文件名称')
+    file_type = Column(String(32), comment='文件类型')
+    file_size = Column(Integer, comment='文件大小')
+    file_path = Column(String(255), comment='文件路径')
+    oss_url = Column(String(255), comment='OSS地址')
+    op_user_id = Column(Integer, nullable=False, comment='操作员ID')
+    op_user_name = Column(Integer, nullable=False, comment='操作员名称')
+    related_type = Column(String(32), comment='关联类别')
+    related_id = Column(Integer, server_default='0', comment='关联ID')
+    view_num = Column(Integer, server_default='0', comment='浏览量/下载量')
+    created_at = Column(TIMESTAMP, server_default=text(
+        'CURRENT_TIMESTAMP'), comment='创建时间')
+
+    idx_file_type = Index('idx_file_type', file_type)
+    idx_op_user_id = Index('idx_op_user_id', op_user_id)
+    idx_related = Index('idx_related', related_type, related_id)
+
+    def __repr__(self):
+        return f"<MediaModel(id={self.id}, oss_url='{self.oss_url}')>"
