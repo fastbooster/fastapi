@@ -24,9 +24,9 @@ def user_list(params: UserSearchQuery = Depends()):
     return UserService.get_user_list(params)
 
 
-@router.get("/users/{user_id}", dependencies=[Depends(check_permission('UserList'))], summary="用户详情",)
-def user_detail(user_id: int):
-    user = UserService.get_user(user_id)
+@router.get("/users/{id}", dependencies=[Depends(check_permission('UserList'))], summary="用户详情",)
+def user_detail(id: int):
+    user = UserService.get_user(id)
     if not user:
         raise HTTPException(status_code=404, detail="用户不存在")
     return user
@@ -56,12 +56,12 @@ def edit_user(params: UserEditForm):
     return RESPONSE_OK
 
 
-@router.delete("/users/{user_id}", dependencies=[Depends(check_permission('UserList'))], summary="删除用户",)
-def delete_user(user_id: int, curret_user_id: int = Depends(get_current_user_id)):
-    if user_id == curret_user_id:
+@router.delete("/users/{id}", dependencies=[Depends(check_permission('UserList'))], summary="删除用户",)
+def delete_user(id: int, curret_user_id: int = Depends(get_current_user_id)):
+    if id == curret_user_id:
         raise HTTPException(status_code=403, detail='不能删除自己')
     try:
-        UserService.delete_user(user_id)
+        UserService.delete_user(id)
     except ValueError as e:
         raise HTTPException(status_code=400, detail=f'{e}')
     except Exception as e:
