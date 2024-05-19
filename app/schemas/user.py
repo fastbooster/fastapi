@@ -10,6 +10,8 @@ from typing import Optional
 from pydantic import BaseModel
 from enum import Enum
 
+from app.schemas.schemas import PaginationParams
+
 
 class ChangePwdForm(BaseModel):
     """修改密码表单"""
@@ -17,8 +19,9 @@ class ChangePwdForm(BaseModel):
     new_pwd: str
 
 
-class ListForm(BaseModel):
-    """列表表单"""
-    page: Optional[int] = 1
-    size: Optional[int] = 10
-    export: Optional[int] = 0
+class UserSearchQuery(PaginationParams):
+    phone: Optional[str] = None
+    email: Optional[str] = None
+    pid: Optional[int] = -1
+    role_id: Optional[int] = -1
+    status: Optional[int] = -1
