@@ -7,7 +7,7 @@
 
 import json
 
-from fastapi import APIRouter, HTTPException, Depends
+from fastapi import APIRouter, HTTPException, Depends, Request
 from fastapi.security import OAuth2PasswordRequestForm
 
 from app.core.security import (AuthChecker, authenticate_user_by_password, create_access_token,
@@ -17,6 +17,7 @@ from app.core.security import (AuthChecker, authenticate_user_by_password, creat
                                get_current_user)
 from app.models.user import UserModel
 from app.models.user import RoleModel
+from app.models.user import LoginlogModel
 from app.schemas.user import ChangePwdForm
 from app.core.redis import get_redis
 from app.core.mysql import get_session
@@ -28,7 +29,7 @@ router = APIRouter()
 
 
 @router.post("/token", summary="用户登录")
-def authorize(form: OAuth2PasswordRequestForm = Depends()):
+def authorize(request: Request, form: OAuth2PasswordRequestForm = Depends()):
     user_data = authenticate_user_by_password(
         password=form.password, phone=form.username, email=form.username)
     if not user_data:
@@ -52,7 +53,15 @@ def authorize(form: OAuth2PasswordRequestForm = Depends()):
                   json.dumps(user_data, default=serialize_datetime),
                   ex=REDIS_AUTH_TTL)
 
-    # TODO: 登录日志
+    with get_session() as db:
+        loginlog = LoginlogModel(
+            user_id=user_data['id'],
+            nickname=user_data['nickname'],
+            ipaddr=request.client.host,
+            user_agent=str(request.headers.get('User-Agent')),
+        )
+        db.add(loginlog)
+        db.commit()
 
     return {
         'token_type': 'bearer',
