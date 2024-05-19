@@ -16,7 +16,8 @@ port = os.getenv("DB_PORT")
 name = os.getenv("DB_NAME")
 user = os.getenv("DB_USER")
 pwd = os.getenv("DB_PWD")
-pool_size = int(os.getenv("DB_POOL_SIZE"))
+pool_size = os.getenv("DB_POOL_SIZE")
+pool_size = int(pool_size) if pool_size else 5
 
 connection_string = f"mssql+pyodbc://{user}:{
     pwd}@{server}/{name}?driver={driver}"
