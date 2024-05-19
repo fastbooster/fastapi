@@ -117,3 +117,5 @@ python app/utils/init_user.py
 1. [FastAPI](https://fastapi.tiangolo.com/)
 2. [RedisPy](https://redis.io/docs/latest/develop/connect/clients/python/)
 3. [Celery](https://docs.celeryq.dev/en/stable/index.html)
+4. [Restful API 接口规范详解](https://cloud.tencent.com/developer/article/2360813)
+
