@@ -8,6 +8,8 @@
 from app.core.mysql import get_session
 from app.models.user import UserModel
 
+from app.schemas.schemas import PaginationParams
+
 
 def get_user(id: int) -> UserModel | None:
     with get_session() as db:
@@ -17,6 +19,17 @@ def get_user(id: int) -> UserModel | None:
         return user
 
     return None
+
+
+def get_user_list(params: PaginationParams) -> list[UserModel]:
+    export = True if params.export == 1 else False
+    offset = (params.page - 1) * params.size
+
+    with get_session() as db:
+        items = db.query(UserModel).offset(offset).limit(
+            params.size).all() if export != 1 else db.query(UserModel).all()
+
+    return items
 
 
 def safe_whitelist_fields(user_data: dict) -> dict:
