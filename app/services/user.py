@@ -17,3 +17,10 @@ def get_user(id: int) -> UserModel | None:
         return user
 
     return None
+
+
+def safe_whitelist_fields(user_data: dict) -> dict:
+    safe_fields = ['id', 'phone_code', 'phone', 'email', 'nickname', 'gender', 'avatar',
+                   'promotion_code', 'wechat_openid', 'wechat_unionid'
+                   'join_ip', 'join_at']
+    return {k: v for k, v in user_data.items() if k in safe_fields}
