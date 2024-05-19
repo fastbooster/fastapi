@@ -56,8 +56,8 @@ def init_user(params: dict):
     try:
         sql = '''
         INSERT INTO user_account
-        (phone, email, nickname, password_salt, password_hash, role_id, is_admin, join_ip, join_at)
-        VALUES (%s, %s, %s, %s, %s, 1, 1, '127.0.0.1', %s)
+        (phone, email, nickname, password_salt, password_hash, role_id, is_admin, join_from, join_ip, join_at)
+        VALUES (%s, %s, %s, %s, %s, 1, 1, 2000, '127.0.0.1', %s)
         '''
         with connection.cursor() as cursor:
             val = (params['phone'], params['email'], params['nickname'],

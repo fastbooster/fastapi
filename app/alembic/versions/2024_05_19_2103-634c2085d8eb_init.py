@@ -1,8 +1,8 @@
 """Init
 
-Revision ID: ac7163fa0480
+Revision ID: 634c2085d8eb
 Revises: 
-Create Date: 2024-05-19 14:36:30.070946
+Create Date: 2024-05-19 21:03:13.400115
 
 """
 from typing import Sequence, Union
@@ -12,7 +12,7 @@ import sqlalchemy as sa
 from sqlalchemy.dialects import mysql
 
 # revision identifiers, used by Alembic.
-revision: str = 'ac7163fa0480'
+revision: str = '634c2085d8eb'
 down_revision: Union[str, None] = None
 branch_labels: Union[str, Sequence[str], None] = None
 depends_on: Union[str, Sequence[str], None] = None
@@ -85,7 +85,7 @@ def upgrade() -> None:
     mariadb_engine='InnoDB',
     mysql_engine='InnoDB'
     )
-    op.create_index('idx_name', 'cms_post_category', ['name'], unique=False)
+    op.create_index('idx_name', 'cms_post_category', ['alias'], unique=True)
     op.create_table('system_option',
     sa.Column('id', sa.Integer(), autoincrement=True, nullable=False, comment='ID'),
     sa.Column('option_name', sa.String(length=32), nullable=True, comment='选项名称'),
@@ -129,6 +129,7 @@ def upgrade() -> None:
     sa.Column('wechat_refresh_token', sa.String(length=255), nullable=True, comment='微信RefreshToken'),
     sa.Column('wechat_access_token', sa.String(length=255), nullable=True, comment='微信AccessToken'),
     sa.Column('wechat_access_token_expired_at', sa.Integer(), nullable=True, comment='微信AccessToken过期时间'),
+    sa.Column('join_from', sa.SmallInteger(), server_default='0', nullable=True, comment='注册来源'),
     sa.Column('join_ip', sa.String(length=50), nullable=True, comment='注册IP'),
     sa.Column('join_at', sa.TIMESTAMP(), nullable=True, comment='注册时间'),
     sa.Column('created_at', sa.TIMESTAMP(), server_default=sa.text('CURRENT_TIMESTAMP'), nullable=True, comment='创建时间'),

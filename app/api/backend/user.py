@@ -7,13 +7,13 @@
 
 from loguru import logger
 
-from fastapi import APIRouter, HTTPException, Depends
+from fastapi import APIRouter, HTTPException, Depends, Request
 
 from app.core.security import check_permission, get_current_user_id
 from app.services import user as UserService
 from app.core.mysql import get_session
 
-from app.schemas.user import UserSearchQuery, UserAddForm, UserEditForm
+from app.schemas.user import UserSearchQuery, UserAddForm, UserEditForm, JoinFromType
 from app.constants.constants import RESPONSE_OK
 
 router = APIRouter()
@@ -33,8 +33,10 @@ def user_detail(id: int):
 
 
 @router.post("/users", dependencies=[Depends(check_permission('UserList'))], summary="添加用户")
-def add_user(params: UserAddForm):
+def add_user(params: UserAddForm, request: Request):
     try:
+        params.join_from = JoinFromType.BACKEND_ADMIN
+        params.join_ip = request.client.host
         UserService.add_user(params)
     except ValueError as e:
         raise HTTPException(status_code=400, detail=f'{e}')

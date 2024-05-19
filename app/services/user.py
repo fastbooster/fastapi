@@ -74,6 +74,8 @@ def add_user(params: UserAddForm) -> bool:
             password_hash=password_hash,
             role_id=params.role_id,
             gender=params.gender.value,
+            join_from=params.join_from.value,
+            join_ip=params.join_ip,
         )
 
         db.add(user_model)

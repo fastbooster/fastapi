@@ -85,6 +85,7 @@ class UserModel(Base):
     wechat_access_token_expired_at = Column(
         Integer, comment='微信AccessToken过期时间')
 
+    join_from = Column(SmallInteger, server_default='0', comment='注册来源')
     join_ip = Column(String(50), comment='注册IP')
     join_at = Column(TIMESTAMP, comment='注册时间')
 

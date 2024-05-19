@@ -20,6 +20,15 @@ class GenderType(Enum):
     UNKNOWN = 'Unknown'
 
 
+class JoinFromType(Enum):
+    '''注册来源'''
+    FRONTEND_PORTAL = 1000  # 门户
+    FRONTEND_WXOA = 1001  # 微信公众号
+    FRONTEND_WXMP = 1002  # 微信小程序
+    BACKEND_CONSOLE = 2000  # 控制台命令行
+    BACKEND_ADMIN = 2001  # 后台管理
+
+
 class ChangePwdForm(BaseModel):
     """修改密码表单"""
     old_pwd: str
@@ -35,12 +44,14 @@ class UserSearchQuery(PaginationParams):
 
 
 class UserAddForm(BaseModel):
-    phone: str = Field(None, description="与 email 二者必填其一")
-    email: EmailStr = Field(None, description="与 phone 二者必填其一")
+    phone: str = Field(None, description='与 email 二者必填其一')
+    email: EmailStr = Field(None, description='与 phone 二者必填其一')
     nickname: str
     password: str
     gender: Optional[GenderType] = GenderType.UNKNOWN
     role_id: Optional[int] = 0
+    join_from: Optional[JoinFromType] = Field(None, description='注册来源')
+    join_ip: str = Field(None, description='注册IP')
 
     @validator("phone")
     def validate_cell_phone_number(cls, v):
