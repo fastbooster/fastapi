@@ -18,6 +18,7 @@ from app.core.security import (AuthChecker, authenticate_user_by_password, creat
 from app.models.user import UserModel
 from app.models.user import RoleModel
 from app.models.user import LoginlogModel
+from app.services import user as UserService
 from app.schemas.user import ChangePwdForm
 from app.core.redis import get_redis
 from app.core.mysql import get_session
@@ -66,12 +67,7 @@ def authorize(request: Request, form: OAuth2PasswordRequestForm = Depends()):
     return {
         'token_type': 'bearer',
         'access_token': access_token,
-        'user_data': {
-            'id': user_data['id'],
-            'nickname': user_data['nickname'],
-            'gender': user_data['gender'],
-            'avatar': user_data['avatar'],
-        },
+        'user_data': UserService.safe_whitelist_fields(user_data),
     }
 
 
