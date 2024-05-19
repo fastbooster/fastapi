@@ -59,10 +59,16 @@ def add_user(params: UserAddForm) -> bool:
         raise ValueError('手机或邮箱至少填写一项')
 
     with get_session() as db:
-        exists_count = db.query(UserModel).filter(
-            or_(UserModel.phone == params.phone, UserModel.email == params.email)).count()
-        if exists_count > 0:
-            raise ValueError('手机或邮箱已存在')
+        if params.phone is not None:
+            exists_count = db.query(UserModel).filter(
+                UserModel.phone == params.phone).count()
+            if exists_count > 0:
+                raise ValueError('手机已存在')
+        if params.email is not None:
+            exists_count = db.query(UserModel).filter(
+                UserModel.email == params.email).count()
+            if exists_count > 0:
+                raise ValueError('邮箱已存在')
 
         password_salt = secrets.token_urlsafe(32)
         password_hash = encode_password(params.password, password_salt)
@@ -89,11 +95,18 @@ def edit_user(params: UserEditForm) -> bool:
         if user_model is None:
             raise ValueError(f'用户不存在(id={params.id})')
 
-        # TODO: phone, email 唯一性校验
-        if params.email is not None:
-            user_model.email = params.email
         if params.phone is not None:
+            exists_count = db.query(UserModel).filter(
+                UserModel.id != user_model.id, UserModel.phone == params.phone).count()
+            if exists_count > 0:
+                raise ValueError('手机已存在')
             user_model.phone = params.phone
+        if params.email is not None:
+            exists_count = db.query(UserModel).filter(
+                UserModel.id != user_model.id, UserModel.email == params.email).count()
+            if exists_count > 0:
+                raise ValueError('邮箱已存在')
+            user_model.email = params.email
         if params.nickname is not None:
             user_model.nickname = params.nickname
         if params.password is not None:

@@ -95,8 +95,8 @@ class UserModel(Base):
         'CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'), comment='更新时间')
 
     idx_pid = Index('idx_pid', pid)
-    idx_phone = Index('idx_phone', phone)
-    idx_email = Index('idx_email', email)
+    idx_phone = Index('idx_phone', phone, unique=True)
+    idx_email = Index('idx_email', email, unique=True)
     idx_role = Index('idx_role', role_id)
     idx_wechat_openid = Index('idx_wechat_openid', wechat_openid)
     idx_wechat_unionid = Index('idx_wechat_unionid', wechat_unionid)

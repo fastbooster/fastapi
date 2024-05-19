@@ -46,7 +46,7 @@ def add_user(params: UserAddForm, request: Request):
     return RESPONSE_OK
 
 
-@router.put("/users", dependencies=[Depends(check_permission('UserList'))], summary="编辑用户")
+@router.patch("/users", dependencies=[Depends(check_permission('UserList'))], summary="编辑用户")
 def edit_user(params: UserEditForm):
     try:
         UserService.edit_user(params)
