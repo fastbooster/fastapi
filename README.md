@@ -109,8 +109,17 @@ python app/utils/init_user.py
 4. 后台路由菜单级鉴权，添加依赖注入即可，如：`dependencies=[Depends(check_permission('UserList'))]`
    这里的 `UserList` 是权限菜单定义的前端组件名称，详见: `./app/utils/init_permissions.py`
 
-参考文档：[Dependencies in path operation decorators](https://fastapi.tiangolo.com/tutorial/dependencies/dependencies-in-path-operation-decorators/)
+    参考文档：[Dependencies in path operation decorators](https://fastapi.tiangolo.com/tutorial/dependencies/dependencies-in-path-operation-decorators/)
 
+5. 语法检查并修复错误
+
+   ```shell
+   # 进入虚拟环境
+   source .venv/bin/activate
+   
+   # 语法检查
+   ./scripts/lint.sh
+   ```
 
 ### 参考文档列表
 
