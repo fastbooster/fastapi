@@ -31,7 +31,6 @@ async def send_sms(phone: str, type: int) -> bool:
         raise ValueError('手机号码格式不正确')
 
     # 检查30分钟内已发送成功的验证码次数
-    count = 0
     with get_redis() as redis:
         count = redis.get(REDIS_SMS_COUNT + phone)
         count = int(count) if count is not None else 0
@@ -67,7 +66,7 @@ async def send_sms(phone: str, type: int) -> bool:
             # 缓存验证码 180秒
             redis.set(REDIS_SMS_CODE_PREFIX + phone, encode_password(str(code), str(code)), 180)
             # 缓存发送次数
-            code += 1
+            count += 1
             redis.set(REDIS_SMS_COUNT + phone, count, 1800)
 
         return True
