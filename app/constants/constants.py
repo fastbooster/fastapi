@@ -27,3 +27,12 @@ REDIS_AUTH_USER_PREFIX = 'logged_user:'
 
 # [hash] 系统参数配置
 REDIS_SYSTEM_OPTIONS_AUTOLOAD = 'system_options_autoload'
+
+# 接手机号码, 同一个号码30分钟内只能发送10次, 只统计发送成功的次数
+REDIS_SMS_COUNT = 'sms:count:'
+
+# 30分钟内允许发送验证码的次数
+REDIS_SMS_LIMIT = 10
+
+# 验证码, 接类型+手机号, eg: 0130xxxxxxxx (前面的0表示验证码类型为0), 存验证码
+REDIS_SMS_CODE_PREFIX = 'sms:code:'

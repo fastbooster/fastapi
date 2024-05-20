@@ -23,3 +23,5 @@ ruff~=0.4.4
 coverage~=7.5.1
 types-PyMySQL~=1.1.0.20240425
 wechatpy~=1.8.18
+aliyun-python-sdk-core-v3~=2.13.33
+aliyun-python-sdk-dysmsapi~=2.1.2

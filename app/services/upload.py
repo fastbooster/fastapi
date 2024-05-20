@@ -15,7 +15,8 @@ from app.constants.constants import UPLOAD_PATH
 from app.core.mysql import get_session
 from app.models.cms import MediaModel
 
-async def uploadFile(file: UploadFile, related_type: str, related_id: int, user_data: dict, file_exts: str = None):
+
+async def upload_file(file: UploadFile, related_type: str, related_id: int, user_data: dict, file_exts: str = None):
     # 文件扩展名
     file_ext = os.path.splitext(file.filename)[1].lower()
     # 允许上传文件后缀
