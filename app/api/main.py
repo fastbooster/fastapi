@@ -21,5 +21,6 @@ api_router.include_router(routes.common.router, prefix="/common", tags=["commons
 api_router.include_router(frontend.user.router, prefix="/portal", tags=['portal_user'])
 
 # 后端路由
+api_router.include_router(backend.cms.router, prefix="/admin", tags=['admin_cms'])
 api_router.include_router(backend.user.router, prefix="/admin", tags=['admin_user'])
 api_router.include_router(backend.system_option.router, prefix="/admin", tags=['admin_system_option'])

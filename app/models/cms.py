@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 # -*- encoding: utf-8 -*-
-# File: cms.py
+# File: post_category.py
 # Author: Super Junior
 # Email: easelify@gmail.com
 # Time: 2024/05/17 12:39

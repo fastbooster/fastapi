@@ -36,3 +36,6 @@ REDIS_SMS_LIMIT = 10
 
 # 验证码, 接类型+手机号, eg: 0130xxxxxxxx (前面的0表示验证码类型为0), 存验证码
 REDIS_SMS_CODE_PREFIX = 'sms:code:'
+
+# [hash] 储存文章分类的全部值
+REDIS_POST_CATEGORY = 'post:category'
