@@ -13,16 +13,12 @@ from app.api import routes, frontend, backend
 api_router = APIRouter()
 
 # 通用路由
-api_router.include_router(routes.auth.router, prefix="/auth", tags=["users"])
+api_router.include_router(routes.auth.router, prefix="/auth", tags=["commons"])
+api_router.include_router(routes.common.router, prefix="/common", tags=["commons"])
 
 # 前端路由
-api_router.include_router(
-    frontend.user.router, prefix="/portal", tags=['portal_user'])
+api_router.include_router(frontend.user.router, prefix="/portal", tags=['portal_user'])
 
 # 后端路由
-api_router.include_router(
-    backend.user.router, prefix="/admin", tags=['admin_user'])
-
-# 后端选项路由
-api_router.include_router(
-    backend.system_option.router, prefix="/admin", tags=['admin_system_option'])
+api_router.include_router(backend.user.router, prefix="/admin", tags=['admin_user'])
+api_router.include_router(backend.system_option.router, prefix="/admin", tags=['admin_system_option'])

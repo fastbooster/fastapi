@@ -95,7 +95,7 @@ class MediaModel(Base):
     file_path = Column(String(255), comment='文件路径')
     oss_url = Column(String(255), comment='OSS地址')
     op_user_id = Column(Integer, nullable=False, comment='操作员ID')
-    op_user_name = Column(Integer, nullable=False, comment='操作员名称')
+    op_user_name = Column(String(100), nullable=False, comment='操作员名称')
     related_type = Column(String(32), comment='关联类别')
     related_id = Column(Integer, server_default='0', comment='关联ID')
     view_num = Column(Integer, server_default='0', comment='浏览量/下载量')

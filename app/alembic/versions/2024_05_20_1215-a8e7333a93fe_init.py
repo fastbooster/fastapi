@@ -1,8 +1,8 @@
 """Init
 
-Revision ID: 634c2085d8eb
+Revision ID: a8e7333a93fe
 Revises: 
-Create Date: 2024-05-19 21:03:13.400115
+Create Date: 2024-05-20 12:15:58.953634
 
 """
 from typing import Sequence, Union
@@ -12,7 +12,7 @@ import sqlalchemy as sa
 from sqlalchemy.dialects import mysql
 
 # revision identifiers, used by Alembic.
-revision: str = '634c2085d8eb'
+revision: str = 'a8e7333a93fe'
 down_revision: Union[str, None] = None
 branch_labels: Union[str, Sequence[str], None] = None
 depends_on: Union[str, Sequence[str], None] = None
@@ -28,7 +28,7 @@ def upgrade() -> None:
     sa.Column('file_path', sa.String(length=255), nullable=True, comment='文件路径'),
     sa.Column('oss_url', sa.String(length=255), nullable=True, comment='OSS地址'),
     sa.Column('op_user_id', sa.Integer(), nullable=False, comment='操作员ID'),
-    sa.Column('op_user_name', sa.Integer(), nullable=False, comment='操作员名称'),
+    sa.Column('op_user_name', sa.String(length=100), nullable=False, comment='操作员名称'),
     sa.Column('related_type', sa.String(length=32), nullable=True, comment='关联类别'),
     sa.Column('related_id', sa.Integer(), server_default='0', nullable=True, comment='关联ID'),
     sa.Column('view_num', sa.Integer(), server_default='0', nullable=True, comment='浏览量/下载量'),
@@ -85,7 +85,7 @@ def upgrade() -> None:
     mariadb_engine='InnoDB',
     mysql_engine='InnoDB'
     )
-    op.create_index('idx_name', 'cms_post_category', ['alias'], unique=True)
+    op.create_index('idx_name', 'cms_post_category', ['name'], unique=False)
     op.create_table('system_option',
     sa.Column('id', sa.Integer(), autoincrement=True, nullable=False, comment='ID'),
     sa.Column('option_name', sa.String(length=32), nullable=True, comment='选项名称'),
@@ -139,8 +139,8 @@ def upgrade() -> None:
     mariadb_engine='InnoDB',
     mysql_engine='InnoDB'
     )
-    op.create_index('idx_email', 'user_account', ['email'], unique=False)
-    op.create_index('idx_phone', 'user_account', ['phone'], unique=False)
+    op.create_index('idx_email', 'user_account', ['email'], unique=True)
+    op.create_index('idx_phone', 'user_account', ['phone'], unique=True)
     op.create_index('idx_pid', 'user_account', ['pid'], unique=False)
     op.create_index('idx_role', 'user_account', ['role_id'], unique=False)
     op.create_index('idx_wechat_openid', 'user_account', ['wechat_openid'], unique=False)
