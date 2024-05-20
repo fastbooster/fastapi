@@ -36,8 +36,8 @@ def authorize(request: Request, form: OAuth2PasswordRequestForm = Depends()):
     if not user_data:
         raise HTTPException(status_code=401, detail="账号或密码错误")
 
-    subject = f'{user_data['id']}'
-    access_token = create_access_token(subject=subject)
+    user_id_str = f'{user_data['id']}'
+    access_token = create_access_token(subject=user_id_str)
 
     # 获取用户权限列表
     if user_data['role_id']:
@@ -50,7 +50,7 @@ def authorize(request: Request, form: OAuth2PasswordRequestForm = Depends()):
                 user_data['permissions'] = user_role.permissions
 
     with get_redis() as redis:
-        redis.set(f'{REDIS_AUTH_USER_PREFIX}{user_data['id']}',
+        redis.set(f'{REDIS_AUTH_USER_PREFIX}{user_id_str}',
                   json.dumps(user_data, default=serialize_datetime),
                   ex=REDIS_AUTH_TTL)
 
@@ -58,7 +58,7 @@ def authorize(request: Request, form: OAuth2PasswordRequestForm = Depends()):
         loginlog = LoginlogModel(
             user_id=user_data['id'],
             nickname=user_data['nickname'],
-            ip=request.client.host,
+            ip=request.client.host if request.client else None,
             user_agent=str(request.headers.get('User-Agent')),
         )
         db.add(loginlog)

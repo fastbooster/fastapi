@@ -94,17 +94,17 @@ def get_token_payload(token: str = Depends(oauth2_scheme)) -> str | Any:
         raise BearAuthException('Token could not be validated')
 
 
-def authenticate_user_by_password(password: str, phone: str = None, email: str = None) -> dict | bool:
+def authenticate_user_by_password(password: str, phone: str = None, email: str = None) -> dict:
     with get_session() as db:
         if phone is not None:
             user = db.query(UserModel).filter_by(phone=phone).first()
         elif email is not None:
             user = db.query(UserModel).filter_by(email=email).first()
         else:
-            raise BearAuthException("phone or email is required")
+            raise BearAuthException('手机或邮箱必须填写一个')
 
     if not user or not verify_password(password, user.password_salt, user.password_hash):
-        return False
+        raise HTTPException(status_code=status.HTTP_403_FORBIDDEN, detail="账号或密码错误")
 
     user_data = user.__dict__
     user_data.pop('_sa_instance_state', None)
