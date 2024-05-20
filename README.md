@@ -13,9 +13,10 @@
 |   |-- |-- backend         // 后端路由
 |   |-- constants           // 常量目录
 |   |-- core                // 核心组件目录
-|   |-- services            // 服务类 (CRUD+)
-|   |-- schemas             // 表单目录 (pydantic schemas)
 |   |-- models              // 模型目录 (SQLAlchemy ORM)
+|   |-- schemas             // 表单目录 (pydantic schemas)
+|   |-- services            // 服务类 (CRUD+)
+|   |-- tasks               // 异步任务 (Celery)
 |   |-- utils               // 助手工具
 |   ...                     // 待完善...
 ```
@@ -120,6 +121,20 @@ python app/utils/init_user.py
    # 语法检查
    ./scripts/lint.sh
    ```
+
+
+### 异步任务
+
+1. 开发测试
+
+    ```shell
+    # 前台启动异步任务
+    celery -A app.celery_worker worker --loglevel=info
+
+    # 前台启动定时任务
+    celery -A app.celery_worker beat -s --loglevel=info
+    ```
+
 
 ### 参考文档列表
 

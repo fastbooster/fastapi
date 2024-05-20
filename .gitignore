@@ -15,3 +15,4 @@ app.egg-info
 .coverage
 .DS_Store
 Thumbs.db
+celerybeat-schedule.db

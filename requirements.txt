@@ -25,3 +25,4 @@ types-PyMySQL~=1.1.0.20240425
 wechatpy~=1.8.18
 aliyun-python-sdk-core-v3~=2.13.33
 aliyun-python-sdk-dysmsapi~=2.1.2
+celery~=5.4.0
