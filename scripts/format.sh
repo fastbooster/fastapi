@@ -2,6 +2,6 @@
 
 set -x
 
-mypy ../app
-ruff check ../app scripts --fix
-ruff format ../app scripts
+mypy app
+ruff check app scripts --fix
+ruff format app scripts
