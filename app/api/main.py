@@ -13,7 +13,8 @@ from app.api import routes, frontend, backend
 api_router = APIRouter()
 
 # 通用路由
-api_router.include_router(routes.auth.router, prefix="/auth", tags=["commons"])
+api_router.include_router(routes.auth.router, prefix="/auth", tags=["auth"])
+api_router.include_router(routes.wechat.router, prefix="/auth", tags=["auth"])
 api_router.include_router(routes.common.router, prefix="/common", tags=["commons"])
 
 # 前端路由

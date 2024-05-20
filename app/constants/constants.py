@@ -19,6 +19,9 @@ RESPONSE_OK = {'status': 'OK'}
 # 登录有效期
 REDIS_AUTH_TTL = 86400
 
+# 默认邮箱后缀，当用户注册时，如果邮箱为空，则自动使用 user_id@DEFAULT_EMAIL_SUFFIX
+DEFAULT_EMAIL_SUFFIX = '@fastapi.com'
+
 # user:1
 REDIS_AUTH_USER_PREFIX = 'logged_user:'
 
