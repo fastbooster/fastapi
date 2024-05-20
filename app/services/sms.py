@@ -15,7 +15,7 @@ from aliyunsdkcore.request import CommonRequest
 
 from app.constants.constants import REDIS_SMS_COUNT, REDIS_SMS_LIMIT, REDIS_SMS_CODE_PREFIX
 from app.core.redis import get_redis
-from app.core.security import encode_password
+from app.core.security import encode_password, verify_password
 
 
 async def send_sms(phone: str, type: int) -> bool:
@@ -64,7 +64,7 @@ async def send_sms(phone: str, type: int) -> bool:
     if response.get('Code') == 'OK':
         with get_redis() as redis:
             # 缓存验证码 180秒
-            redis.set(REDIS_SMS_CODE_PREFIX + phone, encode_password(str(code), str(code)), 180)
+            redis.set(REDIS_SMS_CODE_PREFIX + type + phone, encode_password(str(code), str(code)), 180)
             # 缓存发送次数
             count += 1
             redis.set(REDIS_SMS_COUNT + phone, count, 1800)
@@ -73,3 +73,16 @@ async def send_sms(phone: str, type: int) -> bool:
     else:
         msg = response.get('Message') if response.get('Message') else '未知错误'
         raise ValueError(msg)
+
+
+def check_sms(phone: str = '', code: int = 0, type: int = 0) -> bool:
+    # type类型, 0登录验证码, 1操作验证码
+    if type not in [0, 1] or len(phone) != 11 or code < 100000 or code > 999999:
+        return False
+
+    with get_redis() as redis:
+        hashcode = redis.get(REDIS_SMS_CODE_PREFIX + type + phone)
+        if verify_password(str(code), str(code), hashcode):
+            return True
+
+    return False
