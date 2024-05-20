@@ -101,7 +101,7 @@ def delete_option(id: int) -> bool:
             raise ValueError(f'选项已锁定，不能删除')
 
         # TODO: 关联数据删除
-        option_model.delete()
+        db.delete(option_model)
         db.commit()
     return True
 

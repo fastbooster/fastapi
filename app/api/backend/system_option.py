@@ -20,12 +20,12 @@ router = APIRouter()
 
 @router.get("/options", dependencies=[Depends(check_permission('SystemOption'))], summary="系统选项列表")
 def option_list(params: OptionSearchQuery = Depends()):
-    return OptionService.get_user_list(params)
+    return OptionService.get_option_list(params)
 
 
 @router.get("/options/{id}", dependencies=[Depends(check_permission('SystemOption'))], summary="系统选项详情",)
 def option_detail(id: int):
-    option = OptionService.get_user(id)
+    option = OptionService.get_option(id)
     if not option:
         raise HTTPException(status_code=404, detail="系统选项不存在")
     return option
