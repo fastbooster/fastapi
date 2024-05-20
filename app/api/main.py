@@ -22,3 +22,7 @@ api_router.include_router(
 # 后端路由
 api_router.include_router(
     backend.user.router, prefix="/admin", tags=['admin_user'])
+
+# 后端选项路由
+api_router.include_router(
+    backend.system_option.router, prefix="/admin", tags=['admin_system_option'])
