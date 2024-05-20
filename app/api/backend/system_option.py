@@ -43,7 +43,7 @@ def add_option(params: OptionAddForm):
     return RESPONSE_OK
 
 
-@router.put("/options", dependencies=[Depends(check_permission('SystemOption'))], summary="编辑系统选项")
+@router.patch("/options", dependencies=[Depends(check_permission('SystemOption'))], summary="编辑系统选项")
 def edit_option(params: OptionEditForm):
     try:
         OptionService.edit_option(params)
@@ -67,7 +67,7 @@ def delete_option(id: int):
     return RESPONSE_OK
 
 
-@router.put("/options/rebuild_cache", dependencies=[Depends(check_permission('SystemOption'))], summary="重建系统选项缓存",)
+@router.post("/options/rebuild_cache", dependencies=[Depends(check_permission('SystemOption'))], summary="重建系统选项缓存",)
 def rebuild_cache():
     try:
         OptionService.rebuild_cache()
