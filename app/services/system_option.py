@@ -10,7 +10,9 @@ import secrets
 from sqlalchemy.sql.expression import asc, desc
 
 from app.core.mysql import get_session
+from app.core.redis import get_redis
 from app.models.system_option import SystemOptionModel
+from app.constants.constants import REDIS_SYSTEM_OPTIONS_AUTOLOAD
 
 from app.schemas.system_option import OptionSearchQuery, OptionAddForm, OptionEditForm
 
@@ -63,8 +65,7 @@ def add_option(params: OptionAddForm) -> bool:
 
         db.add(option_model)
         db.commit()
-
-        # TODO: 缓存处理
+        updateCache(option_model)
     return True
 
 
@@ -78,6 +79,10 @@ def edit_option(params: OptionEditForm) -> bool:
         if exists_count > 0:
             raise ValueError('该选项名称已存在')
 
+        # 如果option_model.autoload为1，params.autoload为0，需要清除缓存
+        if option_model.autoload == 1 and params.autoload == 0:
+            updateCache(option_model, is_delete=True)
+
         option_model.option_name = params.option_name
         option_model.option_value = params.option_value
         option_model.richtext = params.richtext
@@ -87,8 +92,7 @@ def edit_option(params: OptionEditForm) -> bool:
         option_model.memo = params.memo
 
         db.commit()
-
-        # TODO: 缓存处理
+        updateCache(option_model)
     return True
 
 
@@ -100,18 +104,26 @@ def delete_option(id: int) -> bool:
         if option_model.lock:
             raise ValueError(f'选项已锁定，不能删除')
 
-        # TODO: 关联数据删除
         db.delete(option_model)
         db.commit()
+        updateCache(option_model, is_delete=True)
     return True
 
 
 def rebuild_cache() -> bool:
+    with get_redis() as redis:
+        redis.delete(REDIS_SYSTEM_OPTIONS_AUTOLOAD)
     with get_session() as db:
         option_models = db.query(SystemOptionModel).filter_by(autoload=1).order_by(asc('id')).all()
         if option_models:
             for option_model in option_models:
-                pass
-                # TODO: 缓存处理
-
+                updateCache(option_model)
     return True
+
+def updateCache(option_model: SystemOptionModel, is_delete: bool = False) -> None:
+    if option_model.autoload == 1:
+        with get_redis() as redis:
+            if is_delete:
+                redis.hdel(REDIS_SYSTEM_OPTIONS_AUTOLOAD, option_model.option_name)
+            else:
+                redis.hset(REDIS_SYSTEM_OPTIONS_AUTOLOAD, option_model.option_name, option_model.option_value)
