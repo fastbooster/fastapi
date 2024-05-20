@@ -12,7 +12,7 @@ from app.services import upload
 
 router = APIRouter()
 
-@router.post('/uploadFile', summary='上传文件')
-async def uploadFile(file: UploadFile = File(...), related_type: str = 'files', related_id: int = 0, user_data: dict = Depends(get_current_user_from_cache)):
+@router.post('/upload_file', summary='上传文件')
+async def upload_file(file: UploadFile = File(...), related_type: str = 'files', related_id: int = 0, user_data: dict = Depends(get_current_user_from_cache)):
     # 调用上传文件方法
     return await upload.uploadFile(file, related_type, related_id, user_data)
