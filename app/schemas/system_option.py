@@ -24,7 +24,7 @@ class OptionAddForm(BaseModel):
     position: Optional[int] = 0
     autoload: Optional[int] = 0
     lock: Optional[int] = 0
-    memo: Optional[str] = ''
+    memo: Optional[str] = None
 
     @validator('richtext', 'autoload', 'lock')
     def validate_boolean_fields(cls, value):
@@ -39,24 +39,5 @@ class OptionAddForm(BaseModel):
         return value
 
 
-class OptionEditForm(BaseModel):
+class OptionEditForm(OptionAddForm):
     id: int
-    option_name: str
-    option_value: str
-    richtext: Optional[int] = 0
-    position: Optional[int] = 0
-    autoload: Optional[int] = 0
-    lock: Optional[int] = 0
-    memo: Optional[str] = ''
-
-    @validator('richtext', 'autoload', 'lock')
-    def validate_boolean_fields(cls, value):
-        if value not in (0, 1):
-            return 0
-        return value
-
-    @validator('position')
-    def validate_position(cls, value):
-        if value is not None and value < 0:
-            return 0
-        return value
