@@ -65,7 +65,7 @@ def add_option(params: OptionAddForm) -> bool:
 
         db.add(option_model)
         db.commit()
-        updateCache(option_model)
+        update_cache(option_model)
     return True
 
 
@@ -81,7 +81,7 @@ def edit_option(params: OptionEditForm) -> bool:
 
         # 如果option_model.autoload为1，params.autoload为0，需要清除缓存
         if option_model.autoload == 1 and params.autoload == 0:
-            updateCache(option_model, is_delete=True)
+            update_cache(option_model, is_delete=True)
 
         option_model.option_name = params.option_name
         option_model.option_value = params.option_value
@@ -92,7 +92,7 @@ def edit_option(params: OptionEditForm) -> bool:
         option_model.memo = params.memo
 
         db.commit()
-        updateCache(option_model)
+        update_cache(option_model)
     return True
 
 
@@ -106,7 +106,7 @@ def delete_option(id: int) -> bool:
 
         db.delete(option_model)
         db.commit()
-        updateCache(option_model, is_delete=True)
+        update_cache(option_model, is_delete=True)
     return True
 
 
@@ -117,10 +117,10 @@ def rebuild_cache() -> bool:
         option_models = db.query(SystemOptionModel).filter_by(autoload=1).order_by(asc('id')).all()
         if option_models:
             for option_model in option_models:
-                updateCache(option_model)
+                update_cache(option_model)
     return True
 
-def updateCache(option_model: SystemOptionModel, is_delete: bool = False) -> None:
+def update_cache(option_model: SystemOptionModel, is_delete: bool = False) -> None:
     if option_model.autoload == 1:
         with get_redis() as redis:
             if is_delete:
