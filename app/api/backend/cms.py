@@ -10,9 +10,10 @@ from loguru import logger
 from fastapi import APIRouter, HTTPException, Depends
 
 from app.core.security import check_permission
-from app.services import post_category as CategoryService
+from app.services import post_category as CategoryService, post as PostService
 
 from app.schemas.post_category import CategorySearchQuery, CategoryAddForm, CategoryEditForm
+from app.schemas.post import PostSearchQuery, PostAddForm, PostEditForm
 from app.constants.constants import RESPONSE_OK
 
 router = APIRouter()
@@ -76,4 +77,52 @@ def rebuild_cache():
     except Exception as e:
         logger.error(f'重建文章分类缓存失败：{e}')
         raise HTTPException(status_code=500, detail='重建文章分类缓存失败')
+    return RESPONSE_OK
+
+@router.get("/post", dependencies=[Depends(check_permission('PostList'))], summary="文章列表")
+def post_list(params: PostSearchQuery = Depends()):
+    return PostService.get_post_list(params)
+
+
+@router.get("/post/{id}", dependencies=[Depends(check_permission('PostList'))], summary="文章详情",)
+def post_detail(id: int):
+    post = PostService.get_post(id)
+    if not post:
+        raise HTTPException(status_code=404, detail="文章不存在")
+    return post
+
+
+@router.post("/post", dependencies=[Depends(check_permission('PostList'))], summary="添加文章")
+def add_post(params: PostAddForm):
+    try:
+        PostService.add_post(params)
+    except ValueError as e:
+        raise HTTPException(status_code=400, detail=f'{e}')
+    except Exception as e:
+        logger.error(f'添加文章失败：{e}')
+        raise HTTPException(status_code=500, detail='添加文章失败')
+    return RESPONSE_OK
+
+
+@router.patch("/post", dependencies=[Depends(check_permission('PostList'))], summary="编辑文章")
+def edit_post(params: PostEditForm):
+    try:
+        PostService.edit_post(params)
+    except ValueError as e:
+        raise HTTPException(status_code=400, detail=f'{e}')
+    except Exception as e:
+        logger.error(f'编辑文章失败：{e}')
+        raise HTTPException(status_code=500, detail='编辑文章失败')
+    return RESPONSE_OK
+
+
+@router.delete("/post/{id}", dependencies=[Depends(check_permission('PostList'))], summary="删除文章",)
+def delete_post(id: int):
+    try:
+        PostService.delete_post(id)
+    except ValueError as e:
+        raise HTTPException(status_code=400, detail=f'{e}')
+    except Exception as e:
+        logger.error(f'删除文章失败：{e}')
+        raise HTTPException(status_code=500, detail='删除文章失败')
     return RESPONSE_OK
