@@ -130,6 +130,9 @@ python app/utils/init_user.py
     ```shell
     # 前台启动异步任务
     celery -A app.celery_worker worker --loglevel=info
+   
+   # 前台启动单worker异步任务(专门用于积分余额动账)
+    celery -A app.celery_single_worker worker --loglevel=info
 
     # 前台启动定时任务
     celery -A app.celery_worker beat -s --loglevel=info
