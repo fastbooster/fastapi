@@ -13,6 +13,9 @@ ROOT_PATH = os.path.abspath(os.path.dirname(os.path.dirname(os.path.dirname(__fi
 # 应用文件存储目录
 UPLOAD_PATH = ROOT_PATH + '/public'
 
+# 应用文件存储目录
+RUNTIME_PATH = ROOT_PATH + '/runtime'
+
 # 操作成功返回的数据，当不需要返回数据时，统一直接返回该数据
 RESPONSE_OK = {'status': 'OK'}
 
