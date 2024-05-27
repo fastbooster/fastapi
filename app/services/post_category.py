@@ -6,6 +6,7 @@
 # Time: 2024/5/20 17:05
 
 import json
+import operator
 
 from sqlalchemy.sql.expression import asc, desc
 from pydantic import BaseModel
@@ -47,6 +48,24 @@ def get_category_list(params: CategorySearchQuery) -> list[PostCategoryModel]:
             query.offset(offset).limit(params.size)
 
     return query.all()
+
+
+def get_category_list_from_cache() -> list:
+    data = []
+    with get_redis() as redis:
+        items = redis.hgetall(REDIS_POST_CATEGORY)
+        # 转换为JSON格式并过滤掉status=0的条目
+        filtered_items = []
+        print(type(filtered_items))
+        for key, value in items.items():
+            item = json.loads(value)
+            if item.get('status', 0) != 0:
+                filtered_items.append(item)
+
+        # 按asc_sort_order字段进行排序
+        data = sorted(filtered_items, key=operator.itemgetter('asc_sort_order'))
+
+    return data
 
 
 def add_category(params: CategoryAddForm) -> bool:
@@ -108,12 +127,15 @@ def rebuild_cache() -> bool:
                 update_cache(post_category_model)
     return True
 
+
 def update_cache(post_category_model: PostCategoryModel, is_delete: bool = False) -> None:
     with get_redis() as redis:
         if is_delete:
             redis.hdel(REDIS_POST_CATEGORY, post_category_model.id)
         else:
-            redis.hset(REDIS_POST_CATEGORY, post_category_model.id, json.dumps(post_category_model.__dict__, default=str))
+            redis.hset(REDIS_POST_CATEGORY, post_category_model.id,
+                       json.dumps(post_category_model.__dict__, default=str))
+
 
 def data_validate(params: BaseModel) -> bool:
     with get_session() as db:
@@ -122,12 +144,14 @@ def data_validate(params: BaseModel) -> bool:
         alias = params.alias
 
         # 查询是否存在同名分类（排除自身）
-        existing_name_category = db.query(PostCategoryModel).filter(PostCategoryModel.name == name, PostCategoryModel.id != id).first()
+        existing_name_category = db.query(PostCategoryModel).filter(PostCategoryModel.name == name,
+                                                                    PostCategoryModel.id != id).first()
         if existing_name_category is not None:
             raise ValueError(f'名称已存在(name={name})')
 
         # 查询是否存在同别名分类（排除自身）
-        existing_alias_category = db.query(PostCategoryModel).filter(PostCategoryModel.alias == alias, PostCategoryModel.id != id).first()
+        existing_alias_category = db.query(PostCategoryModel).filter(PostCategoryModel.alias == alias,
+                                                                     PostCategoryModel.id != id).first()
         if existing_alias_category is not None:
             raise ValueError(f'别名已存在(alias={alias})')
 

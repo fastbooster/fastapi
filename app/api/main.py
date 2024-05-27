@@ -18,6 +18,7 @@ api_router.include_router(routes.wechat.router, prefix="/auth", tags=["auth"])
 api_router.include_router(routes.common.router, prefix="/common", tags=["commons"])
 
 # 前端路由
+api_router.include_router(frontend.cms.router, prefix="/portal", tags=['portal_cms'])
 api_router.include_router(frontend.user.router, prefix="/portal", tags=['portal_user'])
 
 # 后端路由
