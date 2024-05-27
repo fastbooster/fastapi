@@ -128,16 +128,24 @@ python app/utils/init_user.py
 1. 开发测试
 
     ```shell
+    # 前台启动单worker异步任务(专门用于积分余额动账)
+    celery -A app.celery_single_worker worker --loglevel=info
+
     # 前台启动异步任务
     celery -A app.celery_worker worker --loglevel=info
-   
-   # 前台启动单worker异步任务(专门用于积分余额动账)
-    celery -A app.celery_single_worker worker --loglevel=info
 
     # 前台启动定时任务
     celery -A app.celery_worker beat -s --loglevel=info
+
+    # 停止 celery 任务
+    ./stop_celery.sh
     ```
 
+2. 生产部署
+   
+   ```shell
+   ./start_celery.sh
+   ```
 
 ### 参考文档列表
 
