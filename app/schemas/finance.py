@@ -50,12 +50,6 @@ class AdjustForm(BaseModel):
     auto_memo: Optional[str] = None
     back_memo: Optional[str] = None
 
-    @validator('type')
-    def validate_type(cls, value):
-        if value not in [BalancType.TYPE_ADD, BalancType.TYPE_DEDUCTION]:
-            raise ValueError('未知类型')
-        return value
-
     @validator('amount')
     def validate_amount(cls, value):
         if value == 0:
