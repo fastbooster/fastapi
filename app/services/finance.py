@@ -11,8 +11,9 @@ from datetime import datetime, timedelta
 from app.core.mysql import get_session
 from app.core.redis import get_redis
 from app.core.log import logger
-from app.models.finance import BalanceModel, PointModel, ChenckinModel
-from app.schemas.finance import SearchQuery, AdjustForm, CheckinType, PointType
+from app.models.finance import BalanceModel, PointModel, ChenckinModel, PaymentAccountModel
+from app.schemas.finance import SearchQuery, AdjustForm, CheckinType, PointType, PaymentAccountSearchQuery, \
+    PaymentAccountFrontendSearchQuery, PaymentAccountAddForm, PaymentAccountEditForm
 from app.tasks.finance import handle_balance, handle_point
 from app.constants.constants import REDIS_SYSTEM_OPTIONS_AUTOLOAD
 
@@ -133,5 +134,109 @@ def checkin(user_id: int, ip: str, user_agent: str) -> bool:
         }
         result = handle_point.delay(data)
         logger.info(f'发送积分动账任务:{result.id}', extra=data)
+
+    return True
+
+
+def get_payment_account_list(params: PaymentAccountSearchQuery) -> list[PaymentAccountModel]:
+    export = True if params.export == 1 else False
+    print(params)
+    with get_session() as db:
+        query = db.query(PaymentAccountModel).order_by(desc('id'))
+        if params.id > 0:
+            query = query.filter_by(id=params.id)
+        if params.user_id > 0:
+            query = query.filter_by(user_id=params.user_id)
+        if params.type > 0:
+            query = query.filter_by(type=params.type)
+        if params.status > -1:
+            query = query.filter_by(status=params.status)
+        if params.account:
+            query = query.filter(PaymentAccountModel.account.like(f'%{params.account}%'))
+        if not export:
+            offset = (params.page - 1) * params.size
+            query.offset(offset).limit(params.size)
+
+    return query.all()
+
+
+def get_payment_account_list_frontend(params: PaymentAccountFrontendSearchQuery, user_id: int) -> list[dict]:
+    with get_session() as db:
+        query = db.query(
+            PaymentAccountModel.id, PaymentAccountModel.user_id, PaymentAccountModel.type, PaymentAccountModel.account,
+            PaymentAccountModel.status,
+            PaymentAccountModel.user_memo, PaymentAccountModel.created_at
+        ).order_by(desc(PaymentAccountModel.id))
+
+        query = query.filter(PaymentAccountModel.user_id == user_id)
+        if params.id > 0:
+            query = query.filter_by(id=params.id)
+        if params.type > 0:
+            query = query.filter_by(type=params.type)
+        if params.status > -1:
+            query = query.filter_by(status=params.status)
+        if params.account:
+            query = query.filter(PaymentAccountModel.account.like(f'%{params.account}%'))
+
+        results = query.all()
+        print(results)
+
+    list = [result._asdict() for result in results]
+    return list
+
+
+def add_payment_account(params: PaymentAccountAddForm, user_id: int) -> bool:
+    with get_session() as db:
+        exist_account = db.query(PaymentAccountModel).filter(PaymentAccountModel.type == params.type.value,
+                                                             PaymentAccountModel.account == params.account).first()
+        if exist_account is not None:
+            raise ValueError(f'支付账号已存在(account={params.account})')
+
+        payment_account_model = PaymentAccountModel(
+            user_id=user_id,
+            type=params.type.value,
+            account=params.account,
+            status=params.status,
+            user_memo=params.user_memo,
+        )
+
+        db.add(payment_account_model)
+        db.commit()
+
+    return True
+
+
+def edit_payment_account(params: PaymentAccountEditForm, user_id: int) -> bool:
+    with get_session() as db:
+        payment_account_model = db.query(PaymentAccountModel).filter(PaymentAccountModel.id == params.id,
+                                                                     PaymentAccountModel.user_id == user_id).first()
+        if payment_account_model is None:
+            raise ValueError(f'支付账号不存在(id={params.id})')
+
+        exist_account = db.query(PaymentAccountModel).filter(PaymentAccountModel.type == params.type.value,
+                                                             PaymentAccountModel.account == params.account,
+                                                             PaymentAccountModel.id != params.id).first()
+        if exist_account is not None:
+            raise ValueError(f'支付账号已存在(account={params.account})')
+
+        payment_account_model.type = params.type.value
+        payment_account_model.account = params.account
+        payment_account_model.status = params.status
+        payment_account_model.user_memo = params.user_memo
+
+        db.commit()
+
+    return True
+
+
+def delete_payment_account(id: int, user_id: int) -> bool:
+    with get_session() as db:
+        payment_account_model = db.query(PaymentAccountModel).filter(PaymentAccountModel.id == id,
+                                                                     PaymentAccountModel.user_id == user_id).first()
+        if payment_account_model is None:
+            raise ValueError(f'支付账号不存在(id={id})')
+
+        db.delete(payment_account_model)
+        db.commit()
 
     return True

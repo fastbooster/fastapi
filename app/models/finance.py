@@ -95,6 +95,8 @@ class PaymentAccountModel(Base):
     back_memo = Column(String(255), comment='后台备注')
     created_at = Column(TIMESTAMP, server_default=text(
         'CURRENT_TIMESTAMP'), comment='创建时间')
+    updated_at = Column(TIMESTAMP, server_default=text(
+        'CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'), comment='更新时间')
 
     idx_user_id_type_status = Index('idx_user_id_type_status', user_id, type, status)
     idx_type_account = Index('idx_type_account', type, account)

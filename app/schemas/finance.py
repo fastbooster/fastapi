@@ -41,6 +41,12 @@ class CheckinType(Enum):
     TYPE_COMPLEMENT = 2  # 补签
 
 
+class PaymentAccountType(Enum):
+    TYPE_ALIPAY = 1  # 支付宝
+    TYPE_WXPAY = 2  # 微信
+    TYPE_BANK = 3  # 银行卡
+
+
 class SearchQuery(PaginationParams):
     user_id: int
 
@@ -60,3 +66,45 @@ class AdjustForm(BaseModel):
         if value == 0:
             raise ValueError('金额不能为0')
         return value
+
+
+class PaymentAccountSearchQuery(PaginationParams):
+    id: Optional[int] = 0
+    user_id: Optional[int] = 0
+    type: Optional[int] = 0
+    status: Optional[int] = -1
+    account: Optional[str] = None
+
+
+class PaymentAccountFrontendSearchQuery(BaseModel):
+    id: Optional[int] = 0
+    type: Optional[int] = 0
+    status: Optional[int] = -1
+    account: Optional[str] = None
+
+
+class PaymentAccountAddForm(BaseModel):
+    type: PaymentAccountType = PaymentAccountType.TYPE_ALIPAY
+    account: str
+    status: Optional[int] = 1
+    user_memo: Optional[str] = None
+
+    @validator('account')
+    def validate_account(cls, value):
+        if value.find('@') != -1:
+            return value
+        elif value.isdigit() and len(value) == 11:
+            return value
+        else:
+            raise ValueError('支付宝账号格式错误')
+
+    @validator('type')
+    def validate_amount(cls, value):
+        if value == PaymentAccountType.TYPE_ALIPAY:
+            return value
+        else:
+            raise ValueError('目前只支持支付宝')
+
+
+class PaymentAccountEditForm(PaymentAccountAddForm):
+    id: int

@@ -12,7 +12,7 @@ from fastapi import APIRouter, HTTPException, Depends, Request
 from app.core.security import check_permission, get_current_user_from_cache
 from app.services import finance as FinanceService
 
-from app.schemas.finance import SearchQuery, AdjustForm
+from app.schemas.finance import SearchQuery, AdjustForm, PaymentAccountSearchQuery
 from app.constants.constants import RESPONSE_OK
 
 router = APIRouter()
@@ -51,3 +51,8 @@ def adjust_point(params: AdjustForm, user_data: dict = Depends(get_current_user_
         logger.error(f'调整积分余额：{e}')
         raise HTTPException(status_code=500, detail='调整积分余额')
     return RESPONSE_OK
+
+
+@router.get("/finance/payment_account", dependencies=[Depends(check_permission('UserList'))], summary="支付账号列表")
+def get_payment_account_list(params: PaymentAccountSearchQuery = Depends()):
+    return FinanceService.get_payment_account_list(params)

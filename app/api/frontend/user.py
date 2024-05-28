@@ -12,6 +12,7 @@ from app.services import user as UserService
 from app.services import finance as FinanceService
 from app.core.log import logger
 from app.constants.constants import RESPONSE_OK
+from app.schemas.finance import PaymentAccountFrontendSearchQuery, PaymentAccountAddForm, PaymentAccountEditForm
 
 router = APIRouter()
 
@@ -32,4 +33,46 @@ def checkin(request: Request, user_data: dict = Depends(get_current_user_from_ca
     except Exception as e:
         logger.error(f'签到失败：{e}')
         raise HTTPException(status_code=500, detail='签到失败')
+    return RESPONSE_OK
+
+
+@router.get("/user/payment_account", summary="支付账号列表")
+def get_payment_account_list(params: PaymentAccountFrontendSearchQuery = Depends(),
+                             user_data: dict = Depends(get_current_user_from_cache)):
+    return FinanceService.get_payment_account_list_frontend(params, user_data['id'])
+
+
+@router.post("/user/payment_account", summary="绑定支付账号")
+def add_payment_account(params: PaymentAccountAddForm, user_data: dict = Depends(get_current_user_from_cache)):
+    try:
+        FinanceService.add_payment_account(params, user_data['id'])
+    except ValueError as e:
+        raise HTTPException(status_code=400, detail=f'{e}')
+    except Exception as e:
+        logger.error(f'绑定支付账号失败：{e}')
+        raise HTTPException(status_code=500, detail='绑定支付账号失败')
+    return RESPONSE_OK
+
+
+@router.patch("/user/payment_account", summary="编辑支付账号")
+def add_payment_account(params: PaymentAccountEditForm, user_data: dict = Depends(get_current_user_from_cache)):
+    try:
+        FinanceService.edit_payment_account(params, user_data['id'])
+    except ValueError as e:
+        raise HTTPException(status_code=400, detail=f'{e}')
+    except Exception as e:
+        logger.error(f'编辑支付账号失败：{e}')
+        raise HTTPException(status_code=500, detail='编辑支付账号失败')
+    return RESPONSE_OK
+
+
+@router.delete("/user/payment_account/{id}", summary="删除支付账号")
+def add_payment_account(id: int, user_data: dict = Depends(get_current_user_from_cache)):
+    try:
+        FinanceService.delete_payment_account(id, user_data['id'])
+    except ValueError as e:
+        raise HTTPException(status_code=400, detail=f'{e}')
+    except Exception as e:
+        logger.error(f'删除支付账号失败：{e}')
+        raise HTTPException(status_code=500, detail='删除支付账号失败')
     return RESPONSE_OK
