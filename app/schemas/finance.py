@@ -36,6 +36,11 @@ class PointType(Enum):
     TYPE_DEDUCTION = -99  # 后台扣除积分
 
 
+class CheckinType(Enum):
+    TYPE_CHECKIN = 1  # 签到
+    TYPE_COMPLEMENT = 2  # 补签
+
+
 class SearchQuery(PaginationParams):
     user_id: int
 
