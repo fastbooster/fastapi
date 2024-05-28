@@ -34,6 +34,8 @@ class BalanceModel(Base):
         'CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'), comment='更新时间')
 
     idx_user_id_type = Index('idx_user_id_type', user_id, type)
+    idx_type_related_id = Index('idx_type_related_id', type, related_id)
+    idx_user_id_created_at = Index('idx_user_id_created_at', user_id, created_at)
 
     def __repr__(self):
         return f"<BalanceModel(id={self.id}, user_id='{self.user_id}')>"
@@ -64,6 +66,110 @@ class PointModel(Base):
         'CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'), comment='更新时间')
 
     idx_user_id_type = Index('idx_user_id_type', user_id, type)
+    idx_type_related_id = Index('idx_type_related_id', type, related_id)
+    idx_user_id_created_at = Index('idx_user_id_created_at', user_id, created_at)
 
     def __repr__(self):
         return f"<PointModel(id={self.id}, user_id='{self.user_id}')>"
+
+
+class PaymentAccountModel(Base):
+    __tablename__ = 'user_payment_account'
+    __table_args__ = {'mysql_engine': 'InnoDB',
+                      'mariadb_engine': 'InnoDB', 'comment': '用户支付账号'}
+
+    mysql_charset = 'utf8mb4'
+    mysql_collate = 'utf8mb4_unicode_ci'
+
+    id = Column(Integer, primary_key=True, autoincrement=True, comment='ID')
+    user_id = Column(Integer, nullable=False, comment='用户ID')
+    type = Column(SmallInteger, server_default='1', comment='类型')  # 类型 1:支付宝, 2:微信, 3:银行卡
+    account = Column(String(255), nullable=False, comment='账号')
+    bank_name = Column(String(255), comment='银行名称')
+    bank_outlets = Column(String(255), comment='开户行')
+    bank_userphone = Column(String(255), comment='银行预留手机号')
+    total_withdraw = Column(DECIMAL(10, 2), comment='累计提现')
+    status = Column(SmallInteger, server_default='1', comment='状态')
+    auto_memo = Column(String(255), comment='自动备注')
+    user_memo = Column(String(255), comment='用户备注')
+    back_memo = Column(String(255), comment='后台备注')
+    created_at = Column(TIMESTAMP, server_default=text(
+        'CURRENT_TIMESTAMP'), comment='创建时间')
+
+    idx_user_id_type_status = Index('idx_user_id_type_status', user_id, type, status)
+    idx_type_account = Index('idx_type_account', type, account)
+
+    def __repr__(self):
+        return f"<PaymentAccountModel(id={self.id}, user_id='{self.user_id}')>"
+
+
+class WithdrawModel(Base):
+    __tablename__ = 'user_withdraw'
+    __table_args__ = {'mysql_engine': 'InnoDB',
+                      'mariadb_engine': 'InnoDB', 'comment': '提现日志'}
+
+    mysql_charset = 'utf8mb4'
+    mysql_collate = 'utf8mb4_unicode_ci'
+
+    id = Column(Integer, primary_key=True, autoincrement=True, comment='ID')
+    user_id = Column(Integer, nullable=False, comment='用户ID')
+    account_id = Column(Integer, nullable=False, comment='提现账号ID')
+    trade_no = Column(String(32), nullable=False, comment='交易号')
+    amount = Column(DECIMAL(10, 2), nullable=False, comment='提现金额')
+    actual_amount = Column(DECIMAL(10, 2), nullable=False, comment='实际到账')
+    handling_fee = Column(DECIMAL(10, 2), nullable=False, comment='手续费')
+    balance = Column(DECIMAL(10, 2), nullable=False, comment='申请时余额')
+    payment_status = Column(SmallInteger, server_default='0', comment='状态')
+    payment_tool = Column(String(50), comment='支付方式')
+    payment_time = Column(TIMESTAMP, comment='支付时间')
+    payment_response = Column(Text, comment='支付结果')
+    audit_status = Column(SmallInteger, server_default='0', comment='审核状态')
+    audit_user_id = Column(Integer, server_default='0', comment='审核人员ID')
+    audit_user_name = Column(String(100), comment='审核人员姓名')
+    audit_reply = Column(String(255), comment='审核回复')
+    audit_time = Column(TIMESTAMP, comment='审核时间')
+    audit_ip = Column(String(50), comment='审核人员IP地址')
+    user_ip = Column(String(50), comment='用户申请时的IP地址')
+    auto_memo = Column(String(255), comment='自动备注')
+    back_memo = Column(String(255), comment='后台备注')
+    created_at = Column(TIMESTAMP, server_default=text(
+        'CURRENT_TIMESTAMP'), comment='创建时间')
+    updated_at = Column(TIMESTAMP, server_default=text(
+        'CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'), comment='更新时间')
+
+    idx_user_id_payment_status = Index('idx_user_id_payment_status', user_id, payment_status)
+    idx_account_id = Index('idx_account_id', account_id)
+    idx_audit_user_id = Index('idx_audit_user_id', audit_user_id)
+    idx_audit_status = Index('idx_audit_status', audit_status)
+    idx_created_at = Index('idx_created_at', created_at)
+
+    def __repr__(self):
+        return f"<WithdrawModel(id={self.id}, user_id='{self.user_id}')>"
+
+
+class ChenckinModel(Base):
+    __tablename__ = 'user_checkin'
+    __table_args__ = {'mysql_engine': 'InnoDB',
+                      'mariadb_engine': 'InnoDB', 'comment': '签到日志'}
+
+    mysql_charset = 'utf8mb4'
+    mysql_collate = 'utf8mb4_unicode_ci'
+
+    id = Column(Integer, primary_key=True, autoincrement=True, comment='ID')
+    user_id = Column(Integer, nullable=False, comment='用户ID')
+    type = Column(SmallInteger, server_default='1', comment='类型')  # 类型 1:签到, 2:补签
+    total_days = Column(Integer, server_default='0', comment='累计签到天数')
+    keep_days = Column(Integer, server_default='1', comment='连续签到天数')
+    points = Column(Integer, server_default='0', comment='获得积分')
+    related_type = Column(String(100), comment='关联类型')
+    related_id = Column(Integer, server_default='0', comment='关联ID')
+    ip = Column(String(50), comment='IP地址')
+    user_agent = Column(String(500), comment='浏览器信息')
+    created_at = Column(TIMESTAMP, server_default=text(
+        'CURRENT_TIMESTAMP'), comment='创建时间')
+
+    idx_user_id_type = Index('idx_user_id_type', user_id, type)
+    idx_related = Index('idx_related', related_type, related_id)
+
+    def __repr__(self):
+        return f"<ChenckinModel(id={self.id}, user_id='{self.user_id}')>"
