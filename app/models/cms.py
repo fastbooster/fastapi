@@ -108,3 +108,31 @@ class MediaModel(Base):
 
     def __repr__(self):
         return f"<MediaModel(id={self.id}, oss_url='{self.oss_url}')>"
+
+
+class CityModel(Base):
+    __tablename__ = 'cms_city'
+    __table_args__ = {'mysql_engine': 'InnoDB',
+                      'mariadb_engine': 'InnoDB', 'comment': '城市表'}
+
+    mysql_charset = 'utf8mb4'
+    mysql_collate = 'utf8mb4_unicode_ci'
+
+    id = Column(Integer, primary_key=True, autoincrement=True, comment='ID')
+    pid = Column(Integer, nullable=False, server_default='0', comment='上级ID')
+    name = Column(String(50), nullable=False, comment='地区名称')
+    level = Column(SmallInteger, nullable=False, server_default='0', comment='等级:0省或直辖市,1市,2县')
+    pinyin = Column(String(255), comment='拼音')
+    prefix = Column(String(1), comment='拼音首字母缩写')
+    weight = Column(Integer, server_default='0', comment='排序权重')
+    is_hot = Column(SmallInteger, server_default='0', comment='是否为热门:0否,1是')
+    status = Column(SmallInteger, server_default='1', comment='状态:0关闭，1开启')
+
+    idx_pid = Index('idx_pid', pid)
+    idx_is_hot = Index('idx_is_hot', is_hot)
+    idx_status = Index('idx_status', status)
+    idx_name = Index('idx_name', name)
+    idx_pinyin = Index('idx_pinyin', pinyin)
+
+    def __repr__(self):
+        return f"<CityModel(id={self.id}, name='{self.name}')>"

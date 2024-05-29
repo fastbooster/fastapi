@@ -96,6 +96,9 @@ python app/utils/init_role.py
 
 # 3. 初始化用户
 python app/utils/init_user.py
+
+# 4. 初始化城市
+python app/utils/init_city.py
 ```
 
 
