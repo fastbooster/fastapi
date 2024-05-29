@@ -18,13 +18,23 @@ from app.schemas.system_option import OptionSearchQuery, OptionAddForm, OptionEd
 
 
 def safe_whitelist_fields(option_data: dict) -> dict:
-    safe_fields = ['id', 'option_name', 'option_value', 'richtext', 'position']
+    safe_fields = ['option_name', 'option_value']
     return {k: v for k, v in option_data.items() if k in safe_fields}
 
 
 def get_option(id: int) -> SystemOptionModel | None:
     with get_session() as db:
         option = db.query(SystemOptionModel).filter(SystemOptionModel.id == id).first()
+
+    if option is not None:
+        return option
+
+    return None
+
+
+def get_option_by_name(option_name: str) -> SystemOptionModel | None:
+    with get_session() as db:
+        option = db.query(SystemOptionModel).filter(SystemOptionModel.option_name == option_name).first()
 
     if option is not None:
         return option
@@ -75,7 +85,8 @@ def edit_option(params: OptionEditForm) -> bool:
         if option_model is None:
             raise ValueError(f'选项不存在(id={params.id})')
 
-        exists_count = db.query(SystemOptionModel).filter(SystemOptionModel.option_name == params.option_name, SystemOptionModel.id != params.id).count()
+        exists_count = db.query(SystemOptionModel).filter(SystemOptionModel.option_name == params.option_name,
+                                                          SystemOptionModel.id != params.id).count()
         if exists_count > 0:
             raise ValueError('该选项名称已存在')
 
@@ -119,6 +130,7 @@ def rebuild_cache() -> bool:
             for option_model in option_models:
                 update_cache(option_model)
     return True
+
 
 def update_cache(option_model: SystemOptionModel, is_delete: bool = False) -> None:
     if option_model.autoload == 1:
