@@ -42,3 +42,6 @@ REDIS_SMS_CODE_PREFIX = 'sms:code:'
 
 # [hash] 储存文章分类的全部值
 REDIS_POST_CATEGORY = 'post:category'
+
+# 接广告位ID, 存广告资源
+REDIS_AD_PREFIX = 'ad:'

@@ -10,7 +10,7 @@ from fastapi import APIRouter, Depends, UploadFile, File, HTTPException
 
 from app.constants.constants import RESPONSE_OK
 from app.core.security import get_current_user_from_cache, get_current_user_id
-from app.services import upload, sms, system_option, city
+from app.services import upload, sms, system_option, city, ad
 
 router = APIRouter()
 
@@ -57,3 +57,9 @@ async def get_option(option_name: str):
 @router.get('/city/{pid}', summary='获取指定上级行政地区的下级行政地区')
 async def get_option(pid: int):
     return city.get_city_list(pid)
+
+
+@router.get('/ad/{space_id}', summary='获取指定广告位的广告列表')
+def ad_list(space_id: int):
+    items = ad.get_ad_list_from_cache(space_id)
+    return [ad.safe_whitelist_fields(item) for item in items]

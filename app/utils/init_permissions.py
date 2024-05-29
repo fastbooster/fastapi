@@ -58,6 +58,10 @@ def init_permissions():
                 {
                     'name': '文章列表',
                     'component_name': 'PostList',
+                },
+                {
+                    'name': '广告位列表',
+                    'component_name': 'AdSpaceList',
                 }
             ]
         },

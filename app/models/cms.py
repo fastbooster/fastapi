@@ -136,3 +136,61 @@ class CityModel(Base):
 
     def __repr__(self):
         return f"<CityModel(id={self.id}, name='{self.name}')>"
+
+
+class AdSpaceModel(Base):
+    __tablename__ = 'cms_ad_space'
+    __table_args__ = {'mysql_engine': 'InnoDB',
+                      'mariadb_engine': 'InnoDB', 'comment': '广告位'}
+
+    mysql_charset = 'utf8mb4'
+    mysql_collate = 'utf8mb4_unicode_ci'
+
+    id = Column(Integer, primary_key=True, autoincrement=True, comment='ID')
+    name = Column(String(255), nullable=False, comment='广告名称')
+    width = Column(Integer, server_default='0', comment='推荐宽度')
+    height = Column(Integer, server_default='0', comment='推荐高度')
+    status = Column(SmallInteger, server_default='1', comment='状态:0关闭，1开启')
+    created_at = Column(TIMESTAMP, server_default=text(
+        'CURRENT_TIMESTAMP'), comment='创建时间')
+    updated_at = Column(TIMESTAMP, server_default=text(
+        'CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'), comment='更新时间')
+
+    idx_status = Index('idx_status', status)
+    idx_name = Index('idx_name', name)
+
+    def __repr__(self):
+        return f"<AdCategoryModel(id={self.id}, name='{self.name}')>"
+
+
+class AdModel(Base):
+    __tablename__ = 'cms_ad'
+    __table_args__ = {'mysql_engine': 'InnoDB',
+                      'mariadb_engine': 'InnoDB', 'comment': '广告资源'}
+
+    mysql_charset = 'utf8mb4'
+    mysql_collate = 'utf8mb4_unicode_ci'
+
+    id = Column(Integer, primary_key=True, autoincrement=True, comment='ID')
+    space_id = Column(Integer, nullable=False, comment='广告位ID')
+    position = Column(String(255), nullable=False, server_default='left', comment='位置:left|right|center')
+    title = Column(String(255), nullable=False, comment='标题')
+    subtitle = Column(String(255), comment='子标题')
+    description = Column(String(255), comment='描述')
+    content = Column(String(600), comment='详细内容')
+    pc_cover = Column(String(255), comment='PC端封面图')
+    mobile_cover = Column(String(255), comment='移动端封面图')
+    button_title = Column(String(255), comment='按钮标题')
+    button_url = Column(String(255), comment='按钮地址')
+    status = Column(SmallInteger, server_default='1', comment='状态:0关闭，1开启')
+    asc_sort_order = Column(Integer, server_default='0', comment='排序')
+    created_at = Column(TIMESTAMP, server_default=text(
+        'CURRENT_TIMESTAMP'), comment='创建时间')
+    updated_at = Column(TIMESTAMP, server_default=text(
+        'CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'), comment='更新时间')
+
+    idx_status = Index('idx_status', status)
+    idx_space_id = Index('idx_space_id', space_id)
+
+    def __repr__(self):
+        return f"<AdModel(id={self.id}, title='{self.title}')>"
