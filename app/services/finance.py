@@ -140,7 +140,6 @@ def checkin(user_id: int, ip: str, user_agent: str) -> bool:
 
 def get_payment_account_list(params: PaymentAccountSearchQuery) -> list[PaymentAccountModel]:
     export = True if params.export == 1 else False
-    print(params)
     with get_session() as db:
         query = db.query(PaymentAccountModel).order_by(desc('id'))
         if params.id > 0:
@@ -179,7 +178,6 @@ def get_payment_account_list_frontend(params: PaymentAccountFrontendSearchQuery,
             query = query.filter(PaymentAccountModel.account.like(f'%{params.account}%'))
 
         results = query.all()
-        print(results)
 
     list = [result._asdict() for result in results]
     return list
