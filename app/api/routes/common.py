@@ -10,7 +10,7 @@ from fastapi import APIRouter, Depends, UploadFile, File, HTTPException
 
 from app.constants.constants import RESPONSE_OK
 from app.core.security import get_current_user_from_cache, get_current_user_id
-from app.services import upload, sms, system_option
+from app.services import upload, sms, system_option, city
 
 router = APIRouter()
 
@@ -52,3 +52,8 @@ async def get_option(option_name: str):
     if not option:
         raise HTTPException(status_code=404, detail="系统选项不存在")
     return system_option.safe_whitelist_fields(option.__dict__)
+
+
+@router.get('/city/{pid}', summary='获取指定上级行政地区的下级行政地区')
+async def get_option(pid: int):
+    return city.get_city_list(pid)
