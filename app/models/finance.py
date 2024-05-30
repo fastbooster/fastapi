@@ -41,6 +41,38 @@ class BalanceModel(Base):
         return f"<BalanceModel(id={self.id}, user_id='{self.user_id}')>"
 
 
+class BalanceGiftModel(Base):
+    __tablename__ = 'user_balance_gif'
+    __table_args__ = {'mysql_engine': 'InnoDB',
+                      'mariadb_engine': 'InnoDB', 'comment': '赠送余额日志'}
+
+    mysql_charset = 'utf8mb4'
+    mysql_collate = 'utf8mb4_unicode_ci'
+
+    id = Column(Integer, primary_key=True, autoincrement=True, comment='ID')
+    type = Column(SmallInteger, nullable=False, comment='动账类型')
+    user_id = Column(Integer, nullable=False, comment='用户ID')
+    # related_id 与 type 字段一起可确认关联模型，单独看此字段没有意义
+    related_id = Column(Integer, server_default='0', comment='关联ID')
+    amount = Column(DECIMAL(10, 4), nullable=False, comment='动账金额')
+    balance = Column(DECIMAL(10, 4), nullable=False, comment='当前余额')
+    ip = Column(String(50), comment='IP')
+    hash = Column(String(32), comment='校验码')
+    auto_memo = Column(String(255), comment='自动备注')
+    back_memo = Column(String(255), comment='后台备注')
+    created_at = Column(TIMESTAMP, server_default=text(
+        'CURRENT_TIMESTAMP'), comment='创建时间')
+    updated_at = Column(TIMESTAMP, server_default=text(
+        'CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'), comment='更新时间')
+
+    idx_user_id_type = Index('idx_user_id_type', user_id, type)
+    idx_type_related_id = Index('idx_type_related_id', type, related_id)
+    idx_user_id_created_at = Index('idx_user_id_created_at', user_id, created_at)
+
+    def __repr__(self):
+        return f"<BalanceGiftModel(id={self.id}, user_id='{self.user_id}')>"
+
+
 class PointModel(Base):
     __tablename__ = 'user_point'
     __table_args__ = {'mysql_engine': 'InnoDB',
@@ -175,3 +207,107 @@ class ChenckinModel(Base):
 
     def __repr__(self):
         return f"<ChenckinModel(id={self.id}, user_id='{self.user_id}')>"
+
+
+class BalanceRechargeModel(Base):
+    __tablename__ = 'user_balance_recharge'
+    __table_args__ = {'mysql_engine': 'InnoDB',
+                      'mariadb_engine': 'InnoDB', 'comment': '余额充值日志'}
+
+    mysql_charset = 'utf8mb4'
+    mysql_collate = 'utf8mb4_unicode_ci'
+
+    id = Column(Integer, primary_key=True, autoincrement=True, comment='ID')
+    user_id = Column(Integer, nullable=False, comment='用户ID')
+    trade_no = Column(String(32), nullable=False, comment='交易号')
+
+    amount = Column(DECIMAL(10, 2), nullable=False, comment='充值数量')
+    gift_amount = Column(DECIMAL(10, 2), server_default='0', comment='赠送数量')
+    refund_amount = Column(DECIMAL(10, 2), server_default='0', comment='退款数量')
+    refund_gift_amount = Column(DECIMAL(10, 2), server_default='0', comment='退款赠送数量')
+
+    # 支付状态：0 创建成功/未支付（只有此种状态才能继续执行支付）1 支付成功, 2 支付失败, 3 交易关闭，4 退款中, 5 部分退款, 6 已退全款
+    payment_status = Column(SmallInteger, server_default='0', comment='状态')
+    payment_tool = Column(String(50), comment='支付方式')
+    payment_time = Column(TIMESTAMP, comment='支付时间')
+    payment_response = Column(Text, comment='支付结果')
+    refund_response = Column(Text, comment='退款结果')
+
+    # 退款审核
+    audit_user_id = Column(Integer, server_default='0', comment='审核人员ID')
+    audit_user_name = Column(String(100), comment='审核人员姓名')
+    audit_reply = Column(String(255), comment='审核回复')
+    audit_time = Column(TIMESTAMP, comment='审核时间')
+    audit_ip = Column(String(50), comment='审核人员IP地址')
+
+    user_ip = Column(String(50), comment='用户充值时的IP地址')
+    auto_memo = Column(String(255), comment='自动备注')
+    back_memo = Column(String(255), comment='后台备注')
+    created_at = Column(TIMESTAMP, server_default=text(
+        'CURRENT_TIMESTAMP'), comment='创建时间')
+    updated_at = Column(TIMESTAMP, server_default=text(
+        'CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'), comment='更新时间')
+
+    idx_user_id_payment_status = Index('idx_user_id_payment_status', user_id, payment_status)
+    idx_user_id = Index('idx_user_id', user_id)
+    idx_payment_status = Index('idx_payment_status', payment_status)
+    idx_trade_no = Index('idx_trade_no', trade_no, unique=True)
+    idx_payment_tool = Index('idx_payment_tool', payment_tool)
+    idx_audit_user_id = Index('idx_audit_user_id', audit_user_id)
+    idx_created_at = Index('idx_created_at', created_at)
+
+    def __repr__(self):
+        return f"<BalanceRechargeModel(id={self.id}, user_id='{self.user_id}')>"
+
+
+class PointRechargeModel(Base):
+    __tablename__ = 'user_point_recharge'
+    __table_args__ = {'mysql_engine': 'InnoDB',
+                      'mariadb_engine': 'InnoDB', 'comment': '积分充值日志'}
+
+    mysql_charset = 'utf8mb4'
+    mysql_collate = 'utf8mb4_unicode_ci'
+
+    id = Column(Integer, primary_key=True, autoincrement=True, comment='ID')
+    user_id = Column(Integer, nullable=False, comment='用户ID')
+    trade_no = Column(String(32), nullable=False, comment='交易号')
+
+    amount = Column(DECIMAL(10, 2), nullable=False, comment='充值金额')
+    points = Column(Integer, nullable=False, comment='充值数量')
+    gift_points = Column(Integer, server_default='0', comment='赠送数量')
+    refund_amount = Column(DECIMAL(10, 2), server_default='0', comment='退款金额')
+    refund_points = Column(Integer, server_default='0', comment='退款数量')
+    refund_gift_points = Column(Integer, server_default='0', comment='退款赠送数量')
+
+    # 支付状态：0 创建成功/未支付（只有此种状态才能继续执行支付）1 支付成功, 2 支付失败, 3 交易关闭，4 退款中, 5 部分退款, 6 已退全款
+    payment_status = Column(SmallInteger, server_default='0', comment='状态')
+    payment_tool = Column(String(50), comment='支付方式')
+    payment_time = Column(TIMESTAMP, comment='支付时间')
+    payment_response = Column(Text, comment='支付结果')
+    refund_response = Column(Text, comment='退款结果')
+
+    # 退款审核
+    audit_user_id = Column(Integer, server_default='0', comment='审核人员ID')
+    audit_user_name = Column(String(100), comment='审核人员姓名')
+    audit_reply = Column(String(255), comment='审核回复')
+    audit_time = Column(TIMESTAMP, comment='审核时间')
+    audit_ip = Column(String(50), comment='审核人员IP地址')
+
+    user_ip = Column(String(50), comment='用户充值时的IP地址')
+    auto_memo = Column(String(255), comment='自动备注')
+    back_memo = Column(String(255), comment='后台备注')
+    created_at = Column(TIMESTAMP, server_default=text(
+        'CURRENT_TIMESTAMP'), comment='创建时间')
+    updated_at = Column(TIMESTAMP, server_default=text(
+        'CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'), comment='更新时间')
+
+    idx_user_id_payment_status = Index('idx_user_id_payment_status', user_id, payment_status)
+    idx_user_id = Index('idx_user_id', user_id)
+    idx_payment_status = Index('idx_payment_status', payment_status)
+    idx_trade_no = Index('idx_trade_no', trade_no, unique=True)
+    idx_payment_tool = Index('idx_payment_tool', payment_tool)
+    idx_audit_user_id = Index('idx_audit_user_id', audit_user_id)
+    idx_created_at = Index('idx_created_at', created_at)
+
+    def __repr__(self):
+        return f"<PointRechargeModel(id={self.id}, user_id='{self.user_id}')>"

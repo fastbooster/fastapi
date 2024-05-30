@@ -1,8 +1,8 @@
 """Init
 
-Revision ID: e0f5429611fb
+Revision ID: de0b825c92f0
 Revises: 
-Create Date: 2024-05-29 17:28:58.023800
+Create Date: 2024-05-30 11:52:48.611352
 
 """
 from typing import Sequence, Union
@@ -12,7 +12,7 @@ import sqlalchemy as sa
 from sqlalchemy.dialects import mysql
 
 # revision identifiers, used by Alembic.
-revision: str = 'e0f5429611fb'
+revision: str = 'de0b825c92f0'
 down_revision: Union[str, None] = None
 branch_labels: Union[str, Sequence[str], None] = None
 depends_on: Union[str, Sequence[str], None] = None
@@ -143,7 +143,7 @@ def upgrade() -> None:
     mariadb_engine='InnoDB',
     mysql_engine='InnoDB'
     )
-    op.create_index('idx_name', 'cms_post_category', ['alias'], unique=True)
+    op.create_index('idx_name', 'cms_post_category', ['name'], unique=False)
     op.create_table('system_option',
     sa.Column('id', sa.Integer(), autoincrement=True, nullable=False, comment='ID'),
     sa.Column('option_name', sa.String(length=32), nullable=True, comment='选项名称'),
@@ -224,6 +224,62 @@ def upgrade() -> None:
     op.create_index('idx_type_related_id', 'user_balance', ['type', 'related_id'], unique=False)
     op.create_index('idx_user_id_created_at', 'user_balance', ['user_id', 'created_at'], unique=False)
     op.create_index('idx_user_id_type', 'user_balance', ['user_id', 'type'], unique=False)
+    op.create_table('user_balance_gif',
+    sa.Column('id', sa.Integer(), autoincrement=True, nullable=False, comment='ID'),
+    sa.Column('type', sa.SmallInteger(), nullable=False, comment='动账类型'),
+    sa.Column('user_id', sa.Integer(), nullable=False, comment='用户ID'),
+    sa.Column('related_id', sa.Integer(), server_default='0', nullable=True, comment='关联ID'),
+    sa.Column('amount', sa.DECIMAL(precision=10, scale=4), nullable=False, comment='动账金额'),
+    sa.Column('balance', sa.DECIMAL(precision=10, scale=4), nullable=False, comment='当前余额'),
+    sa.Column('ip', sa.String(length=50), nullable=True, comment='IP'),
+    sa.Column('hash', sa.String(length=32), nullable=True, comment='校验码'),
+    sa.Column('auto_memo', sa.String(length=255), nullable=True, comment='自动备注'),
+    sa.Column('back_memo', sa.String(length=255), nullable=True, comment='后台备注'),
+    sa.Column('created_at', sa.TIMESTAMP(), server_default=sa.text('CURRENT_TIMESTAMP'), nullable=True, comment='创建时间'),
+    sa.Column('updated_at', sa.TIMESTAMP(), server_default=sa.text('CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'), nullable=True, comment='更新时间'),
+    sa.PrimaryKeyConstraint('id'),
+    comment='赠送余额日志',
+    mariadb_engine='InnoDB',
+    mysql_engine='InnoDB'
+    )
+    op.create_index('idx_type_related_id', 'user_balance_gif', ['type', 'related_id'], unique=False)
+    op.create_index('idx_user_id_created_at', 'user_balance_gif', ['user_id', 'created_at'], unique=False)
+    op.create_index('idx_user_id_type', 'user_balance_gif', ['user_id', 'type'], unique=False)
+    op.create_table('user_balance_recharge',
+    sa.Column('id', sa.Integer(), autoincrement=True, nullable=False, comment='ID'),
+    sa.Column('user_id', sa.Integer(), nullable=False, comment='用户ID'),
+    sa.Column('trade_no', sa.String(length=32), nullable=False, comment='交易号'),
+    sa.Column('amount', sa.DECIMAL(precision=10, scale=2), nullable=False, comment='充值数量'),
+    sa.Column('gift_amount', sa.DECIMAL(precision=10, scale=2), server_default='0', nullable=True, comment='赠送数量'),
+    sa.Column('refund_amount', sa.DECIMAL(precision=10, scale=2), server_default='0', nullable=True, comment='退款数量'),
+    sa.Column('refund_gift_amount', sa.DECIMAL(precision=10, scale=2), server_default='0', nullable=True, comment='退款赠送数量'),
+    sa.Column('payment_status', sa.SmallInteger(), server_default='0', nullable=True, comment='状态'),
+    sa.Column('payment_tool', sa.String(length=50), nullable=True, comment='支付方式'),
+    sa.Column('payment_time', sa.TIMESTAMP(), nullable=True, comment='支付时间'),
+    sa.Column('payment_response', sa.Text(), nullable=True, comment='支付结果'),
+    sa.Column('refund_response', sa.Text(), nullable=True, comment='退款结果'),
+    sa.Column('audit_user_id', sa.Integer(), server_default='0', nullable=True, comment='审核人员ID'),
+    sa.Column('audit_user_name', sa.String(length=100), nullable=True, comment='审核人员姓名'),
+    sa.Column('audit_reply', sa.String(length=255), nullable=True, comment='审核回复'),
+    sa.Column('audit_time', sa.TIMESTAMP(), nullable=True, comment='审核时间'),
+    sa.Column('audit_ip', sa.String(length=50), nullable=True, comment='审核人员IP地址'),
+    sa.Column('user_ip', sa.String(length=50), nullable=True, comment='用户充值时的IP地址'),
+    sa.Column('auto_memo', sa.String(length=255), nullable=True, comment='自动备注'),
+    sa.Column('back_memo', sa.String(length=255), nullable=True, comment='后台备注'),
+    sa.Column('created_at', sa.TIMESTAMP(), server_default=sa.text('CURRENT_TIMESTAMP'), nullable=True, comment='创建时间'),
+    sa.Column('updated_at', sa.TIMESTAMP(), server_default=sa.text('CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'), nullable=True, comment='更新时间'),
+    sa.PrimaryKeyConstraint('id'),
+    comment='余额充值日志',
+    mariadb_engine='InnoDB',
+    mysql_engine='InnoDB'
+    )
+    op.create_index('idx_audit_user_id', 'user_balance_recharge', ['audit_user_id'], unique=False)
+    op.create_index('idx_created_at', 'user_balance_recharge', ['created_at'], unique=False)
+    op.create_index('idx_payment_status', 'user_balance_recharge', ['payment_status'], unique=False)
+    op.create_index('idx_payment_tool', 'user_balance_recharge', ['payment_tool'], unique=False)
+    op.create_index('idx_trade_no', 'user_balance_recharge', ['trade_no'], unique=True)
+    op.create_index('idx_user_id', 'user_balance_recharge', ['user_id'], unique=False)
+    op.create_index('idx_user_id_payment_status', 'user_balance_recharge', ['user_id', 'payment_status'], unique=False)
     op.create_table('user_checkin',
     sa.Column('id', sa.Integer(), autoincrement=True, nullable=False, comment='ID'),
     sa.Column('user_id', sa.Integer(), nullable=False, comment='用户ID'),
@@ -325,6 +381,43 @@ def upgrade() -> None:
     op.create_index('idx_type_related_id', 'user_point', ['type', 'related_id'], unique=False)
     op.create_index('idx_user_id_created_at', 'user_point', ['user_id', 'created_at'], unique=False)
     op.create_index('idx_user_id_type', 'user_point', ['user_id', 'type'], unique=False)
+    op.create_table('user_point_recharge',
+    sa.Column('id', sa.Integer(), autoincrement=True, nullable=False, comment='ID'),
+    sa.Column('user_id', sa.Integer(), nullable=False, comment='用户ID'),
+    sa.Column('trade_no', sa.String(length=32), nullable=False, comment='交易号'),
+    sa.Column('amount', sa.DECIMAL(precision=10, scale=2), nullable=False, comment='充值金额'),
+    sa.Column('points', sa.Integer(), nullable=False, comment='充值数量'),
+    sa.Column('gift_points', sa.Integer(), server_default='0', nullable=True, comment='赠送数量'),
+    sa.Column('refund_amount', sa.DECIMAL(precision=10, scale=2), server_default='0', nullable=True, comment='退款金额'),
+    sa.Column('refund_points', sa.Integer(), server_default='0', nullable=True, comment='退款数量'),
+    sa.Column('refund_gift_points', sa.Integer(), server_default='0', nullable=True, comment='退款赠送数量'),
+    sa.Column('payment_status', sa.SmallInteger(), server_default='0', nullable=True, comment='状态'),
+    sa.Column('payment_tool', sa.String(length=50), nullable=True, comment='支付方式'),
+    sa.Column('payment_time', sa.TIMESTAMP(), nullable=True, comment='支付时间'),
+    sa.Column('payment_response', sa.Text(), nullable=True, comment='支付结果'),
+    sa.Column('refund_response', sa.Text(), nullable=True, comment='退款结果'),
+    sa.Column('audit_user_id', sa.Integer(), server_default='0', nullable=True, comment='审核人员ID'),
+    sa.Column('audit_user_name', sa.String(length=100), nullable=True, comment='审核人员姓名'),
+    sa.Column('audit_reply', sa.String(length=255), nullable=True, comment='审核回复'),
+    sa.Column('audit_time', sa.TIMESTAMP(), nullable=True, comment='审核时间'),
+    sa.Column('audit_ip', sa.String(length=50), nullable=True, comment='审核人员IP地址'),
+    sa.Column('user_ip', sa.String(length=50), nullable=True, comment='用户充值时的IP地址'),
+    sa.Column('auto_memo', sa.String(length=255), nullable=True, comment='自动备注'),
+    sa.Column('back_memo', sa.String(length=255), nullable=True, comment='后台备注'),
+    sa.Column('created_at', sa.TIMESTAMP(), server_default=sa.text('CURRENT_TIMESTAMP'), nullable=True, comment='创建时间'),
+    sa.Column('updated_at', sa.TIMESTAMP(), server_default=sa.text('CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'), nullable=True, comment='更新时间'),
+    sa.PrimaryKeyConstraint('id'),
+    comment='积分充值日志',
+    mariadb_engine='InnoDB',
+    mysql_engine='InnoDB'
+    )
+    op.create_index('idx_audit_user_id', 'user_point_recharge', ['audit_user_id'], unique=False)
+    op.create_index('idx_created_at', 'user_point_recharge', ['created_at'], unique=False)
+    op.create_index('idx_payment_status', 'user_point_recharge', ['payment_status'], unique=False)
+    op.create_index('idx_payment_tool', 'user_point_recharge', ['payment_tool'], unique=False)
+    op.create_index('idx_trade_no', 'user_point_recharge', ['trade_no'], unique=True)
+    op.create_index('idx_user_id', 'user_point_recharge', ['user_id'], unique=False)
+    op.create_index('idx_user_id_payment_status', 'user_point_recharge', ['user_id', 'payment_status'], unique=False)
     op.create_table('user_role',
     sa.Column('id', sa.Integer(), autoincrement=True, nullable=False, comment='ID'),
     sa.Column('name', sa.String(length=50), nullable=False, comment='角色名称'),
@@ -382,6 +475,14 @@ def downgrade() -> None:
     op.drop_index('idx_account_id', table_name='user_withdraw')
     op.drop_table('user_withdraw')
     op.drop_table('user_role')
+    op.drop_index('idx_user_id_payment_status', table_name='user_point_recharge')
+    op.drop_index('idx_user_id', table_name='user_point_recharge')
+    op.drop_index('idx_trade_no', table_name='user_point_recharge')
+    op.drop_index('idx_payment_tool', table_name='user_point_recharge')
+    op.drop_index('idx_payment_status', table_name='user_point_recharge')
+    op.drop_index('idx_created_at', table_name='user_point_recharge')
+    op.drop_index('idx_audit_user_id', table_name='user_point_recharge')
+    op.drop_table('user_point_recharge')
     op.drop_index('idx_user_id_type', table_name='user_point')
     op.drop_index('idx_user_id_created_at', table_name='user_point')
     op.drop_index('idx_type_related_id', table_name='user_point')
@@ -396,6 +497,18 @@ def downgrade() -> None:
     op.drop_index('idx_user_id_type', table_name='user_checkin')
     op.drop_index('idx_related', table_name='user_checkin')
     op.drop_table('user_checkin')
+    op.drop_index('idx_user_id_payment_status', table_name='user_balance_recharge')
+    op.drop_index('idx_user_id', table_name='user_balance_recharge')
+    op.drop_index('idx_trade_no', table_name='user_balance_recharge')
+    op.drop_index('idx_payment_tool', table_name='user_balance_recharge')
+    op.drop_index('idx_payment_status', table_name='user_balance_recharge')
+    op.drop_index('idx_created_at', table_name='user_balance_recharge')
+    op.drop_index('idx_audit_user_id', table_name='user_balance_recharge')
+    op.drop_table('user_balance_recharge')
+    op.drop_index('idx_user_id_type', table_name='user_balance_gif')
+    op.drop_index('idx_user_id_created_at', table_name='user_balance_gif')
+    op.drop_index('idx_type_related_id', table_name='user_balance_gif')
+    op.drop_table('user_balance_gif')
     op.drop_index('idx_user_id_type', table_name='user_balance')
     op.drop_index('idx_user_id_created_at', table_name='user_balance')
     op.drop_index('idx_type_related_id', table_name='user_balance')
