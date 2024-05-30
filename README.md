@@ -18,7 +18,9 @@
 |   |-- services            // 服务类 (CRUD+)
 |   |-- tasks               // 异步任务 (Celery)
 |   |-- utils               // 助手工具
-|   ...                     // 待完善...
+|-- docker                  // Docker镜像配置卷
+|-- volumes                 // Docker容器数据卷
+|-- scripts                 // 助手脚本目录
 ```
 
 
@@ -36,7 +38,8 @@ python start.py
 
 ```shell
 cp -r ./.env.example .env
-docker compose -p <proj_name> down
+docker compose -p <proj_name> down # 执行此命令后，如果有修改数据库配置，记得删除 volumes/mysql/* 目录, 否者可能连接不上数据库
+docker compose -p <proj_name> -f docker-compose-dev.yml up -d --build
 docker compose -p <proj_name> -f docker-compose.yml up -d --build
 ```
 

@@ -16,3 +16,11 @@ app.egg-info
 .DS_Store
 Thumbs.db
 celerybeat-schedule.db
+
+# Docker 相关
+volumes/*
+!volumes/.gitkeep
+backups/*
+!backups/.gitkeep
+docker/nginx/cert/*
+!docker/nginx/cert/.gitkeep
