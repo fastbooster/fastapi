@@ -11,10 +11,10 @@ from datetime import datetime, timedelta
 from app.core.mysql import get_session
 from app.core.redis import get_redis
 from app.core.log import logger
-from app.models.finance import BalanceModel, PointModel, ChenckinModel, PaymentAccountModel
+from app.models.finance import BalanceModel, BalanceGiftModel, PointModel, ChenckinModel, PaymentAccountModel
 from app.schemas.finance import SearchQuery, AdjustForm, CheckinType, PointType, PaymentAccountSearchQuery, \
     PaymentAccountFrontendSearchQuery, PaymentAccountAddForm, PaymentAccountEditForm
-from app.tasks.finance import handle_balance, handle_point
+from app.tasks.finance import handle_balance, handle_balance_gift, handle_point
 from app.constants.constants import REDIS_SYSTEM_OPTIONS_AUTOLOAD
 
 
@@ -29,6 +29,23 @@ def get_balance_list(params: SearchQuery) -> list[BalanceModel]:
         query = db.query(BalanceModel).order_by(desc('id'))
         if params.user_id > 0:
             query = query.filter_by(user_id=params.user_id)
+        if params.type > 0:
+            query = query.filter_by(type=params.type)
+        if not export:
+            offset = (params.page - 1) * params.size
+            query.offset(offset).limit(params.size)
+
+    return query.all()
+
+
+def get_balance_gift_list(params: SearchQuery) -> list[BalanceGiftModel]:
+    export = True if params.export == 1 else False
+    with get_session() as db:
+        query = db.query(BalanceGiftModel).order_by(desc('id'))
+        if params.user_id > 0:
+            query = query.filter_by(user_id=params.user_id)
+        if params.type > 0:
+            query = query.filter_by(type=params.type)
         if not export:
             offset = (params.page - 1) * params.size
             query.offset(offset).limit(params.size)
@@ -42,6 +59,8 @@ def get_point_list(params: SearchQuery) -> list[PointModel]:
         query = db.query(PointModel).order_by(desc('id'))
         if params.user_id > 0:
             query = query.filter_by(user_id=params.user_id)
+        if params.type > 0:
+            query = query.filter_by(type=params.type)
         if not export:
             offset = (params.page - 1) * params.size
             query.offset(offset).limit(params.size)
@@ -62,6 +81,23 @@ def adjust_balance(params: AdjustForm, user_data: dict) -> bool:
     }
     result = handle_balance.delay(data)
     logger.info(f'发送余额动账任务:{result.id}', extra=data)
+
+    return True
+
+
+def adjust_balance_gift(params: AdjustForm, user_data: dict) -> bool:
+    data = {
+        'type': params.type.value,
+        'user_id': params.user_id,
+        'related_id': params.related_id,
+        'amount': params.amount,
+        'balance': 0,
+        'auto_memo': params.auto_memo,
+        'back_memo': f"{user_data['nickname']}({user_data['id']})",
+        'ip': params.ip,
+    }
+    result = handle_balance_gift.delay(data)
+    logger.info(f'发送赠送余额动账任务:{result.id}', extra=data)
 
     return True
 

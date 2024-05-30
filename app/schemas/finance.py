@@ -16,23 +16,27 @@ from app.schemas.schemas import PaginationParams
 class BalancType(Enum):
     '''余额类别 正数为收入, 负数为支出/提现'''
     TYPE_RECHARGE = 1  # 充值
-    TYPE_WITHDRAW_ROLLBACK = 2  # 提现被拒绝时, 资金返回用户余额
+    TYPE_RECHARGE_GIFT = 2  # 充值赠送
+    TYPE_WITHDRAW_REFUND = 3  # 提现被拒绝时, 资金返回用户余额
+    TYPE_PAY_REFUND = 9  # 余额支付退款
     TYPE_ADD = 99  # 后台增加余额
-    TYPE_WITHDRAW = -1  # 提现
-    TYPE_BALANCE_PAY = -2  # 余额支付
+    TYPE_RECHARGE_REFUND = -1  # 充值退款
+    TYPE_WITHDRAW = -3  # 提现
+    TYPE_PAY = -9  # 余额支付
     TYPE_DEDUCTION = -99  # 后台扣除余额
 
 
 class PointType(Enum):
     '''积分类别 正数为收入, 负数为支出'''
     TYPE_RECHARGE = 1  # 充值
-    TYPE_CHECKIN = 2  # 签到获得积分
-    TYPE_PULL_NEW = 3  # 拉新获得积分
-    TYPE_PULL_NEW_CHECKIN = 4  # 新用户签到, 上级用户获得积分
-    TYPE_REFUND = 5  # 退款加积分
+    TYPE_RECHARGE_GIFT = 2  # 充值赠送
+    TYPE_CHECKIN = 3  # 签到获得积分
+    TYPE_PULL_NEW = 4  # 拉新获得积分
+    TYPE_PULL_NEW_CHECKIN = 5  # 新用户签到, 上级用户获得积分
+    TYPE_PAY_REFUND = 9  # 积分支付退款
     TYPE_ADD = 99  # 后台增加积分
-    TYPE_EXCHANGE = -1  # 积分兑换
-    TYPE_RECHARGE_REFUND = -2  # 充值退款
+    TYPE_RECHARGE_REFUND = -1  # 充值退款
+    TYPE_PAY = -9  # 积分支付
     TYPE_DEDUCTION = -99  # 后台扣除积分
 
 
@@ -48,7 +52,8 @@ class PaymentAccountType(Enum):
 
 
 class SearchQuery(PaginationParams):
-    user_id: int
+    user_id: Optional[int] = 0
+    type: Optional[int] = 0
 
 
 class AdjustForm(BaseModel):
@@ -65,6 +70,13 @@ class AdjustForm(BaseModel):
     def validate_amount(cls, value):
         if value == 0:
             raise ValueError('金额不能为0')
+        return value
+
+    # type 只支持99和-99
+    @validator('type')
+    def validate_type(cls, value):
+        if value not in [BalancType.TYPE_ADD, BalancType.TYPE_DEDUCTION]:
+            raise ValueError('类型错误')
         return value
 
 
