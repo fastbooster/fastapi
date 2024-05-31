@@ -7,13 +7,13 @@
 
 from datetime import datetime
 from enum import Enum
-from pydantic import BaseModel, PositiveInt, validator
+from pydantic import BaseModel, PositiveInt, validator, conint, confloat
 from typing import Optional
 
 from app.schemas.schemas import PaginationParams
 
 
-class BalancType(Enum):
+class BalanceType(Enum):
     '''余额类别 正数为收入, 负数为支出/提现'''
     TYPE_RECHARGE = 1  # 充值
     TYPE_RECHARGE_GIFT = 2  # 充值赠送
@@ -58,7 +58,7 @@ class SearchQuery(PaginationParams):
 
 class AdjustForm(BaseModel):
     user_id: PositiveInt
-    type: BalancType
+    type: BalanceType
     amount: int | float
     related_id: Optional[int] = int(datetime.now().timestamp())
     ip: Optional[str] = None
@@ -75,7 +75,7 @@ class AdjustForm(BaseModel):
     # type 只支持99和-99
     @validator('type')
     def validate_type(cls, value):
-        if value not in [BalancType.TYPE_ADD, BalancType.TYPE_DEDUCTION]:
+        if value not in [BalanceType.TYPE_ADD, BalanceType.TYPE_DEDUCTION]:
             raise ValueError('类型错误')
         return value
 
@@ -120,3 +120,24 @@ class PaymentAccountAddForm(BaseModel):
 
 class PaymentAccountEditForm(PaymentAccountAddForm):
     id: int
+
+
+class PointRechargeSettingForm(BaseModel):
+    amount: conint(gt=0)
+    gift_amount: conint(ge=0)
+    original_price: confloat(ge=0)
+    price: confloat(gt=0)
+    desc: Optional[str] = None
+
+    @validator('price')
+    def validate_price(cls, value, values):
+        # 这里values只会包含当前字段之前的其他字段, 要注意字段的顺序
+        original_price = values.get('original_price')
+        if original_price is not None and value > original_price:
+            raise ValueError('价格不能大于原价')
+        return value
+
+
+class BalanceRechargeSettingForm(PointRechargeSettingForm):
+    amount: conint(gt=0) | confloat(gt=0)
+    gift_amount: conint(ge=0) | confloat(ge=0)

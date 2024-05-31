@@ -8,11 +8,12 @@
 from loguru import logger
 
 from fastapi import APIRouter, HTTPException, Depends, Request
+from typing import List
 
 from app.core.security import check_permission, get_current_user_from_cache
 from app.services import finance as FinanceService
 
-from app.schemas.finance import SearchQuery, AdjustForm, PaymentAccountSearchQuery
+from app.schemas.finance import SearchQuery, AdjustForm, PaymentAccountSearchQuery, PointRechargeSettingForm, BalanceRechargeSettingForm
 from app.constants.constants import RESPONSE_OK
 
 router = APIRouter()
@@ -42,8 +43,8 @@ def adjust_balance(params: AdjustForm, request: Request, user_data: dict = Depen
     except ValueError as e:
         raise HTTPException(status_code=400, detail=f'{e}')
     except Exception as e:
-        logger.error(f'调整余额余额：{e}')
-        raise HTTPException(status_code=500, detail='调整余额余额')
+        logger.error(f'调整余额余额失败：{e}')
+        raise HTTPException(status_code=500, detail='调整余额余额失败')
     return RESPONSE_OK
 
 
@@ -56,8 +57,8 @@ def adjust_balance(params: AdjustForm, request: Request, user_data: dict = Depen
     except ValueError as e:
         raise HTTPException(status_code=400, detail=f'{e}')
     except Exception as e:
-        logger.error(f'调整赠送余额余额：{e}')
-        raise HTTPException(status_code=500, detail='调整赠送余额余额')
+        logger.error(f'调整赠送余额余额失败：{e}')
+        raise HTTPException(status_code=500, detail='调整赠送余额余额失败')
     return RESPONSE_OK
 
 
@@ -69,11 +70,47 @@ def adjust_point(params: AdjustForm, user_data: dict = Depends(get_current_user_
     except ValueError as e:
         raise HTTPException(status_code=400, detail=f'{e}')
     except Exception as e:
-        logger.error(f'调整积分余额：{e}')
-        raise HTTPException(status_code=500, detail='调整积分余额')
+        logger.error(f'调整积分余额失败：{e}')
+        raise HTTPException(status_code=500, detail='调整积分余额失败')
     return RESPONSE_OK
 
 
 @router.get("/finance/payment_account", dependencies=[Depends(check_permission('UserList'))], summary="支付账号列表")
 def get_payment_account_list(params: PaymentAccountSearchQuery = Depends()):
     return FinanceService.get_payment_account_list(params)
+
+
+@router.get("/finance/point_recharge_setting", dependencies=[Depends(check_permission('UserList'))], summary="获取积分充值价格设置")
+def get_point_recharge_setting():
+    return FinanceService.get_point_recharge_setting()
+
+
+@router.post("/finance/point_recharge_setting", dependencies=[Depends(check_permission('UserList'))],
+             summary="更新积分充值价格设置")
+def adjust_point(settings: List[PointRechargeSettingForm]):
+    try:
+        FinanceService.update_point_recharge_settings(settings)
+    except ValueError as e:
+        raise HTTPException(status_code=400, detail=f'{e}')
+    except Exception as e:
+        logger.error(f'更新积分充值价格设置失败：{e}')
+        raise HTTPException(status_code=500, detail='更新积分充值价格设置失败')
+    return RESPONSE_OK
+
+
+@router.get("/finance/balance_recharge_setting", dependencies=[Depends(check_permission('UserList'))], summary="获取余额充值价格设置")
+def get_balance_recharge_setting():
+    return FinanceService.get_balance_recharge_setting()
+
+
+@router.post("/finance/balance_recharge_setting", dependencies=[Depends(check_permission('UserList'))],
+             summary="更新余额充值价格设置")
+def adjust_point(settings: List[BalanceRechargeSettingForm]):
+    try:
+        FinanceService.update_balance_recharge_settings(settings)
+    except ValueError as e:
+        raise HTTPException(status_code=400, detail=f'{e}')
+    except Exception as e:
+        logger.error(f'更新余额充值价格设置失败：{e}')
+        raise HTTPException(status_code=500, detail='更新余额充值价格设置失败')
+    return RESPONSE_OK

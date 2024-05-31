@@ -7,7 +7,7 @@
 
 from app.core.single_celery import app_single
 from app.core.mysql import get_session
-from app.schemas.finance import BalancType, PointType
+from app.schemas.finance import BalanceType, PointType
 from app.models.finance import BalanceModel, BalanceGiftModel, PointModel
 from app.core.log import logger
 
@@ -18,7 +18,7 @@ def handle_balance(data: dict):
     task_id = handle_balance.request.id
     try:
         with get_session() as db:
-            if data['type'] == BalancType.TYPE_RECHARGE.value:
+            if data['type'] == BalanceType.TYPE_RECHARGE.value:
                 result = db.query(BalanceModel).filter(BalanceModel.user_id == data['user_id'],
                                                        BalanceModel.related_id == data['related_id']).first()
                 if result:
@@ -48,7 +48,7 @@ def handle_balance_gift(data: dict):
     task_id = handle_balance.request.id
     try:
         with get_session() as db:
-            if data['type'] == BalancType.TYPE_RECHARGE_GIFT.value:
+            if data['type'] == BalanceType.TYPE_RECHARGE_GIFT.value:
                 result = db.query(BalanceGiftModel).filter(BalanceGiftModel.user_id == data['user_id'],
                                                            BalanceGiftModel.related_id == data['related_id']).first()
                 if result:

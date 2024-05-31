@@ -5,17 +5,22 @@
 # Email: qiuyutang@qq.com
 # Time: 2024/5/21 11:52
 
+import json
 from sqlalchemy.sql.expression import desc
 from datetime import datetime, timedelta
+from typing import List
 
 from app.core.mysql import get_session
 from app.core.redis import get_redis
 from app.core.log import logger
 from app.models.finance import BalanceModel, BalanceGiftModel, PointModel, ChenckinModel, PaymentAccountModel
+from app.models.system_option import SystemOptionModel
 from app.schemas.finance import SearchQuery, AdjustForm, CheckinType, PointType, PaymentAccountSearchQuery, \
-    PaymentAccountFrontendSearchQuery, PaymentAccountAddForm, PaymentAccountEditForm
+    PaymentAccountFrontendSearchQuery, PaymentAccountAddForm, PaymentAccountEditForm, PointRechargeSettingForm, \
+    BalanceRechargeSettingForm
 from app.tasks.finance import handle_balance, handle_balance_gift, handle_point
 from app.constants.constants import REDIS_SYSTEM_OPTIONS_AUTOLOAD
+from app.services import system_option as SystemOptionService
 
 
 def safe_whitelist_fields(post_data: dict) -> dict:
@@ -272,5 +277,67 @@ def delete_payment_account(id: int, user_id: int) -> bool:
 
         db.delete(payment_account_model)
         db.commit()
+
+    return True
+
+
+def get_point_recharge_setting() -> list:
+    with get_redis() as redis:
+        setting = redis.hget(REDIS_SYSTEM_OPTIONS_AUTOLOAD, 'point_recharge_setting')
+        setting = json.loads(setting) if setting else []
+
+    return setting
+
+
+def get_balance_recharge_setting() -> list:
+    with get_redis() as redis:
+        setting = redis.hget(REDIS_SYSTEM_OPTIONS_AUTOLOAD, 'balance_recharge_setting')
+        setting = json.loads(setting) if setting else []
+
+    return setting
+
+
+def update_point_recharge_settings(settings: List[PointRechargeSettingForm]) -> bool:
+    with get_session() as db:
+        option_model = db.query(SystemOptionModel).filter_by(option_name='point_recharge_setting').first()
+        if option_model is None:
+            option_model = SystemOptionModel(
+                option_name='point_recharge_setting',
+                option_value=json.dumps([setting.__dict__ for setting in settings]),
+                richtext=0,
+                position=0,
+                autoload=1,
+                lock=1,
+                memo=None,
+            )
+            db.add(option_model)
+        else:
+            option_model.option_value = json.dumps([setting.__dict__ for setting in settings])
+
+        db.commit()
+        SystemOptionService.update_cache(option_model)
+
+    return True
+
+
+def update_balance_recharge_settings(settings: List[BalanceRechargeSettingForm]) -> bool:
+    with get_session() as db:
+        option_model = db.query(SystemOptionModel).filter_by(option_name='balance_recharge_setting').first()
+        if option_model is None:
+            option_model = SystemOptionModel(
+                option_name='balance_recharge_setting',
+                option_value=json.dumps([setting.__dict__ for setting in settings]),
+                richtext=0,
+                position=0,
+                autoload=1,
+                lock=1,
+                memo=None,
+            )
+            db.add(option_model)
+        else:
+            option_model.option_value = json.dumps([setting.__dict__ for setting in settings])
+
+        db.commit()
+        SystemOptionService.update_cache(option_model)
 
     return True
