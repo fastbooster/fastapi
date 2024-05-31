@@ -4,7 +4,7 @@ services:
     container_name: ${DB_CONTAINER_NAME}
     restart: always
     ports:
-      - ${DB_PORT}:${DB_PORT}
+      - ${DB_PORT}:3306
     volumes:
       - ./volumes/mysql:/var/lib/mysql
     environment:
@@ -14,7 +14,7 @@ services:
       MYSQL_ROOT_PASSWORD: ${DB_PWD}
       MYSQL_INITDB_SKIP_TZINFO: just_do_it
       TZ: Asia/Shanghai
-    command: 
+    command:
       --character-set-server=${DB_CHARSET}
       --collation-server=${DB_COLLATION}
       --explicit_defaults_for_timestamp=true
@@ -31,7 +31,7 @@ services:
       - ./volumes/redis/:/data
     command: /bin/sh -c "echo 'vm.overcommit_memory = 1' >> /etc/sysctl && redis-server /etc/redis/redis.conf --appendonly yes --requirepass ${REDIS_PWD}"
     ports:
-      - ${REDIS_PORT}:${REDIS_PORT}
+      - ${REDIS_PORT}:6379
     networks:
       - backend_tier
 
