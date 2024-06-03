@@ -6,21 +6,26 @@
 # Time: 2024/5/21 11:52
 
 import json
+import uuid
+
 from sqlalchemy.sql.expression import desc
 from datetime import datetime, timedelta
 from typing import List
+from urllib.parse import urlencode
 
 from app.core.mysql import get_session
 from app.core.redis import get_redis
 from app.core.log import logger
-from app.models.finance import BalanceModel, BalanceGiftModel, PointModel, ChenckinModel, PaymentAccountModel
+from app.models.finance import BalanceModel, BalanceGiftModel, PointModel, ChenckinModel, PaymentAccountModel, \
+    PointRechargeModel, BalanceRechargeModel
 from app.models.system_option import SystemOptionModel
 from app.schemas.finance import SearchQuery, AdjustForm, CheckinType, PointType, PaymentAccountSearchQuery, \
     PaymentAccountFrontendSearchQuery, PaymentAccountAddForm, PaymentAccountEditForm, PointRechargeSettingForm, \
-    BalanceRechargeSettingForm
+    BalanceRechargeSettingForm, PaymentStatuType, ScanpayForm
 from app.tasks.finance import handle_balance, handle_balance_gift, handle_point
 from app.constants.constants import REDIS_SYSTEM_OPTIONS_AUTOLOAD
 from app.services import system_option as SystemOptionService
+from app.schemas.config import Settings
 
 
 def safe_whitelist_fields(post_data: dict) -> dict:
@@ -341,3 +346,181 @@ def update_balance_recharge_settings(settings: List[BalanceRechargeSettingForm])
         SystemOptionService.update_cache(option_model)
 
     return True
+
+
+def point_unifiedorder(sku_id: int, user_id: int, user_ip: str) -> dict:
+    settings = Settings()
+    if not settings.ENDPOINT.portal or not settings.ENDPOINT.pay or not settings.ENDPOINT.mp:
+        raise ValueError('端点未配置')
+
+    recharge_setting = get_point_recharge_setting()
+    if not recharge_setting:
+        raise ValueError('积分充值设置未配置')
+
+    if sku_id < len(recharge_setting) and sku_id >= 0:
+        sku = recharge_setting[sku_id]
+        if not sku:
+            raise ValueError('SKU不存在')
+    else:
+        raise ValueError('sku_id超出范围')
+
+    trade_no = str(uuid.uuid4()).replace('-', '')
+    with get_session() as db:
+        order_model = PointRechargeModel(
+            user_id=user_id,
+            trade_no=trade_no,
+            amount=sku['price'],
+            points=sku['amount'],
+            gift_points=sku['gift_amount'],
+            user_ip=user_ip,
+            auto_memo=json.dumps(sku, default=str),
+        )
+        db.add(order_model)
+
+        db.commit()
+
+    # 返回H5收银台地址, 由前端生成二维码, 用户扫码进入此页面进行支付
+    params = {
+        'order_type': 'point_recharge',
+        'trade_no': trade_no,
+    }
+
+    return {
+        'trade_no': trade_no,
+        'url': f"{settings.ENDPOINT.mp.rstrip('/')}/checkout?{urlencode(params)}",
+        'original_amount': sku['original_price'],
+        'total_amount': sku['price'],
+        'total_points': sku['amount'],
+        'gift_points': sku['gift_amount'],
+    }
+
+
+def balance_unifiedorder(sku_id: int, user_id: int, user_ip: str) -> dict:
+    settings = Settings()
+    if not settings.ENDPOINT.portal or not settings.ENDPOINT.pay or not settings.ENDPOINT.mp:
+        raise ValueError('端点未配置')
+
+    recharge_setting = get_balance_recharge_setting()
+    if not recharge_setting:
+        raise ValueError('余额充值设置未配置')
+
+    if sku_id < len(recharge_setting) and sku_id >= 0:
+        sku = recharge_setting[sku_id]
+        if not sku:
+            raise ValueError('SKU不存在')
+    else:
+        raise ValueError('sku_id超出范围')
+
+    trade_no = str(uuid.uuid4()).replace('-', '')
+    with get_session() as db:
+        order_model = BalanceRechargeModel(
+            user_id=user_id,
+            trade_no=trade_no,
+            amount=sku['price'],
+            gift_amount=sku['gift_amount'],
+            user_ip=user_ip,
+            auto_memo=json.dumps(sku, default=str),
+        )
+        db.add(order_model)
+
+        db.commit()
+
+    # 返回H5收银台地址, 由前端生成二维码, 用户扫码进入此页面进行支付
+    params = {
+        'order_type': 'balance_recharge',
+        'trade_no': trade_no,
+    }
+
+    return {
+        'trade_no': trade_no,
+        'url': f"{settings.ENDPOINT.mp.rstrip('/')}/checkout?{urlencode(params)}",
+        'original_amount': sku['original_price'],
+        'total_amount': sku['price'],
+        'gift_amount': sku['gift_amount'],
+    }
+
+
+def point_check(trade_no: str, user_id: int) -> dict:
+    with get_session() as db:
+        order_model = db.query(PointRechargeModel).filter_by(trade_no=trade_no).first()
+        if order_model is None or order_model.user_id != user_id:
+            raise ValueError('订单不存在')
+
+    return {
+        # 是否继续发起检测
+        'continue': 1 if order_model.payment_status == PaymentStatuType.PAYMENT_STATUS_CREATED.value else 0,
+        # 订单状态, 前端据此处理显示, 跳转等操作
+        'status': order_model.payment_status,
+    }
+
+
+def balance_check(trade_no: str, user_id: int) -> dict:
+    with get_session() as db:
+        order_model = db.query(BalanceRechargeModel).filter_by(trade_no=trade_no).first()
+        if order_model is None or order_model.user_id != user_id:
+            raise ValueError('订单不存在')
+
+    return {
+        # 是否继续发起检测
+        'continue': 1 if order_model.payment_status == PaymentStatuType.PAYMENT_STATUS_CREATED.value else 0,
+        # 订单状态, 前端据此处理显示, 跳转等操作
+        'status': order_model.payment_status,
+    }
+
+
+def point_scanpay(params: ScanpayForm, user_data: dict) -> bool:
+    with get_session() as db:
+        order_model = db.query(PointRechargeModel).filter_by(trade_no=params.trade_no).first()
+        if order_model is None or order_model.user_id != user_data[
+            'id'] or order_model.payment_status != PaymentStatuType.PAYMENT_STATUS_CREATED.value:
+            raise ValueError('订单已失效, 请重新下单')
+
+        # 更新订单创建时间, 防止被关单进程关闭此订单
+        order_model.created_at = datetime.now()
+        if params.openid is not None:
+            order_model.back_memo = f'OPENID:{params.openid}'
+        db.commit()
+
+    if params.client == 'weixin':
+        if params.openid is None and user_data.get('openid') is None:
+            raise ValueError('您的账号尚未绑定微信')
+        return _point_scanpay_weixin(order_model)
+    else:
+        return _point_scanpay_alipay(order_model)
+
+
+def balance_scanpay(params: ScanpayForm, user_data: dict) -> bool:
+    with get_session() as db:
+        order_model = db.query(BalanceRechargeModel).filter_by(trade_no=params.trade_no).first()
+        if order_model is None or order_model.user_id != user_data[
+            'id'] or order_model.payment_status != PaymentStatuType.PAYMENT_STATUS_CREATED.value:
+            raise ValueError('订单已失效, 请重新下单')
+
+        # 更新订单创建时间, 防止被关单进程关闭此订单
+        order_model.created_at = datetime.now()
+        if params.openid is not None:
+            order_model.back_memo = f'OPENID:{params.openid}'
+        db.commit()
+
+    if params.client == 'weixin':
+        if params.openid is None and user_data.get('openid') is None:
+            raise ValueError('您的账号尚未绑定微信')
+        return _balance_scanpay_weixin(order_model)
+    else:
+        return _balance_scanpay_alipay(order_model)
+
+
+def _point_scanpay_weixin(order_model: PointRechargeModel) -> bool:
+    pass
+
+
+def _point_scanpay_alipay(order_model: PointRechargeModel) -> bool:
+    pass
+
+
+def _balance_scanpay_weixin(order_model: BalanceRechargeModel) -> bool:
+    pass
+
+
+def _balance_scanpay_alipay(order_model: BalanceRechargeModel) -> bool:
+    pass

@@ -51,6 +51,24 @@ class PaymentAccountType(Enum):
     TYPE_BANK = 3  # 银行卡
 
 
+class PaymentStatuType(Enum):
+    PAYMENT_STATUS_CREATED = 0  # 创建成功, 仅此状态可以进行支付
+    PAYMENT_STATUS_SUCCESS = 1  # 支付成功
+    PAYMENT_STATUS_FAIL = 2  # 支付失败
+    PAYMENT_STATUS_CLOSE = 3  # 已关闭
+    PAYMENT_STATUS_REFUND_APPLY = 4  # 退款中
+    PAYMENT_STATUS_REFUND_APART = 5  # 部分退款
+    PAYMENT_STATUS_REFUND_SUCCESS = 6  # 已退款
+    PAYMENT_STATUS_REFUND_FAIL = 7  # 退款失败
+
+
+class PaymentToolType(Enum):
+    PAYMENT_TOOL_WXPAY = 'wxpay'  # 原生微信
+    PAYMENT_TOOL_ALIPAY = 'alipay'  # 原生支付宝
+    PAYMENT_TOOL_EXCHANGE = 'exchange'  # 兑换券
+    PAYMENT_TOOL_BALANCE = 'balance'  # 余额支付
+
+
 class SearchQuery(PaginationParams):
     user_id: Optional[int] = 0
     type: Optional[int] = 0
@@ -141,3 +159,15 @@ class PointRechargeSettingForm(BaseModel):
 class BalanceRechargeSettingForm(PointRechargeSettingForm):
     amount: conint(gt=0) | confloat(gt=0)
     gift_amount: conint(ge=0) | confloat(ge=0)
+
+
+class ScanpayForm(BaseModel):
+    trade_no: str
+    client: str
+    openid: Optional[str] = None
+
+    @validator('client')
+    def validate_client(cls, value):
+        if value not in ['alipay', 'weixin']:
+            raise ValueError('客户端类型错误')
+        return value
