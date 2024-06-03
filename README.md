@@ -28,6 +28,7 @@
 
 ```shell
 cp -r ./.env.example .env
+cp -r ./config.example.yaml config.yaml
 pip install --upgrade pip
 pip install -r requirements.txt
 python start.py

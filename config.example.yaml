@@ -1,0 +1,84 @@
+WECHAT:
+  # 是否开启全局token刷新进程, 用于屏蔽本地开发服务器, 避免与生产环境发生争抢
+  # 分布式部署时也只能开一台服务器, 其他的通告自动推送完成同步
+  # 需要微信授权的时候可以去生产环境下载 token 文件来使用, 数据文件位置: /Temp/wx_appId.data
+  REFRESH_TOKEN: true
+
+  # 开启 REFRESH_TOKEN 时, 是否将 token 结果推送到其他服务器
+  PUSH_TOKEN: false
+
+  # 推送列表
+  PUSH_LIST: []
+
+  OFFICIALACCOUNT:
+    # schema + domain, 结尾不要添加 "/", VUE前端地址, 需设置为微信公众号的JS接口安全域名和授权回调页面域名和业务域名
+    # 1, 主要用于后端设置 response header 允许跨域
+    # 2, 需设置到微信支付的安全授权目录下
+    # 3, 前端必须使用此域名, 不然微信登录授权会失败
+    frontendUrl: 'http://mp.domain.com'
+
+    # schema + domain, 结尾不要添加 "/"
+    # 1, 主要用于从后端授权登录实现code还token的过程, 旧的登录方式使用此方式, 详见 App\HttpController\WeChat\Auth
+    # 2, 如果开启公众号交互消息, 也应该在这个域名下实现, 需把域名设置到公众号接口配置信息里
+    # 3, 用于接收支付系统异步通知, 详见配置区段 PAY.WECHAT.notifyUrl
+    callbackUrl: 'https://sp.domain.com'
+    appId: 'wx0dfc3c6b0b3b259b'
+    appSecret: 'put_your_key_here'
+    token: 'geeksuit'
+    aesKey: 'put_your_key_here'
+ENDPOINT:
+  sp: 'https://sp.domain.com'
+  pay: 'https://sp.domain.com'
+  api: 'https://api.domain.com'
+  mp: 'https://mp.domain.com'
+  portal: 'https://portal.domain.com'
+  console: 'https://console.domain.com'
+PAY:
+  BALANCE:
+    - appname: '我的钱包'
+      appid: '000000'
+      name: '我的余额'
+  WECHAT:
+    - sandbox: false
+      appid: 'wx0dfc3c6b0b3b259b'
+      appname: '淘志网络'
+      name: '支付通道一'
+      miniAppId: ''
+      mchId: '1606082591'
+      key: 'put_your_key_here'
+      refundUrl: ''
+      notifyUrl: ''
+      apiClientCert: '{certs_path}/apiclient_cert.pem'
+      apiClientKey: '{certs_path}/apiclient_key.pem'
+    - sandbox: false
+      appid: 'wx0dfc3c6b0b3b259b'
+      appname: '淘志网络'
+      name: '支付通道二'
+      miniAppId: ''
+      mchId: '1606082591'
+      key: 'put_your_key_here'
+      refundUrl: ''
+      notifyUrl: ''
+      apiClientCert: '{certs_path}/apiclient_cert.pem'
+      apiClientKey: '{certs_path}/apiclient_key.pem'
+  ALIPAY:
+    - sandbox: false
+      appid: '2016040501266003'
+      appname: '淘志网络'
+      name: '支付通道一'
+      alipayRootCert: '{certs_path}/alipayRootCert.crt'
+      alipayCertPublicKey: '{certs_path}/alipayCertPublicKey_RSA2.crt'
+      appCertPublicKey: '{certs_path}/appCertPublicKey.crt'
+      appPrivateKey: 'put_your_key_here'
+      returnUrl: ''
+      notifyUrl: ''
+    - sandbox: false
+      appid: '2016040501266003'
+      appname: '淘志网络'
+      name: '支付通道二'
+      alipayRootCert: '{certs_path}/alipayRootCert.crt'
+      alipayCertPublicKey: '{certs_path}/alipayCertPublicKey_RSA2.crt'
+      appCertPublicKey: '{certs_path}/appCertPublicKey.crt'
+      appPrivateKey: 'put_your_key_here'
+      returnUrl: ''
+      notifyUrl: ''
