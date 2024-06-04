@@ -168,6 +168,6 @@ class ScanpayForm(BaseModel):
 
     @validator('client')
     def validate_client(cls, value):
-        if value not in ['alipay', 'weixin']:
+        if value not in ['alipay', 'wechat']:
             raise ValueError('客户端类型错误')
         return value

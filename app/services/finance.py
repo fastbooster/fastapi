@@ -7,11 +7,14 @@
 
 import json
 import uuid
+import time
 
 from sqlalchemy.sql.expression import desc
 from datetime import datetime, timedelta
 from typing import List
 from urllib.parse import urlencode
+from alipay.aop.api.domain.AlipayTradeWapPayModel import AlipayTradeWapPayModel
+from alipay.aop.api.request.AlipayTradeWapPayRequest import AlipayTradeWapPayRequest
 
 from app.core.mysql import get_session
 from app.core.redis import get_redis
@@ -26,6 +29,7 @@ from app.tasks.finance import handle_balance, handle_balance_gift, handle_point
 from app.constants.constants import REDIS_SYSTEM_OPTIONS_AUTOLOAD
 from app.services import system_option as SystemOptionService
 from app.schemas.config import Settings
+from app.core.payment import payment_manager
 
 
 def safe_whitelist_fields(post_data: dict) -> dict:
@@ -481,12 +485,36 @@ def point_scanpay(params: ScanpayForm, user_data: dict) -> bool:
             order_model.back_memo = f'OPENID:{params.openid}'
         db.commit()
 
-    if params.client == 'weixin':
-        if params.openid is None and user_data.get('openid') is None:
+    settings = Settings()
+    if params.client == 'wechat':
+        openid = params.openid if params.openid is not None else user_data['openid']
+        if openid is None:
             raise ValueError('您的账号尚未绑定微信')
-        return _point_scanpay_weixin(order_model)
+        wechatpy = payment_manager.get_instance('wechat')
+        result = wechatpy.order.create(
+            trade_type='JSAPI',
+            body='积分充值',
+            out_trade_no=params.trade_no,
+            total_fee=int(order_model.amount * 100),
+            spbill_create_ip=params.client_ip,
+            notify_url=f"{settings.ENDPOINT.pay.rstrip('/')}/wechat/point/notify",
+            openid=openid,
+        )
+        if 'timestamp' not in result:
+            result['timestamp'] = str(int(time.time()))
+        return result
     else:
-        return _point_scanpay_alipay(order_model)
+        alipay = payment_manager.get_instance('alipay')
+        # 构造请求参数对象
+        model = AlipayTradeWapPayModel()
+        model.out_trade_no = params.trade_no
+        model.total_amount = order_model.amount
+        model.subject = '积分充值'
+        request = AlipayTradeWapPayRequest(biz_model=model)
+        request.notify_url = f"{settings.ENDPOINT.pay.rstrip('/')}/alipay/point/notify"
+        request.return_url = settings.ENDPOINT.portal
+        # 执行API调用
+        return alipay.page_execute(request)
 
 
 def balance_scanpay(params: ScanpayForm, user_data: dict) -> bool:
@@ -502,25 +530,33 @@ def balance_scanpay(params: ScanpayForm, user_data: dict) -> bool:
             order_model.back_memo = f'OPENID:{params.openid}'
         db.commit()
 
-    if params.client == 'weixin':
-        if params.openid is None and user_data.get('openid') is None:
+    settings = Settings()
+    if params.client == 'wechat':
+        openid = params.openid if params.openid is not None else user_data['openid']
+        if openid is None:
             raise ValueError('您的账号尚未绑定微信')
-        return _balance_scanpay_weixin(order_model)
+        wechatpy = payment_manager.get_instance('wechat')
+        result = wechatpy.order.create(
+            trade_type='JSAPI',
+            body='余额充值',
+            out_trade_no=params.trade_no,
+            total_fee=int(order_model.amount * 100),
+            spbill_create_ip=params.client_ip,
+            notify_url=f"{settings.ENDPOINT.pay.rstrip('/')}/wechat/balance/notify",
+            openid=openid,
+        )
+        if 'timestamp' not in result:
+            result['timestamp'] = str(int(time.time()))
+        return result
     else:
-        return _balance_scanpay_alipay(order_model)
-
-
-def _point_scanpay_weixin(order_model: PointRechargeModel) -> bool:
-    pass
-
-
-def _point_scanpay_alipay(order_model: PointRechargeModel) -> bool:
-    pass
-
-
-def _balance_scanpay_weixin(order_model: BalanceRechargeModel) -> bool:
-    pass
-
-
-def _balance_scanpay_alipay(order_model: BalanceRechargeModel) -> bool:
-    pass
+        alipay = payment_manager.get_instance('alipay')
+        # 构造请求参数对象
+        model = AlipayTradeWapPayModel()
+        model.out_trade_no = params.trade_no
+        model.total_amount = order_model.amount
+        model.subject = '余额充值'
+        request = AlipayTradeWapPayRequest(biz_model=model)
+        request.notify_url = f"{settings.ENDPOINT.pay.rstrip('/')}/alipay/balance/notify"
+        request.return_url = settings.ENDPOINT.portal
+        # 执行API调用
+        return alipay.page_execute(request)
