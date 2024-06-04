@@ -65,6 +65,7 @@ class AlipayPaymentAccount(BaseModel):
     alipayCertPublicKey: str
     appCertPublicKey: str
     appPrivateKey: str
+    alipayPublicKey: str
     returnUrl: str
     notifyUrl: str
 
