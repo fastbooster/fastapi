@@ -19,16 +19,20 @@ class PaymentManager:
     instances = {}
 
     def __init__(self):
-        self._lock = multiprocessing.Lock()
+        manager = multiprocessing.Manager()
+        self._lock = manager.Lock()
 
     def get_instance(self, payment_tool: str, appid: str = None):
         if not appid:
             appid = self._get_default_appid(payment_tool)
 
         key = f"{payment_tool}_{appid}_{os.getpid()}"
-        with self._lock:
+        try:
+            self._lock.acquire()
             if key not in self.instances:
                 self.instances[key] = self._create_instance(payment_tool, appid)
+        finally:
+            self._lock.release()
         return self.instances[key]
 
     def _get_default_appid(self, payment_tool):
@@ -62,8 +66,14 @@ class PaymentManager:
     def _get_payment_config(self, payment_tool, appid):
         configs = getattr(self.settings.PAY, payment_tool.upper(), [])
         for config in configs:
-            if config.appid == appid:
-                return config
+            if payment_tool == 'wechat':
+                # 兼容小程序支付, 小程序支付回调返回的appid是小程序的appid, 而不是微信配置项里面的appid
+                if config.appid == appid or config.miniAppId == appid or config.mchId == appid:
+                    return config
+            else:
+                if config.appid == appid:
+                    return config
+
         return None
 
 
