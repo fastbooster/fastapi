@@ -472,22 +472,25 @@ def balance_check(trade_no: str, user_id: int) -> dict:
     }
 
 
-def point_scanpay(params: ScanpayForm, user_data: dict) -> bool:
+def point_scanpay(params: ScanpayForm, user_data: dict) -> dict:
     with get_session() as db:
         order_model = db.query(PointRechargeModel).filter_by(trade_no=params.trade_no).first()
         if order_model is None or order_model.user_id != user_data[
             'id'] or order_model.payment_status != PaymentStatuType.PAYMENT_STATUS_CREATED.value:
             raise ValueError('订单已失效, 请重新下单')
 
+        amount = order_model.amount
+        user_ip = order_model.user_ip
         # 更新订单创建时间, 防止被关单进程关闭此订单
         order_model.created_at = datetime.now()
         if params.openid is not None:
             order_model.back_memo = f'OPENID:{params.openid}'
+
         db.commit()
 
     settings = Settings()
     if params.client == 'wechat':
-        openid = params.openid if params.openid is not None else user_data['openid']
+        openid = params.openid if params.openid and params.openid.lower() != 'none' else user_data['wechat_openid']
         if openid is None:
             raise ValueError('您的账号尚未绑定微信')
         wechatpy = payment_manager.get_instance('wechat')
@@ -495,34 +498,53 @@ def point_scanpay(params: ScanpayForm, user_data: dict) -> bool:
             trade_type='JSAPI',
             body='积分充值',
             out_trade_no=params.trade_no,
-            total_fee=int(order_model.amount * 100),
-            spbill_create_ip=params.client_ip,
+            total_fee=int(amount * 100),
+            spbill_create_ip=user_ip,
             notify_url=f"{settings.ENDPOINT.pay.rstrip('/')}/wechat/point/notify",
             openid=openid,
         )
+        if 'return_code' not in result or result['return_code'] != 'SUCCESS' or result['result_code'] != 'SUCCESS':
+            error_msg = result.get('return_msg', '')
+            error_code_des = result.get('err_code_des', '')
+            raise ValueError(f"Get Wechat API Error: {error_msg}{error_code_des}", result, result.get('return_code'))
+
         if 'timestamp' not in result:
             result['timestamp'] = str(int(time.time()))
         return result
     else:
         alipay = payment_manager.get_instance('alipay')
+
         # 构造请求参数对象
         model = AlipayTradeWapPayModel()
         model.out_trade_no = params.trade_no
-        model.total_amount = order_model.amount
+        model.total_amount = float(amount)
         model.subject = '积分充值'
+
+        # 支付宝H5必要参数
+        model.quit_url = settings.ENDPOINT.portal
+
+        # 支付宝侧需提前结束, 预留出异步通知的时间, 否则极端情况下可能发生一货多卖的情况
+        # 注意: 支付宝好像会缩短此时间2分钟, 再次发起付款可能会报错 INVALID_PARAMETER
+        # @see https://opendocs.alipay.com/support/01rfv4
+        model.time_expire = (datetime.now() + timedelta(seconds=850)).strftime('%Y-%m-%d %H:%M:%S')
+
         request = AlipayTradeWapPayRequest(biz_model=model)
         request.notify_url = f"{settings.ENDPOINT.pay.rstrip('/')}/alipay/point/notify"
         request.return_url = settings.ENDPOINT.portal
         # 执行API调用
-        return alipay.page_execute(request)
+        result = alipay.page_execute(request)
+        return {'form': result}
 
 
-def balance_scanpay(params: ScanpayForm, user_data: dict) -> bool:
+def balance_scanpay(params: ScanpayForm, user_data: dict) -> dict:
     with get_session() as db:
         order_model = db.query(BalanceRechargeModel).filter_by(trade_no=params.trade_no).first()
         if order_model is None or order_model.user_id != user_data[
             'id'] or order_model.payment_status != PaymentStatuType.PAYMENT_STATUS_CREATED.value:
             raise ValueError('订单已失效, 请重新下单')
+
+        amount = order_model.amount
+        user_ip = order_model.user_ip
 
         # 更新订单创建时间, 防止被关单进程关闭此订单
         order_model.created_at = datetime.now()
@@ -532,7 +554,7 @@ def balance_scanpay(params: ScanpayForm, user_data: dict) -> bool:
 
     settings = Settings()
     if params.client == 'wechat':
-        openid = params.openid if params.openid is not None else user_data['openid']
+        openid = params.openid if params.openid and params.openid.lower() != 'none' else user_data['wechat_openid']
         if openid is None:
             raise ValueError('您的账号尚未绑定微信')
         wechatpy = payment_manager.get_instance('wechat')
@@ -540,11 +562,16 @@ def balance_scanpay(params: ScanpayForm, user_data: dict) -> bool:
             trade_type='JSAPI',
             body='余额充值',
             out_trade_no=params.trade_no,
-            total_fee=int(order_model.amount * 100),
-            spbill_create_ip=params.client_ip,
+            total_fee=int(amount * 100),
+            spbill_create_ip=user_ip,
             notify_url=f"{settings.ENDPOINT.pay.rstrip('/')}/wechat/balance/notify",
             openid=openid,
         )
+        if 'return_code' not in result or result['return_code'] != 'SUCCESS' or result['result_code'] != 'SUCCESS':
+            error_msg = result.get('return_msg', '')
+            error_code_des = result.get('err_code_des', '')
+            raise ValueError(f"Get Wechat API Error: {error_msg}{error_code_des}", result, result.get('return_code'))
+
         if 'timestamp' not in result:
             result['timestamp'] = str(int(time.time()))
         return result
@@ -553,10 +580,20 @@ def balance_scanpay(params: ScanpayForm, user_data: dict) -> bool:
         # 构造请求参数对象
         model = AlipayTradeWapPayModel()
         model.out_trade_no = params.trade_no
-        model.total_amount = order_model.amount
+        model.total_amount = float(amount)
         model.subject = '余额充值'
+
+        # 支付宝H5必要参数
+        model.quit_url = settings.ENDPOINT.portal
+
+        # 支付宝侧需提前结束, 预留出异步通知的时间, 否则极端情况下可能发生一货多卖的情况
+        # 注意: 支付宝好像会缩短此时间2分钟, 再次发起付款可能会报错 INVALID_PARAMETER
+        # @see https://opendocs.alipay.com/support/01rfv4
+        model.time_expire = (datetime.now() + timedelta(seconds=850)).strftime('%Y-%m-%d %H:%M:%S')
+
         request = AlipayTradeWapPayRequest(biz_model=model)
         request.notify_url = f"{settings.ENDPOINT.pay.rstrip('/')}/alipay/balance/notify"
         request.return_url = settings.ENDPOINT.portal
         # 执行API调用
-        return alipay.page_execute(request)
+        result = alipay.page_execute(request)
+        return {'form': result}

@@ -42,7 +42,7 @@ class PaymentManager:
         if payment_tool == 'wechat':
             return WeChatPay(
                 appid=appid,
-                sub_appid=getattr(config, 'subAppid', None),
+                sub_appid=getattr(config, 'miniAppId', None),
                 api_key=getattr(config, 'key'),
                 mch_id=getattr(config, 'mchId'),
                 sub_mch_id=getattr(config, 'subMchId', None),

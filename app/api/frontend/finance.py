@@ -82,22 +82,20 @@ def balance_check(trade_no: str, user_data: dict = Depends(get_current_user_from
 @router.post('/finance/point/scanpay', summary='积分充值扫码支付触达')
 def point_scanpay(params: ScanpayForm, user_data: dict = Depends(get_current_user_from_cache)):
     try:
-        FinanceService.point_scanpay(params, user_data)
+        return FinanceService.point_scanpay(params, user_data)
     except ValueError as e:
         raise HTTPException(status_code=400, detail=f'{e}')
     except Exception as e:
         logger.error(f'积分充值扫码支付失败：{e}')
         raise HTTPException(status_code=500, detail='积分充值扫码支付失败')
-    return RESPONSE_OK
 
 
 @router.post('/finance/balance/scanpay', summary='余额充值扫码支付触达')
 def balance_scanpay(params: ScanpayForm, user_data: dict = Depends(get_current_user_from_cache)):
     try:
-        FinanceService.balance_scanpay(params, user_data)
+        return FinanceService.balance_scanpay(params, user_data)
     except ValueError as e:
         raise HTTPException(status_code=400, detail=f'{e}')
     except Exception as e:
         logger.error(f'余额充值扫码支付失败：{e}')
         raise HTTPException(status_code=500, detail='余额充值扫码支付失败')
-    return RESPONSE_OK
