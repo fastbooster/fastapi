@@ -8,10 +8,8 @@
 import os
 import multiprocessing
 from wechatpy import WeChatPay
-from alipay.aop.api.AlipayClientConfig import AlipayClientConfig
-from alipay.aop.api.DefaultAlipayClient import DefaultAlipayClient
 from app.schemas.config import Settings
-from app.core.log import logger
+from alipay import AliPay, DCAliPay
 
 
 class PaymentManager:
@@ -35,11 +33,11 @@ class PaymentManager:
             self._lock.release()
         return self.instances[key]
 
-    def _get_default_appid(self, payment_tool):
+    def _get_default_appid(self, payment_tool: str):
         default_config = getattr(self.settings.PAY, payment_tool.upper(), [{}])[0]
         return default_config.appid
 
-    def _create_instance(self, payment_tool, appid):
+    def _create_instance(self, payment_tool: str, appid: str):
         config = self._get_payment_config(payment_tool, appid)
         if not config:
             raise ValueError(f"未找到支付配置: {appid}")
@@ -55,15 +53,31 @@ class PaymentManager:
                 sandbox=getattr(config, 'sandbox', False),
             )
         elif payment_tool == 'alipay':
-            alipay_client_config = AlipayClientConfig(sandbox_debug=getattr(config, 'sandbox', False))
-            alipay_client_config.app_id = appid
-            alipay_client_config.app_private_key = getattr(config, 'appPrivateKey')
-            alipay_client_config.alipay_public_key = getattr(config, 'alipayPublicKey')
-            return DefaultAlipayClient(alipay_client_config, logger)
+            type = getattr(config, 'type', 'key')
+            if type == 'key':
+                return AliPay(
+                    appid=appid,
+                    app_notify_url=getattr(config, 'notifyUrl', None),
+                    app_private_key_string=self._add_key_header_footer(getattr(config, 'appPrivateKey'), 'RSA PRIVATE KEY'),
+                    alipay_public_key_string=self._add_key_header_footer(getattr(config, 'alipayPublicKey'), 'PUBLIC KEY'),
+                    sign_type=getattr(config, 'signType', 'RSA2'),
+                    debug=getattr(config, 'sandbox', False),
+                )
+            else:
+                return DCAliPay(
+                    appid=appid,
+                    app_notify_url=getattr(config, 'notifyUrl', None),
+                    app_private_key_string=self._add_key_header_footer(getattr(config, 'appPrivateKey'), 'RSA PRIVATE KEY'),
+                    app_public_key_cert_string=self._read_file_content(getattr(config, 'appCertPublicKey')),
+                    alipay_public_key_cert_string=self._read_file_content(getattr(config, 'alipayCertPublicKey')),
+                    alipay_root_cert_string=self._read_file_content(getattr(config, 'alipayRootCert')),
+                    sign_type=getattr(config, 'signType', 'RSA2'),
+                    debug=getattr(config, 'sandbox', False),
+                )
         else:
             raise ValueError(f"不支持当前支付方式: {payment_tool}")
 
-    def _get_payment_config(self, payment_tool, appid):
+    def _get_payment_config(self, payment_tool: str, appid: str):
         configs = getattr(self.settings.PAY, payment_tool.upper(), [])
         for config in configs:
             if payment_tool == 'wechat':
@@ -75,6 +89,18 @@ class PaymentManager:
                     return config
 
         return None
+
+    def _add_key_header_footer(self, key_str: str, key_type: str):
+        header = f"-----BEGIN {key_type}-----"
+        footer = f"-----END {key_type}-----"
+        return f"{header}\n{key_str.strip()}\n{footer}"
+
+    def _read_file_content(self, file_path: str):
+        if not os.path.exists(file_path):
+            return None
+        with open(file_path, 'r') as file:
+            content = file.read()
+        return content
 
 
 # 创建 PaymentManager 单例

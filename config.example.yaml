@@ -61,12 +61,12 @@ PAY:
       notifyUrl: ''
       apiClientCert: '{certs_path}/apiclient_cert.pem'
       apiClientKey: '{certs_path}/apiclient_key.pem'
-  # 目前支付宝只支持普通秘钥模式
   ALIPAY:
     - sandbox: False
       appid: '2016040501266003'
       appname: '淘志网络'
       name: '支付通道一'
+      checkType: '验签类型:公钥key|证书cert'
       alipayRootCert: '{certs_path}/alipayRootCert.crt'
       alipayCertPublicKey: '{certs_path}/alipayCertPublicKey_RSA2.crt'
       appCertPublicKey: '{certs_path}/appCertPublicKey.crt'
@@ -78,6 +78,7 @@ PAY:
       appid: '2016040501266003'
       appname: '淘志网络'
       name: '支付通道二'
+      checkType: '验签类型:公钥key|证书cert'
       alipayRootCert: '{certs_path}/alipayRootCert.crt'
       alipayCertPublicKey: '{certs_path}/alipayCertPublicKey_RSA2.crt'
       appCertPublicKey: '{certs_path}/appCertPublicKey.crt'

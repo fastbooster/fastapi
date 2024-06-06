@@ -13,8 +13,6 @@ from sqlalchemy.sql.expression import desc
 from datetime import datetime, timedelta
 from typing import List
 from urllib.parse import urlencode
-from alipay.aop.api.domain.AlipayTradeWapPayModel import AlipayTradeWapPayModel
-from alipay.aop.api.request.AlipayTradeWapPayRequest import AlipayTradeWapPayRequest
 
 from app.core.mysql import get_session
 from app.core.redis import get_redis
@@ -500,7 +498,7 @@ def point_scanpay(params: ScanpayForm, user_data: dict) -> dict:
             out_trade_no=params.trade_no,
             total_fee=int(amount * 100),
             spbill_create_ip=user_ip,
-            notify_url=f"{settings.ENDPOINT.pay.rstrip('/')}/wechat/point/notify",
+            notify_url=f"{settings.ENDPOINT.pay.rstrip('/')}/portal/finance/wechat/point/notify",
             openid=openid,
         )
         if 'return_code' not in result or result['return_code'] != 'SUCCESS' or result['result_code'] != 'SUCCESS':
@@ -513,27 +511,17 @@ def point_scanpay(params: ScanpayForm, user_data: dict) -> dict:
         return result
     else:
         alipay = payment_manager.get_instance('alipay')
-
-        # 构造请求参数对象
-        model = AlipayTradeWapPayModel()
-        model.out_trade_no = params.trade_no
-        model.total_amount = float(amount)
-        model.subject = '积分充值'
-
-        # 支付宝H5必要参数
-        model.quit_url = settings.ENDPOINT.portal
-
-        # 支付宝侧需提前结束, 预留出异步通知的时间, 否则极端情况下可能发生一货多卖的情况
-        # 注意: 支付宝好像会缩短此时间2分钟, 再次发起付款可能会报错 INVALID_PARAMETER
-        # @see https://opendocs.alipay.com/support/01rfv4
-        model.time_expire = (datetime.now() + timedelta(seconds=850)).strftime('%Y-%m-%d %H:%M:%S')
-
-        request = AlipayTradeWapPayRequest(biz_model=model)
-        request.notify_url = f"{settings.ENDPOINT.pay.rstrip('/')}/alipay/point/notify"
-        request.return_url = settings.ENDPOINT.portal
-        # 执行API调用
-        result = alipay.page_execute(request)
-        return {'form': result}
+        order_string = alipay.client_api(
+            "alipay.trade.wap.pay",
+            biz_content={
+                "out_trade_no": params.trade_no,
+                "total_amount": float(amount),
+                "subject": "积分充值",
+            },
+            return_url=settings.ENDPOINT.portal,
+            notify_url=f"{settings.ENDPOINT.pay.rstrip('/')}/portal/finance/alipay/point/notify"
+        )
+        return {'url': f"{alipay._gateway}?{order_string}"}
 
 
 def balance_scanpay(params: ScanpayForm, user_data: dict) -> dict:
@@ -564,7 +552,7 @@ def balance_scanpay(params: ScanpayForm, user_data: dict) -> dict:
             out_trade_no=params.trade_no,
             total_fee=int(amount * 100),
             spbill_create_ip=user_ip,
-            notify_url=f"{settings.ENDPOINT.pay.rstrip('/')}/wechat/balance/notify",
+            notify_url=f"{settings.ENDPOINT.pay.rstrip('/')}/portal/finance/wechat/balance/notify",
             openid=openid,
         )
         if 'return_code' not in result or result['return_code'] != 'SUCCESS' or result['result_code'] != 'SUCCESS':
@@ -577,23 +565,14 @@ def balance_scanpay(params: ScanpayForm, user_data: dict) -> dict:
         return result
     else:
         alipay = payment_manager.get_instance('alipay')
-        # 构造请求参数对象
-        model = AlipayTradeWapPayModel()
-        model.out_trade_no = params.trade_no
-        model.total_amount = float(amount)
-        model.subject = '余额充值'
-
-        # 支付宝H5必要参数
-        model.quit_url = settings.ENDPOINT.portal
-
-        # 支付宝侧需提前结束, 预留出异步通知的时间, 否则极端情况下可能发生一货多卖的情况
-        # 注意: 支付宝好像会缩短此时间2分钟, 再次发起付款可能会报错 INVALID_PARAMETER
-        # @see https://opendocs.alipay.com/support/01rfv4
-        model.time_expire = (datetime.now() + timedelta(seconds=850)).strftime('%Y-%m-%d %H:%M:%S')
-
-        request = AlipayTradeWapPayRequest(biz_model=model)
-        request.notify_url = f"{settings.ENDPOINT.pay.rstrip('/')}/alipay/balance/notify"
-        request.return_url = settings.ENDPOINT.portal
-        # 执行API调用
-        result = alipay.page_execute(request)
-        return {'form': result}
+        order_string = alipay.client_api(
+            "alipay.trade.wap.pay",
+            biz_content={
+                "out_trade_no": params.trade_no,
+                "total_amount": float(amount),
+                "subject": "余额充值",
+            },
+            return_url=settings.ENDPOINT.portal,
+            notify_url=f"{settings.ENDPOINT.pay.rstrip('/')}/portal/finance/alipay/balance/notify"
+        )
+        return {'url': f"{alipay._gateway}?{order_string}"}
