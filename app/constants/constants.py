@@ -6,6 +6,7 @@
 # Time: 2024/05/18 21:46
 
 import os
+from wechatpy.pay.utils import dict_to_xml
 
 # 应用根目录
 ROOT_PATH = os.path.abspath(os.path.dirname(os.path.dirname(os.path.dirname(__file__))))
@@ -18,6 +19,18 @@ RUNTIME_PATH = ROOT_PATH + '/runtime'
 
 # 操作成功返回的数据，当不需要返回数据时，统一直接返回该数据
 RESPONSE_OK = {'status': 'OK'}
+
+# 结果返回给微信服务器时的成功返回数据
+RESPONSE_WECHAT_SUCCESS = dict_to_xml({'return_code': 'SUCCESS', 'return_msg': 'OK'})
+
+# 结果返回给微信服务器时的失败返回数据
+RESPONSE_WECHAT_FAIL = dict_to_xml({'return_code': 'FAIL', 'return_msg': 'FAIL'})
+
+# 结果返回给支付宝服务器时的成功返回数据
+RESPONSE_ALIPAY_SUCCESS = 'success'
+
+# 结果返回给支付宝服务器时的失败返回数据
+RESPONSE_ALIPAY_FAIL = 'failure'
 
 # 登录有效期
 REDIS_AUTH_TTL = 86400

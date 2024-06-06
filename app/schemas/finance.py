@@ -63,7 +63,7 @@ class PaymentStatuType(Enum):
 
 
 class PaymentToolType(Enum):
-    PAYMENT_TOOL_WXPAY = 'wxpay'  # 原生微信
+    PAYMENT_TOOL_WECHAT = 'wechat'  # 原生微信
     PAYMENT_TOOL_ALIPAY = 'alipay'  # 原生支付宝
     PAYMENT_TOOL_EXCHANGE = 'exchange'  # 兑换券
     PAYMENT_TOOL_BALANCE = 'balance'  # 余额支付

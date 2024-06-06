@@ -22,7 +22,7 @@ from app.models.finance import BalanceModel, BalanceGiftModel, PointModel, Chenc
 from app.models.system_option import SystemOptionModel
 from app.schemas.finance import SearchQuery, AdjustForm, CheckinType, PointType, PaymentAccountSearchQuery, \
     PaymentAccountFrontendSearchQuery, PaymentAccountAddForm, PaymentAccountEditForm, PointRechargeSettingForm, \
-    BalanceRechargeSettingForm, PaymentStatuType, ScanpayForm
+    BalanceRechargeSettingForm, PaymentStatuType, ScanpayForm, PaymentToolType
 from app.tasks.finance import handle_balance, handle_balance_gift, handle_point
 from app.constants.constants import REDIS_SYSTEM_OPTIONS_AUTOLOAD
 from app.services import system_option as SystemOptionService
@@ -576,3 +576,81 @@ def balance_scanpay(params: ScanpayForm, user_data: dict) -> dict:
             notify_url=f"{settings.ENDPOINT.pay.rstrip('/')}/portal/finance/alipay/balance/notify"
         )
         return {'url': f"{alipay._gateway}?{order_string}"}
+
+
+def point_notify(payment_tool: str, params: dict, content: str = None) -> bool:
+    logger.info(f'收到异步通知:{payment_tool}', extra=params)
+    if payment_tool == PaymentToolType.PAYMENT_TOOL_ALIPAY.value:
+        signature = params.pop('sign')
+        alipay = payment_manager.get_instance('alipay', params.get('app_id', None))
+        try:
+            success = alipay.verify(params, signature)
+        except:
+            logger.error(f'签名验证失败:{payment_tool}', extra=params)
+            return False
+        if not success:
+            logger.error(f'签名验证失败:{payment_tool}', extra=params)
+            return False
+        is_ok = True if params["trade_status"] in ("TRADE_SUCCESS", "TRADE_FINISHED") else False
+    elif payment_tool == PaymentToolType.PAYMENT_TOOL_WECHAT.value:
+        # 如果是小程序支付, appid返回的是小程序的appid, 不是支付配置里面的appid
+        wechatpy = payment_manager.get_instance('wechat', params.get('mch_id', None))
+        try:
+            params = wechatpy.parse_payment_result(content)
+        except:
+            logger.error(f'签名验证失败:{payment_tool}', extra=params)
+            return False
+        is_ok = False if params["return_code"] == "SUCCESS" and params["refund_status"] == "SUCCESS" else False
+    else:
+        return False
+
+    # 订单处理
+    with get_session() as db:
+        order_model = db.query(PointRechargeModel).filter_by(trade_no=params.get('out_trade_no')).first()
+        if order_model is None:
+            logger.info('订单不存在', extra=params)
+            return False
+        if order_model.payment_status not in (
+        PaymentStatuType.PAYMENT_STATUS_CREATED.value, PaymentStatuType.PAYMENT_STATUS_CLOSE.value):
+            logger.info(f'订单状态异常:{order_model.payment_status}', extra=params)
+            return True
+
+        order_model.payment_status = PaymentStatuType.PAYMENT_STATUS_SUCCESS.value if is_ok else PaymentStatuType.PAYMENT_STATUS_FAIL.value
+        order_model.payment_tool = payment_tool
+        order_model.payment_time = datetime.now()
+        order_model.payment_response = json.dumps(params, default=str)
+
+        # 积分变动
+        if is_ok:
+            task_data = {
+                'type': PointType.TYPE_RECHARGE.value,
+                'user_id': order_model.user_id,
+                'related_id': order_model.id,
+                'amount': order_model.points,
+                'balance': 0,
+                'auto_memo': '用户充值',
+                'back_memo': None,
+                'ip': order_model.user_ip,
+            }
+            task_result = handle_point.delay(task_data)
+            logger.info(f'发送积分动账任务:{task_result.id}', extra=task_data)
+
+            if order_model.gift_points > 0:
+                task_gift_data = {
+                    'type': PointType.TYPE_RECHARGE_GIFT.value,
+                    'user_id': order_model.user_id,
+                    'related_id': order_model.id,
+                    'amount': order_model.gift_points,
+                    'balance': 0,
+                    'auto_memo': '用户充值赠送',
+                    'back_memo': None,
+                    'ip': order_model.user_ip,
+                }
+                task_gift_result = handle_point.delay(task_gift_data)
+                logger.info(f'发送积分动账任务:{task_gift_result.id}', extra=task_gift_data)
+
+            logger.info('成功受理通知', extra=params)
+
+        db.commit()
+
+        return is_ok
