@@ -1,3 +1,4 @@
+# 开发环境下只启动 mysql 和 redis 容器，fastapi 在宿主机上运行，方便调试
 services:
   mysql:
     image: mysql:8.0.35
@@ -34,22 +35,6 @@ services:
       - ${REDIS_PORT}:6379
     networks:
       - backend_tier
-
-  server:
-    container_name: ${API_CONTAINER_NAME}
-    build:
-      context: ./
-      dockerfile: Dockerfile
-    env_file:
-      - .env
-    ports:
-      - "${RUNTIME_PORT}:${RUNTIME_PORT}"
-    networks:
-      - backend_tier
-    command: python start.py
-    depends_on:
-      - mysql
-      - redis
 
 networks:
   backend_tier:

@@ -27,8 +27,13 @@
 ### 本机开发
 
 ```shell
+# 如果本机没有安装 mysql & redis, 可以通过 docker 启动服务来代替
+docker compose -p <proj_name> -f docker-compose-dev.yml up -d --build
+
 cp -r ./.env.example .env
 cp -r ./config.example.yaml config.yaml
+python -m venv .venv # 如果已经执行过，此步骤可跳过
+source .venv/bin/activate
 pip install --upgrade pip
 pip install -r requirements.txt
 python start.py
@@ -40,7 +45,6 @@ python start.py
 ```shell
 cp -r ./.env.example .env
 docker compose -p <proj_name> down # 执行此命令后，如果有修改数据库配置，记得删除 volumes/mysql/* 目录, 否者可能连接不上数据库
-docker compose -p <proj_name> -f docker-compose-dev.yml up -d --build
 docker compose -p <proj_name> -f docker-compose.yml up -d --build
 ```
 
