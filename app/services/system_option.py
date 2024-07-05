@@ -14,7 +14,7 @@ from app.core.redis import get_redis
 from app.models.system_option import SystemOptionModel
 from app.constants.constants import REDIS_SYSTEM_OPTIONS_AUTOLOAD
 
-from app.schemas.system_option import OptionSearchQuery, OptionAddForm, OptionEditForm
+from app.schemas.system_option import OptionItem, OptionSearchQuery, OptionListResponse
 
 
 def safe_whitelist_fields(option_data: dict) -> dict:
@@ -42,7 +42,8 @@ def get_option_by_name(option_name: str) -> SystemOptionModel | None:
     return None
 
 
-def get_option_list(params: OptionSearchQuery) -> list[SystemOptionModel]:
+def get_option_list(params: OptionSearchQuery) -> OptionListResponse:
+    total = -1
     export = True if params.export == 1 else False
     with get_session() as db:
         query = db.query(SystemOptionModel).order_by(desc('id'))
@@ -51,13 +52,16 @@ def get_option_list(params: OptionSearchQuery) -> list[SystemOptionModel]:
         if params.memo:
             query = query.filter(SystemOptionModel.memo.like(f'%{params.memo}%'))
         if not export:
+            total = query.count()
             offset = (params.page - 1) * params.size
             query.offset(offset).limit(params.size)
 
-    return query.all()
+    items = query.all()
+
+    return {"total": total, "items": items}
 
 
-def add_option(params: OptionAddForm) -> bool:
+def add_option(params: OptionItem) -> bool:
     with get_session() as db:
         exists_count = db.query(SystemOptionModel).filter(SystemOptionModel.option_name == params.option_name).count()
         if exists_count > 0:
@@ -79,7 +83,7 @@ def add_option(params: OptionAddForm) -> bool:
     return True
 
 
-def edit_option(params: OptionEditForm) -> bool:
+def edit_option(params: OptionItem) -> bool:
     with get_session() as db:
         option_model = db.query(SystemOptionModel).filter_by(id=params.id).first()
         if option_model is None:

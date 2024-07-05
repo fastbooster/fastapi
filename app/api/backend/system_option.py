@@ -12,18 +12,18 @@ from fastapi import APIRouter, HTTPException, Depends
 from app.core.security import check_permission
 from app.services import system_option as OptionService
 
-from app.schemas.system_option import OptionSearchQuery, OptionAddForm, OptionEditForm
-from app.constants.constants import RESPONSE_OK
+from app.schemas.schemas import ResponseSuccess
+from app.schemas.system_option import OptionItem, OptionSearchQuery, OptionListResponse
 
 router = APIRouter()
 
 
-@router.get("/options", dependencies=[Depends(check_permission('SystemOption'))], summary="系统选项列表")
+@router.get("/options", response_model=OptionListResponse, dependencies=[Depends(check_permission('SystemOption'))], summary="系统选项列表")
 def option_list(params: OptionSearchQuery = Depends()):
     return OptionService.get_option_list(params)
 
 
-@router.get("/options/{id}", dependencies=[Depends(check_permission('SystemOption'))], summary="系统选项详情",)
+@router.get("/options/{id}", response_model=OptionItem, dependencies=[Depends(check_permission('SystemOption'))], summary="系统选项详情",)
 def option_detail(id: int):
     option = OptionService.get_option(id)
     if not option:
@@ -31,8 +31,8 @@ def option_detail(id: int):
     return option
 
 
-@router.post("/options", dependencies=[Depends(check_permission('SystemOption'))], summary="添加系统选项")
-def add_option(params: OptionAddForm):
+@router.post("/options", response_model=ResponseSuccess, dependencies=[Depends(check_permission('SystemOption'))], summary="添加系统选项")
+def add_option(params: OptionItem):
     try:
         OptionService.add_option(params)
     except ValueError as e:
@@ -40,22 +40,23 @@ def add_option(params: OptionAddForm):
     except Exception as e:
         logger.error(f'添加系统选项失败：{e}')
         raise HTTPException(status_code=500, detail='添加系统选项失败')
-    return RESPONSE_OK
+    return ResponseSuccess
 
 
-@router.patch("/options", dependencies=[Depends(check_permission('SystemOption'))], summary="编辑系统选项")
-def edit_option(params: OptionEditForm):
+@router.put("/options/{id}", response_model=ResponseSuccess, dependencies=[Depends(check_permission('SystemOption'))], summary="编辑系统选项")
+def edit_option(id: int, params: OptionItem):
     try:
+        params.id = id
         OptionService.edit_option(params)
     except ValueError as e:
         raise HTTPException(status_code=400, detail=f'{e}')
     except Exception as e:
         logger.error(f'编辑系统选项失败：{e}')
         raise HTTPException(status_code=500, detail='编辑系统选项失败')
-    return RESPONSE_OK
+    return ResponseSuccess
 
 
-@router.delete("/options/{id}", dependencies=[Depends(check_permission('SystemOption'))], summary="删除系统选项",)
+@router.delete("/options/{id}", response_model=ResponseSuccess, dependencies=[Depends(check_permission('SystemOption'))], summary="删除系统选项",)
 def delete_option(id: int):
     try:
         OptionService.delete_option(id)
@@ -64,10 +65,10 @@ def delete_option(id: int):
     except Exception as e:
         logger.error(f'删除系统选项失败：{e}')
         raise HTTPException(status_code=500, detail='删除系统选项失败')
-    return RESPONSE_OK
+    return ResponseSuccess
 
 
-@router.post("/options/rebuild_cache", dependencies=[Depends(check_permission('SystemOption'))], summary="重建系统选项缓存",)
+@router.post("/options/rebuild_cache", response_model=ResponseSuccess, dependencies=[Depends(check_permission('SystemOption'))], summary="重建系统选项缓存",)
 def rebuild_cache():
     try:
         OptionService.rebuild_cache()
@@ -76,4 +77,4 @@ def rebuild_cache():
     except Exception as e:
         logger.error(f'重建系统选项缓存失败：{e}')
         raise HTTPException(status_code=500, detail='重建系统选项缓存失败')
-    return RESPONSE_OK
+    return ResponseSuccess

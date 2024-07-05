@@ -5,19 +5,17 @@
 # Email: qiuyutang@qq.com
 # Time: 2024/5/19 15:20
 
-from typing import Optional
+from datetime import datetime
+
+from typing import List, Optional
 
 from pydantic import BaseModel, validator
 
 from app.schemas.schemas import PaginationParams
 
 
-class OptionSearchQuery(PaginationParams):
-    option_name: Optional[str] = None
-    memo: Optional[str] = None
-
-
-class OptionAddForm(BaseModel):
+class OptionItem(BaseModel):
+    id: int
     option_name: str
     option_value: str
     richtext: Optional[int] = 0
@@ -25,6 +23,8 @@ class OptionAddForm(BaseModel):
     autoload: Optional[int] = 0
     lock: Optional[int] = 0
     memo: Optional[str] = None
+    created_at: Optional[datetime] = None
+    updated_at: Optional[datetime] = None
 
     @validator('richtext', 'autoload', 'lock')
     def validate_boolean_fields(cls, value):
@@ -39,5 +39,11 @@ class OptionAddForm(BaseModel):
         return value
 
 
-class OptionEditForm(OptionAddForm):
-    id: int
+class OptionListResponse(BaseModel):
+    total: int
+    items: List[OptionItem]
+
+
+class OptionSearchQuery(PaginationParams):
+    option_name: Optional[str] = None
+    memo: Optional[str] = None
