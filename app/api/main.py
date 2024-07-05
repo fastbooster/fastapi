@@ -18,13 +18,13 @@ api_router.include_router(routes.wechat.router, prefix="/auth", tags=["auth"])
 api_router.include_router(routes.common.router, prefix="/common", tags=["commons"])
 
 # 前端路由
-api_router.include_router(frontend.cms.router, prefix="/portal", tags=['portal_cms'])
-api_router.include_router(frontend.finance.router, prefix="/portal", tags=['portal_finance'])
-api_router.include_router(frontend.user.router, prefix="/portal", tags=['portal_user'])
+api_router.include_router(frontend.cms.router, prefix="/frontend", tags=['frontend_cms'])
+api_router.include_router(frontend.finance.router, prefix="/frontend", tags=['frontend_finance'])
+api_router.include_router(frontend.user.router, prefix="/frontend", tags=['frontend_user'])
 
 # 后端路由
-api_router.include_router(backend.ad.router, prefix="/admin", tags=['admin_ad'])
-api_router.include_router(backend.cms.router, prefix="/admin", tags=['admin_cms'])
-api_router.include_router(backend.finance.router, prefix="/admin", tags=['admin_finance'])
-api_router.include_router(backend.user.router, prefix="/admin", tags=['admin_user'])
-api_router.include_router(backend.system_option.router, prefix="/admin", tags=['admin_system_option'])
+api_router.include_router(backend.ad.router, prefix="/backend", tags=['backend_ad'])
+api_router.include_router(backend.cms.router, prefix="/backend", tags=['backend_cms'])
+api_router.include_router(backend.finance.router, prefix="/backend", tags=['backend_finance'])
+api_router.include_router(backend.user.router, prefix="/backend", tags=['backend_user'])
+api_router.include_router(backend.system_option.router, prefix="/backend", tags=['backend_system_option'])
