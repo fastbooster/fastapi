@@ -112,6 +112,22 @@ python app/utils/init_city.py
 
 ### 接口开发指南
 
+#### 约定
+
+接口使用 `RESTful API` 风格开发，通过 `HTTP Method` 实现资源访问和管理
+
+| HTTP动词  | 是否幂等  | 约定用法     
+|----------|----------|-------------
+| head     | 是       | 无
+| options  | 是       | 无
+| post     | 否       | 创建资源
+| get      | 是       | 获取资源
+| put      | 是       | 全量更新资源
+| patch    | 否       | 部分更新数据
+| delete   | 是       | 删除资源
+
+#### 流程
+
 1. 创建接口路由文件，如：`./app/api/backend/user.py`
 
 2. 将其加入到包，以方便导入，如：`./app/api/backend/__init__.py`
