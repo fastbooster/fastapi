@@ -28,6 +28,7 @@ def init_permissions():
     menus = [
         {
             'name': '仪表盘',
+            'component_name': 'Dashboard',
             'children': [
                 {
                     'name': '欢迎登录',
@@ -37,6 +38,7 @@ def init_permissions():
         },
         {
             'name': '用户管理',
+            'component_name': 'User',
             'children': [
                 {
                     'name': '用户列表',
@@ -50,6 +52,7 @@ def init_permissions():
         },
         {
             'name': '内容管理',
+            'component_name': 'CMS',
             'children': [
                 {
                     'name': '文章分类',
@@ -67,6 +70,7 @@ def init_permissions():
         },
         {
             'name': '权限管理',
+            'component_name': 'Permission',
             'children': [
                 {
                     'name': '角色列表',
@@ -80,6 +84,7 @@ def init_permissions():
         },
         {
             'name': '系统设置',
+            'component_name': 'Settings',
             'children': [
                 {
                     'name': '系统选项',
@@ -101,7 +106,7 @@ def init_permissions():
 
             for menu in menus:
                 asc_sort_order = (i + 1) * 1000
-                val = (0, menu['name'], None, asc_sort_order)
+                val = (0, menu['name'], menu['component_name'], asc_sort_order)
                 cursor.execute(sql, val)
                 asc_sort_order += 1
                 i += 1
@@ -116,6 +121,7 @@ def init_permissions():
                     cursor.execute(sql, val)
                     j += 1
                     logger.info(f'\t{submenu["name"]}')
+                i += j
 
         connection.commit()
 

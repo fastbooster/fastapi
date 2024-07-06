@@ -6,6 +6,7 @@
 # Time: 2024/05/18 20:27
 
 import os
+import json
 import secrets
 import hashlib
 import pymysql
@@ -63,10 +64,10 @@ def init_role():
 
             components = [row['component_name'] for row in result]
             sql = 'insert into user_role (name, permissions) values (%s, %s)'
-            val = ("超级管理员", ','.join(components))
+            val = ("超级管理员", json.dumps(components))
             cursor.execute(sql, val)
         connection.commit()
-        logger.success(f'初始化权限成功！')
+        logger.success(f'初始化角色成功！')
     except pymysql.MySQLError as e:
         logger.error(f'Database error: {e}')
 

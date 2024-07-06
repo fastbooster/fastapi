@@ -17,7 +17,7 @@ from app.schemas.schemas import PaginationParams
 class RoleItem(BaseModel):
     id: Optional[int] = 0
     name: str
-    permissions: str
+    permissions: Optional[str] = '[]'
     created_at: Optional[datetime] = None
     updated_at: Optional[datetime] = None
 
