@@ -27,5 +27,6 @@ api_router.include_router(backend.ad.router, prefix="/backend", tags=['backend_a
 api_router.include_router(backend.cms.router, prefix="/backend", tags=['backend_cms'])
 api_router.include_router(backend.finance.router, prefix="/backend", tags=['backend_finance'])
 api_router.include_router(backend.role.router, prefix="/backend", tags=['backend_role'])
+api_router.include_router(backend.permissions.router, prefix="/backend", tags=['backend_permission'])
 api_router.include_router(backend.user.router, prefix="/backend", tags=['backend_user'])
 api_router.include_router(backend.system_option.router, prefix="/backend", tags=['backend_system_option'])
