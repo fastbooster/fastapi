@@ -19,12 +19,12 @@ router = APIRouter()
 
 
 @router.get("/options", response_model=OptionListResponse, dependencies=[Depends(check_permission('SystemOption'))], summary="系统选项列表")
-def option_list(params: OptionSearchQuery = Depends()):
+def lists(params: OptionSearchQuery = Depends()):
     return OptionService.get_option_list(params)
 
 
 @router.get("/options/{id}", response_model=OptionItem, dependencies=[Depends(check_permission('SystemOption'))], summary="系统选项详情",)
-def option_detail(id: int):
+def detail(id: int):
     option = OptionService.get_option(id)
     if not option:
         raise HTTPException(status_code=404, detail="系统选项不存在")
@@ -32,7 +32,7 @@ def option_detail(id: int):
 
 
 @router.post("/options", response_model=ResponseSuccess, dependencies=[Depends(check_permission('SystemOption'))], summary="添加系统选项")
-def add_option(params: OptionItem):
+def add(params: OptionItem):
     try:
         OptionService.add_option(params)
     except ValueError as e:
@@ -44,7 +44,7 @@ def add_option(params: OptionItem):
 
 
 @router.put("/options/{id}", response_model=ResponseSuccess, dependencies=[Depends(check_permission('SystemOption'))], summary="编辑系统选项")
-def edit_option(id: int, params: OptionItem):
+def edit(id: int, params: OptionItem):
     try:
         params.id = id
         OptionService.edit_option(params)
@@ -57,7 +57,7 @@ def edit_option(id: int, params: OptionItem):
 
 
 @router.delete("/options/{id}", response_model=ResponseSuccess, dependencies=[Depends(check_permission('SystemOption'))], summary="删除系统选项",)
-def delete_option(id: int):
+def delete(id: int):
     try:
         OptionService.delete_option(id)
     except ValueError as e:

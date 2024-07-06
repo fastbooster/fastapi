@@ -56,9 +56,7 @@ def get_option_list(params: OptionSearchQuery) -> OptionListResponse:
             offset = (params.page - 1) * params.size
             query.offset(offset).limit(params.size)
 
-    items = query.all()
-
-    return {"total": total, "items": items}
+    return {"total": total, "items": query.all()}
 
 
 def add_option(params: OptionItem) -> bool:
