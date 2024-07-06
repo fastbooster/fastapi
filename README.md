@@ -28,7 +28,7 @@
 
 ```shell
 # 如果本机没有安装 mysql & redis, 可以通过 docker 启动服务来代替
-docker compose -p <proj_name> -f docker-compose-dev.yml up -d --build
+docker compose -p <proj_name> -f docker-compose-dev.yml up -d
 
 cp -r ./.env.example .env
 cp -r ./config.example.yaml config.yaml
@@ -114,7 +114,7 @@ python app/utils/init_city.py
 
 #### 约定
 
-接口使用 `RESTful API` 风格开发，通过 `HTTP Method` 实现资源访问和管理，API端点命名统一采用 `复数名词` 的方式，如：`/api/v1/backend/users`
+接口使用 `RESTful API` 风格开发，通过 `HTTP Method` 实现资源访问和管理，API端点命名统一采用 `复数名词`，如：`/api/v1/backend/users`
 
 | HTTP动词  | 是否幂等  | 约定用法
 |----------|----------|-------------
@@ -179,6 +179,6 @@ python app/utils/init_city.py
 1. [FastAPI](https://fastapi.tiangolo.com/)
 2. [RedisPy](https://redis.io/docs/latest/develop/connect/clients/python/)
 3. [Celery](https://docs.celeryq.dev/en/stable/index.html)
-4. [Restful API 接口规范详解](https://cloud.tencent.com/developer/article/2360813)
-5. [wechatpy](https://www.wechatpy.org/) 微信公众号 Python SDK
+4. [wechatpy](https://www.wechatpy.org/) 微信公众号 Python SDK
+5. [RESTful API 接口规范详解](https://cloud.tencent.com/developer/article/2360813)
 6. [RESTful API 设计最佳实践](https://segmentfault.com/a/1190000011516151)
