@@ -24,6 +24,12 @@ class RoleModel(Base):
         'CURRENT_TIMESTAMP'), comment='创建时间')
     updated_at = Column(TIMESTAMP, server_default=text(
         'CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'), comment='更新时间')
+    
+    idx_name = Index('idx_name', name, unique=True)
+
+
+    def __repr__(self):
+        return f"<RoleModel(id={self.id}, name='{self.name}')>"
 
 
 class PermissionModel(Base):
@@ -44,6 +50,9 @@ class PermissionModel(Base):
         'CURRENT_TIMESTAMP'), comment='创建时间')
     updated_at = Column(TIMESTAMP, server_default=text(
         'CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'), comment='更新时间')
+    
+    def __repr__(self):
+        return f"<PermissionModel(id={self.id}, name='{self.name}')>"
 
 
 class UserModel(Base):
