@@ -188,7 +188,7 @@ def check_permission(component_name: str):
     TOOD: 细化权限粒度，而不是只检查菜单权限
     '''
     async def permission_checker(user_data: dict = Depends(get_current_user_from_cache)) -> None:
-        if component_name not in user_data['permissions'].split(','):
+        if component_name not in user_data['permissions']:
             logger.warning(f'用户 (id={user_data["id"]}, nickname={
                            user_data["nickname"]}) 尝试访问未授权的权限组件 {component_name}')
             raise HTTPException(

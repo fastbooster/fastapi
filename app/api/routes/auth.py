@@ -47,7 +47,7 @@ def authorize(request: Request, form: OAuth2PasswordRequestForm = Depends()):
                          .filter_by(id=user_data['role_id'])
                          .first())
             if user_role:
-                user_data['permissions'] = user_role.permissions
+                user_data['permissions'] = json.loads(user_role.permissions)
 
     with get_redis() as redis:
         redis.set(f'{REDIS_AUTH_USER_PREFIX}{user_id_str}',
