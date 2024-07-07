@@ -13,7 +13,8 @@ from app.core.security import encode_password
 from app.core.mysql import get_session
 from app.models.user import UserModel
 
-from app.schemas.user import UserSearchQuery, UserAddForm, UserEditForm
+from app.schemas.user import UserSearchQuery
+from app.schemas.user import UserSearchQuery, UserItem, UserListResponse
 
 
 def safe_whitelist_fields(user_data: dict) -> dict:
@@ -33,29 +34,35 @@ def get_user(id: int) -> UserModel | None:
     return None
 
 
-def get_user_list(params: UserSearchQuery) -> list[UserModel]:
+def get_user_list(params: UserSearchQuery) -> UserListResponse:
+    total = -1
     export = True if params.export == 1 else False
     with get_session() as db:
         query = db.query(UserModel).order_by(desc('id'))
+        if params.nickname:
+            query = query.filter(
+                UserModel.nickname.like(f'%{params.nickname}%'))
         if params.phone:
             query = query.filter(UserModel.phone.like(f'%{params.phone}%'))
         if params.email:
             query = query.filter(UserModel.email.like(f'%{params.email}%'))
-        if params.pid != -1:
+        if isinstance(params.id, int):
+            query = query.filter_by(id=params.id)
+        if isinstance(params.pid, int):
             query = query.filter_by(pid=params.pid)
-        if params.role_id != -1:
+        if isinstance(params.role_id, int):
             query = query.filter_by(role_id=params.role_id)
-        if params.status != -1:
+        if isinstance(params.status, int):
             query = query.filter_by(status=params.status)
         if not export:
+            total = query.count()
             offset = (params.page - 1) * params.size
             query.offset(offset).limit(params.size)
+    return {"total": total, "items": query.all()}
 
-    return query.all()
 
-
-def add_user(params: UserAddForm) -> bool:
-    if params.phone is None and params.email is None:
+def add_user(params: UserItem) -> bool:
+    if not params.phone and not params.email:
         raise ValueError('手机或邮箱至少填写一项')
 
     with get_session() as db:
@@ -89,19 +96,19 @@ def add_user(params: UserAddForm) -> bool:
     return True
 
 
-def edit_user(params: UserEditForm) -> bool:
+def edit_user(params: UserItem) -> bool:
     with get_session() as db:
         user_model = db.query(UserModel).filter_by(id=params.id).first()
         if user_model is None:
             raise ValueError(f'用户不存在(id={params.id})')
 
-        if params.phone is not None:
+        if params.phone:
             exists_count = db.query(UserModel).filter(
                 UserModel.id != user_model.id, UserModel.phone == params.phone).count()
             if exists_count > 0:
                 raise ValueError('手机已存在')
             user_model.phone = params.phone
-        if params.email is not None:
+        if params.email:
             exists_count = db.query(UserModel).filter(
                 UserModel.id != user_model.id, UserModel.email == params.email).count()
             if exists_count > 0:
