@@ -51,6 +51,9 @@ def get_option_list(params: OptionSearchQuery) -> OptionListResponse:
             query = query.filter(SystemOptionModel.option_name.like(f'%{params.option_name}%'))
         if params.memo:
             query = query.filter(SystemOptionModel.memo.like(f'%{params.memo}%'))
+        if params.locked in ("yes", "no"):
+            lock = 1 if params.locked == "yes" else 0
+            query = query.filter(SystemOptionModel.lock == lock)
         if not export:
             total = query.count()
             offset = (params.page - 1) * params.size

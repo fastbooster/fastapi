@@ -7,9 +7,9 @@
 
 from datetime import datetime
 
-from typing import List, Optional
+from typing import List, Union, Optional
 
-from pydantic import BaseModel, validator
+from pydantic import BaseModel, validator, Field
 
 from app.schemas.schemas import PaginationParams
 
@@ -47,3 +47,4 @@ class OptionListResponse(BaseModel):
 class OptionSearchQuery(PaginationParams):
     option_name: Optional[str] = None
     memo: Optional[str] = None
+    locked: Optional[str] = Field(None, description="锁定状态：yes/no")
