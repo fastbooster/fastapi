@@ -8,7 +8,7 @@
 from datetime import datetime
 from enum import Enum
 from pydantic import BaseModel, PositiveInt, validator, conint, confloat
-from typing import Optional
+from typing import List, Optional
 
 from app.schemas.schemas import PaginationParams
 
@@ -140,9 +140,9 @@ class PaymentAccountEditForm(PaymentAccountAddForm):
     id: int
 
 
-class PointRechargeSettingForm(BaseModel):
+class PointRechargeSettingItem(BaseModel):
     amount: conint(gt=0)
-    gift_amount: conint(ge=0)
+    gift_amount: Optional[conint(ge=0)] = 0
     original_price: confloat(ge=0)
     price: confloat(gt=0)
     desc: Optional[str] = None
@@ -156,9 +156,17 @@ class PointRechargeSettingForm(BaseModel):
         return value
 
 
-class BalanceRechargeSettingForm(PointRechargeSettingForm):
+class BalanceRechargeSettingItem(PointRechargeSettingItem):
     amount: conint(gt=0) | confloat(gt=0)
-    gift_amount: conint(ge=0) | confloat(ge=0)
+    gift_amount: Optional[conint(ge=0) | confloat(ge=0)] = 0
+
+
+class PointRechargeSettingListResponse(BaseModel):
+    items: List[PointRechargeSettingItem]
+
+
+class BalanceRechargeSettingListResponse(BaseModel):
+    items: List[BalanceRechargeSettingItem]
 
 
 class ScanpayForm(BaseModel):

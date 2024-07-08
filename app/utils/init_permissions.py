@@ -69,6 +69,28 @@ def init_permissions():
             ]
         },
         {
+            'name': '充值提现',
+            'component_name': 'Finance',
+            'children': [
+                {
+                    'name': '充值设置',
+                    'component_name': 'RechargeSettings',
+                },
+                {
+                    'name': '积分充值记录',
+                    'component_name': 'PoitRecharges',
+                },
+                {
+                    'name': '余额充值记录',
+                    'component_name': 'BalanceRecharges',
+                },
+                {
+                    'name': '余额提现记录',
+                    'component_name': 'Withdrawal',
+                },
+            ]
+        },
+        {
             'name': '权限管理',
             'component_name': 'Permission',
             'children': [

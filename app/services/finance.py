@@ -21,8 +21,8 @@ from app.models.finance import BalanceModel, BalanceGiftModel, PointModel, Chenc
     PointRechargeModel, BalanceRechargeModel
 from app.models.system_option import SystemOptionModel
 from app.schemas.finance import SearchQuery, AdjustForm, CheckinType, PointType, PaymentAccountSearchQuery, \
-    PaymentAccountFrontendSearchQuery, PaymentAccountAddForm, PaymentAccountEditForm, PointRechargeSettingForm, \
-    BalanceRechargeSettingForm, PaymentStatuType, ScanpayForm, PaymentToolType
+    PaymentAccountFrontendSearchQuery, PaymentAccountAddForm, PaymentAccountEditForm, PointRechargeSettingItem, \
+    BalanceRechargeSettingItem, PaymentStatuType, ScanpayForm, PaymentToolType
 from app.tasks.finance import handle_balance, handle_balance_gift, handle_point
 from app.constants.constants import REDIS_SYSTEM_OPTIONS_AUTOLOAD
 from app.services import system_option as SystemOptionService
@@ -288,38 +288,39 @@ def delete_payment_account(id: int, user_id: int) -> bool:
     return True
 
 
-def get_point_recharge_setting() -> list:
+def get_point_recharge_settings() -> list:
     with get_redis() as redis:
-        setting = redis.hget(REDIS_SYSTEM_OPTIONS_AUTOLOAD, 'point_recharge_setting')
+        setting = redis.hget(REDIS_SYSTEM_OPTIONS_AUTOLOAD, 'point_recharge_settings')
         setting = json.loads(setting) if setting else []
 
     return setting
 
 
-def get_balance_recharge_setting() -> list:
+def get_balance_recharge_settings() -> list:
     with get_redis() as redis:
-        setting = redis.hget(REDIS_SYSTEM_OPTIONS_AUTOLOAD, 'balance_recharge_setting')
+        setting = redis.hget(REDIS_SYSTEM_OPTIONS_AUTOLOAD, 'balance_recharge_settings')
         setting = json.loads(setting) if setting else []
 
     return setting
 
 
-def update_point_recharge_settings(settings: List[PointRechargeSettingForm]) -> bool:
+def update_point_recharge_settings(settings: List[PointRechargeSettingItem]) -> bool:
     with get_session() as db:
-        option_model = db.query(SystemOptionModel).filter_by(option_name='point_recharge_setting').first()
+        option_model = db.query(SystemOptionModel).filter_by(option_name='point_recharge_settings').first()
         if option_model is None:
             option_model = SystemOptionModel(
-                option_name='point_recharge_setting',
+                option_name='point_recharge_settings',
                 option_value=json.dumps([setting.__dict__ for setting in settings]),
                 richtext=0,
                 position=0,
                 autoload=1,
                 lock=1,
-                memo=None,
+                memo="积分充值设置",
             )
             db.add(option_model)
         else:
             option_model.option_value = json.dumps([setting.__dict__ for setting in settings])
+            option_model.memo = "积分充值设置"
 
         db.commit()
         SystemOptionService.update_cache(option_model)
@@ -327,22 +328,23 @@ def update_point_recharge_settings(settings: List[PointRechargeSettingForm]) -> 
     return True
 
 
-def update_balance_recharge_settings(settings: List[BalanceRechargeSettingForm]) -> bool:
+def update_balance_recharge_settings(settings: List[BalanceRechargeSettingItem]) -> bool:
     with get_session() as db:
-        option_model = db.query(SystemOptionModel).filter_by(option_name='balance_recharge_setting').first()
+        option_model = db.query(SystemOptionModel).filter_by(option_name='balance_recharge_settings').first()
         if option_model is None:
             option_model = SystemOptionModel(
-                option_name='balance_recharge_setting',
+                option_name='balance_recharge_settings',
                 option_value=json.dumps([setting.__dict__ for setting in settings]),
                 richtext=0,
                 position=0,
                 autoload=1,
                 lock=1,
-                memo=None,
+                memo="余额充值设置",
             )
             db.add(option_model)
         else:
             option_model.option_value = json.dumps([setting.__dict__ for setting in settings])
+            option_model.memo = "余额充值设置"
 
         db.commit()
         SystemOptionService.update_cache(option_model)
@@ -355,12 +357,12 @@ def point_unifiedorder(sku_id: int, user_id: int, user_ip: str) -> dict:
     if not settings.ENDPOINT.portal or not settings.ENDPOINT.pay or not settings.ENDPOINT.mp:
         raise ValueError('端点未配置')
 
-    recharge_setting = get_point_recharge_setting()
-    if not recharge_setting:
+    recharge_settings = get_point_recharge_settings()
+    if not recharge_settings:
         raise ValueError('积分充值设置未配置')
 
-    if sku_id < len(recharge_setting) and sku_id >= 0:
-        sku = recharge_setting[sku_id]
+    if sku_id < len(recharge_settings) and sku_id >= 0:
+        sku = recharge_settings[sku_id]
         if not sku:
             raise ValueError('SKU不存在')
     else:
@@ -402,12 +404,12 @@ def balance_unifiedorder(sku_id: int, user_id: int, user_ip: str) -> dict:
     if not settings.ENDPOINT.portal or not settings.ENDPOINT.pay or not settings.ENDPOINT.mp:
         raise ValueError('端点未配置')
 
-    recharge_setting = get_balance_recharge_setting()
-    if not recharge_setting:
+    recharge_settings = get_balance_recharge_settings()
+    if not recharge_settings:
         raise ValueError('余额充值设置未配置')
 
-    if sku_id < len(recharge_setting) and sku_id >= 0:
-        sku = recharge_setting[sku_id]
+    if sku_id < len(recharge_settings) and sku_id >= 0:
+        sku = recharge_settings[sku_id]
         if not sku:
             raise ValueError('SKU不存在')
     else:
