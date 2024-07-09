@@ -24,6 +24,8 @@ class PaymentChannelModel(Base):
 
     # 用于前端显示, eg: 支付宝, 微信支付, 银联支付, 支付通道N
     name = Column(String(50), comment='名称')
+    
+    icon = Column(String(255), comment='图标')
 
     # 系统内置的支付渠道不可删除
     locked = Column(String(10), server_default='no', comment='锁定: yes/no')

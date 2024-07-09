@@ -1,8 +1,8 @@
 """Init
 
-Revision ID: b43814d47d3f
+Revision ID: 0484f96e2bcf
 Revises: 
-Create Date: 2024-07-09 09:52:16.571686
+Create Date: 2024-07-09 10:34:17.566720
 
 """
 from typing import Sequence, Union
@@ -12,7 +12,7 @@ import sqlalchemy as sa
 from sqlalchemy.dialects import mysql
 
 # revision identifiers, used by Alembic.
-revision: str = 'b43814d47d3f'
+revision: str = '0484f96e2bcf'
 down_revision: Union[str, None] = None
 branch_labels: Union[str, Sequence[str], None] = None
 depends_on: Union[str, Sequence[str], None] = None
@@ -149,6 +149,7 @@ def upgrade() -> None:
     sa.Column('id', sa.Integer(), autoincrement=True, nullable=False, comment='ID'),
     sa.Column('key', sa.String(length=50), nullable=True, comment='键名'),
     sa.Column('name', sa.String(length=50), nullable=True, comment='名称'),
+    sa.Column('icon', sa.String(length=255), nullable=True, comment='图标'),
     sa.Column('locked', sa.String(length=10), server_default='no', nullable=True, comment='锁定: yes/no'),
     sa.Column('asc_sort_order', sa.Integer(), server_default='0', nullable=True, comment='排序'),
     sa.Column('status', sa.String(length=10), server_default='enabled', nullable=False, comment='状态: enabled/disabled'),
