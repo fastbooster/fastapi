@@ -94,6 +94,8 @@ alembic --help
 
 ### 初始化必要数据
 
+TODO: 编写统一交互式初始化脚本
+
 ```shell
 # 1. 初始化权限菜单
 # 更新权限菜单后可反复执行此命令
@@ -107,6 +109,9 @@ python app/utils/init_user.py
 
 # 4. 初始化城市
 python app/utils/init_city.py
+
+# 5. 初始化支付渠道
+python app/utils/init_payment_channel.py
 ```
 
 
