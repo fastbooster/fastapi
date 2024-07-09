@@ -5,11 +5,11 @@
 # Email: easelify@gmail.com
 # Time: 2024/07/09 00:07
 
-from sqlalchemy import text, Text, Index, Column, Integer, SmallInteger, String, DECIMAL, TIMESTAMP
-from app.models.base import Base
+from sqlalchemy import text, Text, Index, Column, Integer, SmallInteger, String, TIMESTAMP
+from app.models.base import Base, BaseMixin
 
 
-class PaymentChannelModel(Base):
+class PaymentChannelModel(Base, BaseMixin):
     __tablename__ = 'payment_channel'
     __table_args__ = {'mysql_engine': 'InnoDB',
                       'mariadb_engine': 'InnoDB', 'comment': '支付渠道'}
@@ -45,7 +45,7 @@ class PaymentChannelModel(Base):
         return f"<PaymentChannelModel(id={self.id}, key='{self.key}')>"
 
 
-class PaymentConfigModel(Base):
+class PaymentConfigModel(Base, BaseMixin):
     __tablename__ = 'payment_config'
     __table_args__ = {'mysql_engine': 'InnoDB',
                       'mariadb_engine': 'InnoDB', 'comment': '支付配置'}
