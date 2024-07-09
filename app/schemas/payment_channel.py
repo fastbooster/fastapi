@@ -21,7 +21,7 @@ class PaymentChannelItem(BaseModel):
     icon: Optional[str] = None
     locked: Optional[MysqlBoolType] = MysqlBoolType.NO.value
     asc_sort_order: Optional[int] = None
-    status: Optional[StatusType] = StatusType.ENABLED
+    status: Optional[StatusType] = StatusType.ENABLED.value
     created_at: Optional[datetime] = None
     updated_at: Optional[datetime] = None
 
@@ -34,4 +34,4 @@ class PaymentChannelListResponse(BaseModel):
 class PaymentChannelSearchQuery(PaginationParams):
     key: Optional[str] = None
     name: Optional[str] = None
-    status: Optional[StatusType] = StatusType.ENABLED
+    status: Optional[StatusType] = StatusType.ENABLED.value
