@@ -12,6 +12,16 @@ from pydantic import BaseModel
 from enum import Enum
 
 
+class StatusType(Enum):
+    ENABLED = 'enabled'
+    DISABLED = 'disabled'
+
+
+class MysqlBoolType(Enum):
+    YES = 'yes'
+    NO = 'no'
+
+
 class PaginationParams(BaseModel):
     page: Optional[int] = Query(1, ge=1, description="页码")
     size: Optional[int] = Query(10, ge=1, le=100, description="每页条数")

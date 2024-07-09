@@ -112,6 +112,10 @@ def init_permissions():
                     'name': '系统选项',
                     'component_name': 'SystemOption',
                 },
+                {
+                    'name': '支付设置',
+                    'component_name': 'PaymentSettings',
+                },
             ]
         },
     ]
