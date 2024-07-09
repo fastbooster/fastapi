@@ -9,7 +9,7 @@ from datetime import datetime
 
 from typing import List, Optional
 
-from pydantic import BaseModel, validator
+from pydantic import BaseModel
 
 from app.schemas.schemas import StatusType, MysqlBoolType, PaginationParams
 
@@ -34,4 +34,4 @@ class PaymentChannelListResponse(BaseModel):
 class PaymentChannelSearchQuery(PaginationParams):
     key: Optional[str] = None
     name: Optional[str] = None
-    status: Optional[StatusType] = StatusType.ENABLED.value
+    status: Optional[StatusType] = None

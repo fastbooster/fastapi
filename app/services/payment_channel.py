@@ -60,7 +60,7 @@ def add_payment_channel(params: PaymentChannelItem) -> bool:
             raise ValueError('KEY或名称已存在')
 
         last_item = db.query(PaymentChannelModel).order_by(desc('id')).first()
-        asc_sort_order = 0 if last_item is None else last_item.asc_sort_order + 1
+        asc_sort_order = 1 if last_item is None else last_item.asc_sort_order + 1
 
         model = PaymentChannelModel(
             key=params.key,

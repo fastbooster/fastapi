@@ -5,7 +5,7 @@
 # Email: easelify@gmail.com
 # Time: 2024/07/09 00:07
 
-from sqlalchemy import text, Text, Index, Column, Integer, SmallInteger, String, TIMESTAMP
+from sqlalchemy import text, Text, Index, Column, Integer, String, TIMESTAMP
 from app.models.base import Base, BaseMixin
 
 
