@@ -1,8 +1,8 @@
 """Init
 
-Revision ID: de0b825c92f0
+Revision ID: b43814d47d3f
 Revises: 
-Create Date: 2024-05-30 11:52:48.611352
+Create Date: 2024-07-09 09:52:16.571686
 
 """
 from typing import Sequence, Union
@@ -12,7 +12,7 @@ import sqlalchemy as sa
 from sqlalchemy.dialects import mysql
 
 # revision identifiers, used by Alembic.
-revision: str = 'de0b825c92f0'
+revision: str = 'b43814d47d3f'
 down_revision: Union[str, None] = None
 branch_labels: Union[str, Sequence[str], None] = None
 depends_on: Union[str, Sequence[str], None] = None
@@ -143,7 +143,46 @@ def upgrade() -> None:
     mariadb_engine='InnoDB',
     mysql_engine='InnoDB'
     )
+    op.create_index('idx_alias', 'cms_post_category', ['alias'], unique=True)
     op.create_index('idx_name', 'cms_post_category', ['name'], unique=False)
+    op.create_table('payment_channel',
+    sa.Column('id', sa.Integer(), autoincrement=True, nullable=False, comment='ID'),
+    sa.Column('key', sa.String(length=50), nullable=True, comment='键名'),
+    sa.Column('name', sa.String(length=50), nullable=True, comment='名称'),
+    sa.Column('locked', sa.String(length=10), server_default='no', nullable=True, comment='锁定: yes/no'),
+    sa.Column('asc_sort_order', sa.Integer(), server_default='0', nullable=True, comment='排序'),
+    sa.Column('status', sa.String(length=10), server_default='enabled', nullable=False, comment='状态: enabled/disabled'),
+    sa.Column('created_at', sa.TIMESTAMP(), server_default=sa.text('CURRENT_TIMESTAMP'), nullable=True, comment='创建时间'),
+    sa.Column('updated_at', sa.TIMESTAMP(), server_default=sa.text('CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'), nullable=True, comment='更新时间'),
+    sa.PrimaryKeyConstraint('id'),
+    comment='支付渠道',
+    mariadb_engine='InnoDB',
+    mysql_engine='InnoDB'
+    )
+    op.create_index('idx_key', 'payment_channel', ['key'], unique=True)
+    op.create_index('idx_sort', 'payment_channel', ['asc_sort_order'], unique=False)
+    op.create_table('payment_config',
+    sa.Column('id', sa.Integer(), autoincrement=True, nullable=False, comment='ID'),
+    sa.Column('channel_id', sa.Integer(), nullable=False, comment='支付渠道ID'),
+    sa.Column('name', sa.String(length=50), nullable=True, comment='名称'),
+    sa.Column('appname', sa.String(length=50), nullable=True, comment='支付平台APP名称'),
+    sa.Column('appid', sa.String(length=50), nullable=True, comment='支付平台APPID'),
+    sa.Column('mchid', sa.String(length=50), nullable=True, comment='支付平台商户ID'),
+    sa.Column('miniappid', sa.String(length=50), nullable=True, comment='小程序APPID'),
+    sa.Column('app_public_cert', sa.Text(), nullable=False, comment='应用公钥'),
+    sa.Column('app_private_key', sa.Text(), nullable=False, comment='应用私钥'),
+    sa.Column('app_secret_key', sa.Text(), nullable=False, comment='应用密钥'),
+    sa.Column('platform_public_cert', sa.Text(), nullable=False, comment='平台公钥'),
+    sa.Column('asc_sort_order', sa.Integer(), server_default='0', nullable=True, comment='排序'),
+    sa.Column('status', sa.String(length=10), server_default='enabled', nullable=False, comment='状态: enabled/disabled'),
+    sa.Column('created_at', sa.TIMESTAMP(), server_default=sa.text('CURRENT_TIMESTAMP'), nullable=True, comment='创建时间'),
+    sa.Column('updated_at', sa.TIMESTAMP(), server_default=sa.text('CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'), nullable=True, comment='更新时间'),
+    sa.PrimaryKeyConstraint('id'),
+    comment='支付配置',
+    mariadb_engine='InnoDB',
+    mysql_engine='InnoDB'
+    )
+    op.create_index('idx_sort', 'payment_config', ['asc_sort_order'], unique=False)
     op.create_table('system_option',
     sa.Column('id', sa.Integer(), autoincrement=True, nullable=False, comment='ID'),
     sa.Column('option_name', sa.String(length=32), nullable=True, comment='选项名称'),
@@ -429,6 +468,7 @@ def upgrade() -> None:
     mariadb_engine='InnoDB',
     mysql_engine='InnoDB'
     )
+    op.create_index('idx_name', 'user_role', ['name'], unique=True)
     op.create_table('user_withdraw',
     sa.Column('id', sa.Integer(), autoincrement=True, nullable=False, comment='ID'),
     sa.Column('user_id', sa.Integer(), nullable=False, comment='用户ID'),
@@ -474,6 +514,7 @@ def downgrade() -> None:
     op.drop_index('idx_audit_status', table_name='user_withdraw')
     op.drop_index('idx_account_id', table_name='user_withdraw')
     op.drop_table('user_withdraw')
+    op.drop_index('idx_name', table_name='user_role')
     op.drop_table('user_role')
     op.drop_index('idx_user_id_payment_status', table_name='user_point_recharge')
     op.drop_index('idx_user_id', table_name='user_point_recharge')
@@ -524,7 +565,13 @@ def downgrade() -> None:
     op.drop_index('idx_option_name', table_name='system_option')
     op.drop_index('idx_memo', table_name='system_option')
     op.drop_table('system_option')
+    op.drop_index('idx_sort', table_name='payment_config')
+    op.drop_table('payment_config')
+    op.drop_index('idx_sort', table_name='payment_channel')
+    op.drop_index('idx_key', table_name='payment_channel')
+    op.drop_table('payment_channel')
     op.drop_index('idx_name', table_name='cms_post_category')
+    op.drop_index('idx_alias', table_name='cms_post_category')
     op.drop_table('cms_post_category')
     op.drop_table('cms_post')
     op.drop_index('idx_related', table_name='cms_media')

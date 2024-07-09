@@ -10,4 +10,4 @@ from sqlalchemy.ext.declarative import declarative_base
 Base = declarative_base()
 
 # 导入所有模型，以支持 alembic 自动追踪
-from app.models import user, finance, cms, system_option
+from app.models import user, finance, cms, system_option, payment_settings

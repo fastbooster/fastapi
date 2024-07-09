@@ -30,7 +30,7 @@ class PostCategoryModel(Base):
         'CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'), comment='更新时间')
 
     idx_name = Index('idx_name', name)
-    idx_alias = Index('idx_name', alias, unique=True)
+    idx_alias = Index('idx_alias', alias, unique=True)
 
     def __repr__(self):
         return f"<PostCategoryModel(id={self.id}, name='{self.name}')>"
