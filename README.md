@@ -119,7 +119,9 @@ python app/utils/init_payment_channel.py
 
 #### 约定
 
-接口使用 `RESTful API` 风格开发，通过 `HTTP Method` 实现资源访问和管理，API端点命名统一采用 `复数名词`，如：`/api/v1/backend/users`
+1. 接口使用 `RESTful API` 风格开发，通过 `HTTP Method` 实现资源访问和管理，API端点命名统一采用 `复数名词`，如：`/api/v1/backend/users`
+
+2. 前端调用接口时，空值字段请勿传入，后端将自动处理为 `None`，例如：`status=''` 时就不要提交此字段
 
 | HTTP动词  | 是否幂等  | 约定用法
 |----------|----------|-------------
