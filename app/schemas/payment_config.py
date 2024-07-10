@@ -17,16 +17,11 @@ from app.schemas.schemas import StatusType, PaginationParams
 class PaymentConfigItem(BaseModel):
     id: Optional[int] = Field(None, ge=0, description="ID")
     channel_id: Optional[int] = Field(None, ge=1, description="支付渠道ID")
-    name: str = Field(None, min_length=1, max_length=50,
-                      description="对外显示的名称，如：微信支付或支付通道1")
-    appname: str = Field(None, min_length=1, max_length=50,
-                         description="支付平台APP名称")
-    appid: str = Field(None, min_length=1, max_length=50,
-                       description="支付平台APPID")
-    mchid: Optional[str] = Field(
-        None, min_length=1, max_length=50, description="支付平台商户ID")
-    miniappid: Optional[str] = Field(
-        None, min_length=1, max_length=50, description="小程序ID, 微信支付专用")
+    name: str = Field(None, min_length=1, max_length=50, description="对外显示的名称，如：微信支付或支付通道1")
+    appname: Optional[str] = Field(None, min_length=1, max_length=50, description="支付平台APP名称")
+    appid: str = Field(None, min_length=1, max_length=50, description="支付平台APPID")
+    mchid: Optional[str] = Field(None, min_length=1, max_length=50, description="支付平台商户ID")
+    miniappid: Optional[str] = Field(None, min_length=1, max_length=50, description="小程序ID, 微信支付专用")
     app_public_cert: Optional[str] = Field(None, description="应用公钥")
     app_private_key: Optional[str] = Field(None, description="应用私钥")
     app_secret_key: Optional[str] = Field(None, description="应用密钥")

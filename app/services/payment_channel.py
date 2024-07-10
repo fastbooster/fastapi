@@ -7,7 +7,7 @@
 
 
 from sqlalchemy import or_
-from sqlalchemy.sql.expression import desc
+from sqlalchemy.sql.expression import asc, desc
 
 from app.core.mysql import get_session
 
@@ -31,7 +31,7 @@ def get_payment_channel_list(params: PaymentChannelSearchQuery) -> PaymentChanne
     total = -1
     export = True if params.export == 1 else False
     with get_session() as db:
-        query = db.query(PaymentChannelModel).order_by(desc('id'))
+        query = db.query(PaymentChannelModel).order_by(asc('asc_sort_order'))
         if params.key:
             query = query.filter(
                 PaymentChannelModel.key.like(f'%{params.key}%'))
@@ -66,7 +66,7 @@ def add_payment_channel(params: PaymentChannelItem) -> bool:
             key=params.key,
             name=params.name,
             icon=params.icon,
-            locked=params.locked.value,
+            locked=MysqlBoolType.NO.value,  # 不允许添加锁定的渠道
             asc_sort_order=asc_sort_order,
             status=params.status.value,
         )

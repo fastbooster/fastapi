@@ -7,7 +7,7 @@
 
 
 from sqlalchemy import or_
-from sqlalchemy.sql.expression import desc
+from sqlalchemy.sql.expression import asc, desc
 
 from app.core.mysql import get_session
 
@@ -31,7 +31,7 @@ def get_payment_config_list(params: PaymentConfigSearchQuery) -> PaymentConfigLi
     total = -1
     export = True if params.export == 1 else False
     with get_session() as db:
-        query = db.query(PaymentConfigModel).order_by(desc('id'))
+        query = db.query(PaymentConfigModel).order_by(asc('asc_sort_order'))
         if isinstance(params.channel_id, int):
             query = query.filter(
                 PaymentConfigModel.channel_id == params.channel_id)
@@ -57,7 +57,7 @@ def add_payment_config(params: PaymentConfigItem) -> bool:
             raise ValueError(f'appid={params.appid} 已存在')
 
         last_item = db.query(PaymentConfigModel).order_by(desc('id')).first()
-        params.asc_sort_order = 1 if last_item is None else last_item.asc_sort_order + 1
+        params.asc_sort_order = 1 if last_item is None or last_item.asc_sort_order is None else last_item.asc_sort_order + 1
 
         fields = params.model_dump()
         fields.pop('id')
@@ -92,6 +92,20 @@ def edit_payment_config(params: PaymentConfigItem) -> bool:
         fields['status'] = params.status.value
 
         model.from_dict(fields)
+
+        db.commit()
+
+    return True
+
+
+def update_status(params: PaymentConfigItem) -> bool:
+    with get_session() as db:
+        model = db.query(PaymentConfigModel).filter_by(
+            id=params.id).first()
+        if model is None:
+            raise ValueError(f'支付配置不存在(id={params.id})')
+
+        model.status = params.status.value
 
         db.commit()
 

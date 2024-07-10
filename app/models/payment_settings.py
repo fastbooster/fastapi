@@ -59,18 +59,18 @@ class PaymentConfigModel(Base, BaseMixin):
     # 用于前端显示, eg: 支付宝, 微信支付, 银联支付, 支付通道N
     name = Column(String(50), comment='名称')
     appname = Column(String(50), comment='支付平台APP名称')
-    appid = Column(String(50), comment='支付平台APPID')
+    appid = Column(String(50), nullable=False, comment='支付平台APPID')
     mchid = Column(String(50), comment='支付平台商户ID')
     miniappid = Column(String(50), comment='小程序APPID')  # 微信专用
 
-    app_public_cert = Column(Text(), nullable=False, comment='应用公钥')
-    app_private_key = Column(Text(), nullable=False, comment='应用私钥')
+    app_public_cert = Column(Text(), comment='应用公钥')
+    app_private_key = Column(Text(), comment='应用私钥')
 
     # 微信支付，其他聚合平台会有密钥，可设置到此字段保存
-    app_secret_key = Column(Text(), nullable=False, comment='应用密钥')
+    app_secret_key = Column(Text(), comment='应用密钥')
 
     # 支付宝专用
-    platform_public_cert = Column(Text(), nullable=False, comment='平台公钥')
+    platform_public_cert = Column(Text(), comment='平台公钥')
 
     asc_sort_order = Column(Integer, server_default='0', comment='排序')
     status = Column(String(10), nullable=False,

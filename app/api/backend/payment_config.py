@@ -18,12 +18,12 @@ from app.schemas.payment_config import PaymentConfigItem, PaymentConfigSearchQue
 router = APIRouter()
 
 
-@router.get("/payment_connfigs", response_model=PaymentConfigListResponse, dependencies=[Depends(check_permission('PaymentSettings'))], summary="支付配置列表")
+@router.get("/payment_configs", response_model=PaymentConfigListResponse, dependencies=[Depends(check_permission('PaymentSettings'))], summary="支付配置列表")
 def lists(params: PaymentConfigSearchQuery = Depends()):
     return PaymentConfigService.get_payment_config_list(params)
 
 
-@router.get("/payment_connfigs/{id}", response_model=PaymentConfigItem, dependencies=[Depends(check_permission('PaymentSettings'))], summary="支付配置详情",)
+@router.get("/payment_configs/{id}", response_model=PaymentConfigItem, dependencies=[Depends(check_permission('PaymentSettings'))], summary="支付配置详情",)
 def detail(id: int):
     item = PaymentConfigService.get_payment_config(id)
     if not item:
@@ -31,7 +31,7 @@ def detail(id: int):
     return item
 
 
-@router.post("/payment_connfigs", response_model=ResponseSuccess, dependencies=[Depends(check_permission('PaymentSettings'))], summary="添加支付配置")
+@router.post("/payment_configs", response_model=ResponseSuccess, dependencies=[Depends(check_permission('PaymentSettings'))], summary="添加支付配置")
 def add(params: PaymentConfigItem):
     try:
         PaymentConfigService.add_payment_config(params)
@@ -43,7 +43,7 @@ def add(params: PaymentConfigItem):
     return ResponseSuccess
 
 
-@router.put("/payment_connfigs/{id}", response_model=ResponseSuccess, dependencies=[Depends(check_permission('PaymentSettings'))], summary="编辑支付配置")
+@router.put("/payment_configs/{id}", response_model=ResponseSuccess, dependencies=[Depends(check_permission('PaymentSettings'))], summary="编辑支付配置")
 def edit(id: int, params: PaymentConfigItem):
     try:
         params.id = id
@@ -56,7 +56,20 @@ def edit(id: int, params: PaymentConfigItem):
     return ResponseSuccess
 
 
-@router.delete("/payment_connfigs/{id}", response_model=ResponseSuccess, dependencies=[Depends(check_permission('PaymentSettings'))], summary="删除支付配置",)
+@router.patch("/payment_configs/{id}/status", response_model=ResponseSuccess, dependencies=[Depends(check_permission('PaymentSettings'))], summary="更新支付配置状态")
+def update_status(id: int, params: PaymentConfigItem):
+    try:
+        params.id = id
+        PaymentConfigService.update_status(params)
+    except ValueError as e:
+        raise HTTPException(status_code=400, detail=f'{e}')
+    except Exception as e:
+        logger.error(f'编辑支付配置失败：{e}')
+        raise HTTPException(status_code=500, detail='编辑支付配置失败')
+    return ResponseSuccess
+
+
+@router.delete("/payment_configs/{id}", response_model=ResponseSuccess, dependencies=[Depends(check_permission('PaymentSettings'))], summary="删除支付配置",)
 def delete(id: int):
     try:
         PaymentConfigService.delete_payment_config(id)
