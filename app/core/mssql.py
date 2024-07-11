@@ -22,8 +22,10 @@ pool_size = int(pool_size) if pool_size else 5
 connection_string = f"mssql+pyodbc://{user}:{
     pwd}@{server}/{name}?driver={driver}"
 # engine = create_engine(connection_string)
+
+# 降低 pool_recycle 时间，防止连接数耗尽
 engine = create_engine(
-    connection_string, pool_size=pool_size, pool_recycle=3600)
+    connection_string, pool_size=pool_size, pool_recycle=60)
 
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 

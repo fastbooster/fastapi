@@ -11,7 +11,7 @@ from sqlalchemy.sql.expression import asc, desc
 
 from app.core.mysql import get_session
 
-from app.models.payment_settings import PaymentConfigModel, PaymentConfigModel
+from app.models.payment_settings import PaymentConfigModel
 from app.schemas.schemas import StatusType
 from app.schemas.payment_config import PaymentConfigItem, PaymentConfigSearchQuery, PaymentConfigListResponse
 

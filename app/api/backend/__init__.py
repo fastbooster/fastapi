@@ -8,6 +8,7 @@ from . import user
 from . import system_option
 from . import payment_channel
 from . import payment_config
+from . import payment_settings
 
 __all__ = [
     'ad',
@@ -19,4 +20,5 @@ __all__ = [
     'system_option',
     'payment_channel',
     'payment_config',
+    'payment_settings',
 ]

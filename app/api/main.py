@@ -32,3 +32,4 @@ api_router.include_router(backend.user.router, prefix="/backend", tags=['backend
 api_router.include_router(backend.system_option.router, prefix="/backend", tags=['backend_system_option'])
 api_router.include_router(backend.payment_channel.router, prefix="/backend", tags=['backend_payment_channel'])
 api_router.include_router(backend.payment_config.router, prefix="/backend", tags=['backend_payment_config'])
+api_router.include_router(backend.payment_settings.router, prefix="/backend", tags=['backend_payment_settings'])

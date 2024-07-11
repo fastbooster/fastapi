@@ -14,6 +14,20 @@ from pydantic import BaseModel, Field, validator
 from app.schemas.schemas import StatusType, PaginationParams
 
 
+class PaymentConfigSafeItem(BaseModel):
+    id: int = Field(None, ge=0, description="ID")
+    channel_id: int = Field(None, ge=1, description="支付渠道ID")
+    name: str = Field(None, min_length=1, max_length=50, description="对外显示的名称，如：微信支付或支付通道1")
+    appname: Optional[str] = Field(None, min_length=1, max_length=50, description="支付平台APP名称")
+    appid: str = Field(None, min_length=1, max_length=50, description="支付平台APPID")
+    mchid: Optional[str] = Field(None, min_length=1, max_length=50, description="支付平台商户ID")
+    miniappid: Optional[str] = Field(None, min_length=1, max_length=50, description="小程序ID, 微信支付专用")
+    asc_sort_order: Optional[int] = None
+    status: Optional[StatusType] = StatusType.ENABLED.value
+    created_at: Optional[datetime] = None
+    updated_at: Optional[datetime] = None
+
+
 class PaymentConfigItem(BaseModel):
     id: Optional[int] = Field(None, ge=0, description="ID")
     channel_id: Optional[int] = Field(None, ge=1, description="支付渠道ID")
