@@ -79,3 +79,15 @@ def delete(id: int):
         logger.error(f'删除支付配置失败：{e}')
         raise HTTPException(status_code=500, detail='删除支付配置失败')
     return ResponseSuccess
+
+
+@router.post("/payment_configs/rebuild_cache", response_model=ResponseSuccess, dependencies=[Depends(check_permission('PaymentSettings'))], summary="重建缓存",)
+def rebuild_cache():
+    try:
+        PaymentConfigService.rebuild_cache()
+    except ValueError as e:
+        raise HTTPException(status_code=400, detail=f'{e}')
+    except Exception as e:
+        logger.error(f'重建缓存失败：{e}')
+        raise HTTPException(status_code=500, detail='重建缓存失败')
+    return ResponseSuccess

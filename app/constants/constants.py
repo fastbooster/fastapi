@@ -44,6 +44,9 @@ REDIS_AUTH_USER_PREFIX = 'logged_user:'
 # [hash] 系统参数配置
 REDIS_SYSTEM_OPTIONS_AUTOLOAD = 'system_options_autoload'
 
+# [hash] 支付配置
+REDIS_PAYMENT_CONFIG = 'payment_config'
+
 # 接手机号码, 同一个号码30分钟内只能发送10次, 只统计发送成功的次数
 REDIS_SMS_COUNT = 'sms:count:'
 

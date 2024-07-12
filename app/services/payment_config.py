@@ -6,10 +6,17 @@
 # Time: 2024/07/10 00:18
 
 
+import json
+
+from datetime import datetime
+
 from sqlalchemy import or_
 from sqlalchemy.sql.expression import asc, desc
 
 from app.core.mysql import get_session
+from app.core.redis import get_redis
+
+from app.constants.constants import REDIS_PAYMENT_CONFIG
 
 from app.models.payment_settings import PaymentConfigModel
 from app.schemas.schemas import StatusType
@@ -69,6 +76,9 @@ def add_payment_config(params: PaymentConfigItem) -> bool:
 
         db.add(model)
         db.commit()
+
+        params.id = model.id
+        update_cache(params.model_dump())
     return True
 
 
@@ -87,13 +97,14 @@ def edit_payment_config(params: PaymentConfigItem) -> bool:
         fields = params.model_dump()
         fields.pop('id')
         fields.pop('channel_id')
+        fields.pop('appid')  # 禁止修改 appid, 防止缓存溢出
         fields.pop('created_at')
         fields.pop('updated_at')
         fields['status'] = params.status.value
 
         model.from_dict(fields)
-
         db.commit()
+        update_cache(params.model_dump())
 
     return True
 
@@ -121,4 +132,44 @@ def delete_payment_config(id: int) -> bool:
         db.delete(model)
         db.commit()
 
+        params = model.__dict__
+        params.pop('_sa_instance_state')
+        update_cache(params, is_delete=True)
+
     return True
+
+
+def update_cache(params: dict, is_delete: bool = False) -> None:
+    '''注意：模型的 appid 字堵不能修改，否则在删除时无法清理缓存，可能缓存会溢出'''
+    if isinstance(params["status"], StatusType):
+        params["status"] = params["status"].value
+    if isinstance(params["created_at"], datetime):
+        params["created_at"] = params["created_at"].isoformat()
+    if isinstance(params["updated_at"], datetime):
+        params["updated_at"] = params["updated_at"].isoformat()
+    print(params)
+    with get_redis() as redis:
+        if is_delete == False:
+            redis.hset(REDIS_PAYMENT_CONFIG,
+                       params["appid"], json.dumps(params))
+        else:
+            redis.hdel(REDIS_PAYMENT_CONFIG, params["appid"])
+
+
+def rebuild_cache() -> None:
+    with get_session() as db:
+        with get_redis() as redis:
+            items = db.query(PaymentConfigModel).order_by(
+                asc('asc_sort_order')).all()
+            redis.delete(REDIS_PAYMENT_CONFIG)
+            for item in items:
+                params = item.__dict__
+                params.pop('_sa_instance_state')
+                if isinstance(params["status"], StatusType):
+                    params["status"] = params["status"].value
+                if isinstance(params["created_at"], datetime):
+                    params["created_at"] = params["created_at"].isoformat()
+                if isinstance(params["updated_at"], datetime):
+                    params["updated_at"] = params["updated_at"].isoformat()
+                redis.hset(REDIS_PAYMENT_CONFIG,
+                           params["appid"], json.dumps(params))
