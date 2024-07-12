@@ -14,7 +14,14 @@ from pydantic import BaseModel
 from app.schemas.schemas import StatusType, MysqlBoolType, PaginationParams
 
 
+class PaymentChannelOutItem(BaseModel):
+    '''对外显示，不包含敏感信息'''
+    key: str
+    name: str
+
+
 class PaymentChannelItem(BaseModel):
+    '''全量模型'''
     id: Optional[int] = 0
     key: str
     name: str

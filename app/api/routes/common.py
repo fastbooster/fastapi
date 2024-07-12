@@ -8,9 +8,12 @@
 from loguru import logger
 from fastapi import APIRouter, Depends, UploadFile, File, HTTPException
 
-from app.constants.constants import RESPONSE_OK
-from app.core.security import get_current_user_from_cache, get_current_user_id
+from app.schemas.schemas import ResponseSuccess
+from app.schemas.payment_settings import PaymentSettingOutListResponse
+
+from app.core.security import get_current_user_from_cache
 from app.services import upload, sms, system_option, city, ad
+from app.services import payment_settings as PaymentSettingsService
 
 router = APIRouter()
 
@@ -18,11 +21,10 @@ router = APIRouter()
 @router.post('/upload_file', summary='上传文件')
 async def upload_file(file: UploadFile = File(...), related_type: str = 'files', related_id: int = 0,
                       user_data: dict = Depends(get_current_user_from_cache)):
-    # 调用上传文件方法
     return await upload.upload_file(file, related_type, related_id, user_data)
 
 
-@router.post('/send_sms', summary='发送短信验证码, 仅用于非登陆下的操作, 比如注册、登录、找回密码等')
+@router.post('/send_sms', response_model=ResponseSuccess, summary='发送短信验证码, 用于非登陆的情况下, 比如注册、登录、找回密码等')
 async def send_sms(phone: str):
     try:
         await sms.send_sms(phone, 0)
@@ -31,10 +33,10 @@ async def send_sms(phone: str):
     except Exception as e:
         logger.error(f'发送短信验证码失败：{e}')
         raise HTTPException(status_code=500, detail='发送短信验证码失败')
-    return RESPONSE_OK
+    return ResponseSuccess
 
 
-@router.post('/send_sms2', summary='发送短信操作码, 仅用于已登陆下的操作, 比如重置密码')
+@router.post('/send_sms2', response_model=ResponseSuccess, summary='发送短信操作码, 用于已登陆的情况下, 比如重置密码')
 async def send_sms(phone: str, user_data: dict = Depends(get_current_user_from_cache)):
     try:
         await sms.send_sms(phone, 1)
@@ -43,7 +45,7 @@ async def send_sms(phone: str, user_data: dict = Depends(get_current_user_from_c
     except Exception as e:
         logger.error(f'发送短信验证码失败：{e}')
         raise HTTPException(status_code=500, detail='发送短信验证码失败')
-    return RESPONSE_OK
+    return ResponseSuccess
 
 
 @router.get('/option/{option_name}', summary='获取系统配置')
@@ -63,3 +65,8 @@ async def get_option(pid: int):
 def ad_list(space_id: int):
     items = ad.get_ad_list_from_cache(space_id)
     return [ad.safe_whitelist_fields(item) for item in items]
+
+
+@router.get('/payment_settings', response_model=PaymentSettingOutListResponse, summary='获取支付设置 (from cache)')
+def payment_settings():
+    return PaymentSettingsService.get_payment_settings_from_cache()
