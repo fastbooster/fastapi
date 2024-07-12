@@ -44,6 +44,9 @@ REDIS_AUTH_USER_PREFIX = 'logged_user:'
 # [hash] 系统参数配置
 REDIS_SYSTEM_OPTIONS_AUTOLOAD = 'system_options_autoload'
 
+# [hash] 支付渠道
+REDIS_PAYMENT_CHANNEL = 'payment_channel'
+
 # [hash] 支付配置
 REDIS_PAYMENT_CONFIG = 'payment_config'
 

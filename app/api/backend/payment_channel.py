@@ -48,6 +48,8 @@ def edit(id: int, params: PaymentChannelItem):
     try:
         params.id = id
         PaymentChannelService.edit_payment_channel(params)
+    except KeyError as e:
+        raise HTTPException(status_code=400, detail=f'键异常: {e}')
     except ValueError as e:
         raise HTTPException(status_code=400, detail=f'{e}')
     except Exception as e:
@@ -65,4 +67,16 @@ def delete(id: int):
     except Exception as e:
         logger.error(f'删除支付渠道失败：{e}')
         raise HTTPException(status_code=500, detail='删除支付渠道失败')
+    return ResponseSuccess
+
+
+@router.post("/payment_channels/rebuild_cache", response_model=ResponseSuccess, dependencies=[Depends(check_permission('PaymentSettings'))], summary="重建缓存",)
+def rebuild_cache():
+    try:
+        PaymentChannelService.rebuild_cache()
+    except ValueError as e:
+        raise HTTPException(status_code=400, detail=f'{e}')
+    except Exception as e:
+        logger.error(f'重建缓存失败：{e}')
+        raise HTTPException(status_code=500, detail='重建缓存失败')
     return ResponseSuccess

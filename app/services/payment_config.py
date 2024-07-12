@@ -110,6 +110,7 @@ def edit_payment_config(params: PaymentConfigItem) -> bool:
 
 
 def update_status(params: PaymentConfigItem) -> bool:
+    '''此操作无需更新缓存，因为状态变更后不会影响支付'''
     with get_session() as db:
         model = db.query(PaymentConfigModel).filter_by(
             id=params.id).first()
@@ -147,7 +148,6 @@ def update_cache(params: dict, is_delete: bool = False) -> None:
         params["created_at"] = params["created_at"].isoformat()
     if isinstance(params["updated_at"], datetime):
         params["updated_at"] = params["updated_at"].isoformat()
-    print(params)
     with get_redis() as redis:
         if is_delete == False:
             redis.hset(REDIS_PAYMENT_CONFIG,
