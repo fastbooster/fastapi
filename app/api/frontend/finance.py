@@ -11,29 +11,38 @@ from app.core.log import logger
 from fastapi import APIRouter, HTTPException, Depends, Request
 from fastapi.responses import PlainTextResponse
 
-from app.core.security import get_current_user_from_cache, get_current_user_id
+from app.schemas.finance import ScanpayForm, PointRechargeSettingListResponse, BalanceRechargeSettingListResponse
+from app.schemas.payment_settings import PaymentSettingOutListResponse
+
+from app.core.security import get_current_user_from_cache
 from app.services import finance as FinanceService
-from app.constants.constants import RESPONSE_OK, RESPONSE_WECHAT_SUCCESS, RESPONSE_WECHAT_FAIL, RESPONSE_ALIPAY_SUCCESS, \
+from app.services import payment_settings as PaymentSettingsService
+
+from app.constants.constants import RESPONSE_WECHAT_SUCCESS, RESPONSE_WECHAT_FAIL, RESPONSE_ALIPAY_SUCCESS, \
     RESPONSE_ALIPAY_FAIL
-from app.schemas.finance import ScanpayForm
 
 router = APIRouter()
 
 
-@router.get('/finance/point/setting', summary='积分充值套餐列表')
+@router.get('/finance/payment_settings', response_model=PaymentSettingOutListResponse, summary='获取支付设置 (from cache)')
+def payment_settings():
+    return PaymentSettingsService.get_payment_settings_from_cache()
+
+
+@router.get('/finance/point/recharge_settings', response_model=PointRechargeSettingListResponse, summary='积分充值套餐列表')
 def point_setting():
-    items = FinanceService.get_point_recharge_setting()
+    items = FinanceService.get_point_recharge_settings()
     # 给items每个元素添加一个id字段,其值为元素的索引值
     items = [{'id': i, **item} for i, item in enumerate(items)]
-    return items
+    return {"items": items}
 
 
-@router.get('/finance/balance/setting', summary='余额充值套餐列表')
+@router.get('/finance/balance/recharge_settings', response_model=BalanceRechargeSettingListResponse, summary='余额充值套餐列表')
 def balance_setting():
-    items = FinanceService.get_balance_recharge_setting()
+    items = FinanceService.get_balance_recharge_settings()
     # 给items每个元素添加一个id字段,其值为元素的索引值
     items = [{'id': i, **item} for i, item in enumerate(items)]
-    return items
+    return {"items": items}
 
 
 @router.post('/finance/point/unifiedorder', summary='积分充值统一下单接口')

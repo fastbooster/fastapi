@@ -7,7 +7,7 @@
 
 from datetime import datetime
 from enum import Enum
-from pydantic import BaseModel, PositiveInt, validator, conint, confloat
+from pydantic import BaseModel, PositiveInt, validator, Field
 from typing import List, Optional
 
 from app.schemas.schemas import PaginationParams
@@ -141,11 +141,14 @@ class PaymentAccountEditForm(PaymentAccountAddForm):
 
 
 class PointRechargeSettingItem(BaseModel):
-    amount: conint(gt=0)
-    gift_amount: Optional[conint(ge=0)] = 0
-    original_price: confloat(ge=0)
-    price: confloat(gt=0)
-    desc: Optional[str] = None
+    exchange_rate: Optional[float] = Field(
+        None, description="兑换比例：1元人民币=多少积分, 此项为自定义充值积分专用")
+    amount: Optional[int] = Field(None, gt=0, description="用户获得的积分")
+    gift_amount: Optional[int] = Field(0, ge=0, description="用户获得的赠送积分")
+    original_price: Optional[float] = Field(None, gt=0, description="原价")
+    price: Optional[float] = Field(None, gt=0, description="实际支付价格")
+    desc: Optional[str] = Field(None, description="描述")
+    status: int = Field(1, ge=0, le=1, description="状态：0-禁用，1-启用")
 
     @validator('price')
     def validate_price(cls, value, values):
@@ -157,8 +160,11 @@ class PointRechargeSettingItem(BaseModel):
 
 
 class BalanceRechargeSettingItem(PointRechargeSettingItem):
-    amount: conint(gt=0) | confloat(gt=0)
-    gift_amount: Optional[conint(ge=0) | confloat(ge=0)] = 0
+    exchange_rate: Optional[float] = Field(
+        None, description="兑换比例：1元人民币=多少余额, 此项为自定义充值金额专用")
+    amount: Optional[int | float] = Field(None, gt=0, description="用户获得的充值金额")
+    gift_amount: Optional[int | float] = Field(
+        None, ge=0, description="用户获得的赠送金额")
 
 
 class PointRechargeSettingListResponse(BaseModel):

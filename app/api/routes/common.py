@@ -9,11 +9,9 @@ from loguru import logger
 from fastapi import APIRouter, Depends, UploadFile, File, HTTPException
 
 from app.schemas.schemas import ResponseSuccess
-from app.schemas.payment_settings import PaymentSettingOutListResponse
 
 from app.core.security import get_current_user_from_cache
 from app.services import upload, sms, system_option, city, ad
-from app.services import payment_settings as PaymentSettingsService
 
 router = APIRouter()
 
@@ -65,8 +63,3 @@ async def get_option(pid: int):
 def ad_list(space_id: int):
     items = ad.get_ad_list_from_cache(space_id)
     return [ad.safe_whitelist_fields(item) for item in items]
-
-
-@router.get('/payment_settings', response_model=PaymentSettingOutListResponse, summary='获取支付设置 (from cache)')
-def payment_settings():
-    return PaymentSettingsService.get_payment_settings_from_cache()
