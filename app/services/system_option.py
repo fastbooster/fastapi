@@ -5,7 +5,6 @@
 # Email: qiuyutang@qq.com
 # Time: 2024/5/19 22:55
 
-import secrets
 
 from sqlalchemy.sql.expression import asc, desc
 
@@ -24,7 +23,8 @@ def safe_whitelist_fields(option_data: dict) -> dict:
 
 def get_option(id: int) -> SystemOptionModel | None:
     with get_session() as db:
-        option = db.query(SystemOptionModel).filter(SystemOptionModel.id == id).first()
+        option = db.query(SystemOptionModel).filter(
+            SystemOptionModel.id == id).first()
 
     if option is not None:
         return option
@@ -34,7 +34,8 @@ def get_option(id: int) -> SystemOptionModel | None:
 
 def get_option_by_name(option_name: str) -> SystemOptionModel | None:
     with get_session() as db:
-        option = db.query(SystemOptionModel).filter(SystemOptionModel.option_name == option_name).first()
+        option = db.query(SystemOptionModel).filter(
+            SystemOptionModel.option_name == option_name).first()
 
     if option is not None:
         return option
@@ -48,9 +49,11 @@ def get_option_list(params: OptionSearchQuery) -> OptionListResponse:
     with get_session() as db:
         query = db.query(SystemOptionModel).order_by(desc('id'))
         if params.option_name:
-            query = query.filter(SystemOptionModel.option_name.like(f'%{params.option_name}%'))
+            query = query.filter(
+                SystemOptionModel.option_name.like(f'%{params.option_name}%'))
         if params.memo:
-            query = query.filter(SystemOptionModel.memo.like(f'%{params.memo}%'))
+            query = query.filter(
+                SystemOptionModel.memo.like(f'%{params.memo}%'))
         if params.locked in ("yes", "no"):
             lock = 1 if params.locked == "yes" else 0
             query = query.filter(SystemOptionModel.lock == lock)
@@ -64,7 +67,8 @@ def get_option_list(params: OptionSearchQuery) -> OptionListResponse:
 
 def add_option(params: OptionItem) -> bool:
     with get_session() as db:
-        exists_count = db.query(SystemOptionModel).filter(SystemOptionModel.option_name == params.option_name).count()
+        exists_count = db.query(SystemOptionModel).filter(
+            SystemOptionModel.option_name == params.option_name).count()
         if exists_count > 0:
             raise ValueError('该选项名称已存在')
 
@@ -86,7 +90,8 @@ def add_option(params: OptionItem) -> bool:
 
 def edit_option(params: OptionItem) -> bool:
     with get_session() as db:
-        option_model = db.query(SystemOptionModel).filter_by(id=params.id).first()
+        option_model = db.query(SystemOptionModel).filter_by(
+            id=params.id).first()
         if option_model is None:
             raise ValueError(f'选项不存在(id={params.id})')
 
@@ -99,7 +104,8 @@ def edit_option(params: OptionItem) -> bool:
         if option_model.autoload == 1 and params.autoload == 0:
             update_cache(option_model, is_delete=True)
 
-        option_model.option_name = params.option_name
+        # 禁止修改 option_name, 防止缓存溢出
+        # option_model.option_name = params.option_name
         option_model.option_value = params.option_value
         option_model.richtext = params.richtext
         option_model.position = params.position
@@ -126,21 +132,22 @@ def delete_option(id: int) -> bool:
     return True
 
 
-def rebuild_cache() -> bool:
-    with get_redis() as redis:
-        redis.delete(REDIS_SYSTEM_OPTIONS_AUTOLOAD)
-    with get_session() as db:
-        option_models = db.query(SystemOptionModel).filter_by(autoload=1).order_by(asc('id')).all()
-        if option_models:
-            for option_model in option_models:
-                update_cache(option_model)
-    return True
-
-
 def update_cache(option_model: SystemOptionModel, is_delete: bool = False) -> None:
     if option_model.autoload == 1:
         with get_redis() as redis:
             if is_delete:
-                redis.hdel(REDIS_SYSTEM_OPTIONS_AUTOLOAD, option_model.option_name)
+                redis.hdel(REDIS_SYSTEM_OPTIONS_AUTOLOAD,
+                           option_model.option_name)
             else:
-                redis.hset(REDIS_SYSTEM_OPTIONS_AUTOLOAD, option_model.option_name, option_model.option_value)
+                redis.hset(REDIS_SYSTEM_OPTIONS_AUTOLOAD,
+                           option_model.option_name, option_model.option_value)
+
+
+def rebuild_cache() -> None:
+    with get_session() as db:
+        with get_redis() as redis:
+            redis.delete(REDIS_SYSTEM_OPTIONS_AUTOLOAD)
+            items = db.query(SystemOptionModel).filter_by(autoload=1).all()
+            for item in items:
+                redis.hset(REDIS_SYSTEM_OPTIONS_AUTOLOAD,
+                           item.option_name, item.option_value)
