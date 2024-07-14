@@ -290,6 +290,7 @@ def upgrade() -> None:
     sa.Column('user_id', sa.Integer(), nullable=False, comment='用户ID'),
     sa.Column('trade_no', sa.String(length=32), nullable=False, comment='交易号'),
     sa.Column('amount', sa.DECIMAL(precision=10, scale=2), nullable=False, comment='充值数量'),
+    sa.Column('price', sa.DECIMAL(precision=10, scale=2), nullable=False, comment='支付金额'),
     sa.Column('gift_amount', sa.DECIMAL(precision=10, scale=2), server_default='0', nullable=True, comment='赠送数量'),
     sa.Column('refund_amount', sa.DECIMAL(precision=10, scale=2), server_default='0', nullable=True, comment='退款数量'),
     sa.Column('refund_gift_amount', sa.DECIMAL(precision=10, scale=2), server_default='0', nullable=True, comment='退款赠送数量'),
