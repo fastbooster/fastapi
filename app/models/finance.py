@@ -222,6 +222,7 @@ class BalanceRechargeModel(Base):
     trade_no = Column(String(32), nullable=False, comment='交易号')
 
     amount = Column(DECIMAL(10, 2), nullable=False, comment='充值数量')
+    price = Column(DECIMAL(10, 2), nullable=False, comment='支付金额')
     gift_amount = Column(DECIMAL(10, 2), server_default='0', comment='赠送数量')
     refund_amount = Column(DECIMAL(10, 2), server_default='0', comment='退款数量')
     refund_gift_amount = Column(DECIMAL(10, 2), server_default='0', comment='退款赠送数量')

@@ -21,6 +21,7 @@ api_router.include_router(routes.common.router, prefix="/common", tags=["commons
 api_router.include_router(frontend.cms.router, prefix="/frontend", tags=['frontend_cms'])
 api_router.include_router(frontend.finance.router, prefix="/frontend", tags=['frontend_finance'])
 api_router.include_router(frontend.user.router, prefix="/frontend", tags=['frontend_user'])
+api_router.include_router(frontend.balance_recharge.router, prefix="/frontend", tags=['frontend_balance_recharge'])
 
 # 后端路由
 api_router.include_router(backend.ad.router, prefix="/backend", tags=['backend_ad'])

@@ -13,13 +13,25 @@ from enum import Enum
 
 
 class StatusType(Enum):
+    '''状态类型'''
     ENABLED = 'enabled'
     DISABLED = 'disabled'
 
 
 class MysqlBoolType(Enum):
+    '''自定义 mysql 布尔类型，使用字符串替代 0/1, 避免接口数据验证不方便'''
     YES = 'yes'
     NO = 'no'
+
+
+class ClientType(Enum):
+    '''自定义客户端类型'''
+    PC_BROWSER = 'pc_browser'
+    MOBILE_BROWSER = 'mobile_browser'
+    WECHAT_BROWSER = 'wechat_browser'
+    ALIPAY_BROWSER = 'alipay_browser'
+    ANDROID_APP = 'android_app'
+    IOS_APP = 'ios_app'
 
 
 class PaginationParams(BaseModel):

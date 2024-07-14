@@ -199,11 +199,11 @@ def rebuild_cache() -> None:
 
 
 def prepare_app_private_key(private_key: str) -> str:
-    '''由于支付宝密钥工具生成的私钥为纯字符串，需要处理成 PEM 格式，添加头尾和换行'''
+    '''由于支付宝密钥工具生成的私钥为纯字符串，需要处理成 PEM 格式，添加头尾和换行, 结尾必须有一个换行'''
     if '\n' in private_key:
         return private_key
 
     private_key = '\n'.join([private_key[i:i+64] for i in range(0, len(private_key), 64)])
-    private_key = f'-----BEGIN PRIVATE KEY-----\n{private_key}\n-----END PRIVATE KEY-----'
+    private_key = f'-----BEGIN PRIVATE KEY-----\n{private_key}\n-----END PRIVATE KEY-----\n'
     
     return private_key

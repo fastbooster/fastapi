@@ -11,7 +11,7 @@ from app.core.log import logger
 from fastapi import APIRouter, HTTPException, Depends, Request
 from fastapi.responses import PlainTextResponse
 
-from app.schemas.finance import ScanpayForm, PointRechargeSettingListResponse, BalanceRechargeSettingListResponse
+from app.schemas.finance import RechargeForm, PayForm, ScanpayForm, PointRechargeSettingListResponse, BalanceRechargeSettingListResponse
 from app.schemas.payment_settings import PaymentSettingOutListResponse
 
 from app.core.security import get_current_user_from_cache
@@ -46,10 +46,10 @@ def balance_setting():
 
 
 @router.post('/finance/point/unifiedorder', summary='积分充值统一下单接口')
-def point_unifiedorder(sku_id: int, request: Request, user_data: dict = Depends(get_current_user_from_cache)):
+def point_unifiedorder(params: RechargeForm, request: Request, user_data: dict = Depends(get_current_user_from_cache)):
     try:
         user_ip = request.client.host if request.client else None
-        return FinanceService.point_unifiedorder(sku_id, user_data['id'], user_ip)
+        return FinanceService.point_unifiedorder(params, user_data['id'], user_ip)
     except ValueError as e:
         raise HTTPException(status_code=400, detail=f'{e}')
     except Exception as e:
@@ -58,10 +58,10 @@ def point_unifiedorder(sku_id: int, request: Request, user_data: dict = Depends(
 
 
 @router.post('/finance/balance/unifiedorder', summary='余额充值统一下单接口')
-def balance_unifiedorder(sku_id: int, request: Request, user_data: dict = Depends(get_current_user_from_cache)):
+def balance_unifiedorder(params: RechargeForm, request: Request, user_data: dict = Depends(get_current_user_from_cache)):
     try:
         user_ip = request.client.host if request.client else None
-        return FinanceService.balance_unifiedorder(sku_id, user_data['id'], user_ip)
+        return FinanceService.balance_unifiedorder(params, user_data['id'], user_ip)
     except ValueError as e:
         raise HTTPException(status_code=400, detail=f'{e}')
     except Exception as e:
@@ -106,6 +106,17 @@ def point_scanpay(params: ScanpayForm, user_data: dict = Depends(get_current_use
 def balance_scanpay(params: ScanpayForm, user_data: dict = Depends(get_current_user_from_cache)):
     try:
         return FinanceService.balance_scanpay(params, user_data)
+    except ValueError as e:
+        raise HTTPException(status_code=400, detail=f'{e}')
+    except Exception as e:
+        logger.error(f'余额充值扫码支付失败：{e}')
+        raise HTTPException(status_code=500, detail='余额充值扫码支付失败')
+
+
+@router.post('/finance/balance/pay', summary='余额充值选择支付方式直接触达')
+def balance_scanpay(params: PayForm, user_data: dict = Depends(get_current_user_from_cache)):
+    try:
+        return FinanceService.balance_recharge_pay(params, user_data)
     except ValueError as e:
         raise HTTPException(status_code=400, detail=f'{e}')
     except Exception as e:

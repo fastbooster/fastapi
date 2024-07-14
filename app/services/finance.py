@@ -22,11 +22,12 @@ from app.models.finance import BalanceModel, BalanceGiftModel, PointModel, Chenc
 from app.models.system_option import SystemOptionModel
 from app.schemas.finance import SearchQuery, AdjustForm, CheckinType, PointType, PaymentAccountSearchQuery, \
     PaymentAccountFrontendSearchQuery, PaymentAccountAddForm, PaymentAccountEditForm, PointRechargeSettingItem, \
-    BalanceRechargeSettingItem, PaymentStatuType, ScanpayForm, PaymentToolType
+    BalanceRechargeSettingItem, PaymentStatuType, RechargeForm, PayForm, ScanpayForm, PaymentToolType
+from app.schemas.config import Settings
+from app.schemas.schemas import ClientType
 from app.tasks.finance import handle_balance, handle_balance_gift, handle_point
 from app.constants.constants import REDIS_SYSTEM_OPTIONS_AUTOLOAD
 from app.services import system_option as SystemOptionService
-from app.schemas.config import Settings
 from app.core.payment import payment_manager
 
 
@@ -399,7 +400,7 @@ def point_unifiedorder(sku_id: int, user_id: int, user_ip: str) -> dict:
     }
 
 
-def balance_unifiedorder(sku_id: int, user_id: int, user_ip: str) -> dict:
+def balance_unifiedorder(params: RechargeForm, user_id: int, user_ip: str) -> dict:
     settings = Settings()
     if not settings.ENDPOINT.portal or not settings.ENDPOINT.pay or not settings.ENDPOINT.mp:
         raise ValueError('端点未配置')
@@ -408,19 +409,29 @@ def balance_unifiedorder(sku_id: int, user_id: int, user_ip: str) -> dict:
     if not recharge_settings:
         raise ValueError('余额充值设置未配置')
 
-    if sku_id < len(recharge_settings) and sku_id >= 0:
-        sku = recharge_settings[sku_id]
+    if params.sku_id < len(recharge_settings) and params.sku_id >= 0:
+        sku = recharge_settings[params.sku_id]
         if not sku:
             raise ValueError('SKU不存在')
     else:
         raise ValueError('sku_id超出范围')
+
+    if sku['status'] != 1:
+        raise ValueError('当前充值套餐已停用')
+
+    # 自定义充值时计算可以获得的充值余额
+    if sku["exchange_rate"] is not None:
+        sku['price'] = params.price
+        sku['origin_price'] = params.price
+        sku['amount'] = params.price * sku["exchange_rate"]
 
     trade_no = str(uuid.uuid4()).replace('-', '')
     with get_session() as db:
         order_model = BalanceRechargeModel(
             user_id=user_id,
             trade_no=trade_no,
-            amount=sku['price'],
+            amount=sku['amount'],
+            price=sku['price'],
             gift_amount=sku['gift_amount'],
             user_ip=user_ip,
             auto_memo=json.dumps(sku, default=str),
@@ -522,6 +533,77 @@ def point_scanpay(params: ScanpayForm, user_data: dict) -> dict:
             },
             return_url=settings.ENDPOINT.portal,
             notify_url=f"{settings.ENDPOINT.pay.rstrip('/')}/portal/finance/alipay/point/notify"
+        )
+        return {'url': f"{alipay._gateway}?{order_string}"}
+
+
+def balance_recharge_pay(params: PayForm, user_data: dict) -> dict:
+    '''TODO: 1. 迁移到 balance_recharge, 2. 定义返回数据模型'''
+    with get_session() as db:
+        order_model = db.query(BalanceRechargeModel).filter_by(trade_no=params.trade_no).first()
+        if order_model is None or order_model.user_id != user_data['id'] or order_model.payment_status != PaymentStatuType.PAYMENT_STATUS_CREATED.value:
+            raise ValueError('订单已失效, 请重新下单')
+
+        price = order_model.price
+        user_ip = order_model.user_ip
+
+        # 更新订单创建时间, 防止被关单进程关闭此订单, 非抢购，无需此操作
+        # order_model.created_at = datetime.now()
+
+        if params.openid is not None:
+            order_model.back_memo = f'OPENID:{params.openid}'
+        db.commit()
+
+    settings = Settings()
+    if params.channel == 'wechatpay':
+        openid = params.openid if params.openid and params.openid.lower() != 'none' else user_data['wechat_openid']
+        if openid is None:
+            raise ValueError('您的账号尚未绑定微信')
+        wechatpy = payment_manager.get_instance('wechat')
+        result = wechatpy.order.create(
+            trade_type='JSAPI',
+            body='余额充值',
+            out_trade_no=params.trade_no,
+            total_fee=int(price * 100),
+            spbill_create_ip=user_ip,
+            notify_url=f"{settings.ENDPOINT.pay.rstrip('/')}/portal/finance/wechat/balance/notify",
+            openid=openid,
+        )
+        if 'return_code' not in result or result['return_code'] != 'SUCCESS' or result['result_code'] != 'SUCCESS':
+            error_msg = result.get('return_msg', '')
+            error_code_des = result.get('err_code_des', '')
+            raise ValueError(f"Get Wechat API Error: {error_msg}{error_code_des}", result, result.get('return_code'))
+
+        if 'timestamp' not in result:
+            result['timestamp'] = str(int(time.time()))
+        return result
+    
+    if params.channel == 'alipay':
+        alipay = payment_manager.get_instance('alipay', params.appid)
+        api_name = 'alipay.trade.wap.pay'
+        product_code = 'FAST_INSTANT_TRADE_PAY'
+        match (params.client):
+            case ClientType.PC_BROWSER:
+                api_name = 'alipay.trade.page.pay'
+            case ClientType.MOBILE_BROWSER | ClientType.ALIPAY_BROWSER | ClientType.WECHAT_BROWSER:
+                api_name = 'alipay.trade.wap.pay'
+            case (ClientType.ANDROID_APP, ClientType.IOS_APP):
+                api_name = 'alipay.trade.app.pay'
+                product_code = 'QUICK_MSECURITY_PAY'
+                raise ValueError('尚未支持APP客户端支付')
+            case (_):
+                raise ValueError('不支持的客户端类型')
+
+        order_string = alipay.client_api(
+            api_name,
+            biz_content={
+                "out_trade_no": params.trade_no,
+                "total_amount": float(price),
+                "subject": "余额充值",
+                "product_code": product_code,
+            },
+            return_url=settings.ENDPOINT.portal,
+            notify_url=f"{settings.ENDPOINT.pay.rstrip('/')}/portal/finance/alipay/balance/notify"
         )
         return {'url': f"{alipay._gateway}?{order_string}"}
 

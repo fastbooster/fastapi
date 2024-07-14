@@ -10,7 +10,7 @@ from enum import Enum
 from pydantic import BaseModel, PositiveInt, validator, Field
 from typing import List, Optional
 
-from app.schemas.schemas import PaginationParams
+from app.schemas.schemas import ClientType, PaginationParams
 
 
 class BalanceType(Enum):
@@ -175,9 +175,25 @@ class BalanceRechargeSettingListResponse(BaseModel):
     items: List[BalanceRechargeSettingItem]
 
 
+class RechargeForm(BaseModel):
+    '''充值表单，余额和积分充值共用此表单'''
+    sku_id: int = Field(ge=0, description="充值套餐id，从0开始, 来至充值设置")
+    price: Optional[float] = Field(None, gt=0, description="自定义充值金额，此时根据 exchange_rate 计算出实际到账金额或积分")
+
+
+class PayForm(BaseModel):
+    '''支付表单，所有支付业务在生成订单后，需构造此表单向相应接口提交以唤起支付'''
+    client: ClientType = Field(ClientType.PC_BROWSER.value, description="发起支付的客户端类型, 返回结果将挂在此字段下")
+    channel: str = Field(description="支付渠道Key，详见支付设置/支付渠道，例如：alipay, wechatpay, balance")
+    appid: str = Field(description="支付配置AppID，详见支付设置/支付配置，例如：2014040501377004")
+    trade_no: str = Field(description="订单号")
+    openid: Optional[str] = Field(None, description="微信支付时，支付用户的openid")
+
+
 class ScanpayForm(BaseModel):
+    '''扫码支付表单，PC端页面显示二维码，手机扫码支付，扫码落地页构建此表单向相应接口提交以唤起支付'''
     trade_no: str
-    client: str
+    client: Optional[ClientType] = Field(ClientType.WECHAT_BROWSER.value, description="发起支付的客户端类型")
     openid: Optional[str] = None
 
     @validator('client')
