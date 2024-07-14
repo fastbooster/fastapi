@@ -76,6 +76,7 @@ def add_payment_config(params: PaymentConfigItem) -> bool:
         fields.pop('id')
         fields.pop('created_at')
         fields.pop('updated_at')
+        fields['app_private_key'] = prepare_app_private_key(fields['app_private_key'])
         fields['status'] = params.status.value
 
         model = PaymentConfigModel(**fields)
@@ -110,6 +111,7 @@ def edit_payment_config(params: PaymentConfigItem) -> bool:
             fields.pop('miniappid')  # 禁止修改 miniappid, 防止缓存溢出
         fields.pop('created_at')
         fields.pop('updated_at')
+        fields['app_private_key'] = prepare_app_private_key(fields['app_private_key'])
         fields['status'] = params.status.value
 
         model.from_dict(fields)
@@ -194,3 +196,14 @@ def rebuild_cache() -> None:
                 if params["miniappid"] is not None:
                     redis.hset(REDIS_PAYMENT_CONFIG,
                                params["miniappid"], json.dumps(params))
+
+
+def prepare_app_private_key(private_key: str) -> str:
+    '''由于支付宝密钥工具生成的私钥为纯字符串，需要处理成 PEM 格式，添加头尾和换行'''
+    if '\n' in private_key:
+        return private_key
+
+    private_key = '\n'.join([private_key[i:i+64] for i in range(0, len(private_key), 64)])
+    private_key = f'-----BEGIN PRIVATE KEY-----\n{private_key}\n-----END PRIVATE KEY-----'
+    
+    return private_key
