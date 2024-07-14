@@ -61,7 +61,13 @@ def add_payment_config(params: PaymentConfigItem) -> bool:
         exists_count = db.query(PaymentConfigModel).filter(
             PaymentConfigModel.appid == params.appid).count()
         if exists_count > 0:
-            raise ValueError(f'appid={params.appid} 已存在')
+            raise ValueError(f'appid={params.appid}已存在')
+
+        if params.miniappid is not None:
+            exists_count = db.query(PaymentConfigModel).filter(
+                PaymentConfigModel.miniappid == params.miniappid).count()
+            if exists_count > 0:
+                raise ValueError(f'miniappid={params.miniappid}已存在')
 
         last_item = db.query(PaymentConfigModel).order_by(desc('id')).first()
         params.asc_sort_order = 1 if last_item is None or last_item.asc_sort_order is None else last_item.asc_sort_order + 1
@@ -94,17 +100,24 @@ def edit_payment_config(params: PaymentConfigItem) -> bool:
         if exists_count > 0:
             raise ValueError(f'appid={params.appid} 已存在')
 
+        old_miniappid = None
         fields = params.model_dump()
         fields.pop('id')
         fields.pop('channel_id')
         fields.pop('appid')  # 禁止修改 appid, 防止缓存溢出
+        if model.miniappid:
+            old_miniappid = model.miniappid
+            fields.pop('miniappid')  # 禁止修改 miniappid, 防止缓存溢出
         fields.pop('created_at')
         fields.pop('updated_at')
         fields['status'] = params.status.value
 
         model.from_dict(fields)
         db.commit()
-        update_cache(params.model_dump())
+
+        params = params.model_dump()
+        params["miniappid"] = old_miniappid
+        update_cache(params)
 
     return True
 
@@ -152,6 +165,11 @@ def update_cache(params: dict, is_delete: bool = False) -> None:
         if is_delete == False:
             redis.hset(REDIS_PAYMENT_CONFIG,
                        params["appid"], json.dumps(params))
+            # 兼容微信小程序支付, 小程序支付回调返回的 appid 是小程序的 appid, 而不是配置项里面的 appid
+            # 所以在保存设置时，需要按 miniappid 保存一份
+            if params["miniappid"] is not None:
+                redis.hset(REDIS_PAYMENT_CONFIG,
+                           params["miniappid"], json.dumps(params))
         else:
             redis.hdel(REDIS_PAYMENT_CONFIG, params["appid"])
 
@@ -173,3 +191,6 @@ def rebuild_cache() -> None:
                     params["updated_at"] = params["updated_at"].isoformat()
                 redis.hset(REDIS_PAYMENT_CONFIG,
                            params["appid"], json.dumps(params))
+                if params["miniappid"] is not None:
+                    redis.hset(REDIS_PAYMENT_CONFIG,
+                               params["miniappid"], json.dumps(params))
