@@ -5,6 +5,7 @@
 # Email: qiuyutang@qq.com
 # Time: 2024/5/19 22:55
 
+import json
 
 from sqlalchemy.sql.expression import asc, desc
 
@@ -30,6 +31,13 @@ def get_option(id: int) -> SystemOptionModel | None:
         return option
 
     return None
+
+
+def get_option_from_cache(option_name: str) -> OptionItem:
+    with get_redis() as redis:
+        setting = redis.hget(REDIS_SYSTEM_OPTIONS_AUTOLOAD, option_name)
+        setting = json.loads(setting) if setting else {"option_name": option_name, "option_value": None}
+    return setting
 
 
 def get_option_by_name(option_name: str) -> SystemOptionModel | None:
@@ -130,6 +138,20 @@ def delete_option(id: int) -> bool:
         db.commit()
         update_cache(option_model, is_delete=True)
     return True
+
+
+def autoupdate(params: OptionItem):
+    '''不存在则插入数据，否则更新选项值'''
+    with get_session() as db:
+        option_model = db.query(SystemOptionModel).filter_by(option_name=params.option_name).first()
+        if option_model is None:
+            option_model = SystemOptionModel(**params.__dict__)
+            db.add(option_model)
+        else:
+            option_model.option_value = params.option_value
+
+        db.commit()
+        update_cache(option_model)
 
 
 def update_cache(option_model: SystemOptionModel, is_delete: bool = False) -> None:

@@ -34,12 +34,17 @@ def get_payment_settings_from_cache() -> PaymentSettingOutListResponse:
         configs = [json.loads(configs[key]) for key in configs]
         configs.sort(key=lambda x: int(x["asc_sort_order"]))
 
+        # 由于微信支付会根据 miniappid 多存一份缓存，所以这里需要去重
         items = []
+        exists_config_ids = []
         for channel in channels:
-            item = {"channel": PaymentChannelOutItem(**channel), "children": []}
+            item = {"channel": PaymentChannelOutItem(
+                **channel), "children": []}
             for config in configs:
-                if config["channel_id"] == channel["id"]:
+                if config["id"] not in exists_config_ids and config["channel_id"] == channel["id"]:
+                    exists_config_ids.append(config["id"])
                     item["children"].append(PaymentConfigOutItem(**config))
+
             items.append(item)
 
         return PaymentSettingOutListResponse(total=len(items), items=items)

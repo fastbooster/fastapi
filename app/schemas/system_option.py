@@ -17,7 +17,7 @@ from app.schemas.schemas import PaginationParams
 class OptionItem(BaseModel):
     id: Optional[int] = 0
     option_name: str
-    option_value: str
+    option_value: Optional[str] = None
     richtext: Optional[int] = 0
     position: Optional[int] = 0
     autoload: Optional[int] = 0
