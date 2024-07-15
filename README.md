@@ -81,6 +81,13 @@ docker compose -p your_proj_name down
 chown -R user:user volumes
 ```
 
+#### 进入容器，手动迁移数据库 （TODO：启动容器时自动执行）和初始化必要数据
+
+```shell
+docker exec -it your_proj_name-server-1 bash
+# 详见下面的 1. 数据库迁移指南, 2. 初始化必要数据
+```
+
 
 ### Nginx
 
@@ -94,7 +101,9 @@ server {
     error_log /var/log/nginx/proj_name.error.log;
 
     location / {
-        proxy_pass http://127.0.0.1:<PORT>/;
+        if (!-e $request_filename) {
+            proxy_pass http://127.0.0.1:<PORT>/;
+        }
         proxy_buffering off;
         proxy_redirect off;
         proxy_http_version 1.1;

@@ -1,4 +1,4 @@
-# 完整版，fastapi, mysql, redis 三个服务
+# 完整版，fastapi, mysql, redis 三个服务, nginx 在宿主机上配置，以为宿主机一般还会对外跑别的服务，所以这里不使用 docker-compose 部署 nginx
 services:
   mysql:
     image: mysql:8.0.35
