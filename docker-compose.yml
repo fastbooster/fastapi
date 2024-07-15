@@ -1,5 +1,6 @@
+# 只启动 server 服务, mysq, redis 等服务使用云端
 services:
-  api_server:
+  server:
     build:
       context: ./
       dockerfile: Dockerfile

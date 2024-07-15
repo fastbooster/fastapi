@@ -42,10 +42,43 @@ python start.py
 
 ### Docker部署
 
+#### 由于服务器无法访问 Docker Hub，可以在本地导出所需镜像，再上传到服务器上使用
+
+```shell
+# 下载镜像
+docker pull python:3.12-slim-bullseye
+docker pull mysql:8.0.35
+docker pull redis:7.2.1
+
+# 导出镜像
+docker image save python:3.12-slim-bullseye -o python.image
+docker image save mysql:8.0.35 -o mysql.image
+docker image save redis:7.2.1 -o redis.image
+
+# 将镜像上传到服务器，导入镜像
+docker image load -i python.image
+docker image load -i mysql.image
+docker image load -i redis.image
+```
+
+#### 选择不同的配置文件启动服务
+
 ```shell
 cp -r ./.env.example .env
-docker compose -p <proj_name> down # 执行此命令后，如果有修改数据库配置，记得删除 volumes/mysql/* 目录, 否者可能连接不上数据库
-docker compose -p <proj_name> -f docker-compose.yml up -d --build
+cp -r ./config.example.yaml config.yaml
+
+# 根据实际情况，选择不同的 docker-compose 文件启动服务
+# docker-compose.yml 仅包含 fastapi, 其他服务在云端
+# docker-compose-dev.yml 包含 mysql, redis
+# docker-compose-full.yml 包含 mysql, redis, fastapi
+docker compose -p your_proj_name -f docker-compose.yml up -d --build
+
+# 重建镜像
+# 执行此命令后，如果有修改数据库配置，记得删除 volumes/mysql, redis 目录, 否者可能连接不上数据库
+docker compose -p your_proj_name down
+
+# 如果不删除 volumes/mysql, redis，则需更改目录用户为当前用户，否者容器无法写入 volumes 目录，导致启动失败
+chown -R user:user volumes
 ```
 
 
