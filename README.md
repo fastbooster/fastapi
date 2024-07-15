@@ -18,6 +18,7 @@
 |   |-- services            // 服务类 (CRUD+)
 |   |-- tasks               // 异步任务 (Celery)
 |   |-- utils               // 助手工具
+|-- public                  // Web根目录，用于提供静态文件访问
 |-- docker                  // Docker镜像配置卷
 |-- volumes                 // Docker容器数据卷
 |-- scripts                 // 助手脚本目录

@@ -1,7 +1,7 @@
 *.pyc
 **/__pycache__
+
 runtime
-public
 localtest
 flagged
 htmlcov
@@ -18,7 +18,8 @@ Thumbs.db
 celerybeat-schedule.db
 config.yaml
 
-# Docker 相关
+public/*
+!public/.gitkeep
 volumes/*
 !volumes/.gitkeep
 backups/*
