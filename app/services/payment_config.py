@@ -198,8 +198,10 @@ def rebuild_cache() -> None:
                                params["miniappid"], json.dumps(params))
 
 
-def prepare_app_private_key(private_key: str) -> str:
+def prepare_app_private_key(private_key: str | None) -> str | None:
     '''由于支付宝密钥工具生成的私钥为纯字符串，需要处理成 PEM 格式，添加头尾和换行, 结尾必须有一个换行'''
+    if private_key is None:
+        return None
     if '\n' in private_key:
         return private_key
 
