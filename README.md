@@ -22,6 +22,7 @@
 |-- docker                  // Docker镜像配置卷
 |-- volumes                 // Docker容器数据卷
 |-- scripts                 // 助手脚本目录
+|-- restart.sh              // 容器重启脚本
 ```
 
 
@@ -80,6 +81,11 @@ docker compose -p your_proj_name down
 
 # 如果不删除 volumes/mysql, redis，则需更改目录用户为当前用户，否者容器无法写入 volumes 目录，导致启动失败
 chown -R user:user volumes
+
+# 也可通过重启脚本重新构建镜像
+./restart.sh docker-compose-dev.yml
+./restart.sh docker-compose-full.yml
+./restart.sh docker-compose.yml
 ```
 
 #### 进入容器，手动迁移数据库 （TODO：启动容器时自动执行）和初始化必要数据
