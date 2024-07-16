@@ -62,11 +62,11 @@ class PaymentStatuType(Enum):
     PAYMENT_STATUS_REFUND_FAIL = 7  # 退款失败
 
 
-class PaymentToolType(Enum):
-    PAYMENT_TOOL_WECHAT = 'wechatpay'  # 原生微信
-    PAYMENT_TOOL_ALIPAY = 'alipay'  # 原生支付宝
-    PAYMENT_TOOL_EXCHANGE = 'exchange'  # 兑换券
-    PAYMENT_TOOL_BALANCE = 'balance'  # 余额支付
+class PaymentChannelType(Enum):
+    WECHATPAY = 'wechatpay'  # 原生微信
+    ALIPAY = 'alipay'  # 原生支付宝
+    EXCHANGE = 'exchange'  # 兑换券
+    BALANCE = 'balance'  # 余额支付
 
 
 class SearchQuery(PaginationParams):
@@ -178,13 +178,16 @@ class BalanceRechargeSettingListResponse(BaseModel):
 class RechargeForm(BaseModel):
     '''充值表单，余额和积分充值共用此表单'''
     sku_id: int = Field(ge=0, description="充值套餐id，从0开始, 来至充值设置")
-    price: Optional[float] = Field(None, gt=0, description="自定义充值金额，此时根据 exchange_rate 计算出实际到账金额或积分")
+    price: Optional[float] = Field(
+        None, gt=0, description="自定义充值金额，此时根据 exchange_rate 计算出实际到账金额或积分")
 
 
 class PayForm(BaseModel):
     '''支付表单，所有支付业务在生成订单后，需构造此表单向相应接口提交以唤起支付'''
-    client: ClientType = Field(ClientType.PC_BROWSER.value, description="发起支付的客户端类型, 返回结果将挂在此字段下")
-    channel: str = Field(description="支付渠道Key，详见支付设置/支付渠道，例如：alipay, wechatpay, balance")
+    client: ClientType = Field(
+        ClientType.PC_BROWSER.value, description="发起支付的客户端类型, 返回结果将挂在此字段下")
+    channel: str = Field(
+        description="支付渠道Key，详见支付设置/支付渠道，例如：alipay, wechatpay, balance")
     appid: str = Field(description="支付配置AppID，详见支付设置/支付配置，例如：2014040501377004")
     trade_no: str = Field(description="订单号")
     openid: Optional[str] = Field(None, description="微信支付时，支付用户的openid")
@@ -195,7 +198,8 @@ class PayForm(BaseModel):
 class ScanpayForm(BaseModel):
     '''扫码支付表单，PC端页面显示二维码，手机扫码支付，扫码落地页构建此表单向相应接口提交以唤起支付'''
     trade_no: str
-    client: Optional[ClientType] = Field(ClientType.WECHAT_BROWSER.value, description="发起支付的客户端类型")
+    client: Optional[ClientType] = Field(
+        ClientType.WECHAT_BROWSER.value, description="发起支付的客户端类型")
     openid: Optional[str] = None
 
     @validator('client')

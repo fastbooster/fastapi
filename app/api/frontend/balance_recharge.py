@@ -12,7 +12,7 @@ from app.core.log import logger
 from fastapi import APIRouter, HTTPException, Depends, Request
 from fastapi.responses import PlainTextResponse
 
-from app.schemas.finance import RechargeForm, PayForm, ScanpayForm, PointRechargeSettingListResponse, BalanceRechargeSettingListResponse
+from app.schemas.finance import PaymentToolType, RechargeForm, PayForm, ScanpayForm, PointRechargeSettingListResponse, BalanceRechargeSettingListResponse
 from app.schemas.payment_settings import PaymentSettingOutListResponse
 
 from app.core.security import get_current_user_from_cache
@@ -95,15 +95,21 @@ async def notify(payment_channel: str, request: Request):
     try:
         content = None
         params = dict(request.query_params)
-        if payment_channel == 'wechatpay':
-            body = await request.body()
-            content = body.decode("utf-8")
-            params = xmltodict.parse(content)['xml']
+        match (object):
+            case (PaymentToolType.PAYMENT_TOOL_WECHAT.value):
+                body = await request.body()
+                content = body.decode("utf-8")
+                params = xmltodict.parse(content)['xml']
+            case (PaymentToolType.PAYMENT_TOOL_ALIPAY.value):
+                params = request.json()
+            case (_):
+                raise HTTPException(status_code=400, detail=f'未知的支付渠道: {payment_channel}')
+
         result = BalanceRechargeService.notify(payment_channel, params, content)
         response = RESPONSE_WECHAT_SUCCESS if payment_channel == 'wechatpay' else RESPONSE_ALIPAY_SUCCESS
         if not result:
             response = RESPONSE_WECHAT_FAIL if payment_channel == 'wechatpay' else RESPONSE_ALIPAY_FAIL
         return PlainTextResponse(response, status_code=200)
     except Exception as e:
-        logger.error(f'余额充值结果异步通知处理失败：{e}')
         PlainTextResponse(RESPONSE_WECHAT_FAIL if payment_channel == 'wechatpay' else RESPONSE_ALIPAY_FAIL, status_code=200)
+        logger.error(f'余额充值结果异步通知处理失败：{e}')

@@ -23,7 +23,7 @@ from app.models.finance import BalanceModel, BalanceGiftModel, PointModel, Chenc
 from app.models.system_option import SystemOptionModel
 from app.schemas.finance import SearchQuery, AdjustForm, CheckinType, BalanceType, PointType, PaymentAccountSearchQuery, \
     PaymentAccountFrontendSearchQuery, PaymentAccountAddForm, PaymentAccountEditForm, PointRechargeSettingItem, \
-    BalanceRechargeSettingItem, PaymentStatuType, RechargeForm, PayForm, ScanpayForm, PaymentToolType
+    BalanceRechargeSettingItem, PaymentStatuType, RechargeForm, PayForm, ScanpayForm, PaymentChannelType
 from app.schemas.config import Settings
 from app.schemas.schemas import ClientType
 from app.tasks.finance import handle_balance, handle_balance_gift, handle_point
@@ -65,7 +65,7 @@ def pay(params: PayForm, user_data: dict) -> dict:
             total_fee=int(price * 100),
             spbill_create_ip=user_ip,
             notify_url=f"{settings.ENDPOINT.pay.rstrip(
-                '/')}/portal/balance_recharges/wechat/notify",
+                '/')}/api/v1/frontend/balance_recharges/wechat/notify",
             openid=openid,
         )
         if 'return_code' not in result or result['return_code'] != 'SUCCESS' or result['result_code'] != 'SUCCESS':
@@ -107,14 +107,14 @@ def pay(params: PayForm, user_data: dict) -> dict:
             },
             return_url=return_url,
             notify_url=f"{settings.ENDPOINT.pay.rstrip(
-                '/')}/portal/balance_recharges/alipay/notify"
+                '/')}/api/v1/frontend/balance_recharges/alipay/notify"
         )
         return {'url': f"{alipay._gateway}?{order_string}"}
 
 
 def notify(payment_channel: str, params: dict, content: str = None) -> bool:
     logger.info(f'收到异步通知: {payment_channel}', extra=params)
-    if payment_channel == PaymentToolType.PAYMENT_TOOL_ALIPAY.value:
+    if payment_channel == PaymentChannelType.ALIPAY.value:
         signature = params.pop('sign')
         alipay = payment_manager.get_instance('alipay', params.get('app_id', None))
         try:
@@ -126,8 +126,8 @@ def notify(payment_channel: str, params: dict, content: str = None) -> bool:
             logger.error(f'签名验证失败: {payment_channel}', extra=params)
             return False
         is_ok = True if params["trade_status"] in ("TRADE_SUCCESS", "TRADE_FINISHED") else False
-    elif payment_channel == PaymentToolType.PAYMENT_TOOL_WECHAT.value:
-        # 如果是微信小程序支付, appid 返回的是小程序的 appid, 由于缓存做了适配，可以直接使用 appid 参数
+    elif payment_channel == PaymentChannelType.WECHATPAY.value:
+        # 如果是微信小程序支付, appid 返回的是小程序的 appid, 由于已经做了缓存适配，可以直接使用 appid 参数
         wechatpy = payment_manager.get_instance('wechat', params.get('appid', None))
         try:
             params = wechatpy.parse_payment_result(content)

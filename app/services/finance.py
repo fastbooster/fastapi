@@ -22,7 +22,7 @@ from app.models.finance import BalanceModel, BalanceGiftModel, PointModel, Chenc
 from app.models.system_option import SystemOptionModel
 from app.schemas.finance import SearchQuery, AdjustForm, CheckinType, PointType, PaymentAccountSearchQuery, \
     PaymentAccountFrontendSearchQuery, PaymentAccountAddForm, PaymentAccountEditForm, PointRechargeSettingItem, \
-    BalanceRechargeSettingItem, PaymentStatuType, RechargeForm, PayForm, ScanpayForm, PaymentToolType
+    BalanceRechargeSettingItem, PaymentStatuType, RechargeForm, PayForm, ScanpayForm, PaymentChannelType
 from app.schemas.config import Settings
 from app.schemas.schemas import ClientType
 from app.tasks.finance import handle_balance, handle_balance_gift, handle_point
@@ -593,7 +593,7 @@ def balance_scanpay(params: ScanpayForm, user_data: dict) -> dict:
 
 def point_notify(payment_tool: str, params: dict, content: str = None) -> bool:
     logger.info(f'收到异步通知:{payment_tool}', extra=params)
-    if payment_tool == PaymentToolType.PAYMENT_TOOL_ALIPAY.value:
+    if payment_tool == PaymentChannelType.ALIPAY.value:
         signature = params.pop('sign')
         alipay = payment_manager.get_instance('alipay', params.get('app_id', None))
         try:
@@ -605,7 +605,7 @@ def point_notify(payment_tool: str, params: dict, content: str = None) -> bool:
             logger.error(f'签名验证失败:{payment_tool}', extra=params)
             return False
         is_ok = True if params["trade_status"] in ("TRADE_SUCCESS", "TRADE_FINISHED") else False
-    elif payment_tool == PaymentToolType.PAYMENT_TOOL_WECHAT.value:
+    elif payment_tool == PaymentChannelType.WECHATPAY.value:
         # 如果是小程序支付, appid返回的是小程序的appid, 不是支付配置里面的appid
         wechatpy = payment_manager.get_instance('wechat', params.get('mch_id', None))
         try:
