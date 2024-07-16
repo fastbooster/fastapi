@@ -48,7 +48,7 @@ class PaymentManager:
         # TOOD: 兼容从配置文件获取支付配置
         # config = self._get_payment_config(channel_key, appid)
         config = self._get_payment_config_from_cache(appid)
-        print(config)
+        # print(config)
 
         if not config:
             raise ValueError(f"未找到支付配置: {appid}")

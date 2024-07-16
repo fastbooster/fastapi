@@ -38,6 +38,7 @@ def lists(user_data: dict = Depends(get_current_user_from_cache)):
 
 @router.get('/balance_recharges/settings', response_model=BalanceRechargeSettingListResponse, summary='余额充值套餐列表')
 def settings():
+    # TODO: BUG检测，接口本身不要求登录，但是 get 会要求登录，如果改成 post 则不需要
     items = FinanceService.get_balance_recharge_settings()
     # 给items每个元素添加一个id字段,其值为元素的索引值
     items = [{'id': i, **item} for i, item in enumerate(items)]
@@ -69,13 +70,13 @@ def check(trade_no: str, user_data: dict = Depends(get_current_user_from_cache))
 
 @router.post('/balance_recharges/pay', summary='支付触达 - 选择支付方式')
 def pay(params: PayForm, user_data: dict = Depends(get_current_user_from_cache)):
-    try:
-        return BalanceRechargeService.pay(params, user_data)
-    except ValueError as e:
-        raise HTTPException(status_code=400, detail=f'{e}')
-    except Exception as e:
-        logger.error(f'余额充值支付失败：{e}')
-        raise HTTPException(status_code=500, detail='余额充值支付失败：')
+    return BalanceRechargeService.pay(params, user_data)
+    # try:
+    # except ValueError as e:
+    #     raise HTTPException(status_code=400, detail=f'{e}')
+    # except Exception as e:
+    #     logger.error(f'余额充值支付失败：{e}')
+    #     raise HTTPException(status_code=500, detail='余额充值支付失败：')
 
 
 @router.post('/balance_recharges/scanpay', summary='支付触达 - 扫码支付（根据客户端类型(微信/支付宝/移动端浏览器)自动选择支付方式）')

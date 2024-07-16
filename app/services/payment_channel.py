@@ -143,7 +143,6 @@ def delete_payment_channel(id: int) -> bool:
 
 def update_cache(params: dict, is_delete: bool = False) -> None:
     '''注意：模型的 key 字堵不能修改，否则在删除时无法清理缓存，可能缓存会溢出'''
-    print(params)
     if isinstance(params["locked"], MysqlBoolType):
         params["locked"] = params["locked"].value
     if isinstance(params["status"], StatusType):
