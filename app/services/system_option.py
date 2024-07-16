@@ -151,6 +151,9 @@ def autoupdate(params: OptionItem):
             option_model.option_value = params.option_value
 
         db.commit()
+
+        # 事物提交后 option_model 会被情况，重新查询
+        option_model = db.query(SystemOptionModel).filter_by(option_name=params.option_name).first()
         update_cache(option_model)
 
 
