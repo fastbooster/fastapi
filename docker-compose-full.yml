@@ -44,7 +44,7 @@ services:
       - .env
     ports:
       - "${RUNTIME_PORT}:${RUNTIME_PORT}"
-    command: python start.py
+    command: /entrypoint.sh
     networks:
       - backend_tier
 
