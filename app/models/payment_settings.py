@@ -55,6 +55,7 @@ class PaymentConfigModel(Base, BaseMixin):
 
     id = Column(Integer, primary_key=True, autoincrement=True, comment='ID')
     channel_id = Column(Integer, nullable=False, comment='支付渠道ID')
+    channel_key = Column(String(50), nullable=False, comment='支付渠道KEY')
 
     # 用于前端显示, eg: 支付宝, 微信支付, 银联支付, 支付通道N
     name = Column(String(50), comment='名称')

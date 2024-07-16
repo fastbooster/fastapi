@@ -165,6 +165,7 @@ def upgrade() -> None:
     op.create_table('payment_config',
     sa.Column('id', sa.Integer(), autoincrement=True, nullable=False, comment='ID'),
     sa.Column('channel_id', sa.Integer(), nullable=False, comment='支付渠道ID'),
+    sa.Column('channel_key', sa.String(length=50), nullable=True, comment='支付渠道KEY'),
     sa.Column('name', sa.String(length=50), nullable=True, comment='名称'),
     sa.Column('appname', sa.String(length=50), nullable=True, comment='支付平台APP名称'),
     sa.Column('appid', sa.String(length=50), nullable=True, comment='支付平台APPID'),

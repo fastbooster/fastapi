@@ -18,7 +18,7 @@ from app.core.redis import get_redis
 
 from app.constants.constants import REDIS_PAYMENT_CONFIG
 
-from app.models.payment_settings import PaymentConfigModel
+from app.models.payment_settings import PaymentChannelModel, PaymentConfigModel
 from app.schemas.schemas import StatusType
 from app.schemas.payment_config import PaymentConfigItem, PaymentConfigSearchQuery, PaymentConfigListResponse
 
@@ -57,6 +57,8 @@ def get_payment_config_list(params: PaymentConfigSearchQuery) -> PaymentConfigLi
 
 
 def add_payment_config(params: PaymentConfigItem) -> bool:
+    if params.channel_key == 'balance':
+        raise ValueError('余额支付不支持添加支付配置')
     with get_session() as db:
         exists_count = db.query(PaymentConfigModel).filter(
             PaymentConfigModel.appid == params.appid).count()
@@ -71,6 +73,14 @@ def add_payment_config(params: PaymentConfigItem) -> bool:
 
         last_item = db.query(PaymentConfigModel).order_by(desc('id')).first()
         params.asc_sort_order = 1 if last_item is None or last_item.asc_sort_order is None else last_item.asc_sort_order + 1
+
+        if isinstance(params.channel_id, int):
+            channel = db.query(PaymentChannelModel).filter(PaymentChannelModel.id == params.channel_id).first()
+            if channel is None:
+                raise ValueError(f'支付渠道不存在(id={params.channel_id})')
+            params.channel_key = channel.key
+        else:
+            raise ValueError(f'必须选择支付渠道')
 
         fields = params.model_dump()
         fields.pop('id')
@@ -105,6 +115,7 @@ def edit_payment_config(params: PaymentConfigItem) -> bool:
         fields = params.model_dump()
         fields.pop('id')
         fields.pop('channel_id')
+        fields.pop('channel_key')
         fields.pop('appid')  # 禁止修改 appid, 防止缓存溢出
         if model.miniappid:
             old_miniappid = model.miniappid

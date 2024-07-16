@@ -25,6 +25,7 @@ class PaymentConfigSafeItem(BaseModel):
     '''安全模型，不包含敏感信息'''
     id: int = Field(None, ge=0, description="ID")
     channel_id: int = Field(None, ge=1, description="支付渠道ID")
+    channel_key: Optional[str] = Field(None, description="支付渠道KEY")
     name: str = Field(None, min_length=1, max_length=50, description="对外显示的名称，如：微信支付或支付通道1")
     appname: Optional[str] = Field(None, min_length=1, max_length=50, description="支付平台APP名称")
     appid: str = Field(None, min_length=1, max_length=50, description="支付平台APPID")
@@ -40,6 +41,7 @@ class PaymentConfigItem(BaseModel):
     '''全量模型，包含敏感信息'''
     id: Optional[int] = Field(None, ge=0, description="ID")
     channel_id: Optional[int] = Field(None, ge=1, description="支付渠道ID")
+    channel_key: Optional[str] = Field(None, description="支付渠道KEY")
     name: str = Field(None, min_length=1, max_length=50, description="对外显示的名称，如：微信支付或支付通道1")
     appname: Optional[str] = Field(None, min_length=1, max_length=50, description="支付平台APP名称")
     appid: str = Field(None, min_length=1, max_length=50, description="支付平台APPID")
