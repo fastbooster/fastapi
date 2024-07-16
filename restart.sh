@@ -12,6 +12,7 @@ fi
 
 docker compose -p fastapi down
 docker rmi fastapi-server
+docker rmi fastapi-celery
 docker compose -p fastapi -f $1 up -d --build
 docker ps
 
