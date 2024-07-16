@@ -39,10 +39,10 @@ class ChangePwdForm(BaseModel):
 
 
 class UserSearchQuery(PaginationParams):
-    id: int | str = Field(None, description="ID")
-    pid: int | str = Field(None, description="上级ID")
-    role_id: int | str = Field(None, description="角色ID")
-    status: int | str = Field(None, description="状态")
+    id: Optional[int | str] = Field(None, description="ID")
+    pid: Optional[int | str] = Field(None, description="上级ID")
+    role_id: Optional[int | str] = Field(None, description="角色ID")
+    status: Optional[int | str] = Field(None, description="状态")
     nickname: Optional[str] = None
     phone: Optional[str] = None
     email: Optional[str] = None
