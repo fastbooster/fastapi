@@ -116,7 +116,7 @@ class PaymentManager:
         '''
         with get_redis() as redis:
             config = json.loads(redis.hget(REDIS_PAYMENT_CONFIG, appid))
-            if config["channel_id"] == 2:
+            if config["channel_key"] == "alipay":
                 # 支付宝渠道时，需单独获取支付宝根证书
                 config["alipay_root_cert"] = redis.hget(
                     REDIS_SYSTEM_OPTIONS_AUTOLOAD, "alipay_root_cert")

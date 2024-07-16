@@ -7,7 +7,7 @@
 
 from datetime import datetime
 from enum import Enum
-from pydantic import BaseModel, PositiveInt, validator, Field
+from pydantic import BaseModel, PositiveInt, validator, Field, HttpUrl
 from typing import List, Optional
 
 from app.schemas.schemas import ClientType, PaginationParams
@@ -63,7 +63,7 @@ class PaymentStatuType(Enum):
 
 
 class PaymentToolType(Enum):
-    PAYMENT_TOOL_WECHAT = 'wechat'  # 原生微信
+    PAYMENT_TOOL_WECHAT = 'wechatpay'  # 原生微信
     PAYMENT_TOOL_ALIPAY = 'alipay'  # 原生支付宝
     PAYMENT_TOOL_EXCHANGE = 'exchange'  # 兑换券
     PAYMENT_TOOL_BALANCE = 'balance'  # 余额支付
@@ -188,6 +188,8 @@ class PayForm(BaseModel):
     appid: str = Field(description="支付配置AppID，详见支付设置/支付配置，例如：2014040501377004")
     trade_no: str = Field(description="订单号")
     openid: Optional[str] = Field(None, description="微信支付时，支付用户的openid")
+    return_url: Optional[HttpUrl] = Field(None, description="同步返回地址")
+    notify_url: Optional[HttpUrl] = Field(None, description="异步通知地址")
 
 
 class ScanpayForm(BaseModel):
