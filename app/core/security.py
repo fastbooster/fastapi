@@ -38,8 +38,9 @@ oauth2_scheme = OAuth2PasswordBearer(tokenUrl="/api/v1/auth/token")
 ALGORITHM = 'HS256'
 
 # 这是 jwttoken 的密钥, 无需固定值, 每次重启所有登录都会失效
+# 开发模式下固定为 fastapi, 修改代码后热重载不会导致登录生效, 生产模式下则随机生成
 SECRET_KEY = secrets.token_urlsafe(32) if os.getenv(
-    'RUNTIME_MODE') == 'dev' else 'fastapi'
+    'RUNTIME_MODE').lower() == 'prod' else 'fastapi'
 
 
 def raise_forbidden():
@@ -104,7 +105,8 @@ def authenticate_user_by_password(password: str, phone: str = None, email: str =
             raise BearAuthException('手机或邮箱必须填写一个')
 
     if not user or not verify_password(password, user.password_salt, user.password_hash):
-        raise HTTPException(status_code=status.HTTP_403_FORBIDDEN, detail="账号或密码错误")
+        raise HTTPException(
+            status_code=status.HTTP_403_FORBIDDEN, detail="账号或密码错误")
 
     user_data = user.__dict__
     user_data.pop('_sa_instance_state', None)
