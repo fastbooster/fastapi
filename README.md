@@ -66,13 +66,15 @@ docker image load -i redis.image
 #### 选择不同的配置文件启动服务
 
 ```shell
+# 创建 .env 和 config.yaml 并编辑配置信息
 cp -r ./.env.example .env
 cp -r ./config.example.yaml config.yaml
 
 # 根据实际情况，选择不同的 docker-compose 文件启动服务
-# docker-compose.yml 仅包含 fastapi, 其他服务在云端
-# docker-compose-dev.yml 包含 mysql, redis
-# docker-compose-full.yml 包含 mysql, redis, fastapi
+# docker-compose.yml 仅包含 server(fastapi), 其他服务在云端
+# docker-compose-celery.yml 仅包含 celery, 其他服务在云端
+# docker-compose-dev.yml 包含 mysql, redis, 其他服务如 fastapi, celery 在宿主机启动，方便调试
+# docker-compose-full.yml 包含 server, celery, mysql, redis 单机容器部署
 docker compose -p your_proj_name -f docker-compose.yml up -d --build
 
 # 重建镜像
@@ -83,9 +85,10 @@ docker compose -p your_proj_name down
 chown -R user:user volumes
 
 # 也可通过重启脚本重新构建镜像
+./restart.sh docker-compose.yml
+./restart.sh docker-compose-celery.yml
 ./restart.sh docker-compose-dev.yml
 ./restart.sh docker-compose-full.yml
-./restart.sh docker-compose.yml
 ```
 
 #### 进入容器，手动迁移数据库 （TODO：启动容器时自动执行）和初始化必要数据
@@ -102,7 +105,7 @@ docker exec -it your_proj_name-server-1 bash
 server {
     listen 80;
     server_name api.intranet.com;
-    root /usr/share/nginx/html;
+    root /path/to/fastapi/public;
 
     access_log /var/log/nginx/proj_name.access.log;
     error_log /var/log/nginx/proj_name.error.log;

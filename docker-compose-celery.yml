@@ -1,0 +1,15 @@
+# Celery 容器
+# 可单独启动，执行后台任务，集群部署时此容器只启动一个实例即可，且 mysql & redis 需要部署在云端
+services:
+  celery:
+    build:
+      context: ./
+      dockerfile: Dockerfile.celery
+    env_file:
+      - .env
+    command: /entrypoint.sh
+    networks:
+      - fastapi_tier
+
+networks:
+  fastapi_tier:

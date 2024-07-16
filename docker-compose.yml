@@ -1,4 +1,5 @@
 # 只启动 server 服务, mysq, redis 等服务使用云端
+# 负载均衡和集群部署时可使用此配置
 services:
   server:
     build:
@@ -11,4 +12,4 @@ services:
     ports:
       - "${RUNTIME_PORT}:${RUNTIME_PORT}"
 
-    command: /entrypoint.sh
+    command: python start.py
