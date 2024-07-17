@@ -137,7 +137,8 @@ alembic revision --autogenerate -m "message"
 alembic upgrade head
 
 # 4. 回滚迁移脚本
-alembic downgrade version_id
+alembic downgrade base # 重置数据库
+alembic downgrade version_id # 回滚到指定版本
 
 # 5. 查看帮助
 alembic --help

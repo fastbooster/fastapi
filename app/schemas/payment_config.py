@@ -11,7 +11,7 @@ from datetime import datetime
 from typing import List, Optional, Union, Any
 from pydantic import BaseModel, Field, validator
 
-from app.schemas.schemas import StatusType, PaginationParams
+from app.schemas.schemas import StatusType, MysqlBoolType, PaginationParams
 
 
 class PaymentConfigOutItem(BaseModel):
@@ -31,6 +31,7 @@ class PaymentConfigSafeItem(BaseModel):
     appid: str = Field(None, min_length=1, max_length=50, description="支付平台APPID")
     mchid: Optional[str] = Field(None, min_length=1, max_length=50, description="支付平台商户ID")
     miniappid: Optional[str] = Field(None, min_length=1, max_length=50, description="小程序ID, 微信支付专用")
+    locked: Optional[MysqlBoolType] = MysqlBoolType.NO.value
     asc_sort_order: Optional[int] = None
     status: Optional[StatusType] = StatusType.ENABLED.value
     created_at: Optional[datetime] = None
@@ -51,6 +52,7 @@ class PaymentConfigItem(BaseModel):
     app_private_key: Optional[str] = Field(None, description="应用私钥")
     app_secret_key: Optional[str] = Field(None, description="应用密钥")
     platform_public_cert: Optional[str] = Field(None, description="平台公钥")
+    locked: Optional[MysqlBoolType] = MysqlBoolType.NO.value
     asc_sort_order: Optional[int] = None
     status: Optional[StatusType] = StatusType.ENABLED.value
     created_at: Optional[datetime] = None
