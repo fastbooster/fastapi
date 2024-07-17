@@ -124,23 +124,23 @@ def balance_scanpay(params: PayForm, user_data: dict = Depends(get_current_user_
         raise HTTPException(status_code=500, detail='余额充值扫码支付失败')
 
 
-@router.post("/finance/{payment_tool}/point/notify", summary="积分充值结果通知")
-async def point_notify(payment_tool: str, request: Request):
+@router.post("/finance/{payment_channel}/point/notify", summary="积分充值结果通知")
+async def point_notify(payment_channel: str, request: Request):
     try:
         content = None
         params = dict(request.query_params)
-        if payment_tool == 'wechat':
+        if payment_channel == 'wechat':
             body = await request.body()
             content = body.decode("utf-8")
             params = xmltodict.parse(content)['xml']
 
-        result = FinanceService.point_notify(payment_tool, params, content)
+        result = FinanceService.point_notify(payment_channel, params, content)
 
-        response = RESPONSE_WECHAT_SUCCESS if payment_tool == 'wechat' else RESPONSE_ALIPAY_SUCCESS
+        response = RESPONSE_WECHAT_SUCCESS if payment_channel == 'wechat' else RESPONSE_ALIPAY_SUCCESS
         if not result:
-            response = RESPONSE_WECHAT_FAIL if payment_tool == 'wechat' else RESPONSE_ALIPAY_FAIL
+            response = RESPONSE_WECHAT_FAIL if payment_channel == 'wechat' else RESPONSE_ALIPAY_FAIL
 
         return PlainTextResponse(response, status_code=200)
     except Exception as e:
         logger.error(f'积分充值结果通知处理失败：{e}')
-        PlainTextResponse(RESPONSE_WECHAT_FAIL if payment_tool == 'wechat' else RESPONSE_ALIPAY_FAIL, status_code=200)
+        PlainTextResponse(RESPONSE_WECHAT_FAIL if payment_channel == 'wechat' else RESPONSE_ALIPAY_FAIL, status_code=200)

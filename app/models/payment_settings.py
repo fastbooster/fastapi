@@ -24,7 +24,7 @@ class PaymentChannelModel(Base, BaseMixin):
 
     # 用于前端显示, eg: 支付宝, 微信支付, 银联支付, 支付通道N
     name = Column(String(50), comment='名称')
-    
+
     icon = Column(String(255), comment='图标')
 
     # 系统内置的支付渠道不可删除
@@ -72,6 +72,9 @@ class PaymentConfigModel(Base, BaseMixin):
 
     # 支付宝专用
     platform_public_cert = Column(Text(), comment='平台公钥')
+
+    # 系统内置的支付配置不可删除和修改，注意用于配置余额钱包，积分钱包
+    locked = Column(String(10), server_default='no', comment='锁定: yes/no')
 
     asc_sort_order = Column(Integer, server_default='0', comment='排序')
     status = Column(String(10), nullable=False,

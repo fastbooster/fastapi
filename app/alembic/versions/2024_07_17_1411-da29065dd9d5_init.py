@@ -1,8 +1,8 @@
 """Init
 
-Revision ID: 0484f96e2bcf
+Revision ID: da29065dd9d5
 Revises: 
-Create Date: 2024-07-09 10:34:17.566720
+Create Date: 2024-07-17 14:11:45.907497
 
 """
 from typing import Sequence, Union
@@ -12,7 +12,7 @@ import sqlalchemy as sa
 from sqlalchemy.dialects import mysql
 
 # revision identifiers, used by Alembic.
-revision: str = '0484f96e2bcf'
+revision: str = 'da29065dd9d5'
 down_revision: Union[str, None] = None
 branch_labels: Union[str, Sequence[str], None] = None
 depends_on: Union[str, Sequence[str], None] = None
@@ -165,16 +165,17 @@ def upgrade() -> None:
     op.create_table('payment_config',
     sa.Column('id', sa.Integer(), autoincrement=True, nullable=False, comment='ID'),
     sa.Column('channel_id', sa.Integer(), nullable=False, comment='支付渠道ID'),
-    sa.Column('channel_key', sa.String(length=50), nullable=True, comment='支付渠道KEY'),
+    sa.Column('channel_key', sa.String(length=50), nullable=False, comment='支付渠道KEY'),
     sa.Column('name', sa.String(length=50), nullable=True, comment='名称'),
     sa.Column('appname', sa.String(length=50), nullable=True, comment='支付平台APP名称'),
-    sa.Column('appid', sa.String(length=50), nullable=True, comment='支付平台APPID'),
+    sa.Column('appid', sa.String(length=50), nullable=False, comment='支付平台APPID'),
     sa.Column('mchid', sa.String(length=50), nullable=True, comment='支付平台商户ID'),
     sa.Column('miniappid', sa.String(length=50), nullable=True, comment='小程序APPID'),
-    sa.Column('app_public_cert', sa.Text(), nullable=False, comment='应用公钥'),
-    sa.Column('app_private_key', sa.Text(), nullable=False, comment='应用私钥'),
-    sa.Column('app_secret_key', sa.Text(), nullable=False, comment='应用密钥'),
-    sa.Column('platform_public_cert', sa.Text(), nullable=False, comment='平台公钥'),
+    sa.Column('app_public_cert', sa.Text(), nullable=True, comment='应用公钥'),
+    sa.Column('app_private_key', sa.Text(), nullable=True, comment='应用私钥'),
+    sa.Column('app_secret_key', sa.Text(), nullable=True, comment='应用密钥'),
+    sa.Column('platform_public_cert', sa.Text(), nullable=True, comment='平台公钥'),
+    sa.Column('locked', sa.String(length=10), server_default='no', nullable=True, comment='锁定: yes/no'),
     sa.Column('asc_sort_order', sa.Integer(), server_default='0', nullable=True, comment='排序'),
     sa.Column('status', sa.String(length=10), server_default='enabled', nullable=False, comment='状态: enabled/disabled'),
     sa.Column('created_at', sa.TIMESTAMP(), server_default=sa.text('CURRENT_TIMESTAMP'), nullable=True, comment='创建时间'),
@@ -296,7 +297,7 @@ def upgrade() -> None:
     sa.Column('refund_amount', sa.DECIMAL(precision=10, scale=2), server_default='0', nullable=True, comment='退款数量'),
     sa.Column('refund_gift_amount', sa.DECIMAL(precision=10, scale=2), server_default='0', nullable=True, comment='退款赠送数量'),
     sa.Column('payment_status', sa.SmallInteger(), server_default='0', nullable=True, comment='状态'),
-    sa.Column('payment_tool', sa.String(length=50), nullable=True, comment='支付方式'),
+    sa.Column('payment_channel', sa.String(length=50), nullable=True, comment='支付渠道'),
     sa.Column('payment_time', sa.TIMESTAMP(), nullable=True, comment='支付时间'),
     sa.Column('payment_response', sa.Text(), nullable=True, comment='支付结果'),
     sa.Column('refund_response', sa.Text(), nullable=True, comment='退款结果'),
@@ -317,8 +318,8 @@ def upgrade() -> None:
     )
     op.create_index('idx_audit_user_id', 'user_balance_recharge', ['audit_user_id'], unique=False)
     op.create_index('idx_created_at', 'user_balance_recharge', ['created_at'], unique=False)
+    op.create_index('idx_payment_channel', 'user_balance_recharge', ['payment_channel'], unique=False)
     op.create_index('idx_payment_status', 'user_balance_recharge', ['payment_status'], unique=False)
-    op.create_index('idx_payment_tool', 'user_balance_recharge', ['payment_tool'], unique=False)
     op.create_index('idx_trade_no', 'user_balance_recharge', ['trade_no'], unique=True)
     op.create_index('idx_user_id', 'user_balance_recharge', ['user_id'], unique=False)
     op.create_index('idx_user_id_payment_status', 'user_balance_recharge', ['user_id', 'payment_status'], unique=False)
@@ -434,7 +435,7 @@ def upgrade() -> None:
     sa.Column('refund_points', sa.Integer(), server_default='0', nullable=True, comment='退款数量'),
     sa.Column('refund_gift_points', sa.Integer(), server_default='0', nullable=True, comment='退款赠送数量'),
     sa.Column('payment_status', sa.SmallInteger(), server_default='0', nullable=True, comment='状态'),
-    sa.Column('payment_tool', sa.String(length=50), nullable=True, comment='支付方式'),
+    sa.Column('payment_channel', sa.String(length=50), nullable=True, comment='支付渠道'),
     sa.Column('payment_time', sa.TIMESTAMP(), nullable=True, comment='支付时间'),
     sa.Column('payment_response', sa.Text(), nullable=True, comment='支付结果'),
     sa.Column('refund_response', sa.Text(), nullable=True, comment='退款结果'),
@@ -455,8 +456,8 @@ def upgrade() -> None:
     )
     op.create_index('idx_audit_user_id', 'user_point_recharge', ['audit_user_id'], unique=False)
     op.create_index('idx_created_at', 'user_point_recharge', ['created_at'], unique=False)
+    op.create_index('idx_payment_channel', 'user_point_recharge', ['payment_channel'], unique=False)
     op.create_index('idx_payment_status', 'user_point_recharge', ['payment_status'], unique=False)
-    op.create_index('idx_payment_tool', 'user_point_recharge', ['payment_tool'], unique=False)
     op.create_index('idx_trade_no', 'user_point_recharge', ['trade_no'], unique=True)
     op.create_index('idx_user_id', 'user_point_recharge', ['user_id'], unique=False)
     op.create_index('idx_user_id_payment_status', 'user_point_recharge', ['user_id', 'payment_status'], unique=False)
@@ -482,7 +483,7 @@ def upgrade() -> None:
     sa.Column('handling_fee', sa.DECIMAL(precision=10, scale=2), nullable=False, comment='手续费'),
     sa.Column('balance', sa.DECIMAL(precision=10, scale=2), nullable=False, comment='申请时余额'),
     sa.Column('payment_status', sa.SmallInteger(), server_default='0', nullable=True, comment='状态'),
-    sa.Column('payment_tool', sa.String(length=50), nullable=True, comment='支付方式'),
+    sa.Column('payment_channel', sa.String(length=50), nullable=True, comment='支付渠道'),
     sa.Column('payment_time', sa.TIMESTAMP(), nullable=True, comment='支付时间'),
     sa.Column('payment_response', sa.Text(), nullable=True, comment='支付结果'),
     sa.Column('audit_status', sa.SmallInteger(), server_default='0', nullable=True, comment='审核状态'),
@@ -522,8 +523,8 @@ def downgrade() -> None:
     op.drop_index('idx_user_id_payment_status', table_name='user_point_recharge')
     op.drop_index('idx_user_id', table_name='user_point_recharge')
     op.drop_index('idx_trade_no', table_name='user_point_recharge')
-    op.drop_index('idx_payment_tool', table_name='user_point_recharge')
     op.drop_index('idx_payment_status', table_name='user_point_recharge')
+    op.drop_index('idx_payment_channel', table_name='user_point_recharge')
     op.drop_index('idx_created_at', table_name='user_point_recharge')
     op.drop_index('idx_audit_user_id', table_name='user_point_recharge')
     op.drop_table('user_point_recharge')
@@ -544,8 +545,8 @@ def downgrade() -> None:
     op.drop_index('idx_user_id_payment_status', table_name='user_balance_recharge')
     op.drop_index('idx_user_id', table_name='user_balance_recharge')
     op.drop_index('idx_trade_no', table_name='user_balance_recharge')
-    op.drop_index('idx_payment_tool', table_name='user_balance_recharge')
     op.drop_index('idx_payment_status', table_name='user_balance_recharge')
+    op.drop_index('idx_payment_channel', table_name='user_balance_recharge')
     op.drop_index('idx_created_at', table_name='user_balance_recharge')
     op.drop_index('idx_audit_user_id', table_name='user_balance_recharge')
     op.drop_table('user_balance_recharge')

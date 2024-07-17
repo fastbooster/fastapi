@@ -591,27 +591,27 @@ def balance_scanpay(params: ScanpayForm, user_data: dict) -> dict:
         return {'url': f"{alipay._gateway}?{order_string}"}
 
 
-def point_notify(payment_tool: str, params: dict, content: str = None) -> bool:
-    logger.info(f'收到异步通知:{payment_tool}', extra=params)
-    if payment_tool == PaymentChannelType.ALIPAY.value:
+def point_notify(payment_channel: str, params: dict, content: str = None) -> bool:
+    logger.info(f'收到异步通知:{payment_channel}', extra=params)
+    if payment_channel == PaymentChannelType.ALIPAY.value:
         signature = params.pop('sign')
         alipay = payment_manager.get_instance('alipay', params.get('app_id', None))
         try:
             success = alipay.verify(params, signature)
         except:
-            logger.error(f'签名验证失败:{payment_tool}', extra=params)
+            logger.error(f'签名验证失败:{payment_channel}', extra=params)
             return False
         if not success:
-            logger.error(f'签名验证失败:{payment_tool}', extra=params)
+            logger.error(f'签名验证失败:{payment_channel}', extra=params)
             return False
         is_ok = True if params["trade_status"] in ("TRADE_SUCCESS", "TRADE_FINISHED") else False
-    elif payment_tool == PaymentChannelType.WECHATPAY.value:
+    elif payment_channel == PaymentChannelType.WECHATPAY.value:
         # 如果是小程序支付, appid返回的是小程序的appid, 不是支付配置里面的appid
         wechatpy = payment_manager.get_instance('wechat', params.get('mch_id', None))
         try:
             params = wechatpy.parse_payment_result(content)
         except:
-            logger.error(f'签名验证失败:{payment_tool}', extra=params)
+            logger.error(f'签名验证失败:{payment_channel}', extra=params)
             return False
         is_ok = False if params["return_code"] == "SUCCESS" and params["refund_status"] == "SUCCESS" else False
     else:
@@ -629,7 +629,7 @@ def point_notify(payment_tool: str, params: dict, content: str = None) -> bool:
             return True
 
         order_model.payment_status = PaymentStatuType.PAYMENT_STATUS_SUCCESS.value if is_ok else PaymentStatuType.PAYMENT_STATUS_FAIL.value
-        order_model.payment_tool = payment_tool
+        order_model.payment_channel = payment_channel
         order_model.payment_time = datetime.now()
         order_model.payment_response = json.dumps(params, default=str)
 

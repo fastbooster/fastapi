@@ -150,7 +150,7 @@ def notify(payment_channel: str, params: dict, content: str = None) -> bool:
             return True
 
         order_model.payment_status = PaymentStatuType.PAYMENT_STATUS_SUCCESS.value if is_ok else PaymentStatuType.PAYMENT_STATUS_FAIL.value
-        order_model.payment_tool = payment_channel
+        order_model.payment_channel = payment_channel
         order_model.payment_time = datetime.now()
         order_model.payment_response = json.dumps(params)
 
