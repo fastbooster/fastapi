@@ -78,9 +78,7 @@ def add_payment_channel(params: PaymentChannelItem) -> bool:
 
         db.add(model)
         db.commit()
-
-        params.id = model.id
-        update_cache(params.model_dump())
+        update_cache(model.to_dict())
 
     return True
 
@@ -107,12 +105,11 @@ def edit_payment_channel(params: PaymentChannelItem) -> bool:
 
         # __dict__ 是直接引用模型字段，commit() 后会重置字段，data 也会被改变
         # 所以需要先复制一份数据再提交，避免 commit() 后被重置
-        data = model.__dict__
-        data.pop("_sa_instance_state")
-        params = data.copy()
-
+        # data = model.__dict__
+        # data.pop("_sa_instance_state")
+        # params = data.copy()
+        params = model.to_dict()
         db.commit()
-
         update_cache(params)
 
     return True
@@ -131,11 +128,9 @@ def delete_payment_channel(id: int) -> bool:
         if model.locked == MysqlBoolType.YES.value:
             raise ValueError('禁止删除无法删除')
 
+        params = model.to_dict()
         db.delete(model)
         db.commit()
-
-        params = model.__dict__
-        params.pop('_sa_instance_state')
         update_cache(params, is_delete=True)
 
     return True
