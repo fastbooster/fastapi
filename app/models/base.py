@@ -12,10 +12,16 @@ Base = declarative_base()
 
 class BaseMixin:
     '''基础混入类，提供一些通用方法'''
-    def from_dict(self, data):
+    def from_dict(self, data) -> None:
+        '''将字典数据导入模型'''
         for field in data:
             if hasattr(self, field):
                 setattr(self, field, data[field])
+
+
+    def to_dict(self) -> dict:
+        '''将模型转换为纯粹的字典'''
+        return {c.key: getattr(self, c.key) for c in self.__table__.columns}
 
 
 # 导入所有模型，以支持 alembic 自动追踪

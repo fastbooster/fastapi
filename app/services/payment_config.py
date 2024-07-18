@@ -11,6 +11,7 @@ import json
 from datetime import datetime
 
 from sqlalchemy import or_
+from sqlalchemy.inspection import inspect
 from sqlalchemy.sql.expression import asc, desc
 
 from app.core.mysql import get_session
@@ -75,7 +76,8 @@ def add_payment_config(params: PaymentConfigItem) -> bool:
         params.asc_sort_order = 1 if last_item is None or last_item.asc_sort_order is None else last_item.asc_sort_order + 1
 
         if isinstance(params.channel_id, int):
-            channel = db.query(PaymentChannelModel).filter(PaymentChannelModel.id == params.channel_id).first()
+            channel = db.query(PaymentChannelModel).filter(
+                PaymentChannelModel.id == params.channel_id).first()
             if channel is None:
                 raise ValueError(f'支付渠道不存在(id={params.channel_id})')
             params.channel_key = channel.key
@@ -86,7 +88,8 @@ def add_payment_config(params: PaymentConfigItem) -> bool:
         fields.pop('id')
         fields.pop('created_at')
         fields.pop('updated_at')
-        fields['app_private_key'] = prepare_app_private_key(fields['app_private_key'])
+        fields['app_private_key'] = prepare_app_private_key(
+            fields['app_private_key'])
         fields['status'] = params.status.value
 
         model = PaymentConfigModel(**fields)
@@ -122,7 +125,8 @@ def edit_payment_config(params: PaymentConfigItem) -> bool:
             fields.pop('miniappid')  # 禁止修改 miniappid, 防止缓存溢出
         fields.pop('created_at')
         fields.pop('updated_at')
-        fields['app_private_key'] = prepare_app_private_key(fields['app_private_key'])
+        fields['app_private_key'] = prepare_app_private_key(
+            fields['app_private_key'])
         fields['status'] = params.status.value
 
         model.from_dict(fields)
@@ -136,16 +140,15 @@ def edit_payment_config(params: PaymentConfigItem) -> bool:
 
 
 def update_status(params: PaymentConfigItem) -> bool:
-    '''此操作无需更新缓存，因为状态变更后不会影响支付'''
     with get_session() as db:
         model = db.query(PaymentConfigModel).filter_by(
             id=params.id).first()
         if model is None:
             raise ValueError(f'支付配置不存在(id={params.id})')
-
         model.status = params.status.value
-
+        params = model.to_dict()
         db.commit()
+        update_cache(params)
 
     return True
 
@@ -216,7 +219,9 @@ def prepare_app_private_key(private_key: str | None) -> str | None:
     if '\n' in private_key:
         return private_key
 
-    private_key = '\n'.join([private_key[i:i+64] for i in range(0, len(private_key), 64)])
-    private_key = f'-----BEGIN PRIVATE KEY-----\n{private_key}\n-----END PRIVATE KEY-----\n'
-    
+    private_key = '\n'.join([private_key[i:i+64]
+                            for i in range(0, len(private_key), 64)])
+    private_key = f'-----BEGIN PRIVATE KEY-----\n{
+        private_key}\n-----END PRIVATE KEY-----\n'
+
     return private_key

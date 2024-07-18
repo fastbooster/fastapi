@@ -41,3 +41,7 @@ def serialize_datetime(obj):
     if isinstance(obj, datetime.datetime):
         return obj.isoformat()
     raise TypeError("Type not serializable")
+
+
+def model_to_dict(instance):
+    return {c.key: getattr(instance, c.key) for c in instance.__table__.columns}

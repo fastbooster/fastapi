@@ -34,17 +34,25 @@ def get_payment_settings_from_cache() -> PaymentSettingOutListResponse:
         configs = [json.loads(configs[key]) for key in configs]
         configs.sort(key=lambda x: int(x["asc_sort_order"]))
 
-        # 由于微信支付会根据 miniappid 多存一份缓存，所以这里需要去重
+        # 过滤数据
+        # 1. 由于微信支付会根据 miniappid 多存一份缓存，所以这里需要去重
+        # 2. 已禁用的渠道和配置，需要过滤掉，因为这是列表给前端用户下单选择支付方式使用的数据
+        # 3. 移除 children 为空的渠道
         items = []
         exists_config_ids = []
         for channel in channels:
+            if channel["status"] != StatusType.ENABLED.value:
+                continue
             item = {"channel": PaymentChannelOutItem(
                 **channel), "children": []}
             for config in configs:
+                if config["status"] != StatusType.ENABLED.value:
+                    continue
                 if config["id"] not in exists_config_ids and config["channel_id"] == channel["id"]:
                     exists_config_ids.append(config["id"])
                     item["children"].append(PaymentConfigOutItem(**config))
-
+            if len(item["children"]) == 0:
+                continue
             items.append(item)
 
         return PaymentSettingOutListResponse(total=len(items), items=items)
