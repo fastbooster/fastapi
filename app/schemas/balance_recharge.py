@@ -12,7 +12,7 @@ from typing import List, Optional
 from pydantic import BaseModel, Field, validator
 
 from app.schemas.schemas import PaginationParams
-from app.schemas.finance import PaymentStatuType, PaymentChannelType
+from app.schemas.finance import PaymentStatusType, PaymentChannelType
 
 
 class BalanceRechargeItem(BaseModel):
@@ -27,8 +27,8 @@ class BalanceRechargeItem(BaseModel):
     refund_amount: Optional[float] = Field(0, description="退款数量")
     refund_gift_amount: Optional[float] = Field(0, description="退款赠送数量")
 
-    payment_status: Optional[PaymentStatuType] = Field(
-        PaymentStatuType.CREATED.value, description="付款状态")
+    payment_status: Optional[PaymentStatusType] = Field(
+        PaymentStatusType.CREATED.value, description="付款状态")
     payment_channel: Optional[PaymentChannelType] = Field(
         PaymentChannelType.WECHATPAY.value, description="支付渠道")
     payment_appid: Optional[str] = Field(None, description="支付APPID")
@@ -58,8 +58,8 @@ class BalanceRechargeOutItem(BaseModel):
     gift_amount: Optional[float] = Field(0, description="赠送数量")
     refund_amount: Optional[float] = Field(0, description="退款数量")
     refund_gift_amount: Optional[float] = Field(0, description="退款赠送数量")
-    payment_status: Optional[PaymentStatuType] = Field(
-        PaymentStatuType.CREATED.value, description="付款状态")
+    payment_status: Optional[PaymentStatusType] = Field(
+        PaymentStatusType.CREATED.value, description="付款状态")
     payment_channel: Optional[PaymentChannelType] = Field(
         PaymentChannelType.WECHATPAY.value, description="支付渠道")
     payment_time: Optional[datetime] = Field(None, description="付款时间")

@@ -51,7 +51,7 @@ class PaymentAccountType(Enum):
     BANK = 'bank'
 
 
-class PaymentStatuType(Enum):
+class PaymentStatusType(Enum):
     CREATED = 0  # 创建成功, 仅此状态可以进行支付
     SUCCESS = 1  # 支付成功
     FAIL = 2  # 支付失败
