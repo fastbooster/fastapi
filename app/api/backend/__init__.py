@@ -9,6 +9,7 @@ from . import system_option
 from . import payment_channel
 from . import payment_config
 from . import payment_settings
+from . import balance_recharge
 
 __all__ = [
     'ad',
@@ -21,4 +22,5 @@ __all__ = [
     'payment_channel',
     'payment_config',
     'payment_settings',
+    'balance_recharge',
 ]

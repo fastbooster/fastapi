@@ -7,12 +7,11 @@
 
 
 import json
-import uuid
 import time
+from datetime import datetime, timedelta
 
 from sqlalchemy.sql.expression import desc
-from datetime import datetime, timedelta
-from typing import List
+from typing import List, Optional
 from urllib.parse import urlencode
 
 from app.core.mysql import get_session
@@ -30,6 +29,52 @@ from app.tasks.finance import handle_balance, handle_balance_gift, handle_point
 from app.constants.constants import REDIS_SYSTEM_OPTIONS_AUTOLOAD
 from app.services import system_option as SystemOptionService
 from app.core.payment import payment_manager
+
+from app.schemas.balance_recharge import BalanceRechargeSearchQuery, BalanceRechargeItem, BalanceRechargeListResponse
+
+
+def get_balance_recharge(id: int = 0, trade_no: Optional[str] = None) -> BalanceRechargeModel | None:
+    with get_session() as db:
+        if id > 0:
+            return db.query(BalanceRechargeModel).filter(BalanceRechargeModel.id == id).first()
+        elif trade_no is not None:
+            return db.query(BalanceRechargeModel).filter(BalanceRechargeModel.trade_no == trade_no).first()
+        else:
+            raise ValueError('id 和 trade_no 至少传入一项')
+
+
+def get_balance_recharge_list(params: BalanceRechargeSearchQuery) -> BalanceRechargeListResponse:
+    total = -1
+    export = True if params.export == 1 else False
+    with get_session() as db:
+        query = db.query(BalanceRechargeModel).order_by(desc('id'))
+        if params.user_id:
+            query = query.filter(
+                BalanceRechargeModel.user_id == params.user_id)
+        if params.trade_no:
+            query = query.filter(
+                BalanceRechargeModel.trade_no.like(f'%{params.trade_no}%'))
+        if isinstance(params.payment_channel, PaymentChannelType):
+            query = query.filter(
+                BalanceRechargeModel.payment_channel == params.payment_channel.value)
+        if isinstance(params.created_start, datetime):
+            query = query.filter(
+                BalanceRechargeModel.created_at >= params.created_start)
+        if isinstance(params.created_end, datetime):
+            query = query.filter(
+                BalanceRechargeModel.created_at <= params.created_end)
+        if isinstance(params.payment_start, datetime):
+            query = query.filter(
+                BalanceRechargeModel.payment_time >= params.payment_start)
+        if isinstance(params.payment_end, datetime):
+            query = query.filter(
+                BalanceRechargeModel.payment_time <= params.payment_end)
+        if not export:
+            total = query.count()
+            offset = (params.page - 1) * params.size
+            query.offset(offset).limit(params.size)
+
+    return {"total": total, "items": query.all()}
 
 
 def pay(params: PayForm, user_data: dict) -> dict:
@@ -116,7 +161,8 @@ def notify(payment_channel: str, params: dict, content: str = None) -> bool:
     logger.info(f'收到异步通知: {payment_channel}', extra=params)
     if payment_channel == PaymentChannelType.ALIPAY.value:
         signature = params.pop('sign')
-        alipay = payment_manager.get_instance('alipay', params.get('app_id', None))
+        alipay = payment_manager.get_instance(
+            'alipay', params.get('app_id', None))
         try:
             success = alipay.verify(params, signature)
         except:
@@ -125,10 +171,12 @@ def notify(payment_channel: str, params: dict, content: str = None) -> bool:
         if not success:
             logger.error(f'签名验证失败: {payment_channel}', extra=params)
             return False
-        is_ok = True if params["trade_status"] in ("TRADE_SUCCESS", "TRADE_FINISHED") else False
+        is_ok = True if params["trade_status"] in (
+            "TRADE_SUCCESS", "TRADE_FINISHED") else False
     elif payment_channel == PaymentChannelType.WECHATPAY.value:
         # 如果是微信小程序支付, appid 返回的是小程序的 appid, 由于已经做了缓存适配，可以直接使用 appid 参数
-        wechatpy = payment_manager.get_instance('wechat', params.get('appid', None))
+        wechatpy = payment_manager.get_instance(
+            'wechat', params.get('appid', None))
         try:
             params = wechatpy.parse_payment_result(content)
         except:
@@ -140,13 +188,15 @@ def notify(payment_channel: str, params: dict, content: str = None) -> bool:
 
     # 订单处理
     with get_session() as db:
-        order_model = db.query(BalanceRechargeModel).filter_by(trade_no=params.get('out_trade_no')).first()
+        order_model = db.query(BalanceRechargeModel).filter_by(
+            trade_no=params.get('out_trade_no')).first()
         if order_model is None:
             logger.info('订单不存在', extra=params)
             return False
         if order_model.payment_status not in (
-        PaymentStatuType.PAYMENT_STATUS_CREATED.value, PaymentStatuType.PAYMENT_STATUS_CLOSE.value):
-            logger.info(f'订单状态异常: payment_status={order_model.payment_status}, 不接受异步通知', extra=params)
+                PaymentStatuType.PAYMENT_STATUS_CREATED.value, PaymentStatuType.PAYMENT_STATUS_CLOSE.value):
+            logger.info(f'订单状态异常: payment_status={
+                        order_model.payment_status}, 不接受异步通知', extra=params)
             return True
 
         order_model.payment_status = PaymentStatuType.PAYMENT_STATUS_SUCCESS.value if is_ok else PaymentStatuType.PAYMENT_STATUS_FAIL.value
@@ -181,10 +231,32 @@ def notify(payment_channel: str, params: dict, content: str = None) -> bool:
                     'ip': order_model.user_ip,
                 }
                 task_gift_result = handle_balance.delay(task_gift_data)
-                logger.info(f'发送余额动账任务: {task_gift_result.id}', extra=task_gift_data)
+                logger.info(
+                    f'发送余额动账任务: {task_gift_result.id}', extra=task_gift_data)
 
             logger.info('成功受理通知', extra=params)
 
         db.commit()
 
         return is_ok
+
+
+def refund(trade_no: str) -> None:
+    with get_session() as db:
+        order = db.query(BalanceRechargeModel).filter_by(
+            trade_no=trade_no).first()
+        if order is None:
+            raise ValueError('订单不存在')
+
+        if order.payment_status != PaymentStatuType.PAYMENT_STATUS_SUCCESS.value:
+            raise ValueError('当前订单状态不允许退款')
+
+        balance = db.query(BalanceModel).filter_by(
+            user_id=order.user_id).order_by(desc('id')).value('balance')
+        if balance < order.amount:
+            raise ValueError('余额不足')
+
+        # TODO:
+        # 1. 根据 payment_channel + payment_appid 获取对应的支付实例, 发起全额退款
+        # 2. 调整余额
+        #
