@@ -20,7 +20,7 @@ class PaymentChannelModel(Base, BaseMixin):
     id = Column(Integer, primary_key=True, autoincrement=True, comment='ID')
 
     # 用于缓存键, eg: alipay, wechatpay, unionpay, channelN
-    key = Column(String(50), comment='键名')
+    key = Column(String(50), comment='键名', unique=True, index=True)
 
     # 用于前端显示, eg: 支付宝, 微信支付, 银联支付, 支付通道N
     name = Column(String(50), comment='名称')
@@ -30,16 +30,14 @@ class PaymentChannelModel(Base, BaseMixin):
     # 系统内置的支付渠道不可删除
     locked = Column(String(10), server_default='no', comment='锁定: yes/no')
 
-    asc_sort_order = Column(Integer, server_default='0', comment='排序')
+    asc_sort_order = Column(Integer, server_default='0',
+                            comment='排序', index=True)
     status = Column(String(10), nullable=False,
                     server_default='enabled', comment='状态: enabled/disabled')
     created_at = Column(TIMESTAMP, server_default=text(
         'CURRENT_TIMESTAMP'), comment='创建时间')
     updated_at = Column(TIMESTAMP, server_default=text(
         'CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'), comment='更新时间')
-
-    idx_key = Index('idx_key', key, unique=True)
-    idx_sort = Index('idx_sort', asc_sort_order)
 
     def __repr__(self):
         return f"<PaymentChannelModel(id={self.id}, key='{self.key}')>"
@@ -54,7 +52,7 @@ class PaymentConfigModel(Base, BaseMixin):
     mysql_collate = 'utf8mb4_unicode_ci'
 
     id = Column(Integer, primary_key=True, autoincrement=True, comment='ID')
-    channel_id = Column(Integer, nullable=False, comment='支付渠道ID')
+    channel_id = Column(Integer, nullable=False, comment='支付渠道ID', index=True)
     channel_key = Column(String(50), nullable=False, comment='支付渠道KEY')
 
     # 用于前端显示, eg: 支付宝, 微信支付, 银联支付, 支付通道N
@@ -76,15 +74,14 @@ class PaymentConfigModel(Base, BaseMixin):
     # 系统内置的支付配置不可删除和修改，注意用于配置余额钱包，积分钱包
     locked = Column(String(10), server_default='no', comment='锁定: yes/no')
 
-    asc_sort_order = Column(Integer, server_default='0', comment='排序')
+    asc_sort_order = Column(Integer, server_default='0',
+                            comment='排序', index=True)
     status = Column(String(10), nullable=False,
                     server_default='enabled', comment='状态: enabled/disabled')
     created_at = Column(TIMESTAMP, server_default=text(
         'CURRENT_TIMESTAMP'), comment='创建时间')
     updated_at = Column(TIMESTAMP, server_default=text(
         'CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'), comment='更新时间')
-
-    idx_sort = Index('idx_sort', asc_sort_order)
 
     def __repr__(self):
         return f"<PaymentConfigModel(id={self.id}, user_id='{self.name}')>"

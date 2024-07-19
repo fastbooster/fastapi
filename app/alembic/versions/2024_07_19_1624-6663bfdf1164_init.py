@@ -1,8 +1,8 @@
 """Init
 
-Revision ID: da29065dd9d5
+Revision ID: 6663bfdf1164
 Revises: 
-Create Date: 2024-07-17 14:11:45.907497
+Create Date: 2024-07-19 16:24:23.238030
 
 """
 from typing import Sequence, Union
@@ -12,7 +12,7 @@ import sqlalchemy as sa
 from sqlalchemy.dialects import mysql
 
 # revision identifiers, used by Alembic.
-revision: str = 'da29065dd9d5'
+revision: str = '6663bfdf1164'
 down_revision: Union[str, None] = None
 branch_labels: Union[str, Sequence[str], None] = None
 depends_on: Union[str, Sequence[str], None] = None
@@ -41,8 +41,7 @@ def upgrade() -> None:
     mariadb_engine='InnoDB',
     mysql_engine='InnoDB'
     )
-    op.create_index('idx_space_id', 'cms_ad', ['space_id'], unique=False)
-    op.create_index('idx_status', 'cms_ad', ['status'], unique=False)
+    op.create_index(op.f('ix_cms_ad_space_id'), 'cms_ad', ['space_id'], unique=False)
     op.create_table('cms_ad_space',
     sa.Column('id', sa.Integer(), autoincrement=True, nullable=False, comment='ID'),
     sa.Column('name', sa.String(length=255), nullable=False, comment='广告名称'),
@@ -56,8 +55,7 @@ def upgrade() -> None:
     mariadb_engine='InnoDB',
     mysql_engine='InnoDB'
     )
-    op.create_index('idx_name', 'cms_ad_space', ['name'], unique=False)
-    op.create_index('idx_status', 'cms_ad_space', ['status'], unique=False)
+    op.create_index(op.f('ix_cms_ad_space_name'), 'cms_ad_space', ['name'], unique=False)
     op.create_table('cms_city',
     sa.Column('id', sa.Integer(), autoincrement=True, nullable=False, comment='ID'),
     sa.Column('pid', sa.Integer(), server_default='0', nullable=False, comment='上级ID'),
@@ -73,11 +71,9 @@ def upgrade() -> None:
     mariadb_engine='InnoDB',
     mysql_engine='InnoDB'
     )
-    op.create_index('idx_is_hot', 'cms_city', ['is_hot'], unique=False)
-    op.create_index('idx_name', 'cms_city', ['name'], unique=False)
-    op.create_index('idx_pid', 'cms_city', ['pid'], unique=False)
-    op.create_index('idx_pinyin', 'cms_city', ['pinyin'], unique=False)
-    op.create_index('idx_status', 'cms_city', ['status'], unique=False)
+    op.create_index(op.f('ix_cms_city_name'), 'cms_city', ['name'], unique=False)
+    op.create_index(op.f('ix_cms_city_pid'), 'cms_city', ['pid'], unique=False)
+    op.create_index(op.f('ix_cms_city_pinyin'), 'cms_city', ['pinyin'], unique=False)
     op.create_table('cms_media',
     sa.Column('id', sa.Integer(), autoincrement=True, nullable=False, comment='ID'),
     sa.Column('file_name', sa.String(length=255), nullable=True, comment='文件名称'),
@@ -96,9 +92,9 @@ def upgrade() -> None:
     mariadb_engine='InnoDB',
     mysql_engine='InnoDB'
     )
-    op.create_index('idx_file_type', 'cms_media', ['file_type'], unique=False)
-    op.create_index('idx_op_user_id', 'cms_media', ['op_user_id'], unique=False)
-    op.create_index('idx_related', 'cms_media', ['related_type', 'related_id'], unique=False)
+    op.create_index(op.f('ix_cms_media_file_type'), 'cms_media', ['file_type'], unique=False)
+    op.create_index(op.f('ix_cms_media_op_user_id'), 'cms_media', ['op_user_id'], unique=False)
+    op.create_index(op.f('ix_cms_media_related_id'), 'cms_media', ['related_id'], unique=False)
     op.create_table('cms_post',
     sa.Column('id', sa.Integer(), autoincrement=True, nullable=False, comment='ID'),
     sa.Column('pid', sa.Integer(), server_default='0', nullable=True, comment='上级ID'),
@@ -129,6 +125,10 @@ def upgrade() -> None:
     mariadb_engine='InnoDB',
     mysql_engine='InnoDB'
     )
+    op.create_index(op.f('ix_cms_post_category_id'), 'cms_post', ['category_id'], unique=False)
+    op.create_index(op.f('ix_cms_post_pid'), 'cms_post', ['pid'], unique=False)
+    op.create_index(op.f('ix_cms_post_title'), 'cms_post', ['title'], unique=False)
+    op.create_index(op.f('ix_cms_post_user_id'), 'cms_post', ['user_id'], unique=False)
     op.create_table('cms_post_category',
     sa.Column('id', sa.Integer(), autoincrement=True, nullable=False, comment='ID'),
     sa.Column('name', sa.String(length=50), nullable=False, comment='名称'),
@@ -143,8 +143,8 @@ def upgrade() -> None:
     mariadb_engine='InnoDB',
     mysql_engine='InnoDB'
     )
-    op.create_index('idx_alias', 'cms_post_category', ['alias'], unique=True)
-    op.create_index('idx_name', 'cms_post_category', ['name'], unique=False)
+    op.create_index(op.f('ix_cms_post_category_alias'), 'cms_post_category', ['alias'], unique=True)
+    op.create_index(op.f('ix_cms_post_category_name'), 'cms_post_category', ['name'], unique=False)
     op.create_table('payment_channel',
     sa.Column('id', sa.Integer(), autoincrement=True, nullable=False, comment='ID'),
     sa.Column('key', sa.String(length=50), nullable=True, comment='键名'),
@@ -160,8 +160,8 @@ def upgrade() -> None:
     mariadb_engine='InnoDB',
     mysql_engine='InnoDB'
     )
-    op.create_index('idx_key', 'payment_channel', ['key'], unique=True)
-    op.create_index('idx_sort', 'payment_channel', ['asc_sort_order'], unique=False)
+    op.create_index(op.f('ix_payment_channel_asc_sort_order'), 'payment_channel', ['asc_sort_order'], unique=False)
+    op.create_index(op.f('ix_payment_channel_key'), 'payment_channel', ['key'], unique=True)
     op.create_table('payment_config',
     sa.Column('id', sa.Integer(), autoincrement=True, nullable=False, comment='ID'),
     sa.Column('channel_id', sa.Integer(), nullable=False, comment='支付渠道ID'),
@@ -185,7 +185,8 @@ def upgrade() -> None:
     mariadb_engine='InnoDB',
     mysql_engine='InnoDB'
     )
-    op.create_index('idx_sort', 'payment_config', ['asc_sort_order'], unique=False)
+    op.create_index(op.f('ix_payment_config_asc_sort_order'), 'payment_config', ['asc_sort_order'], unique=False)
+    op.create_index(op.f('ix_payment_config_channel_id'), 'payment_config', ['channel_id'], unique=False)
     op.create_table('system_option',
     sa.Column('id', sa.Integer(), autoincrement=True, nullable=False, comment='ID'),
     sa.Column('option_name', sa.String(length=32), nullable=True, comment='选项名称'),
@@ -202,9 +203,9 @@ def upgrade() -> None:
     mariadb_engine='InnoDB',
     mysql_engine='InnoDB'
     )
-    op.create_index('idx_memo', 'system_option', ['memo'], unique=False)
-    op.create_index('idx_option_name', 'system_option', ['option_name'], unique=False)
-    op.create_index('idx_position_autoload', 'system_option', ['position', 'autoload'], unique=False)
+    op.create_index(op.f('ix_system_option_memo'), 'system_option', ['memo'], unique=False)
+    op.create_index(op.f('ix_system_option_option_name'), 'system_option', ['option_name'], unique=False)
+    op.create_index(op.f('ix_system_option_position'), 'system_option', ['position', 'autoload'], unique=False)
     op.create_table('user_account',
     sa.Column('id', sa.Integer(), autoincrement=True, nullable=False, comment='ID'),
     sa.Column('pid', sa.Integer(), server_default='0', nullable=True, comment='所属上级'),
@@ -239,12 +240,13 @@ def upgrade() -> None:
     mariadb_engine='InnoDB',
     mysql_engine='InnoDB'
     )
-    op.create_index('idx_email', 'user_account', ['email'], unique=True)
-    op.create_index('idx_phone', 'user_account', ['phone'], unique=True)
-    op.create_index('idx_pid', 'user_account', ['pid'], unique=False)
-    op.create_index('idx_role', 'user_account', ['role_id'], unique=False)
-    op.create_index('idx_wechat_openid', 'user_account', ['wechat_openid'], unique=False)
-    op.create_index('idx_wechat_unionid', 'user_account', ['wechat_unionid'], unique=False)
+    op.create_index(op.f('ix_user_account_email'), 'user_account', ['email'], unique=True)
+    op.create_index(op.f('ix_user_account_phone'), 'user_account', ['phone'], unique=True)
+    op.create_index(op.f('ix_user_account_phone_code'), 'user_account', ['phone_code'], unique=False)
+    op.create_index(op.f('ix_user_account_pid'), 'user_account', ['pid'], unique=False)
+    op.create_index(op.f('ix_user_account_role_id'), 'user_account', ['role_id'], unique=False)
+    op.create_index(op.f('ix_user_account_wechat_openid'), 'user_account', ['wechat_openid'], unique=False)
+    op.create_index(op.f('ix_user_account_wechat_unionid'), 'user_account', ['wechat_unionid'], unique=False)
     op.create_table('user_balance',
     sa.Column('id', sa.Integer(), autoincrement=True, nullable=False, comment='ID'),
     sa.Column('type', sa.SmallInteger(), nullable=False, comment='动账类型'),
@@ -263,10 +265,9 @@ def upgrade() -> None:
     mariadb_engine='InnoDB',
     mysql_engine='InnoDB'
     )
-    op.create_index('idx_type_related_id', 'user_balance', ['type', 'related_id'], unique=False)
-    op.create_index('idx_user_id_created_at', 'user_balance', ['user_id', 'created_at'], unique=False)
-    op.create_index('idx_user_id_type', 'user_balance', ['user_id', 'type'], unique=False)
-    op.create_table('user_balance_gif',
+    op.create_index(op.f('ix_user_balance_related_id'), 'user_balance', ['related_id'], unique=False)
+    op.create_index(op.f('ix_user_balance_user_id'), 'user_balance', ['user_id', 'created_at'], unique=False)
+    op.create_table('user_balance_gift',
     sa.Column('id', sa.Integer(), autoincrement=True, nullable=False, comment='ID'),
     sa.Column('type', sa.SmallInteger(), nullable=False, comment='动账类型'),
     sa.Column('user_id', sa.Integer(), nullable=False, comment='用户ID'),
@@ -284,9 +285,8 @@ def upgrade() -> None:
     mariadb_engine='InnoDB',
     mysql_engine='InnoDB'
     )
-    op.create_index('idx_type_related_id', 'user_balance_gif', ['type', 'related_id'], unique=False)
-    op.create_index('idx_user_id_created_at', 'user_balance_gif', ['user_id', 'created_at'], unique=False)
-    op.create_index('idx_user_id_type', 'user_balance_gif', ['user_id', 'type'], unique=False)
+    op.create_index(op.f('ix_user_balance_gift_related_id'), 'user_balance_gift', ['related_id'], unique=False)
+    op.create_index(op.f('ix_user_balance_gift_user_id'), 'user_balance_gift', ['user_id', 'type'], unique=False)
     op.create_table('user_balance_recharge',
     sa.Column('id', sa.Integer(), autoincrement=True, nullable=False, comment='ID'),
     sa.Column('user_id', sa.Integer(), nullable=False, comment='用户ID'),
@@ -298,6 +298,7 @@ def upgrade() -> None:
     sa.Column('refund_gift_amount', sa.DECIMAL(precision=10, scale=2), server_default='0', nullable=True, comment='退款赠送数量'),
     sa.Column('payment_status', sa.SmallInteger(), server_default='0', nullable=True, comment='状态'),
     sa.Column('payment_channel', sa.String(length=50), nullable=True, comment='支付渠道'),
+    sa.Column('payment_appid', sa.String(length=50), nullable=True, comment='支付APPID'),
     sa.Column('payment_time', sa.TIMESTAMP(), nullable=True, comment='支付时间'),
     sa.Column('payment_response', sa.Text(), nullable=True, comment='支付结果'),
     sa.Column('refund_response', sa.Text(), nullable=True, comment='退款结果'),
@@ -316,13 +317,12 @@ def upgrade() -> None:
     mariadb_engine='InnoDB',
     mysql_engine='InnoDB'
     )
-    op.create_index('idx_audit_user_id', 'user_balance_recharge', ['audit_user_id'], unique=False)
-    op.create_index('idx_created_at', 'user_balance_recharge', ['created_at'], unique=False)
-    op.create_index('idx_payment_channel', 'user_balance_recharge', ['payment_channel'], unique=False)
-    op.create_index('idx_payment_status', 'user_balance_recharge', ['payment_status'], unique=False)
-    op.create_index('idx_trade_no', 'user_balance_recharge', ['trade_no'], unique=True)
-    op.create_index('idx_user_id', 'user_balance_recharge', ['user_id'], unique=False)
-    op.create_index('idx_user_id_payment_status', 'user_balance_recharge', ['user_id', 'payment_status'], unique=False)
+    op.create_index(op.f('ix_user_balance_recharge_audit_user_id'), 'user_balance_recharge', ['audit_user_id'], unique=False)
+    op.create_index(op.f('ix_user_balance_recharge_created_at'), 'user_balance_recharge', ['created_at'], unique=False)
+    op.create_index(op.f('ix_user_balance_recharge_payment_channel'), 'user_balance_recharge', ['payment_channel'], unique=False)
+    op.create_index(op.f('ix_user_balance_recharge_payment_status'), 'user_balance_recharge', ['payment_status'], unique=False)
+    op.create_index(op.f('ix_user_balance_recharge_trade_no'), 'user_balance_recharge', ['trade_no'], unique=True)
+    op.create_index(op.f('ix_user_balance_recharge_user_id'), 'user_balance_recharge', ['user_id', 'payment_status'], unique=False)
     op.create_table('user_checkin',
     sa.Column('id', sa.Integer(), autoincrement=True, nullable=False, comment='ID'),
     sa.Column('user_id', sa.Integer(), nullable=False, comment='用户ID'),
@@ -340,8 +340,8 @@ def upgrade() -> None:
     mariadb_engine='InnoDB',
     mysql_engine='InnoDB'
     )
-    op.create_index('idx_related', 'user_checkin', ['related_type', 'related_id'], unique=False)
-    op.create_index('idx_user_id_type', 'user_checkin', ['user_id', 'type'], unique=False)
+    op.create_index(op.f('ix_user_checkin_related_type'), 'user_checkin', ['related_type'], unique=False)
+    op.create_index(op.f('ix_user_checkin_user_id'), 'user_checkin', ['user_id', 'type'], unique=False)
     op.create_table('user_loginlog',
     sa.Column('id', sa.Integer(), autoincrement=True, nullable=False, comment='ID'),
     sa.Column('user_id', sa.Integer(), nullable=False, comment='用户ID'),
@@ -354,6 +354,7 @@ def upgrade() -> None:
     mariadb_engine='InnoDB',
     mysql_engine='InnoDB'
     )
+    op.create_index(op.f('ix_user_loginlog_user_id'), 'user_loginlog', ['user_id'], unique=False)
     op.create_table('user_metadata',
     sa.Column('id', sa.Integer(), autoincrement=True, nullable=False, comment='ID'),
     sa.Column('user_id', sa.Integer(), nullable=False, comment='用户ID'),
@@ -366,11 +367,11 @@ def upgrade() -> None:
     mariadb_engine='InnoDB',
     mysql_engine='InnoDB'
     )
-    op.create_index('idx_search', 'user_metadata', ['user_id', 'meta_key'], unique=False)
+    op.create_index(op.f('ix_user_metadata_user_id'), 'user_metadata', ['user_id', 'meta_key'], unique=False)
     op.create_table('user_payment_account',
     sa.Column('id', sa.Integer(), autoincrement=True, nullable=False, comment='ID'),
     sa.Column('user_id', sa.Integer(), nullable=False, comment='用户ID'),
-    sa.Column('type', sa.SmallInteger(), server_default='1', nullable=True, comment='类型'),
+    sa.Column('type', sa.String(length=50), server_default='alipay', nullable=True, comment='类型'),
     sa.Column('account', sa.String(length=255), nullable=False, comment='账号'),
     sa.Column('bank_name', sa.String(length=255), nullable=True, comment='银行名称'),
     sa.Column('bank_outlets', sa.String(length=255), nullable=True, comment='开户行'),
@@ -387,8 +388,8 @@ def upgrade() -> None:
     mariadb_engine='InnoDB',
     mysql_engine='InnoDB'
     )
-    op.create_index('idx_type_account', 'user_payment_account', ['type', 'account'], unique=False)
-    op.create_index('idx_user_id_type_status', 'user_payment_account', ['user_id', 'type', 'status'], unique=False)
+    op.create_index(op.f('ix_user_payment_account_account'), 'user_payment_account', ['account'], unique=False)
+    op.create_index(op.f('ix_user_payment_account_user_id'), 'user_payment_account', ['user_id', 'type', 'status'], unique=False)
     op.create_table('user_permission',
     sa.Column('id', sa.Integer(), autoincrement=True, nullable=False, comment='ID'),
     sa.Column('pid', sa.Integer(), server_default='0', nullable=True, comment='上级ID'),
@@ -403,6 +404,7 @@ def upgrade() -> None:
     mariadb_engine='InnoDB',
     mysql_engine='InnoDB'
     )
+    op.create_index(op.f('ix_user_permission_pid'), 'user_permission', ['pid'], unique=False)
     op.create_table('user_point',
     sa.Column('id', sa.Integer(), autoincrement=True, nullable=False, comment='ID'),
     sa.Column('type', sa.SmallInteger(), nullable=False, comment='动账类型'),
@@ -421,9 +423,8 @@ def upgrade() -> None:
     mariadb_engine='InnoDB',
     mysql_engine='InnoDB'
     )
-    op.create_index('idx_type_related_id', 'user_point', ['type', 'related_id'], unique=False)
-    op.create_index('idx_user_id_created_at', 'user_point', ['user_id', 'created_at'], unique=False)
-    op.create_index('idx_user_id_type', 'user_point', ['user_id', 'type'], unique=False)
+    op.create_index(op.f('ix_user_point_related_id'), 'user_point', ['related_id'], unique=False)
+    op.create_index(op.f('ix_user_point_user_id'), 'user_point', ['user_id', 'created_at'], unique=False)
     op.create_table('user_point_recharge',
     sa.Column('id', sa.Integer(), autoincrement=True, nullable=False, comment='ID'),
     sa.Column('user_id', sa.Integer(), nullable=False, comment='用户ID'),
@@ -436,6 +437,7 @@ def upgrade() -> None:
     sa.Column('refund_gift_points', sa.Integer(), server_default='0', nullable=True, comment='退款赠送数量'),
     sa.Column('payment_status', sa.SmallInteger(), server_default='0', nullable=True, comment='状态'),
     sa.Column('payment_channel', sa.String(length=50), nullable=True, comment='支付渠道'),
+    sa.Column('payment_appid', sa.String(length=50), nullable=True, comment='支付APPID'),
     sa.Column('payment_time', sa.TIMESTAMP(), nullable=True, comment='支付时间'),
     sa.Column('payment_response', sa.Text(), nullable=True, comment='支付结果'),
     sa.Column('refund_response', sa.Text(), nullable=True, comment='退款结果'),
@@ -454,13 +456,12 @@ def upgrade() -> None:
     mariadb_engine='InnoDB',
     mysql_engine='InnoDB'
     )
-    op.create_index('idx_audit_user_id', 'user_point_recharge', ['audit_user_id'], unique=False)
-    op.create_index('idx_created_at', 'user_point_recharge', ['created_at'], unique=False)
-    op.create_index('idx_payment_channel', 'user_point_recharge', ['payment_channel'], unique=False)
-    op.create_index('idx_payment_status', 'user_point_recharge', ['payment_status'], unique=False)
-    op.create_index('idx_trade_no', 'user_point_recharge', ['trade_no'], unique=True)
-    op.create_index('idx_user_id', 'user_point_recharge', ['user_id'], unique=False)
-    op.create_index('idx_user_id_payment_status', 'user_point_recharge', ['user_id', 'payment_status'], unique=False)
+    op.create_index(op.f('ix_user_point_recharge_audit_user_id'), 'user_point_recharge', ['audit_user_id'], unique=False)
+    op.create_index(op.f('ix_user_point_recharge_created_at'), 'user_point_recharge', ['created_at'], unique=False)
+    op.create_index(op.f('ix_user_point_recharge_payment_channel'), 'user_point_recharge', ['payment_channel'], unique=False)
+    op.create_index(op.f('ix_user_point_recharge_payment_status'), 'user_point_recharge', ['payment_status'], unique=False)
+    op.create_index(op.f('ix_user_point_recharge_trade_no'), 'user_point_recharge', ['trade_no'], unique=True)
+    op.create_index(op.f('ix_user_point_recharge_user_id'), 'user_point_recharge', ['user_id', 'payment_status'], unique=False)
     op.create_table('user_role',
     sa.Column('id', sa.Integer(), autoincrement=True, nullable=False, comment='ID'),
     sa.Column('name', sa.String(length=50), nullable=False, comment='角色名称'),
@@ -472,7 +473,7 @@ def upgrade() -> None:
     mariadb_engine='InnoDB',
     mysql_engine='InnoDB'
     )
-    op.create_index('idx_name', 'user_role', ['name'], unique=True)
+    op.create_index(op.f('ix_user_role_name'), 'user_role', ['name'], unique=True)
     op.create_table('user_withdraw',
     sa.Column('id', sa.Integer(), autoincrement=True, nullable=False, comment='ID'),
     sa.Column('user_id', sa.Integer(), nullable=False, comment='用户ID'),
@@ -484,6 +485,7 @@ def upgrade() -> None:
     sa.Column('balance', sa.DECIMAL(precision=10, scale=2), nullable=False, comment='申请时余额'),
     sa.Column('payment_status', sa.SmallInteger(), server_default='0', nullable=True, comment='状态'),
     sa.Column('payment_channel', sa.String(length=50), nullable=True, comment='支付渠道'),
+    sa.Column('payment_appid', sa.String(length=50), nullable=True, comment='支付APPID'),
     sa.Column('payment_time', sa.TIMESTAMP(), nullable=True, comment='支付时间'),
     sa.Column('payment_response', sa.Text(), nullable=True, comment='支付结果'),
     sa.Column('audit_status', sa.SmallInteger(), server_default='0', nullable=True, comment='审核状态'),
@@ -502,96 +504,95 @@ def upgrade() -> None:
     mariadb_engine='InnoDB',
     mysql_engine='InnoDB'
     )
-    op.create_index('idx_account_id', 'user_withdraw', ['account_id'], unique=False)
-    op.create_index('idx_audit_status', 'user_withdraw', ['audit_status'], unique=False)
-    op.create_index('idx_audit_user_id', 'user_withdraw', ['audit_user_id'], unique=False)
-    op.create_index('idx_created_at', 'user_withdraw', ['created_at'], unique=False)
-    op.create_index('idx_user_id_payment_status', 'user_withdraw', ['user_id', 'payment_status'], unique=False)
+    op.create_index(op.f('ix_user_withdraw_account_id'), 'user_withdraw', ['account_id'], unique=False)
+    op.create_index(op.f('ix_user_withdraw_audit_status'), 'user_withdraw', ['audit_status'], unique=False)
+    op.create_index(op.f('ix_user_withdraw_audit_user_id'), 'user_withdraw', ['audit_user_id'], unique=False)
+    op.create_index(op.f('ix_user_withdraw_created_at'), 'user_withdraw', ['created_at'], unique=False)
+    op.create_index(op.f('ix_user_withdraw_user_id'), 'user_withdraw', ['user_id', 'payment_status'], unique=False)
     # ### end Alembic commands ###
 
 
 def downgrade() -> None:
     # ### commands auto generated by Alembic - please adjust! ###
-    op.drop_index('idx_user_id_payment_status', table_name='user_withdraw')
-    op.drop_index('idx_created_at', table_name='user_withdraw')
-    op.drop_index('idx_audit_user_id', table_name='user_withdraw')
-    op.drop_index('idx_audit_status', table_name='user_withdraw')
-    op.drop_index('idx_account_id', table_name='user_withdraw')
+    op.drop_index(op.f('ix_user_withdraw_user_id'), table_name='user_withdraw')
+    op.drop_index(op.f('ix_user_withdraw_created_at'), table_name='user_withdraw')
+    op.drop_index(op.f('ix_user_withdraw_audit_user_id'), table_name='user_withdraw')
+    op.drop_index(op.f('ix_user_withdraw_audit_status'), table_name='user_withdraw')
+    op.drop_index(op.f('ix_user_withdraw_account_id'), table_name='user_withdraw')
     op.drop_table('user_withdraw')
-    op.drop_index('idx_name', table_name='user_role')
+    op.drop_index(op.f('ix_user_role_name'), table_name='user_role')
     op.drop_table('user_role')
-    op.drop_index('idx_user_id_payment_status', table_name='user_point_recharge')
-    op.drop_index('idx_user_id', table_name='user_point_recharge')
-    op.drop_index('idx_trade_no', table_name='user_point_recharge')
-    op.drop_index('idx_payment_status', table_name='user_point_recharge')
-    op.drop_index('idx_payment_channel', table_name='user_point_recharge')
-    op.drop_index('idx_created_at', table_name='user_point_recharge')
-    op.drop_index('idx_audit_user_id', table_name='user_point_recharge')
+    op.drop_index(op.f('ix_user_point_recharge_user_id'), table_name='user_point_recharge')
+    op.drop_index(op.f('ix_user_point_recharge_trade_no'), table_name='user_point_recharge')
+    op.drop_index(op.f('ix_user_point_recharge_payment_status'), table_name='user_point_recharge')
+    op.drop_index(op.f('ix_user_point_recharge_payment_channel'), table_name='user_point_recharge')
+    op.drop_index(op.f('ix_user_point_recharge_created_at'), table_name='user_point_recharge')
+    op.drop_index(op.f('ix_user_point_recharge_audit_user_id'), table_name='user_point_recharge')
     op.drop_table('user_point_recharge')
-    op.drop_index('idx_user_id_type', table_name='user_point')
-    op.drop_index('idx_user_id_created_at', table_name='user_point')
-    op.drop_index('idx_type_related_id', table_name='user_point')
+    op.drop_index(op.f('ix_user_point_user_id'), table_name='user_point')
+    op.drop_index(op.f('ix_user_point_related_id'), table_name='user_point')
     op.drop_table('user_point')
+    op.drop_index(op.f('ix_user_permission_pid'), table_name='user_permission')
     op.drop_table('user_permission')
-    op.drop_index('idx_user_id_type_status', table_name='user_payment_account')
-    op.drop_index('idx_type_account', table_name='user_payment_account')
+    op.drop_index(op.f('ix_user_payment_account_user_id'), table_name='user_payment_account')
+    op.drop_index(op.f('ix_user_payment_account_account'), table_name='user_payment_account')
     op.drop_table('user_payment_account')
-    op.drop_index('idx_search', table_name='user_metadata')
+    op.drop_index(op.f('ix_user_metadata_user_id'), table_name='user_metadata')
     op.drop_table('user_metadata')
+    op.drop_index(op.f('ix_user_loginlog_user_id'), table_name='user_loginlog')
     op.drop_table('user_loginlog')
-    op.drop_index('idx_user_id_type', table_name='user_checkin')
-    op.drop_index('idx_related', table_name='user_checkin')
+    op.drop_index(op.f('ix_user_checkin_user_id'), table_name='user_checkin')
+    op.drop_index(op.f('ix_user_checkin_related_type'), table_name='user_checkin')
     op.drop_table('user_checkin')
-    op.drop_index('idx_user_id_payment_status', table_name='user_balance_recharge')
-    op.drop_index('idx_user_id', table_name='user_balance_recharge')
-    op.drop_index('idx_trade_no', table_name='user_balance_recharge')
-    op.drop_index('idx_payment_status', table_name='user_balance_recharge')
-    op.drop_index('idx_payment_channel', table_name='user_balance_recharge')
-    op.drop_index('idx_created_at', table_name='user_balance_recharge')
-    op.drop_index('idx_audit_user_id', table_name='user_balance_recharge')
+    op.drop_index(op.f('ix_user_balance_recharge_user_id'), table_name='user_balance_recharge')
+    op.drop_index(op.f('ix_user_balance_recharge_trade_no'), table_name='user_balance_recharge')
+    op.drop_index(op.f('ix_user_balance_recharge_payment_status'), table_name='user_balance_recharge')
+    op.drop_index(op.f('ix_user_balance_recharge_payment_channel'), table_name='user_balance_recharge')
+    op.drop_index(op.f('ix_user_balance_recharge_created_at'), table_name='user_balance_recharge')
+    op.drop_index(op.f('ix_user_balance_recharge_audit_user_id'), table_name='user_balance_recharge')
     op.drop_table('user_balance_recharge')
-    op.drop_index('idx_user_id_type', table_name='user_balance_gif')
-    op.drop_index('idx_user_id_created_at', table_name='user_balance_gif')
-    op.drop_index('idx_type_related_id', table_name='user_balance_gif')
-    op.drop_table('user_balance_gif')
-    op.drop_index('idx_user_id_type', table_name='user_balance')
-    op.drop_index('idx_user_id_created_at', table_name='user_balance')
-    op.drop_index('idx_type_related_id', table_name='user_balance')
+    op.drop_index(op.f('ix_user_balance_gift_user_id'), table_name='user_balance_gift')
+    op.drop_index(op.f('ix_user_balance_gift_related_id'), table_name='user_balance_gift')
+    op.drop_table('user_balance_gift')
+    op.drop_index(op.f('ix_user_balance_user_id'), table_name='user_balance')
+    op.drop_index(op.f('ix_user_balance_related_id'), table_name='user_balance')
     op.drop_table('user_balance')
-    op.drop_index('idx_wechat_unionid', table_name='user_account')
-    op.drop_index('idx_wechat_openid', table_name='user_account')
-    op.drop_index('idx_role', table_name='user_account')
-    op.drop_index('idx_pid', table_name='user_account')
-    op.drop_index('idx_phone', table_name='user_account')
-    op.drop_index('idx_email', table_name='user_account')
+    op.drop_index(op.f('ix_user_account_wechat_unionid'), table_name='user_account')
+    op.drop_index(op.f('ix_user_account_wechat_openid'), table_name='user_account')
+    op.drop_index(op.f('ix_user_account_role_id'), table_name='user_account')
+    op.drop_index(op.f('ix_user_account_pid'), table_name='user_account')
+    op.drop_index(op.f('ix_user_account_phone_code'), table_name='user_account')
+    op.drop_index(op.f('ix_user_account_phone'), table_name='user_account')
+    op.drop_index(op.f('ix_user_account_email'), table_name='user_account')
     op.drop_table('user_account')
-    op.drop_index('idx_position_autoload', table_name='system_option')
-    op.drop_index('idx_option_name', table_name='system_option')
-    op.drop_index('idx_memo', table_name='system_option')
+    op.drop_index(op.f('ix_system_option_position'), table_name='system_option')
+    op.drop_index(op.f('ix_system_option_option_name'), table_name='system_option')
+    op.drop_index(op.f('ix_system_option_memo'), table_name='system_option')
     op.drop_table('system_option')
-    op.drop_index('idx_sort', table_name='payment_config')
+    op.drop_index(op.f('ix_payment_config_channel_id'), table_name='payment_config')
+    op.drop_index(op.f('ix_payment_config_asc_sort_order'), table_name='payment_config')
     op.drop_table('payment_config')
-    op.drop_index('idx_sort', table_name='payment_channel')
-    op.drop_index('idx_key', table_name='payment_channel')
+    op.drop_index(op.f('ix_payment_channel_key'), table_name='payment_channel')
+    op.drop_index(op.f('ix_payment_channel_asc_sort_order'), table_name='payment_channel')
     op.drop_table('payment_channel')
-    op.drop_index('idx_name', table_name='cms_post_category')
-    op.drop_index('idx_alias', table_name='cms_post_category')
+    op.drop_index(op.f('ix_cms_post_category_name'), table_name='cms_post_category')
+    op.drop_index(op.f('ix_cms_post_category_alias'), table_name='cms_post_category')
     op.drop_table('cms_post_category')
+    op.drop_index(op.f('ix_cms_post_user_id'), table_name='cms_post')
+    op.drop_index(op.f('ix_cms_post_title'), table_name='cms_post')
+    op.drop_index(op.f('ix_cms_post_pid'), table_name='cms_post')
+    op.drop_index(op.f('ix_cms_post_category_id'), table_name='cms_post')
     op.drop_table('cms_post')
-    op.drop_index('idx_related', table_name='cms_media')
-    op.drop_index('idx_op_user_id', table_name='cms_media')
-    op.drop_index('idx_file_type', table_name='cms_media')
+    op.drop_index(op.f('ix_cms_media_related_id'), table_name='cms_media')
+    op.drop_index(op.f('ix_cms_media_op_user_id'), table_name='cms_media')
+    op.drop_index(op.f('ix_cms_media_file_type'), table_name='cms_media')
     op.drop_table('cms_media')
-    op.drop_index('idx_status', table_name='cms_city')
-    op.drop_index('idx_pinyin', table_name='cms_city')
-    op.drop_index('idx_pid', table_name='cms_city')
-    op.drop_index('idx_name', table_name='cms_city')
-    op.drop_index('idx_is_hot', table_name='cms_city')
+    op.drop_index(op.f('ix_cms_city_pinyin'), table_name='cms_city')
+    op.drop_index(op.f('ix_cms_city_pid'), table_name='cms_city')
+    op.drop_index(op.f('ix_cms_city_name'), table_name='cms_city')
     op.drop_table('cms_city')
-    op.drop_index('idx_status', table_name='cms_ad_space')
-    op.drop_index('idx_name', table_name='cms_ad_space')
+    op.drop_index(op.f('ix_cms_ad_space_name'), table_name='cms_ad_space')
     op.drop_table('cms_ad_space')
-    op.drop_index('idx_status', table_name='cms_ad')
-    op.drop_index('idx_space_id', table_name='cms_ad')
+    op.drop_index(op.f('ix_cms_ad_space_id'), table_name='cms_ad')
     op.drop_table('cms_ad')
     # ### end Alembic commands ###

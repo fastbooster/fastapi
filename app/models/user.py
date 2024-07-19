@@ -18,15 +18,13 @@ class RoleModel(Base):
     mysql_collate = 'utf8mb4_unicode_ci'
 
     id = Column(Integer, primary_key=True, autoincrement=True, comment='ID')
-    name = Column(String(50), nullable=False, comment='角色名称')
+    name = Column(String(50), nullable=False,
+                  comment='角色名称', index=True, unique=True)
     permissions = Column(Text, comment='权限列表')  # json格式
     created_at = Column(TIMESTAMP, server_default=text(
         'CURRENT_TIMESTAMP'), comment='创建时间')
     updated_at = Column(TIMESTAMP, server_default=text(
         'CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'), comment='更新时间')
-    
-    idx_name = Index('idx_name', name, unique=True)
-
 
     def __repr__(self):
         return f"<RoleModel(id={self.id}, name='{self.name}')>"
@@ -41,7 +39,7 @@ class PermissionModel(Base):
     mysql_collate = 'utf8mb4_unicode_ci'
 
     id = Column(Integer, primary_key=True, autoincrement=True, comment='ID')
-    pid = Column(Integer, server_default='0', comment='上级ID')
+    pid = Column(Integer, server_default='0', comment='上级ID', index=True)
     name = Column(String(50), nullable=False, comment='名称')
     icon = Column(String(50), comment='图标')
     component_name = Column(String(50), comment='路由组件名称')
@@ -50,7 +48,7 @@ class PermissionModel(Base):
         'CURRENT_TIMESTAMP'), comment='创建时间')
     updated_at = Column(TIMESTAMP, server_default=text(
         'CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'), comment='更新时间')
-    
+
     def __repr__(self):
         return f"<PermissionModel(id={self.id}, name='{self.name}')>"
 
@@ -64,12 +62,13 @@ class UserModel(Base):
     mysql_collate = 'utf8mb4_unicode_ci'
 
     id = Column(Integer, primary_key=True, autoincrement=True, comment='ID')
-    pid = Column(Integer, server_default='0', comment='所属上级')
+    pid = Column(Integer, server_default='0', comment='所属上级', index=True)
     agent_id = Column(Integer, server_default='0', comment='所属代理')
 
-    phone_code = Column(String(10), server_default='86', comment='手机代码')
-    phone = Column(String(50), comment='手机')
-    email = Column(String(50), comment='邮箱')
+    phone_code = Column(String(10), server_default='86',
+                        comment='手机代码', index=True)
+    phone = Column(String(50), comment='手机', index=True, unique=True)
+    email = Column(String(50), comment='邮箱', index=True, unique=True)
 
     nickname = Column(String(50), comment='昵称')
     gender = Column(String(50), comment='性别')
@@ -79,7 +78,7 @@ class UserModel(Base):
     password_salt = Column(String(255), comment='密码盐')
     password_hash = Column(String(255), comment='密码哈希')
 
-    role_id = Column(Integer, server_default='0', comment='角色ID')
+    role_id = Column(Integer, server_default='0', comment='角色ID', index=True)
     is_admin = Column(SmallInteger, server_default='0', comment='是否管理员')
     is_robot = Column(SmallInteger, server_default='0', comment='是否机器人')
     status = Column(SmallInteger, server_default='1', comment='状态')
@@ -87,8 +86,8 @@ class UserModel(Base):
     auto_memo = Column(String(255), comment='自动备注')
     back_memo = Column(String(255), comment='后台备注')
 
-    wechat_openid = Column(String(50), comment='OpenID')
-    wechat_unionid = Column(String(50), comment='UnionID')
+    wechat_openid = Column(String(50), comment='OpenID', index=True)
+    wechat_unionid = Column(String(50), comment='UnionID', index=True)
     wechat_refresh_token = Column(String(255), comment='微信RefreshToken')
     wechat_access_token = Column(String(255), comment='微信AccessToken')
     wechat_access_token_expired_at = Column(
@@ -102,13 +101,6 @@ class UserModel(Base):
         'CURRENT_TIMESTAMP'), comment='创建时间')
     updated_at = Column(TIMESTAMP, server_default=text(
         'CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'), comment='更新时间')
-
-    idx_pid = Index('idx_pid', pid)
-    idx_phone = Index('idx_phone', phone, unique=True)
-    idx_email = Index('idx_email', email, unique=True)
-    idx_role = Index('idx_role', role_id)
-    idx_wechat_openid = Index('idx_wechat_openid', wechat_openid)
-    idx_wechat_unionid = Index('idx_wechat_unionid', wechat_unionid)
 
     def __repr__(self):
         return f"<UserModel(id={self.id}, nickname='{self.nickname}')>"
@@ -131,7 +123,7 @@ class UsermetaModel(Base):
     updated_at = Column(TIMESTAMP, server_default=text(
         'CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'), comment='更新时间')
 
-    idx_search = Index('idx_search', user_id, meta_key)
+    idx_search = Index(None, user_id, meta_key)
 
     def __repr__(self):
         return f"<UsermetaModel(id={self.id}, user_id='{self.user_id}', meta_key='{self.meta_key}')>"
@@ -146,7 +138,7 @@ class LoginlogModel(Base):
     mysql_collate = 'utf8mb4_unicode_ci'
 
     id = Column(Integer, primary_key=True, autoincrement=True, comment='ID')
-    user_id = Column(Integer, nullable=False, comment='用户ID')
+    user_id = Column(Integer, nullable=False, comment='用户ID', index=True)
     nickname = Column(String(50), comment='昵称')
     ip = Column(String(50), comment='IP地址')
     user_agent = Column(String(500), comment='浏览器信息')
