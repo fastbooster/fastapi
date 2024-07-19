@@ -158,6 +158,7 @@ def pay(params: PayForm, user_data: dict) -> dict:
 
 
 def notify(payment_channel: str, params: dict, content: str = None) -> bool:
+    '''TODO: 1. 赠送余额入账'''
     logger.info(f'收到异步通知: {payment_channel}', extra=params)
     if payment_channel == PaymentChannelType.ALIPAY.value:
         signature = params.pop('sign')
@@ -231,7 +232,7 @@ def notify(payment_channel: str, params: dict, content: str = None) -> bool:
                     'back_memo': None,
                     'ip': order_model.user_ip,
                 }
-                task_gift_result = handle_balance.delay(task_gift_data)
+                task_gift_result = handle_balance_gift.delay(task_gift_data)
                 logger.info(
                     f'发送余额动账任务: {task_gift_result.id}', extra=task_gift_data)
 
@@ -243,6 +244,12 @@ def notify(payment_channel: str, params: dict, content: str = None) -> bool:
 
 
 def refund(trade_no: str) -> None:
+    '''
+    #### 注意：
+    1. 只支持全额退款
+    2. 余额和赠送余额同时全额退款，有任何一个余额不足都不能退款
+    3. TODO: 定义更多入参，memo, ip 等
+    '''
     with get_session() as db:
         order = db.query(BalanceRechargeModel).filter_by(
             trade_no=trade_no).first()
@@ -257,7 +264,54 @@ def refund(trade_no: str) -> None:
         if balance < order.amount:
             raise ValueError('余额不足')
 
-        # TODO:
-        # 1. 根据 payment_channel + payment_appid 获取对应的支付实例, 发起全额退款
-        # 2. 调整余额
-        #
+        balance = db.query(BalanceGiftModel).filter_by(
+            user_id=order.user_id).order_by(desc('id')).value('balance')
+        if balance < order.gift_amount:
+            raise ValueError('赠送余额不足')
+
+        refund_status = False
+        if order.payment_channel == PaymentChannelType.ALIPAY.value:
+            alipay = payment_manager.get_instance(
+                'alipay', appid=order.payment_appid)
+            result = alipay.api_alipay_trade_refund(
+                out_trade_no=order.trade_no, refund_amount=order.price)
+            if result['code'] == '10000':
+                refund_status = True
+        else:
+            raise ValueError(f'当前支付渠道 {order.payment_channel} 暂不支持自助退款')
+
+        order.refund_response = json.dumps(result)
+        if refund_status:
+            order.payment_status = PaymentStatuType.REFUND_SUCCESS.value
+        db.commit()
+
+        if refund_status == False:
+            return
+
+        task_data = {
+            'type': BalanceType.REFUND.value,
+            'user_id': order.user_id,
+            'related_id': order.id,
+            'amount': -1 * abs(order.amount),
+            'balance': 0,
+            'auto_memo': None,
+            'back_memo': None,
+            'ip': None
+        }
+        task_result = handle_balance.delay(task_data)
+        logger.info(f'发送余额动账任务: {task_result.id}', extra=task_data)
+
+        if order.gift_amount > 0:
+            task_gift_data = {
+                'type': BalanceType.REFUND.value,
+                'user_id': order.user_id,
+                'related_id': order.id,
+                'amount': -1 * abs(order.gift_amount),
+                'balance': 0,
+                'auto_memo': None,
+                'back_memo': None,
+                'ip': None,
+            }
+            task_gift_result = handle_balance_gift.delay(task_gift_data)
+            logger.info(
+                f'发送赠送余额动账任务: {task_gift_result.id}', extra=task_gift_data)
