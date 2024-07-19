@@ -5,6 +5,9 @@
 # Email: easelify@gmail.com
 # Time: 2024/07/19 00:58
 
+
+import traceback
+
 from fastapi import APIRouter, HTTPException, Depends
 
 from app.core.log import logger
@@ -35,9 +38,12 @@ def detail(trade_no: str):
 def refund(trade_no: str):
     try:
         BalanceRechargeService.refund(trade_no)
+        return ResponseSuccess()
     except ValueError as e:
+        logger.error(f'退款失败：{e}')
+        logger.info(f'调用堆栈：{traceback.format_exc()}')
         raise HTTPException(status_code=400, detail=f'{e}')
     except Exception as e:
         logger.error(f'退款失败：{e}')
+        logger.info(f'调用堆栈：{traceback.format_exc()}')
         raise HTTPException(status_code=500, detail='退款失败')
-    return ResponseSuccess

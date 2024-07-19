@@ -10,7 +10,7 @@ import json
 import time
 from datetime import datetime, timedelta
 
-from sqlalchemy.sql.expression import desc
+from sqlalchemy.sql.expression import desc, text
 from typing import List, Optional
 from urllib.parse import urlencode
 
@@ -260,21 +260,26 @@ def refund(trade_no: str) -> None:
             raise ValueError('当前订单状态不允许退款')
 
         balance = db.query(BalanceModel).filter_by(
-            user_id=order.user_id).order_by(desc('id')).value('balance')
-        if balance < order.amount:
+            user_id=order.user_id).order_by(desc('id')).value(text('balance'))
+        if balance is None or balance < order.amount:
             raise ValueError('余额不足')
 
         balance = db.query(BalanceGiftModel).filter_by(
-            user_id=order.user_id).order_by(desc('id')).value('balance')
-        if balance < order.gift_amount:
+            user_id=order.user_id).order_by(desc('id')).value(text('balance'))
+        if balance is not None and balance < order.gift_amount:
             raise ValueError('赠送余额不足')
 
         refund_status = False
         if order.payment_channel == PaymentChannelType.ALIPAY.value:
             alipay = payment_manager.get_instance(
                 'alipay', appid=order.payment_appid)
-            result = alipay.api_alipay_trade_refund(
-                out_trade_no=order.trade_no, refund_amount=order.price)
+            result = alipay.server_api(
+                "alipay.trade.refund",
+                biz_content={
+                    'out_trade_no': order.trade_no,
+                    'refund_amount': str(order.price)
+                }
+            )
             if result['code'] == '10000':
                 refund_status = True
         else:
