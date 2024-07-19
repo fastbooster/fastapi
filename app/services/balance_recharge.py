@@ -82,7 +82,7 @@ def pay(params: PayForm, user_data: dict) -> dict:
     with get_session() as db:
         order_model = db.query(BalanceRechargeModel).filter_by(
             trade_no=params.trade_no).first()
-        if order_model is None or order_model.user_id != user_data['id'] or order_model.payment_status != PaymentStatuType.PAYMENT_STATUS_CREATED.value:
+        if order_model is None or order_model.user_id != user_data['id'] or order_model.payment_status != PaymentStatuType.CREATED.value:
             raise ValueError('订单已失效, 请重新下单')
 
         price = order_model.price
@@ -194,13 +194,13 @@ def notify(payment_channel: str, params: dict, content: str = None) -> bool:
             logger.info('订单不存在', extra=params)
             return False
         if order_model.payment_status not in (
-                PaymentStatuType.PAYMENT_STATUS_CREATED.value, PaymentStatuType.PAYMENT_STATUS_CLOSE.value):
+                PaymentStatuType.CREATED.value, PaymentStatuType.CLOSE.value):
             logger.info(f'订单状态异常: payment_status={
                         order_model.payment_status}, 不接受异步通知', extra=params)
             return True
 
         order_model.payment_appid = appid
-        order_model.payment_status = PaymentStatuType.PAYMENT_STATUS_SUCCESS.value if is_ok else PaymentStatuType.PAYMENT_STATUS_FAIL.value
+        order_model.payment_status = PaymentStatuType.SUCCESS.value if is_ok else PaymentStatuType.FAIL.value
         order_model.payment_channel = payment_channel
         order_model.payment_time = datetime.now()
         order_model.payment_response = json.dumps(params)
@@ -208,7 +208,7 @@ def notify(payment_channel: str, params: dict, content: str = None) -> bool:
         # 余额变动
         if is_ok:
             task_data = {
-                'type': BalanceType.TYPE_RECHARGE.value,
+                'type': BalanceType.RECHARGE.value,
                 'user_id': order_model.user_id,
                 'related_id': order_model.id,
                 'amount': order_model.amount,
@@ -222,7 +222,7 @@ def notify(payment_channel: str, params: dict, content: str = None) -> bool:
 
             if order_model.gift_amount > 0:
                 task_gift_data = {
-                    'type': BalanceType.TYPE_RECHARGE_GIFT.value,
+                    'type': BalanceType.GIFT.value,
                     'user_id': order_model.user_id,
                     'related_id': order_model.id,
                     'amount': order_model.gift_amount,
@@ -249,7 +249,7 @@ def refund(trade_no: str) -> None:
         if order is None:
             raise ValueError('订单不存在')
 
-        if order.payment_status != PaymentStatuType.PAYMENT_STATUS_SUCCESS.value:
+        if order.payment_status != PaymentStatuType.SUCCESS.value:
             raise ValueError('当前订单状态不允许退款')
 
         balance = db.query(BalanceModel).filter_by(

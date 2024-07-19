@@ -18,7 +18,7 @@ def handle_balance(data: dict):
     task_id = handle_balance.request.id
     try:
         with get_session() as db:
-            if data['type'] == BalanceType.TYPE_RECHARGE.value:
+            if data['type'] == BalanceType.RECHARGE.value:
                 result = db.query(BalanceModel).filter(BalanceModel.user_id == data['user_id'],
                                                        BalanceModel.related_id == data['related_id']).first()
                 if result:
@@ -48,7 +48,7 @@ def handle_balance_gift(data: dict):
     task_id = handle_balance.request.id
     try:
         with get_session() as db:
-            if data['type'] == BalanceType.TYPE_RECHARGE_GIFT.value:
+            if data['type'] == BalanceType.GIFT.value:
                 result = db.query(BalanceGiftModel).filter(BalanceGiftModel.user_id == data['user_id'],
                                                            BalanceGiftModel.related_id == data['related_id']).first()
                 if result:
@@ -78,7 +78,7 @@ def handle_point(data: dict):
     task_id = handle_point.request.id
     try:
         with get_session() as db:
-            if data['type'] == PointType.TYPE_RECHARGE.value:
+            if data['type'] == PointType.RECHARGE.value:
                 result = db.query(PointModel).filter(PointModel.user_id == data['user_id'],
                                                      PointModel.related_id == data['related_id']).first()
                 if result:

@@ -115,7 +115,7 @@ class PaymentAccountModel(Base):
 
     id = Column(Integer, primary_key=True, autoincrement=True, comment='ID')
     user_id = Column(Integer, nullable=False, comment='用户ID')
-    type = Column(SmallInteger, server_default='1', comment='类型')  # 类型 1:支付宝, 2:微信, 3:银行卡
+    type = Column(String(50), server_default='alipay', comment='类型')
     account = Column(String(255), nullable=False, comment='账号')
     bank_name = Column(String(255), comment='银行名称')
     bank_outlets = Column(String(255), comment='开户行')

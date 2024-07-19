@@ -166,14 +166,14 @@ def checkin(user_id: int, ip: str, user_agent: str) -> bool:
         with get_redis() as redis:
             points = redis.hget(REDIS_SYSTEM_OPTIONS_AUTOLOAD, 'checkin_point')
         points = int(points) if points else 1
-        checkin = ChenckinModel(user_id=user_id, type=CheckinType.TYPE_CHECKIN.value, total_days=total_days,
+        checkin = ChenckinModel(user_id=user_id, type=CheckinType.CHECKIN.value, total_days=total_days,
                                 keep_days=keep_days, points=points, ip=ip, user_agent=user_agent)
         db.add(checkin)
         db.commit()
 
         # 新增积分
         data = {
-            'type': PointType.TYPE_CHECKIN.value,
+            'type': PointType.CHECKIN.value,
             'user_id': user_id,
             'related_id': checkin.id,
             'amount': points,
@@ -463,7 +463,7 @@ def point_check(trade_no: str, user_id: int) -> dict:
 
     return {
         # 是否继续发起检测
-        'continue': 1 if order_model.payment_status == PaymentStatuType.PAYMENT_STATUS_CREATED.value else 0,
+        'continue': 1 if order_model.payment_status == PaymentStatuType.CREATED.value else 0,
         # 订单状态, 前端据此处理显示, 跳转等操作
         'status': order_model.payment_status,
     }
@@ -477,7 +477,7 @@ def balance_check(trade_no: str, user_id: int) -> dict:
 
     return {
         # 是否继续发起检测
-        'continue': 1 if order_model.payment_status == PaymentStatuType.PAYMENT_STATUS_CREATED.value else 0,
+        'continue': 1 if order_model.payment_status == PaymentStatuType.CREATED.value else 0,
         # 订单状态, 前端据此处理显示, 跳转等操作
         'status': order_model.payment_status,
     }
@@ -487,7 +487,7 @@ def point_scanpay(params: ScanpayForm, user_data: dict) -> dict:
     with get_session() as db:
         order_model = db.query(PointRechargeModel).filter_by(trade_no=params.trade_no).first()
         if order_model is None or order_model.user_id != user_data[
-            'id'] or order_model.payment_status != PaymentStatuType.PAYMENT_STATUS_CREATED.value:
+            'id'] or order_model.payment_status != PaymentStatuType.CREATED.value:
             raise ValueError('订单已失效, 请重新下单')
 
         amount = order_model.amount
@@ -541,7 +541,7 @@ def balance_scanpay(params: ScanpayForm, user_data: dict) -> dict:
     with get_session() as db:
         order_model = db.query(BalanceRechargeModel).filter_by(trade_no=params.trade_no).first()
         if order_model is None or order_model.user_id != user_data[
-            'id'] or order_model.payment_status != PaymentStatuType.PAYMENT_STATUS_CREATED.value:
+            'id'] or order_model.payment_status != PaymentStatuType.CREATED.value:
             raise ValueError('订单已失效, 请重新下单')
 
         amount = order_model.amount
@@ -624,11 +624,11 @@ def point_notify(payment_channel: str, params: dict, content: str = None) -> boo
             logger.info('订单不存在', extra=params)
             return False
         if order_model.payment_status not in (
-        PaymentStatuType.PAYMENT_STATUS_CREATED.value, PaymentStatuType.PAYMENT_STATUS_CLOSE.value):
+        PaymentStatuType.CREATED.value, PaymentStatuType.CLOSE.value):
             logger.info(f'订单状态异常:{order_model.payment_status}', extra=params)
             return True
 
-        order_model.payment_status = PaymentStatuType.PAYMENT_STATUS_SUCCESS.value if is_ok else PaymentStatuType.PAYMENT_STATUS_FAIL.value
+        order_model.payment_status = PaymentStatuType.SUCCESS.value if is_ok else PaymentStatuType.FAIL.value
         order_model.payment_channel = payment_channel
         order_model.payment_time = datetime.now()
         order_model.payment_response = json.dumps(params, default=str)
@@ -636,7 +636,7 @@ def point_notify(payment_channel: str, params: dict, content: str = None) -> boo
         # 积分变动
         if is_ok:
             task_data = {
-                'type': PointType.TYPE_RECHARGE.value,
+                'type': PointType.RECHARGE.value,
                 'user_id': order_model.user_id,
                 'related_id': order_model.id,
                 'amount': order_model.points,
@@ -650,7 +650,7 @@ def point_notify(payment_channel: str, params: dict, content: str = None) -> boo
 
             if order_model.gift_points > 0:
                 task_gift_data = {
-                    'type': PointType.TYPE_RECHARGE_GIFT.value,
+                    'type': PointType.GIFT.value,
                     'user_id': order_model.user_id,
                     'related_id': order_model.id,
                     'amount': order_model.gift_points,

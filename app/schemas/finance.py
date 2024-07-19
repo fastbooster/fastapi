@@ -15,51 +15,51 @@ from app.schemas.schemas import ClientType, PaginationParams
 
 class BalanceType(Enum):
     '''余额类别 正数为收入, 负数为支出/提现'''
-    TYPE_RECHARGE = 1  # 充值
-    TYPE_RECHARGE_GIFT = 2  # 充值赠送
-    TYPE_WITHDRAW_REFUND = 3  # 提现被拒绝时, 资金返回用户余额
-    TYPE_PAY_REFUND = 9  # 余额支付退款
-    TYPE_ADD = 99  # 后台增加余额
-    TYPE_RECHARGE_REFUND = -1  # 充值退款
-    TYPE_WITHDRAW = -3  # 提现
-    TYPE_PAY = -9  # 余额支付
-    TYPE_DEDUCTION = -99  # 后台扣除余额
+    RECHARGE = 1  # 充值
+    GIFT = 2  # 充值赠送
+    WITHDRAW_REFUND = 3  # 提现被拒绝时, 资金返回用户余额
+    PAY_REFUND = 9  # 余额支付退款
+    ADD = 99  # 后台增加余额
+    REFUND = -1  # 充值退款
+    WITHDRAW = -3  # 提现
+    PAY = -9  # 余额支付
+    DEDUCTION = -99  # 后台扣除余额
 
 
 class PointType(Enum):
     '''积分类别 正数为收入, 负数为支出'''
-    TYPE_RECHARGE = 1  # 充值
-    TYPE_RECHARGE_GIFT = 2  # 充值赠送
-    TYPE_CHECKIN = 3  # 签到获得积分
+    RECHARGE = 1  # 充值
+    GIFT = 2  # 充值赠送
+    CHECKIN = 3  # 签到获得积分
     TYPE_PULL_NEW = 4  # 拉新获得积分
     TYPE_PULL_NEW_CHECKIN = 5  # 新用户签到, 上级用户获得积分
-    TYPE_PAY_REFUND = 9  # 积分支付退款
-    TYPE_ADD = 99  # 后台增加积分
-    TYPE_RECHARGE_REFUND = -1  # 充值退款
-    TYPE_PAY = -9  # 积分支付
-    TYPE_DEDUCTION = -99  # 后台扣除积分
+    PAY_REFUND = 9  # 积分支付退款
+    ADD = 99  # 后台增加积分
+    REFUND = -1  # 充值退款
+    PAY = -9  # 积分支付
+    DEDUCTION = -99  # 后台扣除积分
 
 
 class CheckinType(Enum):
-    TYPE_CHECKIN = 1  # 签到
-    TYPE_COMPLEMENT = 2  # 补签
+    CHECKIN = 1  # 签到
+    COMPLEMENT = 2  # 补签
 
 
 class PaymentAccountType(Enum):
-    TYPE_ALIPAY = 1  # 支付宝
-    TYPE_WXPAY = 2  # 微信
-    TYPE_BANK = 3  # 银行卡
+    ALIPAY = 'alipay'
+    WECHATPAY = 'wechatpay'
+    BANK = 'bank'
 
 
 class PaymentStatuType(Enum):
-    PAYMENT_STATUS_CREATED = 0  # 创建成功, 仅此状态可以进行支付
-    PAYMENT_STATUS_SUCCESS = 1  # 支付成功
-    PAYMENT_STATUS_FAIL = 2  # 支付失败
-    PAYMENT_STATUS_CLOSE = 3  # 已关闭
-    PAYMENT_STATUS_REFUND_APPLY = 4  # 退款中
-    PAYMENT_STATUS_REFUND_APART = 5  # 部分退款
-    PAYMENT_STATUS_REFUND_SUCCESS = 6  # 已退款
-    PAYMENT_STATUS_REFUND_FAIL = 7  # 退款失败
+    CREATED = 0  # 创建成功, 仅此状态可以进行支付
+    SUCCESS = 1  # 支付成功
+    FAIL = 2  # 支付失败
+    CLOSE = 3  # 已关闭
+    REFUND_APPLY = 4  # 退款中
+    REFUND_APART = 5  # 部分退款
+    REFUND_SUCCESS = 6  # 已退款
+    REFUND_FAIL = 7  # 退款失败
 
 
 class PaymentChannelType(Enum):
@@ -93,7 +93,7 @@ class AdjustForm(BaseModel):
     # type 只支持99和-99
     @validator('type')
     def validate_type(cls, value):
-        if value not in [BalanceType.TYPE_ADD, BalanceType.TYPE_DEDUCTION]:
+        if value not in [BalanceType.ADD, BalanceType.DEDUCTION]:
             raise ValueError('类型错误')
         return value
 
@@ -114,7 +114,7 @@ class PaymentAccountFrontendSearchQuery(BaseModel):
 
 
 class PaymentAccountAddForm(BaseModel):
-    type: PaymentAccountType = PaymentAccountType.TYPE_ALIPAY
+    type: PaymentAccountType = PaymentAccountType.ALIPAY.value
     account: str
     status: Optional[int] = 1
     user_memo: Optional[str] = None
@@ -130,7 +130,7 @@ class PaymentAccountAddForm(BaseModel):
 
     @validator('type')
     def validate_amount(cls, value):
-        if value == PaymentAccountType.TYPE_ALIPAY:
+        if value == PaymentAccountType.ALIPAY.value:
             return value
         else:
             raise ValueError('目前只支持支付宝')

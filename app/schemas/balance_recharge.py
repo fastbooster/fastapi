@@ -28,7 +28,7 @@ class BalanceRechargeItem(BaseModel):
     refund_gift_amount: Optional[float] = Field(0, description="退款赠送数量")
 
     payment_status: Optional[PaymentStatuType] = Field(
-        PaymentStatuType.PAYMENT_STATUS_CREATED.value, description="付款状态")
+        PaymentStatuType.CREATED.value, description="付款状态")
     payment_channel: Optional[PaymentChannelType] = Field(
         PaymentChannelType.WECHATPAY.value, description="支付渠道")
     payment_appid: Optional[str] = Field(None, description="支付APPID")
@@ -59,7 +59,7 @@ class BalanceRechargeOutItem(BaseModel):
     refund_amount: Optional[float] = Field(0, description="退款数量")
     refund_gift_amount: Optional[float] = Field(0, description="退款赠送数量")
     payment_status: Optional[PaymentStatuType] = Field(
-        PaymentStatuType.PAYMENT_STATUS_CREATED.value, description="付款状态")
+        PaymentStatuType.CREATED.value, description="付款状态")
     payment_channel: Optional[PaymentChannelType] = Field(
         PaymentChannelType.WECHATPAY.value, description="支付渠道")
     payment_time: Optional[datetime] = Field(None, description="付款时间")
