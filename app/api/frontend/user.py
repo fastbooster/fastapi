@@ -11,7 +11,7 @@ from app.core.security import get_current_user_from_cache
 from app.services import user as UserService
 from app.services import finance as FinanceService
 from app.core.log import logger
-from app.constants.constants import RESPONSE_OK
+from app.schemas.schemas import ResponseSuccess
 from app.schemas.finance import PaymentAccountFrontendSearchQuery, PaymentAccountAddForm, PaymentAccountEditForm
 
 router = APIRouter()
@@ -22,18 +22,18 @@ def my_detail(user_data: dict = Depends(get_current_user_from_cache)):
     return UserService.safe_whitelist_fields(user_data)
 
 
-@router.post("/user/checkin", summary="用户签到")
+@router.post("/user/checkin", response_model=ResponseSuccess, summary="用户签到")
 def checkin(request: Request, user_data: dict = Depends(get_current_user_from_cache)):
     try:
         ip = request.client.host if request.client else None
         user_agent = str(request.headers.get('User-Agent'))
         FinanceService.checkin(user_data['id'], ip, user_agent)
+        return ResponseSuccess()
     except ValueError as e:
         raise HTTPException(status_code=400, detail=f'{e}')
     except Exception as e:
         logger.error(f'签到失败：{e}')
         raise HTTPException(status_code=500, detail='签到失败')
-    return RESPONSE_OK
 
 
 @router.get("/user/payment_account", summary="支付账号列表")
@@ -42,37 +42,37 @@ def get_payment_account_list(params: PaymentAccountFrontendSearchQuery = Depends
     return FinanceService.get_payment_account_list_frontend(params, user_data['id'])
 
 
-@router.post("/user/payment_account", summary="绑定支付账号")
+@router.post("/user/payment_account", response_model=ResponseSuccess, summary="绑定支付账号")
 def add_payment_account(params: PaymentAccountAddForm, user_data: dict = Depends(get_current_user_from_cache)):
     try:
         FinanceService.add_payment_account(params, user_data['id'])
+        return ResponseSuccess()
     except ValueError as e:
         raise HTTPException(status_code=400, detail=f'{e}')
     except Exception as e:
         logger.error(f'绑定支付账号失败：{e}')
         raise HTTPException(status_code=500, detail='绑定支付账号失败')
-    return RESPONSE_OK
 
 
-@router.patch("/user/payment_account", summary="编辑支付账号")
+@router.patch("/user/payment_account", response_model=ResponseSuccess, summary="编辑支付账号")
 def add_payment_account(params: PaymentAccountEditForm, user_data: dict = Depends(get_current_user_from_cache)):
     try:
         FinanceService.edit_payment_account(params, user_data['id'])
+        return ResponseSuccess()
     except ValueError as e:
         raise HTTPException(status_code=400, detail=f'{e}')
     except Exception as e:
         logger.error(f'编辑支付账号失败：{e}')
         raise HTTPException(status_code=500, detail='编辑支付账号失败')
-    return RESPONSE_OK
 
 
-@router.delete("/user/payment_account/{id}", summary="删除支付账号")
+@router.delete("/user/payment_account/{id}", response_model=ResponseSuccess, summary="删除支付账号")
 def add_payment_account(id: int, user_data: dict = Depends(get_current_user_from_cache)):
     try:
         FinanceService.delete_payment_account(id, user_data['id'])
+        return ResponseSuccess()
     except ValueError as e:
         raise HTTPException(status_code=400, detail=f'{e}')
     except Exception as e:
         logger.error(f'删除支付账号失败：{e}')
         raise HTTPException(status_code=500, detail='删除支付账号失败')
-    return RESPONSE_OK

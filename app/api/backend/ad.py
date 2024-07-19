@@ -8,8 +8,8 @@
 from fastapi import APIRouter, HTTPException, Depends
 from app.core.log import logger
 
-from app.constants.constants import RESPONSE_OK
 from app.core.security import check_permission
+from app.schemas.schemas import ResponseSuccess
 from app.schemas.ad import SpaceSearchQuery, SpaceAddForm, SpaceEditForm, AdSearchQuery, AdAddForm, AdEditForm
 from app.services import ad as AdService
 
@@ -29,53 +29,53 @@ def space_detail(id: int):
     return ad_space
 
 
-@router.post("/ad_space", dependencies=[Depends(check_permission('AdSpaceList'))], summary="添加广告位")
+@router.post("/ad_space", response_model=ResponseSuccess, dependencies=[Depends(check_permission('AdSpaceList'))], summary="添加广告位")
 def add_space(params: SpaceAddForm):
     try:
         AdService.add_space(params)
+        return ResponseSuccess()
     except ValueError as e:
         raise HTTPException(status_code=400, detail=f'{e}')
     except Exception as e:
         logger.error(f'添加广告位失败：{e}')
         raise HTTPException(status_code=500, detail='添加广告位失败')
-    return RESPONSE_OK
 
 
-@router.patch("/ad_space", dependencies=[Depends(check_permission('AdSpaceList'))], summary="编辑广告位")
+@router.patch("/ad_space", response_model=ResponseSuccess, dependencies=[Depends(check_permission('AdSpaceList'))], summary="编辑广告位")
 def edit_space(params: SpaceEditForm):
     try:
         AdService.edit_space(params)
+        return ResponseSuccess()
     except ValueError as e:
         raise HTTPException(status_code=400, detail=f'{e}')
     except Exception as e:
         logger.error(f'编辑广告位失败：{e}')
         raise HTTPException(status_code=500, detail='编辑广告位失败')
-    return RESPONSE_OK
 
 
-@router.delete("/ad_space/{id}", dependencies=[Depends(check_permission('AdSpaceList'))], summary="删除广告位", )
+@router.delete("/ad_space/{id}", response_model=ResponseSuccess, dependencies=[Depends(check_permission('AdSpaceList'))], summary="删除广告位", )
 def delete_space(id: int):
     try:
         AdService.delete_space(id)
+        return ResponseSuccess()
     except ValueError as e:
         raise HTTPException(status_code=400, detail=f'{e}')
     except Exception as e:
         logger.error(f'删除广告位失败：{e}')
         raise HTTPException(status_code=500, detail='删除广告位失败')
-    return RESPONSE_OK
 
 
-@router.post("/ad_space/rebuild_cache", dependencies=[Depends(check_permission('AdSpaceList'))],
+@router.post("/ad_space/rebuild_cache", response_model=ResponseSuccess, dependencies=[Depends(check_permission('AdSpaceList'))],
            summary="重建广告位缓存", )
 def rebuild_cache():
     try:
         AdService.rebuild_cache()
+        return ResponseSuccess()
     except ValueError as e:
         raise HTTPException(status_code=400, detail=f'{e}')
     except Exception as e:
         logger.error(f'重建广告位缓存失败：{e}')
         raise HTTPException(status_code=500, detail='重建广告位缓存失败')
-    return RESPONSE_OK
 
 
 @router.get("/ad", dependencies=[Depends(check_permission('AdSpaceList'))], summary="广告列表")
@@ -91,37 +91,37 @@ def ad_detail(id: int):
     return ad
 
 
-@router.post("/ad", dependencies=[Depends(check_permission('AdSpaceList'))], summary="添加广告")
+@router.post("/ad", response_model=ResponseSuccess, dependencies=[Depends(check_permission('AdSpaceList'))], summary="添加广告")
 def add_ad(params: AdAddForm):
     try:
         AdService.add_ad(params)
+        return ResponseSuccess()
     except ValueError as e:
         raise HTTPException(status_code=400, detail=f'{e}')
     except Exception as e:
         logger.error(f'添加广告失败：{e}')
         raise HTTPException(status_code=500, detail='添加广告失败')
-    return RESPONSE_OK
 
 
-@router.patch("/ad", dependencies=[Depends(check_permission('AdSpaceList'))], summary="编辑广告")
+@router.patch("/ad", response_model=ResponseSuccess, dependencies=[Depends(check_permission('AdSpaceList'))], summary="编辑广告")
 def edit_ad(params: AdEditForm):
     try:
         AdService.edit_ad(params)
+        return ResponseSuccess()
     except ValueError as e:
         raise HTTPException(status_code=400, detail=f'{e}')
     except Exception as e:
         logger.error(f'编辑广告失败：{e}')
         raise HTTPException(status_code=500, detail='编辑广告失败')
-    return RESPONSE_OK
 
 
-@router.delete("/ad/{id}", dependencies=[Depends(check_permission('AdSpaceList'))], summary="删除广告", )
+@router.delete("/ad/{id}", response_model=ResponseSuccess, dependencies=[Depends(check_permission('AdSpaceList'))], summary="删除广告", )
 def delete_ad(id: int):
     try:
         AdService.delete_ad(id)
+        return ResponseSuccess()
     except ValueError as e:
         raise HTTPException(status_code=400, detail=f'{e}')
     except Exception as e:
         logger.error(f'删除广告失败：{e}')
         raise HTTPException(status_code=500, detail='删除广告失败')
-    return RESPONSE_OK

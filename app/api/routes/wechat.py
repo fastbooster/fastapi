@@ -24,11 +24,10 @@ from app.core.redis import get_redis
 from app.core.mysql import get_session
 from app.utils.helper import serialize_datetime
 
-from app.constants.constants import RESPONSE_OK, REDIS_AUTH_TTL, REDIS_AUTH_USER_PREFIX
-
 from wechatpy import WeChatClient
 
 router = APIRouter()
+
 
 @router.post("/wechat", summary="微信登录")
 def wechat():

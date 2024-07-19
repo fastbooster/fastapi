@@ -14,7 +14,7 @@ from app.services import post_category as CategoryService, post as PostService
 
 from app.schemas.post_category import CategorySearchQuery, CategoryAddForm, CategoryEditForm
 from app.schemas.post import PostSearchQuery, PostAddForm, PostEditForm
-from app.constants.constants import RESPONSE_OK
+
 
 router = APIRouter()
 

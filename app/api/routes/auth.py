@@ -19,12 +19,13 @@ from app.models.user import UserModel
 from app.models.user import RoleModel
 from app.models.user import LoginlogModel
 from app.services import user as UserService
+from app.schemas.schemas import ResponseSuccess
 from app.schemas.user import ChangePwdForm
 from app.core.redis import get_redis
 from app.core.mysql import get_session
 from app.utils.helper import serialize_datetime
 
-from app.constants.constants import RESPONSE_OK, REDIS_AUTH_TTL, REDIS_AUTH_USER_PREFIX
+from app.constants.constants import REDIS_AUTH_TTL, REDIS_AUTH_USER_PREFIX
 
 router = APIRouter()
 
@@ -76,7 +77,7 @@ def logout():
     pass
 
 
-@router.post("/change_password", summary="修改密码", dependencies=[Depends(AuthChecker())])
+@router.post("/change_password", response_model=ResponseSuccess, summary="修改密码", dependencies=[Depends(AuthChecker())])
 def change_password(form: ChangePwdForm, user_data: dict = Depends(get_current_user)):
     if not validate_password(form.new_pwd):
         raise HTTPException(status_code=400, detail="新密码过于简单，请重新输入")
@@ -88,4 +89,4 @@ def change_password(form: ChangePwdForm, user_data: dict = Depends(get_current_u
         user.password_hash = encode_password(form.new_pwd, user.password_salt)
         db.commit()
 
-    return RESPONSE_OK
+    return ResponseSuccess()

@@ -17,9 +17,6 @@ UPLOAD_PATH = ROOT_PATH + '/public'
 # 应用文件存储目录
 RUNTIME_PATH = ROOT_PATH + '/runtime'
 
-# 操作成功返回的数据，当不需要返回数据时，统一直接返回该数据
-RESPONSE_OK = {'status': 'OK'}
-
 # 结果返回给微信服务器时的成功返回数据
 RESPONSE_WECHAT_SUCCESS = dict_to_xml({'return_code': 'SUCCESS', 'return_msg': 'OK'})
 
