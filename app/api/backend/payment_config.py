@@ -35,12 +35,12 @@ def detail(id: int):
 def add(params: PaymentConfigItem):
     try:
         PaymentConfigService.add_payment_config(params)
+        return ResponseSuccess()
     except ValueError as e:
         raise HTTPException(status_code=400, detail=f'{e}')
     except Exception as e:
         logger.error(f'添加支付配置失败：{e}')
         raise HTTPException(status_code=500, detail='添加支付配置失败')
-    return ResponseSuccess
 
 
 @router.put("/payment_configs/{id}", response_model=ResponseSuccess, dependencies=[Depends(check_permission('PaymentSettings'))], summary="编辑支付配置")
@@ -48,12 +48,12 @@ def edit(id: int, params: PaymentConfigItem):
     try:
         params.id = id
         PaymentConfigService.edit_payment_config(params)
+        return ResponseSuccess()
     except ValueError as e:
         raise HTTPException(status_code=400, detail=f'{e}')
     except Exception as e:
         logger.error(f'编辑支付配置失败：{e}')
         raise HTTPException(status_code=500, detail='编辑支付配置失败')
-    return ResponseSuccess
 
 
 @router.patch("/payment_configs/{id}/status", response_model=ResponseSuccess, dependencies=[Depends(check_permission('PaymentSettings'))], summary="更新支付配置状态")
@@ -61,33 +61,33 @@ def update_status(id: int, params: PaymentConfigItem):
     try:
         params.id = id
         PaymentConfigService.update_status(params)
+        return ResponseSuccess()
     except ValueError as e:
         raise HTTPException(status_code=400, detail=f'{e}')
     except Exception as e:
         logger.error(f'编辑支付配置失败：{e}')
         raise HTTPException(status_code=500, detail='编辑支付配置失败')
-    return ResponseSuccess
 
 
 @router.delete("/payment_configs/{id}", response_model=ResponseSuccess, dependencies=[Depends(check_permission('PaymentSettings'))], summary="删除支付配置",)
 def delete(id: int):
     try:
         PaymentConfigService.delete_payment_config(id)
+        return ResponseSuccess()
     except ValueError as e:
         raise HTTPException(status_code=400, detail=f'{e}')
     except Exception as e:
         logger.error(f'删除支付配置失败：{e}')
         raise HTTPException(status_code=500, detail='删除支付配置失败')
-    return ResponseSuccess
 
 
 @router.post("/payment_configs/rebuild_cache", response_model=ResponseSuccess, dependencies=[Depends(check_permission('PaymentSettings'))], summary="重建缓存",)
 def rebuild_cache():
     try:
         PaymentConfigService.rebuild_cache()
+        return ResponseSuccess()
     except ValueError as e:
         raise HTTPException(status_code=400, detail=f'{e}')
     except Exception as e:
         logger.error(f'重建缓存失败：{e}')
         raise HTTPException(status_code=500, detail='重建缓存失败')
-    return ResponseSuccess

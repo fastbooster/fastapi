@@ -35,12 +35,12 @@ def detail(id: int):
 def add(params: OptionItem):
     try:
         OptionService.add_option(params)
+        return ResponseSuccess()
     except ValueError as e:
         raise HTTPException(status_code=400, detail=f'{e}')
     except Exception as e:
         logger.error(f'添加系统选项失败：{e}')
         raise HTTPException(status_code=500, detail='添加系统选项失败')
-    return ResponseSuccess
 
 
 @router.put("/options/{id}", response_model=ResponseSuccess, dependencies=[Depends(check_permission('SystemOption'))], summary="编辑系统选项")
@@ -48,33 +48,33 @@ def edit(id: int, params: OptionItem):
     try:
         params.id = id
         OptionService.edit_option(params)
+        return ResponseSuccess()
     except ValueError as e:
         raise HTTPException(status_code=400, detail=f'{e}')
     except Exception as e:
         logger.error(f'编辑系统选项失败：{e}')
         raise HTTPException(status_code=500, detail='编辑系统选项失败')
-    return ResponseSuccess
 
 
 @router.delete("/options/{id}", response_model=ResponseSuccess, dependencies=[Depends(check_permission('SystemOption'))], summary="删除系统选项",)
 def delete(id: int):
     try:
         OptionService.delete_option(id)
+        return ResponseSuccess()
     except ValueError as e:
         raise HTTPException(status_code=400, detail=f'{e}')
     except Exception as e:
         logger.error(f'删除系统选项失败：{e}')
         raise HTTPException(status_code=500, detail='删除系统选项失败')
-    return ResponseSuccess
 
 
 @router.post("/options/rebuild_cache", response_model=ResponseSuccess, dependencies=[Depends(check_permission('SystemOption'))], summary="重建系统选项缓存",)
 def rebuild_cache():
     try:
         OptionService.rebuild_cache()
+        return ResponseSuccess()
     except ValueError as e:
         raise HTTPException(status_code=400, detail=f'{e}')
     except Exception as e:
         logger.error(f'重建系统选项缓存失败：{e}')
         raise HTTPException(status_code=500, detail='重建系统选项缓存失败')
-    return ResponseSuccess

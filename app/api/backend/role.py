@@ -35,12 +35,12 @@ def detail(id: int):
 def add(params: RoleItem):
     try:
         RoleService.add_role(params)
+        return ResponseSuccess()
     except ValueError as e:
         raise HTTPException(status_code=400, detail=f'{e}')
     except Exception as e:
         logger.error(f'添加角色失败：{e}')
         raise HTTPException(status_code=500, detail='添加角色失败')
-    return ResponseSuccess
 
 
 @router.put("/roles/{id}", response_model=ResponseSuccess, dependencies=[Depends(check_permission('RoleList'))], summary="编辑角色")
@@ -48,21 +48,21 @@ def edit(id: int, params: RoleItem):
     try:
         params.id = id
         RoleService.edit_role(params)
+        return ResponseSuccess()
     except ValueError as e:
         raise HTTPException(status_code=400, detail=f'{e}')
     except Exception as e:
         logger.error(f'编辑角色失败：{e}')
         raise HTTPException(status_code=500, detail='编辑角色失败')
-    return ResponseSuccess
 
 
 @router.delete("/roles/{id}", response_model=ResponseSuccess, dependencies=[Depends(check_permission('RoleList'))], summary="删除角色",)
 def delete(id: int):
     try:
         RoleService.delete_role(id)
+        return ResponseSuccess()
     except ValueError as e:
         raise HTTPException(status_code=400, detail=f'{e}')
     except Exception as e:
         logger.error(f'删除角色失败：{e}')
         raise HTTPException(status_code=500, detail='删除角色失败')
-    return ResponseSuccess

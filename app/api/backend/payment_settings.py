@@ -29,13 +29,12 @@ def lists():
 def lists(params: PaymentSettingsSortForm):
     try:
         PaymentSettingService.update_sort(params)
+        return ResponseSuccess()
     except ValueError as e:
         raise HTTPException(status_code=400, detail=f'{e}')
     except Exception as e:
         logger.error(f'更新排序失败：{e}')
         raise HTTPException(status_code=500, detail='更新排序失败')
-
-    return ResponseSuccess
 
 
 @router.get("/payment_settings/alipay_root_cert", response_model=OptionItem, dependencies=[Depends(check_permission('PaymentSettings'))], summary="获取支付宝根证书")
@@ -54,10 +53,9 @@ def alipay_root_cert(params: OptionItem):
             lock=1,
             memo="支付宝根证书"
         ))
+        return ResponseSuccess()
     except ValueError as e:
         raise HTTPException(status_code=400, detail=f'{e}')
     except Exception as e:
         logger.error(f'设置支付宝根证书失败：{e}')
         raise HTTPException(status_code=500, detail='设置支付宝根证书失败')
-
-    return ResponseSuccess

@@ -43,12 +43,12 @@ def adjust_balance(params: AdjustForm, request: Request, user_data: dict = Depen
     try:
         params.ip = request.client.host if request.client else None,
         FinanceService.adjust_balance(params, user_data)
+        return ResponseSuccess()
     except ValueError as e:
         raise HTTPException(status_code=400, detail=f'{e}')
     except Exception as e:
         logger.error(f'调整余额余额失败：{e}')
         raise HTTPException(status_code=500, detail='调整余额余额失败')
-    return ResponseSuccess
 
 
 @router.post("/finance/adjust_balance_gift", response_model=ResponseSuccess, dependencies=[Depends(check_permission('UserList'))],
@@ -57,12 +57,12 @@ def adjust_balance(params: AdjustForm, request: Request, user_data: dict = Depen
     try:
         params.ip = request.client.host if request.client else None,
         FinanceService.adjust_balance_gift(params, user_data)
+        return ResponseSuccess()
     except ValueError as e:
         raise HTTPException(status_code=400, detail=f'{e}')
     except Exception as e:
         logger.error(f'调整赠送余额余额失败：{e}')
         raise HTTPException(status_code=500, detail='调整赠送余额余额失败')
-    return ResponseSuccess
 
 
 @router.post("/finance/adjust_point", response_model=ResponseSuccess, dependencies=[Depends(check_permission('UserList'))],
@@ -70,12 +70,12 @@ def adjust_balance(params: AdjustForm, request: Request, user_data: dict = Depen
 def adjust_point(params: AdjustForm, user_data: dict = Depends(get_current_user_from_cache)):
     try:
         FinanceService.adjust_point(params, user_data)
+        return ResponseSuccess()
     except ValueError as e:
         raise HTTPException(status_code=400, detail=f'{e}')
     except Exception as e:
         logger.error(f'调整积分余额失败：{e}')
         raise HTTPException(status_code=500, detail='调整积分余额失败')
-    return ResponseSuccess
 
 
 @router.get("/finance/payment_account", dependencies=[Depends(check_permission('UserList'))], summary="支付账号列表")
@@ -93,12 +93,12 @@ def get_point_recharge_settings():
 def update_point_recharge_settings(settings: List[PointRechargeSettingItem]):
     try:
         FinanceService.update_point_recharge_settings(settings)
+        return ResponseSuccess()
     except ValueError as e:
         raise HTTPException(status_code=400, detail=f'{e}')
     except Exception as e:
         logger.error(f'更新积分充值设置失败：{e}')
         raise HTTPException(status_code=500, detail='更新积分充值设置失败')
-    return ResponseSuccess
 
 
 @router.get("/finance/balance_recharge_settings", response_model=BalanceRechargeSettingListResponse, dependencies=[Depends(check_permission('RechargeSettings'))], summary="获取余额充值设置")
@@ -111,9 +111,9 @@ def get_balance_recharge_settings():
 def update_balance_recharge_settings(settings: List[BalanceRechargeSettingItem]):
     try:
         FinanceService.update_balance_recharge_settings(settings)
+        return ResponseSuccess()
     except ValueError as e:
         raise HTTPException(status_code=400, detail=f'{e}')
     except Exception as e:
         logger.error(f'更新余额充值设置失败：{e}')
         raise HTTPException(status_code=500, detail='更新余额充值设置失败')
-    return ResponseSuccess

@@ -26,24 +26,24 @@ async def upload_file(file: UploadFile = File(...), related_type: str = 'files',
 async def send_sms(phone: str):
     try:
         await sms.send_sms(phone, 0)
+        return ResponseSuccess()
     except ValueError as e:
         raise HTTPException(status_code=400, detail=f'{e}')
     except Exception as e:
         logger.error(f'发送短信验证码失败：{e}')
         raise HTTPException(status_code=500, detail='发送短信验证码失败')
-    return ResponseSuccess
 
 
 @router.post('/send_sms2', response_model=ResponseSuccess, summary='发送短信操作码, 用于已登陆的情况下, 比如重置密码')
 async def send_sms(phone: str, user_data: dict = Depends(get_current_user_from_cache)):
     try:
         await sms.send_sms(phone, 1)
+        return ResponseSuccess()
     except ValueError as e:
         raise HTTPException(status_code=400, detail=f'{e}')
     except Exception as e:
         logger.error(f'发送短信验证码失败：{e}')
         raise HTTPException(status_code=500, detail='发送短信验证码失败')
-    return ResponseSuccess
 
 
 @router.get('/option/{option_name}', summary='获取系统配置')

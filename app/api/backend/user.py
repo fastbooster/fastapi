@@ -37,12 +37,12 @@ def add(params: UserItem, request: Request):
         params.join_from = JoinFromType.BACKEND_ADMIN
         params.join_ip = request.client.host
         UserService.add_user(params)
+        return ResponseSuccess()
     except ValueError as e:
         raise HTTPException(status_code=400, detail=f'{e}')
     except Exception as e:
         logger.error(f'添加用户失败：{e}')
         raise HTTPException(status_code=500, detail='添加用户失败')
-    return ResponseSuccess
 
 
 @router.put("/users/{id}", response_model=ResponseSuccess, dependencies=[Depends(check_permission('UserList'))], summary="编辑用户")
@@ -50,12 +50,12 @@ def edit(id: int, params: UserItem):
     try:
         params.id = id
         UserService.edit_user(params)
+        return ResponseSuccess()
     except ValueError as e:
         raise HTTPException(status_code=400, detail=f'{e}')
     except Exception as e:
         logger.error(f'编辑用户失败：{e}')
         raise HTTPException(status_code=500, detail='编辑用户失败')
-    return ResponseSuccess
 
 
 @router.delete("/users/{id}", response_model=ResponseSuccess, dependencies=[Depends(check_permission('UserList'))], summary="删除用户",)
@@ -64,9 +64,9 @@ def delete(id: int, curret_user_id: int = Depends(get_current_user_id)):
         raise HTTPException(status_code=403, detail='不能删除自己')
     try:
         UserService.delete_user(id)
+        return ResponseSuccess()
     except ValueError as e:
         raise HTTPException(status_code=400, detail=f'{e}')
     except Exception as e:
         logger.error(f'删除用户失败：{e}')
         raise HTTPException(status_code=500, detail='删除用户失败')
-    return ResponseSuccess
