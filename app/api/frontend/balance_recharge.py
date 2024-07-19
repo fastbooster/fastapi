@@ -68,13 +68,13 @@ def check(trade_no: str, user_data: dict = Depends(get_current_user_from_cache))
 
 @router.post('/balance_recharges/pay', summary='支付触达 - 选择支付方式')
 def pay(params: PayForm, user_data: dict = Depends(get_current_user_from_cache)):
-    return BalanceRechargeService.pay(params, user_data)
-    # try:
-    # except ValueError as e:
-    #     raise HTTPException(status_code=400, detail=f'{e}')
-    # except Exception as e:
-    #     logger.error(f'余额充值支付失败：{e}')
-    #     raise HTTPException(status_code=500, detail='余额充值支付失败：')
+    try:
+        return BalanceRechargeService.pay(params, user_data)
+    except ValueError as e:
+        raise HTTPException(status_code=400, detail=f'{e}')
+    except Exception as e:
+        logger.error(f'余额充值支付失败：{e}')
+        raise HTTPException(status_code=500, detail='余额充值支付失败：')
 
 
 @router.post('/balance_recharges/scanpay', summary='支付触达 - 扫码支付（根据客户端类型(微信/支付宝/移动端浏览器)自动选择支付方式）')

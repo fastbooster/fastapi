@@ -31,6 +31,7 @@ class BalanceRechargeItem(BaseModel):
         PaymentStatuType.PAYMENT_STATUS_CREATED.value, description="付款状态")
     payment_channel: Optional[PaymentChannelType] = Field(
         PaymentChannelType.WECHATPAY.value, description="支付渠道")
+    payment_appid: Optional[str] = Field(None, description="支付APPID")
     payment_time: Optional[datetime] = Field(None, description="付款时间")
     payment_response: Optional[str] = Field(None, description="支付结果")
     refund_response: Optional[str] = Field(None, description="退款结果")

@@ -155,6 +155,7 @@ class WithdrawModel(Base):
     balance = Column(DECIMAL(10, 2), nullable=False, comment='申请时余额')
     payment_status = Column(SmallInteger, server_default='0', comment='状态')
     payment_channel = Column(String(50), comment='支付渠道')
+    payment_appid = Column(String(50), comment='支付APPID')
     payment_time = Column(TIMESTAMP, comment='支付时间')
     payment_response = Column(Text, comment='支付结果')
     audit_status = Column(SmallInteger, server_default='0', comment='审核状态')
@@ -230,6 +231,7 @@ class BalanceRechargeModel(Base):
     # 支付状态：0 创建成功/未支付（只有此种状态才能继续执行支付）1 支付成功, 2 支付失败, 3 交易关闭，4 退款中, 5 部分退款, 6 已退全款
     payment_status = Column(SmallInteger, server_default='0', comment='状态')
     payment_channel = Column(String(50), comment='支付渠道')
+    payment_appid = Column(String(50), comment='支付APPID')
     payment_time = Column(TIMESTAMP, comment='支付时间')
     payment_response = Column(Text, comment='支付结果')
     refund_response = Column(Text, comment='退款结果')
@@ -283,6 +285,7 @@ class PointRechargeModel(Base):
     # 支付状态：0 创建成功/未支付（只有此种状态才能继续执行支付）1 支付成功, 2 支付失败, 3 交易关闭，4 退款中, 5 部分退款, 6 已退全款
     payment_status = Column(SmallInteger, server_default='0', comment='状态')
     payment_channel = Column(String(50), comment='支付渠道')
+    payment_appid = Column(String(50), comment='支付APPID')
     payment_time = Column(TIMESTAMP, comment='支付时间')
     payment_response = Column(Text, comment='支付结果')
     refund_response = Column(Text, comment='退款结果')

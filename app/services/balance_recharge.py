@@ -161,8 +161,8 @@ def notify(payment_channel: str, params: dict, content: str = None) -> bool:
     logger.info(f'收到异步通知: {payment_channel}', extra=params)
     if payment_channel == PaymentChannelType.ALIPAY.value:
         signature = params.pop('sign')
-        alipay = payment_manager.get_instance(
-            'alipay', params.get('app_id', None))
+        appid = params.get('app_id', None)
+        alipay = payment_manager.get_instance('alipay', appid=appid)
         try:
             success = alipay.verify(params, signature)
         except:
@@ -175,8 +175,8 @@ def notify(payment_channel: str, params: dict, content: str = None) -> bool:
             "TRADE_SUCCESS", "TRADE_FINISHED") else False
     elif payment_channel == PaymentChannelType.WECHATPAY.value:
         # 如果是微信小程序支付, appid 返回的是小程序的 appid, 由于已经做了缓存适配，可以直接使用 appid 参数
-        wechatpy = payment_manager.get_instance(
-            'wechat', params.get('appid', None))
+        appid = params.get('appid', None)
+        wechatpy = payment_manager.get_instance('wechat', appid=appid)
         try:
             params = wechatpy.parse_payment_result(content)
         except:
@@ -199,6 +199,7 @@ def notify(payment_channel: str, params: dict, content: str = None) -> bool:
                         order_model.payment_status}, 不接受异步通知', extra=params)
             return True
 
+        order_model.payment_appid = appid
         order_model.payment_status = PaymentStatuType.PAYMENT_STATUS_SUCCESS.value if is_ok else PaymentStatuType.PAYMENT_STATUS_FAIL.value
         order_model.payment_channel = payment_channel
         order_model.payment_time = datetime.now()
