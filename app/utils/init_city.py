@@ -7,7 +7,7 @@
 
 import os
 import pymysql
-from loguru import logger
+from app.core.log import logger
 from dotenv import load_dotenv
 
 load_dotenv()

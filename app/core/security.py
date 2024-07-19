@@ -13,7 +13,7 @@ import hmac
 import re
 from datetime import datetime, timedelta
 from typing import Type, Any
-from loguru import logger
+from app.core.log import logger
 
 from fastapi import Depends, HTTPException, status
 from fastapi.security import OAuth2PasswordBearer

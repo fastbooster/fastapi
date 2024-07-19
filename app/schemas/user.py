@@ -7,7 +7,7 @@
 
 import re
 
-from loguru import logger
+from app.core.log import logger
 
 from datetime import datetime
 from typing import List, Optional, Union, Any

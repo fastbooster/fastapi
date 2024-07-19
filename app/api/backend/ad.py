@@ -6,7 +6,7 @@
 # Time: 2024/5/29 20:56
 
 from fastapi import APIRouter, HTTPException, Depends
-from loguru import logger
+from app.core.log import logger
 
 from app.constants.constants import RESPONSE_OK
 from app.core.security import check_permission

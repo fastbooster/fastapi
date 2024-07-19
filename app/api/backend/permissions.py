@@ -5,7 +5,7 @@
 # Email: easelify@gmail.com
 # Time: 2024/07/06 20:43
 
-from loguru import logger
+from app.core.log import logger
 
 from fastapi import APIRouter, HTTPException, Depends
 

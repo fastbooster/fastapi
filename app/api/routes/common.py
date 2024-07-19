@@ -5,7 +5,7 @@
 # Email: qiuyutang@qq.com
 # Time: 2024/5/20 09:51
 
-from loguru import logger
+from app.core.log import logger
 from fastapi import APIRouter, Depends, UploadFile, File, HTTPException
 
 from app.schemas.schemas import ResponseSuccess
