@@ -7,19 +7,17 @@
 
 import os
 import json
-import secrets
 import hashlib
 import hmac
 import re
 from datetime import datetime, timedelta
-from typing import Type, Any
+from typing import Any
 from app.core.log import logger
 
 from fastapi import Depends, HTTPException, status
 from fastapi.security import OAuth2PasswordBearer
 from jose import JWTError, jwt
 from passlib.context import CryptContext
-from sqlalchemy.orm import Session
 
 from app.models.user import UserModel
 from app.core.redis import get_redis
@@ -32,15 +30,11 @@ class BearAuthException(Exception):
 
 
 pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
-
 oauth2_scheme = OAuth2PasswordBearer(tokenUrl="/api/v1/auth/token")
 
+# PROD多进程模型下，SECRET_KEY 需要使用环境变量来保证密钥统一，否则会导致不同进程间密钥不一致
 ALGORITHM = 'HS256'
-
-# 这是 jwttoken 的密钥, 无需固定值, 每次重启所有登录都会失效
-# 开发模式下固定为 fastapi, 修改代码后热重载不会导致登录生效, 生产模式下则随机生成
-SECRET_KEY = secrets.token_urlsafe(32) if os.getenv(
-    'RUNTIME_MODE').lower() == 'prod' else 'fastapi'
+SECRET_KEY = os.getenv('SECRET_KEY_BASE') or 'fastapi'
 
 
 def raise_forbidden():
@@ -87,12 +81,9 @@ def create_access_token(subject: str | Any) -> str:
 def get_token_payload(token: str = Depends(oauth2_scheme)) -> str | Any:
     try:
         payload = jwt.decode(token, SECRET_KEY, algorithms=ALGORITHM)
-        payload_sub: str = payload.get("sub")
-        if payload_sub is None:
-            raise BearAuthException('Token could not be validated')
-        return payload_sub
-    except JWTError:
-        raise BearAuthException('Token could not be validated')
+        return payload.get("sub")
+    except JWTError as e:
+        raise BearAuthException(f'Token could not be validated: {e}')
 
 
 def authenticate_user_by_password(password: str, phone: str = None, email: str = None) -> dict:
@@ -118,8 +109,8 @@ def get_current_user_id(token: str = Depends(oauth2_scheme)) -> int:
     """根据 token 获取用户ID"""
     try:
         user_id = get_token_payload(token)
-    except BearAuthException:
-        logger.warning('Could not validate bearer token')
+    except BearAuthException as e:
+        logger.warning(e)
         raise_forbidden()
 
     return int(user_id)
@@ -129,8 +120,8 @@ def get_current_user(token: str = Depends(oauth2_scheme)) -> dict:
     """根据 token 获取用户信息"""
     try:
         user_id = get_token_payload(token)
-    except BearAuthException:
-        logger.warning('Could not validate bearer token')
+    except BearAuthException as e:
+        logger.warning(e)
         raise_forbidden()
 
     with get_session() as db:
@@ -149,15 +140,15 @@ def get_current_user_from_cache(token: str = Depends(oauth2_scheme)) -> dict:
     """根据 token 从登录缓存中获取用户信息"""
     try:
         user_id = get_token_payload(token)
-    except BearAuthException:
-        logger.warning('Could not validate bearer token')
+    except BearAuthException as e:
+        logger.warning(e)
         raise_forbidden()
 
     with get_redis() as redis:
         user_data = json.loads(redis.get(f'{REDIS_AUTH_USER_PREFIX}{user_id}'))
 
     if not user_data:
-        logger.warning('Could not validate bearer token')
+        logger.warning(f'Could not validate bearer token: {token}')
         raise_forbidden()
 
     return user_data
