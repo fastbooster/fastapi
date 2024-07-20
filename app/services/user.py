@@ -13,8 +13,7 @@ from app.core.security import encode_password
 from app.core.mysql import get_session
 from app.models.user import UserModel
 
-from app.schemas.user import UserSearchQuery
-from app.schemas.user import UserSearchQuery, UserItem, UserListResponse
+from app.schemas.user import UserSearchQuery, UserQuickSearchQuery, UserItem, UserListResponse, UserQuickListResponse
 
 
 def safe_whitelist_fields(user_data: dict) -> dict:
@@ -59,6 +58,21 @@ def get_user_list(params: UserSearchQuery) -> UserListResponse:
             offset = (params.page - 1) * params.size
             query.offset(offset).limit(params.size)
     return {"total": total, "items": query.all()}
+
+
+def get_user_quick_list(params: UserQuickSearchQuery) -> UserQuickListResponse:
+    with get_session() as db:
+        query = db.query(UserModel.id, UserModel.phone,
+                         UserModel.email).order_by(desc('id'))
+        if params.keyword.isnumeric():
+            query = query.filter(UserModel.phone.like(f'%{params.keyword}%'))
+        else:
+            query = query.filter(
+                UserModel.nickname.like(f'%{params.keyword}%'))
+        query.offset(0).limit(params.limit)
+        items = query.all()
+
+        return {"total": len(items), "items": items}
 
 
 def add_user(params: UserItem) -> bool:

@@ -9,10 +9,10 @@ import re
 
 from app.core.log import logger
 
+from enum import Enum
 from datetime import datetime
 from typing import List, Optional, Union, Any
 from pydantic import BaseModel, Field, EmailStr, validator
-from enum import Enum
 
 from app.schemas.schemas import PaginationParams
 
@@ -36,6 +36,11 @@ class ChangePwdForm(BaseModel):
     """修改密码表单"""
     old_pwd: str
     new_pwd: str
+
+
+class UserQuickSearchQuery(BaseModel):
+    keyword: int | str = Field(None, description="关键字")
+    limit: Optional[int] = Field(10, ge=1, le=100, description="数量")
 
 
 class UserSearchQuery(PaginationParams):
@@ -97,7 +102,8 @@ class UserItem(BaseUserForm):
     agent_id: Optional[int] = 0
     phone_code: Optional[str] = '86'
     phone: Optional[str] = Field(None, description='与 email 二者必填其一')
-    email: Optional[Union[EmailStr, str]] = Field(None, description='与 phone 二者必填其一')
+    email: Optional[Union[EmailStr, str]] = Field(
+        None, description='与 phone 二者必填其一')
     nickname: Optional[str] = None
     password: Optional[str] = Field(None, description='明文密码，用于注册用户')
     gender: Optional[GenderType] = GenderType.UNKNOWN
@@ -118,3 +124,14 @@ class UserItem(BaseUserForm):
 class UserListResponse(BaseModel):
     total: int
     items: List[UserItem]
+
+
+class UserSimpleItem(BaseModel):
+    id: int = Field(None, description="ID")
+    phone: Optional[str] = Field(None, description="手机")
+    email: Optional[EmailStr] = Field(None, description="邮箱")
+
+
+class UserQuickListResponse(BaseModel):
+    total: int
+    items: List[UserSimpleItem]

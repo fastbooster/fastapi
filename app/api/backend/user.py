@@ -13,7 +13,7 @@ from app.core.security import check_permission, get_current_user_id
 from app.services import user as UserService
 
 from app.schemas.schemas import ResponseSuccess
-from app.schemas.user import UserSearchQuery, UserItem, UserListResponse, JoinFromType
+from app.schemas.user import UserSearchQuery, UserQuickSearchQuery, UserItem, UserListResponse, UserQuickListResponse, JoinFromType
 
 router = APIRouter()
 
@@ -21,6 +21,11 @@ router = APIRouter()
 @router.get("/users", response_model=UserListResponse, dependencies=[Depends(check_permission('UserList'))], summary="用户列表")
 def lists(params: UserSearchQuery = Depends()):
     return UserService.get_user_list(params)
+
+
+@router.get("/users/quick_search", response_model=UserQuickListResponse, dependencies=[Depends(check_permission('UserList'))], summary="用户快速搜索，用于前端下拉列表")
+def lists(params: UserQuickSearchQuery = Depends()):
+    return UserService.get_user_quick_list(params)
 
 
 @router.get("/users/{id}", response_model=UserItem, dependencies=[Depends(check_permission('UserList'))], summary="用户详情",)
