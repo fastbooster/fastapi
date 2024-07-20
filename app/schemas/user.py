@@ -128,6 +128,7 @@ class UserListResponse(BaseModel):
 
 class UserSimpleItem(BaseModel):
     id: int = Field(None, description="ID")
+    nickname: Optional[str] = Field(None, description="昵称")
     phone: Optional[str] = Field(None, description="手机")
     email: Optional[EmailStr] = Field(None, description="邮箱")
 

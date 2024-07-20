@@ -62,10 +62,13 @@ def get_user_list(params: UserSearchQuery) -> UserListResponse:
 
 def get_user_quick_list(params: UserQuickSearchQuery) -> UserQuickListResponse:
     with get_session() as db:
-        query = db.query(UserModel.id, UserModel.phone,
+        query = db.query(UserModel.id, UserModel.nickname, UserModel.phone,
                          UserModel.email).order_by(desc('id'))
         if params.keyword.isnumeric():
-            query = query.filter(UserModel.phone.like(f'%{params.keyword}%'))
+            query = query.filter(or_(
+                UserModel.id == params.keyword,
+                UserModel.phone.like(f'%{params.keyword}%')
+            ))
         else:
             query = query.filter(
                 UserModel.nickname.like(f'%{params.keyword}%'))
