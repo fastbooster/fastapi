@@ -33,7 +33,7 @@ from app.core.payment import payment_manager
 from app.schemas.balance_recharge import BalanceRechargeSearchQuery, BalanceRechargeItem, BalanceRechargeListResponse
 
 
-def get_balance_recharge(id: int = 0, trade_no: Optional[str] = None) -> BalanceRechargeModel | None:
+def get_balance_recharge(id: Optional[int] = 0, trade_no: Optional[str] = None) -> BalanceRechargeModel | None:
     with get_session() as db:
         if id > 0:
             return db.query(BalanceRechargeModel).filter(BalanceRechargeModel.id == id).first()
@@ -54,6 +54,9 @@ def get_balance_recharge_list(params: BalanceRechargeSearchQuery) -> BalanceRech
         if params.trade_no:
             query = query.filter(
                 BalanceRechargeModel.trade_no.like(f'%{params.trade_no}%'))
+        if isinstance(params.payment_status, PaymentStatusType):
+            query = query.filter(
+                BalanceRechargeModel.payment_status == params.payment_status.value)
         if isinstance(params.payment_channel, PaymentChannelType):
             query = query.filter(
                 BalanceRechargeModel.payment_channel == params.payment_channel.value)
@@ -73,6 +76,8 @@ def get_balance_recharge_list(params: BalanceRechargeSearchQuery) -> BalanceRech
             total = query.count()
             offset = (params.page - 1) * params.size
             query.offset(offset).limit(params.size)
+
+    # payment_status
 
     return {"total": total, "items": query.all()}
 

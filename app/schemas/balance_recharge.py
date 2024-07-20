@@ -80,6 +80,7 @@ class BalanceRechargeSearchQuery(PaginationParams):
     user_id: Optional[int] = Field(None, description="用户ID")
     trade_no: Optional[str] = Field(None, description="交易号")
     payment_channel: Optional[PaymentChannelType] = Field(None, description="支付渠道")
+    payment_status: Optional[PaymentStatusType] = Field(None, description="付款状态")
     payment_start: Optional[datetime] = Field(None, description="付款时间开始")
     payment_end: Optional[datetime] = Field(None, description="付款时间结束")
     created_start: Optional[datetime] = Field(None, description="创建时间开始")
