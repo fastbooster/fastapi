@@ -6,15 +6,18 @@
 # Time: 2024/05/15 21:12
 
 import os
-import pymysql
 from contextlib import contextmanager
 from sqlalchemy import create_engine
 from sqlalchemy.orm import scoped_session, sessionmaker
-from dbutils.pooled_db import PooledDB
 from dotenv import load_dotenv
 from app.core.log import logger
 
 load_dotenv()
+
+# 开启 SQLAlchemy 调试日志
+# import logging
+# logging.basicConfig()
+# logging.getLogger('sqlalchemy.engine').setLevel(logging.INFO)
 
 # 连接池耗尽排查
 # https://docs.sqlalchemy.org/en/20/errors.html#error-3o7r
@@ -32,54 +35,72 @@ MYSQL_CONFIG = {
     'charset': os.getenv("DB_CHARSET"),
 }
 
-# 使用 SQLAlchemy 创建 Engine，并指定连接池作为连接源
-engine = create_engine(
-    'mysql+pymysql://{user}:{password}@{host}:{port}/{database}?charset={charset}'.format(
-        **MYSQL_CONFIG),
-    pool_pre_ping=True,  # 在每次获取连接时检查连接是否有效
-    pool_recycle=-1,  # 定时自动回收连接，防止有未关闭的连接将连接池耗尽
-    pool_timeout=10,  # 连接池超时时间, 此时间内从池子获取不到连接则抛出异常
-    pool_size=pool_size,  # 连接池大小
-    max_overflow=pool_size * 2,
-    # max_overflow=0,  # 不允许 SQLAlchemy 创建额外连接
-    # poolclass=db_pool.Pool, # 使用自定义的其他连接池类
-)
 
-# 创建 ORM Session 工厂
-SessionFactory = sessionmaker(bind=engine, autoflush=False, autocommit=False)
-Session = scoped_session(SessionFactory)
-
-
-def get_url() -> str:
+def get_url(read_only: bool = False) -> str:
+    if read_only:
+        MYSQL_CONFIG["host"] = os.getenv("DB_HOST_RO")
     return 'mysql+pymysql://{user}:{password}@{host}:{port}/{database}?charset={charset}'.format(**MYSQL_CONFIG)
 
 
-def get_db():
+write_engine = create_engine(
+    get_url(read_only=False),
+    pool_pre_ping=True,
+    pool_timeout=30,
+    pool_recycle=-1,
+    pool_size=pool_size,
+    max_overflow=pool_size * 2,
+)
+read_engine = create_engine(
+    get_url(read_only=True),
+    pool_pre_ping=True,
+    pool_timeout=30,
+    pool_recycle=-1,
+    pool_size=pool_size,
+    max_overflow=pool_size * 2,
+)
+WriteSessionFactory = sessionmaker(
+    bind=write_engine, autoflush=False, autocommit=False)
+WriteSession = scoped_session(WriteSessionFactory)
+ReadSessionFactory = sessionmaker(
+    bind=read_engine, autoflush=False, autocommit=False)
+ReadSession = scoped_session(ReadSessionFactory)
+
+
+def get_db(read_only: bool = False):
     """
-    上下文管理器，用于获取数据库会话对象，并在上下文结束时自动关闭会话。
+    依赖注入适用，在函数中使用时，需要使用 `db: Session = Depends(get_db)` 声明依赖。
+    ```python
+    def func(db: Session = Depends(get_db(False))):
+        pass
+    ```
     """
     db = None
     try:
-        db = Session()
-        yield db  # 将会话对象提供给上下文使用
+        db = WriteSession() if not read_only else ReadSession()
+        yield db
+    except Exception as e:
+        logger.error(f"get_db(read_only={read_only}) 数据库操作发生异常：{e}")
+        raise
     finally:
-        if db is not None:
-            db.close()
+        if db is not None and db.is_active:
+            if not read_only:
+                WriteSession.remove()
+            else:
+                ReadSession.remove()
 
 
 @contextmanager
-def get_session():
-    """
-    上下文管理器，用于获取数据库会话对象，并在上下文结束时自动关闭会话。
-    """
+def get_session(read_only: bool = False):
     session = None
     try:
-        session = Session()
+        session = WriteSession() if not read_only else ReadSession()
         yield session
     except Exception as e:
-        logger.error(f"数据库操作发生异常：{e}")
+        logger.error(f"get_session(read_only={read_only}) 数据库操作发生异常：{e}")
         raise
     finally:
         if session is not None and session.is_active:
-            # session.close()
-            Session.remove()
+            if not read_only:
+                WriteSession.remove()
+            else:
+                ReadSession.remove()
