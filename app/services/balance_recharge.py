@@ -34,7 +34,7 @@ from app.schemas.balance_recharge import BalanceRechargeSearchQuery, BalanceRech
 
 
 def get_balance_recharge(id: Optional[int] = 0, trade_no: Optional[str] = None) -> BalanceRechargeModel | None:
-    with get_session() as db:
+    with get_session(read_only=True) as db:
         if id > 0:
             return db.query(BalanceRechargeModel).filter(BalanceRechargeModel.id == id).first()
         elif trade_no is not None:
@@ -46,7 +46,7 @@ def get_balance_recharge(id: Optional[int] = 0, trade_no: Optional[str] = None) 
 def get_balance_recharge_list(params: BalanceRechargeSearchQuery) -> BalanceRechargeListResponse:
     total = -1
     export = True if params.export == 1 else False
-    with get_session() as db:
+    with get_session(read_only=True) as db:
         query = db.query(BalanceRechargeModel).order_by(desc('id'))
         if params.user_id:
             query = query.filter(
@@ -76,10 +76,9 @@ def get_balance_recharge_list(params: BalanceRechargeSearchQuery) -> BalanceRech
             total = query.count()
             offset = (params.page - 1) * params.size
             query.offset(offset).limit(params.size)
+        items = query.all()
 
-    # payment_status
-
-    return {"total": total, "items": query.all()}
+    return {"total": total, "items": items}
 
 
 def pay(params: PayForm, user_data: dict) -> dict:

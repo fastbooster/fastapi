@@ -38,7 +38,7 @@ def safe_whitelist_fields(post_data: dict) -> dict:
 
 def get_balance_list(params: SearchQuery) -> list[BalanceModel]:
     export = True if params.export == 1 else False
-    with get_session() as db:
+    with get_session(read_only=True) as db:
         query = db.query(BalanceModel).order_by(desc('id'))
         if params.user_id > 0:
             query = query.filter_by(user_id=params.user_id)
@@ -47,13 +47,12 @@ def get_balance_list(params: SearchQuery) -> list[BalanceModel]:
         if not export:
             offset = (params.page - 1) * params.size
             query.offset(offset).limit(params.size)
-
-    return query.all()
+        return query.all()
 
 
 def get_balance_gift_list(params: SearchQuery) -> list[BalanceGiftModel]:
     export = True if params.export == 1 else False
-    with get_session() as db:
+    with get_session(read_only=True) as db:
         query = db.query(BalanceGiftModel).order_by(desc('id'))
         if params.user_id > 0:
             query = query.filter_by(user_id=params.user_id)
@@ -62,13 +61,12 @@ def get_balance_gift_list(params: SearchQuery) -> list[BalanceGiftModel]:
         if not export:
             offset = (params.page - 1) * params.size
             query.offset(offset).limit(params.size)
-
-    return query.all()
+        return query.all()
 
 
 def get_point_list(params: SearchQuery) -> list[PointModel]:
     export = True if params.export == 1 else False
-    with get_session() as db:
+    with get_session(read_only=True) as db:
         query = db.query(PointModel).order_by(desc('id'))
         if params.user_id > 0:
             query = query.filter_by(user_id=params.user_id)
@@ -77,8 +75,7 @@ def get_point_list(params: SearchQuery) -> list[PointModel]:
         if not export:
             offset = (params.page - 1) * params.size
             query.offset(offset).limit(params.size)
-
-    return query.all()
+        return query.all()
 
 
 def adjust_balance(params: AdjustForm, user_data: dict) -> bool:
@@ -189,7 +186,7 @@ def checkin(user_id: int, ip: str, user_agent: str) -> bool:
 
 def get_payment_account_list(params: PaymentAccountSearchQuery) -> list[PaymentAccountModel]:
     export = True if params.export == 1 else False
-    with get_session() as db:
+    with get_session(read_only=True) as db:
         query = db.query(PaymentAccountModel).order_by(desc('id'))
         if params.id > 0:
             query = query.filter_by(id=params.id)
@@ -204,12 +201,11 @@ def get_payment_account_list(params: PaymentAccountSearchQuery) -> list[PaymentA
         if not export:
             offset = (params.page - 1) * params.size
             query.offset(offset).limit(params.size)
-
-    return query.all()
+        return query.all()
 
 
 def get_payment_account_list_frontend(params: PaymentAccountFrontendSearchQuery, user_id: int) -> list[dict]:
-    with get_session() as db:
+    with get_session(read_only=True) as db:
         query = db.query(
             PaymentAccountModel.id, PaymentAccountModel.user_id, PaymentAccountModel.type, PaymentAccountModel.account,
             PaymentAccountModel.status,
@@ -456,7 +452,7 @@ def balance_unifiedorder(params: RechargeForm, user_id: int, user_ip: str) -> di
 
 
 def point_check(trade_no: str, user_id: int) -> dict:
-    with get_session() as db:
+    with get_session(read_only=True) as db:
         order_model = db.query(PointRechargeModel).filter_by(trade_no=trade_no).first()
         if order_model is None or order_model.user_id != user_id:
             raise ValueError('订单不存在')
@@ -470,7 +466,7 @@ def point_check(trade_no: str, user_id: int) -> dict:
 
 
 def balance_check(trade_no: str, user_id: int) -> dict:
-    with get_session() as db:
+    with get_session(read_only=True) as db:
         order_model = db.query(BalanceRechargeModel).filter_by(trade_no=trade_no).first()
         if order_model is None or order_model.user_id != user_id:
             raise ValueError('订单不存在')

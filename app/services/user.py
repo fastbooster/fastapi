@@ -24,19 +24,17 @@ def safe_whitelist_fields(user_data: dict) -> dict:
 
 
 def get_user(id: int) -> UserModel | None:
-    with get_session() as db:
+    with get_session(read_only=True) as db:
         user = db.query(UserModel).filter(UserModel.id == id).first()
-
-    if user is not None:
-        return user
-
-    return None
+        if user is not None:
+            return user
+        return None
 
 
 def get_user_list(params: UserSearchQuery) -> UserListResponse:
     total = -1
     export = True if params.export == 1 else False
-    with get_session() as db:
+    with get_session(read_only=True) as db:
         query = db.query(UserModel).order_by(desc('id'))
         if params.nickname:
             query = query.filter(
@@ -57,11 +55,11 @@ def get_user_list(params: UserSearchQuery) -> UserListResponse:
             total = query.count()
             offset = (params.page - 1) * params.size
             query.offset(offset).limit(params.size)
-    return {"total": total, "items": query.all()}
+        return {"total": total, "items": query.all()}
 
 
 def get_user_quick_list(params: UserQuickSearchQuery) -> UserQuickListResponse:
-    with get_session() as db:
+    with get_session(read_only=True) as db:
         query = db.query(UserModel.id, UserModel.nickname, UserModel.phone,
                          UserModel.email).order_by(desc('id'))
         if params.keyword.isnumeric():
@@ -74,7 +72,6 @@ def get_user_quick_list(params: UserQuickSearchQuery) -> UserQuickListResponse:
                 UserModel.nickname.like(f'%{params.keyword}%'))
         query.offset(0).limit(params.limit)
         items = query.all()
-
         return {"total": len(items), "items": items}
 
 

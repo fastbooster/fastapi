@@ -24,7 +24,7 @@ def safe_whitelist_fields(post_category_data: dict) -> dict:
 
 
 def get_category(id: int) -> PostCategoryModel | None:
-    with get_session() as db:
+    with get_session(read_only=True) as db:
         post_category = db.query(PostCategoryModel).filter(PostCategoryModel.id == id).first()
 
     if post_category is not None:
@@ -35,7 +35,7 @@ def get_category(id: int) -> PostCategoryModel | None:
 
 def get_category_list(params: CategorySearchQuery) -> list[PostCategoryModel]:
     export = True if params.export == 1 else False
-    with get_session() as db:
+    with get_session(read_only=True) as db:
         query = db.query(PostCategoryModel).order_by(desc('id'))
         if params.name:
             query = query.filter(PostCategoryModel.name.like(f'%{params.name}%'))
@@ -46,8 +46,7 @@ def get_category_list(params: CategorySearchQuery) -> list[PostCategoryModel]:
         if not export:
             offset = (params.page - 1) * params.size
             query.offset(offset).limit(params.size)
-
-    return query.all()
+        return query.all()
 
 
 def get_category_list_from_cache() -> list:
@@ -120,7 +119,7 @@ def delete_category(id: int) -> bool:
 def rebuild_cache() -> bool:
     with get_redis() as redis:
         redis.delete(REDIS_POST_CATEGORY)
-    with get_session() as db:
+    with get_session(read_only=True) as db:
         post_category_models = db.query(PostCategoryModel).order_by(asc('id')).all()
         if post_category_models:
             for post_category_model in post_category_models:
@@ -138,7 +137,7 @@ def update_cache(post_category_model: PostCategoryModel, is_delete: bool = False
 
 
 def data_validate(params: BaseModel) -> bool:
-    with get_session() as db:
+    with get_session(read_only=True) as db:
         id = params.id if hasattr(params, 'id') else 0
         name = params.name
         alias = params.alias

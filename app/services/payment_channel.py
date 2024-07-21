@@ -22,20 +22,18 @@ from app.schemas.payment_channel import PaymentChannelItem, PaymentChannelSearch
 
 
 def get_payment_channel(id: int) -> PaymentChannelModel | None:
-    with get_session() as db:
+    with get_session(read_only=True) as db:
         item = db.query(PaymentChannelModel).filter(
             PaymentChannelModel.id == id).first()
-
-    if item is not None:
-        return item
-
-    return None
+        if item is not None:
+            return item
+        return None
 
 
 def get_payment_channel_list(params: PaymentChannelSearchQuery) -> PaymentChannelListResponse:
     total = -1
     export = True if params.export == 1 else False
-    with get_session() as db:
+    with get_session(read_only=True) as db:
         query = db.query(PaymentChannelModel).order_by(asc('asc_sort_order'))
         if params.key:
             query = query.filter(
@@ -50,8 +48,7 @@ def get_payment_channel_list(params: PaymentChannelSearchQuery) -> PaymentChanne
             total = query.count()
             offset = (params.page - 1) * params.size
             query.offset(offset).limit(params.size)
-
-    return {"total": total, "items": query.all()}
+        return {"total": total, "items": query.all()}
 
 
 def add_payment_channel(params: PaymentChannelItem) -> bool:
@@ -79,8 +76,7 @@ def add_payment_channel(params: PaymentChannelItem) -> bool:
         db.add(model)
         db.commit()
         update_cache(model.to_dict())
-
-    return True
+        return True
 
 
 def edit_payment_channel(params: PaymentChannelItem) -> bool:
@@ -111,8 +107,7 @@ def edit_payment_channel(params: PaymentChannelItem) -> bool:
         params = model.to_dict()
         db.commit()
         update_cache(params)
-
-    return True
+        return True
 
 
 def delete_payment_channel(id: int) -> bool:
@@ -132,8 +127,7 @@ def delete_payment_channel(id: int) -> bool:
         db.delete(model)
         db.commit()
         update_cache(params, is_delete=True)
-
-    return True
+        return True
 
 
 def update_cache(params: dict, is_delete: bool = False) -> None:
@@ -155,7 +149,7 @@ def update_cache(params: dict, is_delete: bool = False) -> None:
 
 
 def rebuild_cache() -> None:
-    with get_session() as db:
+    with get_session(read_only=True) as db:
         with get_redis() as redis:
             items = db.query(PaymentChannelModel).order_by(
                 asc('asc_sort_order')).all()

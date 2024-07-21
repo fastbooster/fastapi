@@ -23,7 +23,7 @@ def safe_whitelist_fields(option_data: dict) -> dict:
 
 
 def get_option(id: int) -> SystemOptionModel | None:
-    with get_session() as db:
+    with get_session(read_only=True) as db:
         option = db.query(SystemOptionModel).filter(
             SystemOptionModel.id == id).first()
 
@@ -41,7 +41,7 @@ def get_option_from_cache(option_name: str) -> OptionItem:
 
 
 def get_option_by_name(option_name: str) -> SystemOptionModel | None:
-    with get_session() as db:
+    with get_session(read_only=True) as db:
         option = db.query(SystemOptionModel).filter(
             SystemOptionModel.option_name == option_name).first()
 
@@ -54,7 +54,7 @@ def get_option_by_name(option_name: str) -> SystemOptionModel | None:
 def get_option_list(params: OptionSearchQuery) -> OptionListResponse:
     total = -1
     export = True if params.export == 1 else False
-    with get_session() as db:
+    with get_session(read_only=True) as db:
         query = db.query(SystemOptionModel).order_by(desc('id'))
         if params.option_name:
             query = query.filter(
@@ -69,8 +69,7 @@ def get_option_list(params: OptionSearchQuery) -> OptionListResponse:
             total = query.count()
             offset = (params.page - 1) * params.size
             query.offset(offset).limit(params.size)
-
-    return {"total": total, "items": query.all()}
+        return {"total": total, "items": query.all()}
 
 
 def add_option(params: OptionItem) -> bool:
@@ -169,7 +168,7 @@ def update_cache(option_model: SystemOptionModel, is_delete: bool = False) -> No
 
 
 def rebuild_cache() -> None:
-    with get_session() as db:
+    with get_session(read_only=True) as db:
         with get_redis() as redis:
             redis.delete(REDIS_SYSTEM_OPTIONS_AUTOLOAD)
             items = db.query(SystemOptionModel).filter_by(autoload=1).all()

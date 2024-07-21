@@ -12,8 +12,7 @@ from app.models.cms import CityModel
 
 
 def get_city_list(pid: int) -> list[CityModel]:
-    with get_session() as db:
+    with get_session(read_only=True) as db:
         query = db.query(CityModel).filter(CityModel.pid == pid, CityModel.status == 1).order_by(asc(CityModel.id))
         results = query.all()
-
-    return results
+        return results

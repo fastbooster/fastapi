@@ -42,7 +42,7 @@ def authorize(request: Request, form: OAuth2PasswordRequestForm = Depends()):
 
     # 获取用户权限列表
     if user_data['role_id']:
-        with get_session() as db:
+        with get_session(read_only=True) as db:
             # 目前只支持单用户单角色模式
             user_role = (db.query(RoleModel)
                          .filter_by(id=user_data['role_id'])

@@ -87,7 +87,7 @@ def get_token_payload(token: str = Depends(oauth2_scheme)) -> str | Any:
 
 
 def authenticate_user_by_password(password: str, phone: str = None, email: str = None) -> dict:
-    with get_session() as db:
+    with get_session(read_only=True) as db:
         if phone is not None:
             user = db.query(UserModel).filter_by(phone=phone).first()
         elif email is not None:
@@ -95,14 +95,14 @@ def authenticate_user_by_password(password: str, phone: str = None, email: str =
         else:
             raise BearAuthException('手机或邮箱必须填写一个')
 
-    if not user or not verify_password(password, user.password_salt, user.password_hash):
-        raise HTTPException(
-            status_code=status.HTTP_403_FORBIDDEN, detail="账号或密码错误")
+        if not user or not verify_password(password, user.password_salt, user.password_hash):
+            raise HTTPException(
+                status_code=status.HTTP_403_FORBIDDEN, detail="账号或密码错误")
 
-    user_data = user.__dict__
-    user_data.pop('_sa_instance_state', None)
+        user_data = user.__dict__
+        user_data.pop('_sa_instance_state', None)
 
-    return user_data
+        return user_data
 
 
 def get_current_user_id(token: str = Depends(oauth2_scheme)) -> int:
@@ -124,16 +124,13 @@ def get_current_user(token: str = Depends(oauth2_scheme)) -> dict:
         logger.warning(e)
         raise_forbidden()
 
-    with get_session() as db:
+    with get_session(read_only=True) as db:
         user = db.query(UserModel).filter_by(id=user_id).first()
-
-    if not user:
-        raise_forbidden()
-
-    user_data = user.__dict__
-    user_data.pop('_sa_instance_state', None)
-
-    return user_data
+        if not user:
+            raise_forbidden()
+        user_data = user.__dict__
+        user_data.pop('_sa_instance_state', None)
+        return user_data
 
 
 def get_current_user_from_cache(token: str = Depends(oauth2_scheme)) -> dict:

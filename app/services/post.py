@@ -21,7 +21,7 @@ def safe_whitelist_fields(post_data: dict) -> dict:
 
 def get_post_list(params: PostSearchQuery) -> list[PostModel]:
     export = True if params.export == 1 else False
-    with get_session() as db:
+    with get_session(read_only=True) as db:
         query = db.query(PostModel).order_by(desc('id'))
         if params.title:
             query = query.filter(PostModel.title.like(f'%{params.title}%'))
@@ -40,12 +40,11 @@ def get_post_list(params: PostSearchQuery) -> list[PostModel]:
         if not export:
             offset = (params.page - 1) * params.size
             query.offset(offset).limit(params.size)
-
-    return query.all()
+        return query.all()
 
 
 def get_post_list_frontend(params: PostSearchQuery) -> list[dict]:
-    with get_session() as db:
+    with get_session(read_only=True) as db:
         query = db.query(
             PostModel.id, PostModel.pid, PostModel.title, PostModel.subtitle, PostModel.keywords, PostModel.digest,
             PostModel.hero_image_url, PostModel.author, PostModel.view_num, PostModel.collect_num,
@@ -69,13 +68,12 @@ def get_post_list_frontend(params: PostSearchQuery) -> list[dict]:
         offset = (params.page - 1) * params.size
         query = query.offset(offset).limit(params.size)
         results = query.all()
-
-    post_list = [result._asdict() for result in results]
-    return post_list
+        post_list = [result._asdict() for result in results]
+        return post_list
 
 
 def get_post(id: int) -> PostModel | None:
-    with get_session() as db:
+    with get_session(read_only=True) as db:
         post = db.query(PostModel).filter(PostModel.id == id).first()
 
     if post is not None:
@@ -85,19 +83,17 @@ def get_post(id: int) -> PostModel | None:
 
 
 def get_post_frontend(id: int) -> dict | None:
-    with get_session() as db:
+    with get_session(read_only=True) as db:
         result = db.query(PostModel, PostCategoryModel.name) \
             .join(PostCategoryModel, PostModel.category_id == PostCategoryModel.id, isouter=True) \
             .filter(PostModel.status == 1) \
             .filter(PostModel.id == id).first()
-
-    if result is not None:
-        post = result[0].__dict__
-        post = safe_whitelist_fields(post)
-        post['category_name'] = result[1]
-        return post
-
-    return None
+        if result is not None:
+            post = result[0].__dict__
+            post = safe_whitelist_fields(post)
+            post['category_name'] = result[1]
+            return post
+        return None
 
 
 def add_post(params: PostAddForm) -> bool:

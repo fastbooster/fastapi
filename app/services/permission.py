@@ -14,7 +14,7 @@ from app.schemas.permission import PermissionListResponse
 
 
 def get_permission(id: int) -> PermissionModel | None:
-    with get_session() as db:
+    with get_session(read_only=True) as db:
         permission = db.query(PermissionModel).filter(
             PermissionModel.id == id).first()
     if permission is not None:
@@ -23,23 +23,22 @@ def get_permission(id: int) -> PermissionModel | None:
 
 
 def get_permission_list() -> PermissionListResponse:
-    with get_session() as db:
-        items = db.query(PermissionModel).order_by(asc(PermissionModel.id)).all()
+    with get_session(read_only=True) as db:
+        items = db.query(PermissionModel).order_by(
+            asc(PermissionModel.id)).all()
+        if not items:
+            return {"total": 0, "items": []}
 
-    if not items:
-        return {"total": 0, "items": []}
+        final_items = []
+        for item in items:
+            if item.pid == 0:
+                final_item_dict = item.__dict__.copy()  # 只对pid为0的项转换为字典
+                children = []
+                for sub_item in items:
+                    if sub_item.pid == item.id:
+                        children.append(sub_item.__dict__.copy())  # 对子项也转换为字典
+                if children:
+                    final_item_dict["children"] = children
+                final_items.append(final_item_dict)
 
-    final_items = []
-
-    for item in items:
-        if item.pid == 0:
-            final_item_dict = item.__dict__.copy()  # 只对pid为0的项转换为字典
-            children = []
-            for sub_item in items:
-                if sub_item.pid == item.id:
-                    children.append(sub_item.__dict__.copy())  # 对子项也转换为字典
-            if children:
-                final_item_dict["children"] = children
-            final_items.append(final_item_dict)
-
-    return {"total": len(final_items), "items": final_items}
+        return {"total": len(final_items), "items": final_items}

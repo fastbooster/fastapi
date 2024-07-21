@@ -25,7 +25,7 @@ def safe_whitelist_fields(ad_data: dict) -> dict:
 
 def get_space_list(params: SpaceSearchQuery) -> list[AdSpaceModel]:
     export = True if params.export == 1 else False
-    with get_session() as db:
+    with get_session(read_only=True) as db:
         query = db.query(AdSpaceModel).order_by(desc('id'))
         if params.id > 0:
             query = query.filter_by(id=params.id)
@@ -36,18 +36,15 @@ def get_space_list(params: SpaceSearchQuery) -> list[AdSpaceModel]:
         if not export:
             offset = (params.page - 1) * params.size
             query.offset(offset).limit(params.size)
-
-    return query.all()
+        return query.all()
 
 
 def get_space(id: int) -> AdSpaceModel | None:
-    with get_session() as db:
+    with get_session(read_only=True) as db:
         space = db.query(AdSpaceModel).filter(AdSpaceModel.id == id).first()
-
-    if space is not None:
-        return space
-
-    return None
+        if space is not None:
+            return space
+        return None
 
 
 def add_space(params: SpaceAddForm) -> bool:
@@ -102,7 +99,7 @@ def delete_space(id: int) -> bool:
 
 def get_ad_list(params: AdSearchQuery) -> list[AdModel]:
     export = True if params.export == 1 else False
-    with get_session() as db:
+    with get_session(read_only=True) as db:
         query = db.query(AdModel).order_by(asc('asc_sort_order'), desc('id'))
         if params.id > 0:
             query = query.filter_by(id=params.id)
@@ -113,8 +110,7 @@ def get_ad_list(params: AdSearchQuery) -> list[AdModel]:
         if not export:
             offset = (params.page - 1) * params.size
             query.offset(offset).limit(params.size)
-
-    return query.all()
+        return query.all()
 
 def get_ad_list_from_cache(space_id: int) -> list:
     data = []
@@ -135,13 +131,11 @@ def get_ad_list_from_cache(space_id: int) -> list:
 
 
 def get_ad(id: int) -> AdModel | None:
-    with get_session() as db:
+    with get_session(read_only=True) as db:
         ad = db.query(AdModel).filter(AdModel.id == id).first()
-
-    if ad is not None:
-        return ad
-
-    return None
+        if ad is not None:
+            return ad
+        return None
 
 
 def add_ad(params: AdAddForm) -> bool:
@@ -203,7 +197,7 @@ def rebuild_cache() -> bool:
         keys = redis.keys(REDIS_AD_PREFIX + '*')
         if keys:
             redis.delete(*keys)
-    with get_session() as db:
+    with get_session(read_only=True) as db:
         ads = db.query(AdModel).order_by(asc('id')).all()
         if ads:
             for ad in ads:

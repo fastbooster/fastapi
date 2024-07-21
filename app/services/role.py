@@ -16,7 +16,7 @@ from app.schemas.role import RoleItem, RoleSearchQuery, RoleListResponse
 
 
 def get_role(id: int) -> RoleModel | None:
-    with get_session() as db:
+    with get_session(read_only=True) as db:
         role = db.query(RoleModel).filter(RoleModel.id == id).first()
 
     if role is not None:
@@ -28,7 +28,7 @@ def get_role(id: int) -> RoleModel | None:
 def get_role_list(params: RoleSearchQuery) -> RoleListResponse:
     total = -1
     export = True if params.export == 1 else False
-    with get_session() as db:
+    with get_session(read_only=True) as db:
         query = db.query(RoleModel).order_by(desc('id'))
         if params.name:
             query = query.filter(RoleModel.name.like(f'%{params.name}%'))
@@ -36,8 +36,7 @@ def get_role_list(params: RoleSearchQuery) -> RoleListResponse:
             total = query.count()
             offset = (params.page - 1) * params.size
             query.offset(offset).limit(params.size)
-
-    return {"total": total, "items": query.all()}
+        return {"total": total, "items": query.all()}
 
 
 def add_role(params: RoleItem) -> bool:

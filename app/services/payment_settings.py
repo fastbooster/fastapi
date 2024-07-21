@@ -59,8 +59,8 @@ def get_payment_settings_from_cache() -> PaymentSettingOutListResponse:
 
 
 def get_payment_settings(status: StatusType = None) -> PaymentSettingListResponse | None:
-    items = []
-    with get_session() as db:
+    with get_session(read_only=True) as db:
+        items = []
         query = db.query(PaymentChannelModel).order_by(asc('asc_sort_order'))
         if isinstance(status, StatusType):
             query = query.filter(PaymentChannelModel.status == status.value)
@@ -80,8 +80,7 @@ def get_payment_settings(status: StatusType = None) -> PaymentSettingListRespons
 
             item.children = query.all()
             items.append(item)
-
-    return PaymentSettingListResponse(total=len(items), items=items)
+        return PaymentSettingListResponse(total=len(items), items=items)
 
 
 def update_sort(params: PaymentSettingsSortForm) -> None:

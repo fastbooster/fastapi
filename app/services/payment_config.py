@@ -25,7 +25,7 @@ from app.schemas.payment_config import PaymentConfigItem, PaymentConfigSearchQue
 
 
 def get_payment_config(id: int) -> PaymentConfigModel | None:
-    with get_session() as db:
+    with get_session(read_only=True) as db:
         item = db.query(PaymentConfigModel).filter(
             PaymentConfigModel.id == id).first()
 
@@ -38,7 +38,7 @@ def get_payment_config(id: int) -> PaymentConfigModel | None:
 def get_payment_config_list(params: PaymentConfigSearchQuery) -> PaymentConfigListResponse:
     total = -1
     export = True if params.export == 1 else False
-    with get_session() as db:
+    with get_session(read_only=True) as db:
         query = db.query(PaymentConfigModel).order_by(asc('asc_sort_order'))
         if isinstance(params.channel_id, int):
             query = query.filter(
@@ -53,8 +53,7 @@ def get_payment_config_list(params: PaymentConfigSearchQuery) -> PaymentConfigLi
             total = query.count()
             offset = (params.page - 1) * params.size
             query.offset(offset).limit(params.size)
-
-    return {"total": total, "items": query.all()}
+        return {"total": total, "items": query.all()}
 
 
 def add_payment_config(params: PaymentConfigItem) -> bool:
@@ -191,7 +190,7 @@ def update_cache(params: dict, is_delete: bool = False) -> None:
 
 
 def rebuild_cache() -> None:
-    with get_session() as db:
+    with get_session(read_only=True) as db:
         with get_redis() as redis:
             items = db.query(PaymentConfigModel).order_by(
                 asc('asc_sort_order')).all()
@@ -221,7 +220,6 @@ def prepare_app_private_key(private_key: str | None) -> str | None:
 
     private_key = '\n'.join([private_key[i:i+64]
                             for i in range(0, len(private_key), 64)])
-    private_key = f'-----BEGIN PRIVATE KEY-----\n{
-        private_key}\n-----END PRIVATE KEY-----\n'
+    private_key = f'-----BEGIN PRIVATE KEY-----\n{private_key}\n-----END PRIVATE KEY-----\n'
 
     return private_key
