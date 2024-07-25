@@ -6,17 +6,17 @@
 # Time: 2024/07/13 22:08
 
 
+import traceback
 import xmltodict
-from app.core.log import logger
 
 from fastapi import APIRouter, HTTPException, Depends, Request
 from fastapi.responses import PlainTextResponse
 
-from app.schemas.finance import PaymentChannelType, RechargeForm, PayForm, ScanpayForm, BalanceRechargeSettingListResponse
-
+from app.core.log import logger
 from app.core.security import get_current_user_from_cache
 from app.services import finance as FinanceService
 from app.services import balance_recharge as BalanceRechargeService
+from app.schemas.finance import PaymentChannelType, RechargeForm, PayForm, ScanpayForm, BalanceRechargeSettingListResponse
 
 from app.constants.constants import RESPONSE_WECHAT_SUCCESS, RESPONSE_WECHAT_FAIL, RESPONSE_ALIPAY_SUCCESS, \
     RESPONSE_ALIPAY_FAIL
@@ -49,9 +49,11 @@ def unifiedorder(params: RechargeForm, request: Request, user_data: dict = Depen
         user_ip = request.client.host if request.client else None
         return FinanceService.balance_unifiedorder(params, user_data['id'], user_ip)
     except ValueError as e:
+        logger.info(f'调用堆栈：{traceback.format_exc()}')
         raise HTTPException(status_code=400, detail=f'{e}')
     except Exception as e:
         logger.error(f'余额充值下单失败：{e}')
+        logger.info(f'调用堆栈：{traceback.format_exc()}')
         raise HTTPException(status_code=500, detail='余额充值下单失败')
 
 
@@ -60,9 +62,11 @@ def check(trade_no: str, user_data: dict = Depends(get_current_user_from_cache))
     try:
         return FinanceService.balance_check(trade_no, user_data['id'])
     except ValueError as e:
+        logger.info(f'调用堆栈：{traceback.format_exc()}')
         raise HTTPException(status_code=400, detail=f'{e}')
     except Exception as e:
         logger.error(f'检查余额充值结果失败：{e}')
+        logger.info(f'调用堆栈：{traceback.format_exc()}')
         raise HTTPException(status_code=500, detail='检查余额充值结果失败')
 
 
@@ -71,9 +75,11 @@ def pay(params: PayForm, user_data: dict = Depends(get_current_user_from_cache))
     try:
         return BalanceRechargeService.pay(params, user_data)
     except ValueError as e:
+        logger.info(f'调用堆栈：{traceback.format_exc()}')
         raise HTTPException(status_code=400, detail=f'{e}')
     except Exception as e:
         logger.error(f'余额充值支付失败：{e}')
+        logger.info(f'调用堆栈：{traceback.format_exc()}')
         raise HTTPException(status_code=500, detail='余额充值支付失败：')
 
 
@@ -82,9 +88,11 @@ def scanpay(params: ScanpayForm, user_data: dict = Depends(get_current_user_from
     try:
         return FinanceService.balance_scanpay(params, user_data)
     except ValueError as e:
+        logger.info(f'调用堆栈：{traceback.format_exc()}')
         raise HTTPException(status_code=400, detail=f'{e}')
     except Exception as e:
         logger.error(f'余额充值扫码支付失败：{e}')
+        logger.info(f'调用堆栈：{traceback.format_exc()}')
         raise HTTPException(status_code=500, detail='余额充值扫码支付失败')
 
 
@@ -115,3 +123,4 @@ async def notify(payment_channel: str, request: Request):
         PlainTextResponse(RESPONSE_WECHAT_FAIL if payment_channel ==
                           'wechatpay' else RESPONSE_ALIPAY_FAIL, status_code=200)
         logger.error(f'余额充值结果异步通知处理失败：{e}')
+        logger.info(f'调用堆栈：{traceback.format_exc()}')

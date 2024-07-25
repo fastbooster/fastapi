@@ -5,10 +5,11 @@
 # Email: qiuyutang@qq.com
 # Time: 2024/5/19 15:13
 
-from app.core.log import logger
+import traceback
 
 from fastapi import APIRouter, HTTPException, Depends
 
+from app.core.log import logger
 from app.core.security import check_permission
 from app.services import system_option as OptionService
 
@@ -37,9 +38,11 @@ def add(params: OptionItem):
         OptionService.add_option(params)
         return ResponseSuccess()
     except ValueError as e:
+        logger.info(f'调用堆栈：{traceback.format_exc()}')
         raise HTTPException(status_code=400, detail=f'{e}')
     except Exception as e:
         logger.error(f'添加系统选项失败：{e}')
+        logger.info(f'调用堆栈：{traceback.format_exc()}')
         raise HTTPException(status_code=500, detail='添加系统选项失败')
 
 
@@ -50,9 +53,11 @@ def edit(id: int, params: OptionItem):
         OptionService.edit_option(params)
         return ResponseSuccess()
     except ValueError as e:
+        logger.info(f'调用堆栈：{traceback.format_exc()}')
         raise HTTPException(status_code=400, detail=f'{e}')
     except Exception as e:
         logger.error(f'编辑系统选项失败：{e}')
+        logger.info(f'调用堆栈：{traceback.format_exc()}')
         raise HTTPException(status_code=500, detail='编辑系统选项失败')
 
 
@@ -62,9 +67,11 @@ def delete(id: int):
         OptionService.delete_option(id)
         return ResponseSuccess()
     except ValueError as e:
+        logger.info(f'调用堆栈：{traceback.format_exc()}')
         raise HTTPException(status_code=400, detail=f'{e}')
     except Exception as e:
         logger.error(f'删除系统选项失败：{e}')
+        logger.info(f'调用堆栈：{traceback.format_exc()}')
         raise HTTPException(status_code=500, detail='删除系统选项失败')
 
 
@@ -74,7 +81,9 @@ def rebuild_cache():
         OptionService.rebuild_cache()
         return ResponseSuccess()
     except ValueError as e:
+        logger.info(f'调用堆栈：{traceback.format_exc()}')
         raise HTTPException(status_code=400, detail=f'{e}')
     except Exception as e:
         logger.error(f'重建系统选项缓存失败：{e}')
+        logger.info(f'调用堆栈：{traceback.format_exc()}')
         raise HTTPException(status_code=500, detail='重建系统选项缓存失败')

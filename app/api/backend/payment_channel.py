@@ -5,10 +5,11 @@
 # Email: easelify@gmail.com
 # Time: 2024/07/09 11:51
 
-from app.core.log import logger
+import traceback
 
 from fastapi import APIRouter, HTTPException, Depends
 
+from app.core.log import logger
 from app.core.security import check_permission
 from app.services import payment_channel as PaymentChannelService
 
@@ -37,9 +38,11 @@ def add(params: PaymentChannelItem):
         PaymentChannelService.add_payment_channel(params)
         return ResponseSuccess()
     except ValueError as e:
+        logger.info(f'调用堆栈：{traceback.format_exc()}')
         raise HTTPException(status_code=400, detail=f'{e}')
     except Exception as e:
         logger.error(f'添加支付渠道失败：{e}')
+        logger.info(f'调用堆栈：{traceback.format_exc()}')
         raise HTTPException(status_code=500, detail='添加支付渠道失败')
 
 
@@ -50,11 +53,14 @@ def edit(id: int, params: PaymentChannelItem):
         PaymentChannelService.edit_payment_channel(params)
         return ResponseSuccess()
     except KeyError as e:
+        logger.info(f'调用堆栈：{traceback.format_exc()}')
         raise HTTPException(status_code=400, detail=f'键异常: {e}')
     except ValueError as e:
+        logger.info(f'调用堆栈：{traceback.format_exc()}')
         raise HTTPException(status_code=400, detail=f'{e}')
     except Exception as e:
         logger.error(f'编辑支付渠道失败：{e}')
+        logger.info(f'调用堆栈：{traceback.format_exc()}')
         raise HTTPException(status_code=500, detail='编辑支付渠道失败')
 
 
@@ -64,9 +70,11 @@ def delete(id: int):
         PaymentChannelService.delete_payment_channel(id)
         return ResponseSuccess()
     except ValueError as e:
+        logger.info(f'调用堆栈：{traceback.format_exc()}')
         raise HTTPException(status_code=400, detail=f'{e}')
     except Exception as e:
         logger.error(f'删除支付渠道失败：{e}')
+        logger.info(f'调用堆栈：{traceback.format_exc()}')
         raise HTTPException(status_code=500, detail='删除支付渠道失败')
 
 
@@ -76,7 +84,9 @@ def rebuild_cache():
         PaymentChannelService.rebuild_cache()
         return ResponseSuccess()
     except ValueError as e:
+        logger.info(f'调用堆栈：{traceback.format_exc()}')
         raise HTTPException(status_code=400, detail=f'{e}')
     except Exception as e:
         logger.error(f'重建缓存失败：{e}')
+        logger.info(f'调用堆栈：{traceback.format_exc()}')
         raise HTTPException(status_code=500, detail='重建缓存失败')

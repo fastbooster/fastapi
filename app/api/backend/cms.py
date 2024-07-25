@@ -5,10 +5,11 @@
 # Email: qiuyutang@qq.com
 # Time: 2024/5/20 16:35
 
-from app.core.log import logger
+import traceback
 
 from fastapi import APIRouter, HTTPException, Depends
 
+from app.core.log import logger
 from app.core.security import check_permission
 from app.services import post_category as CategoryService, post as PostService
 
@@ -38,9 +39,11 @@ def add_category(params: CategoryAddForm):
         CategoryService.add_category(params)
         return ResponseSuccess()
     except ValueError as e:
+        logger.info(f'调用堆栈：{traceback.format_exc()}')
         raise HTTPException(status_code=400, detail=f'{e}')
     except Exception as e:
         logger.error(f'添加文章分类失败：{e}')
+        logger.info(f'调用堆栈：{traceback.format_exc()}')
         raise HTTPException(status_code=500, detail='添加文章分类失败')
 
 
@@ -50,9 +53,11 @@ def edit_category(params: CategoryEditForm):
         CategoryService.edit_category(params)
         return ResponseSuccess()
     except ValueError as e:
+        logger.info(f'调用堆栈：{traceback.format_exc()}')
         raise HTTPException(status_code=400, detail=f'{e}')
     except Exception as e:
         logger.error(f'编辑文章分类失败：{e}')
+        logger.info(f'调用堆栈：{traceback.format_exc()}')
         raise HTTPException(status_code=500, detail='编辑文章分类失败')
 
 
@@ -62,9 +67,11 @@ def delete_category(id: int):
         CategoryService.delete_category(id)
         return ResponseSuccess()
     except ValueError as e:
+        logger.info(f'调用堆栈：{traceback.format_exc()}')
         raise HTTPException(status_code=400, detail=f'{e}')
     except Exception as e:
         logger.error(f'删除文章分类失败：{e}')
+        logger.info(f'调用堆栈：{traceback.format_exc()}')
         raise HTTPException(status_code=500, detail='删除文章分类失败')
 
 
@@ -74,9 +81,11 @@ def rebuild_cache():
         CategoryService.rebuild_cache()
         return ResponseSuccess()
     except ValueError as e:
+        logger.info(f'调用堆栈：{traceback.format_exc()}')
         raise HTTPException(status_code=400, detail=f'{e}')
     except Exception as e:
         logger.error(f'重建文章分类缓存失败：{e}')
+        logger.info(f'调用堆栈：{traceback.format_exc()}')
         raise HTTPException(status_code=500, detail='重建文章分类缓存失败')
 
 
@@ -99,9 +108,11 @@ def add_post(params: PostAddForm):
         PostService.add_post(params)
         return ResponseSuccess()
     except ValueError as e:
+        logger.info(f'调用堆栈：{traceback.format_exc()}')
         raise HTTPException(status_code=400, detail=f'{e}')
     except Exception as e:
         logger.error(f'添加文章失败：{e}')
+        logger.info(f'调用堆栈：{traceback.format_exc()}')
         raise HTTPException(status_code=500, detail='添加文章失败')
 
 
@@ -111,9 +122,11 @@ def edit_post(params: PostEditForm):
         PostService.edit_post(params)
         return ResponseSuccess()
     except ValueError as e:
+        logger.info(f'调用堆栈：{traceback.format_exc()}')
         raise HTTPException(status_code=400, detail=f'{e}')
     except Exception as e:
         logger.error(f'编辑文章失败：{e}')
+        logger.info(f'调用堆栈：{traceback.format_exc()}')
         raise HTTPException(status_code=500, detail='编辑文章失败')
 
 
@@ -123,7 +136,9 @@ def delete_post(id: int):
         PostService.delete_post(id)
         return ResponseSuccess()
     except ValueError as e:
+        logger.info(f'调用堆栈：{traceback.format_exc()}')
         raise HTTPException(status_code=400, detail=f'{e}')
     except Exception as e:
         logger.error(f'删除文章失败：{e}')
+        logger.info(f'调用堆栈：{traceback.format_exc()}')
         raise HTTPException(status_code=500, detail='删除文章失败')

@@ -5,10 +5,11 @@
 # Email: easelify@gmail.com
 # Time: 2024/07/06 01:57
 
-from app.core.log import logger
+import traceback
 
 from fastapi import APIRouter, HTTPException, Depends
 
+from app.core.log import logger
 from app.core.security import check_permission
 from app.services import role as RoleService
 
@@ -37,9 +38,11 @@ def add(params: RoleItem):
         RoleService.add_role(params)
         return ResponseSuccess()
     except ValueError as e:
+        logger.info(f'调用堆栈：{traceback.format_exc()}')
         raise HTTPException(status_code=400, detail=f'{e}')
     except Exception as e:
         logger.error(f'添加角色失败：{e}')
+        logger.info(f'调用堆栈：{traceback.format_exc()}')
         raise HTTPException(status_code=500, detail='添加角色失败')
 
 
@@ -50,9 +53,11 @@ def edit(id: int, params: RoleItem):
         RoleService.edit_role(params)
         return ResponseSuccess()
     except ValueError as e:
+        logger.info(f'调用堆栈：{traceback.format_exc()}')
         raise HTTPException(status_code=400, detail=f'{e}')
     except Exception as e:
         logger.error(f'编辑角色失败：{e}')
+        logger.info(f'调用堆栈：{traceback.format_exc()}')
         raise HTTPException(status_code=500, detail='编辑角色失败')
 
 
@@ -62,7 +67,9 @@ def delete(id: int):
         RoleService.delete_role(id)
         return ResponseSuccess()
     except ValueError as e:
+        logger.info(f'调用堆栈：{traceback.format_exc()}')
         raise HTTPException(status_code=400, detail=f'{e}')
     except Exception as e:
         logger.error(f'删除角色失败：{e}')
+        logger.info(f'调用堆栈：{traceback.format_exc()}')
         raise HTTPException(status_code=500, detail='删除角色失败')

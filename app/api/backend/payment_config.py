@@ -5,10 +5,11 @@
 # Email: easelify@gmail.com
 # Time: 2024/07/10 00:57
 
-from app.core.log import logger
+import traceback
 
 from fastapi import APIRouter, HTTPException, Depends
 
+from app.core.log import logger
 from app.core.security import check_permission
 from app.services import payment_config as PaymentConfigService
 
@@ -37,9 +38,11 @@ def add(params: PaymentConfigItem):
         PaymentConfigService.add_payment_config(params)
         return ResponseSuccess()
     except ValueError as e:
+        logger.info(f'调用堆栈：{traceback.format_exc()}')
         raise HTTPException(status_code=400, detail=f'{e}')
     except Exception as e:
         logger.error(f'添加支付配置失败：{e}')
+        logger.info(f'调用堆栈：{traceback.format_exc()}')
         raise HTTPException(status_code=500, detail='添加支付配置失败')
 
 
@@ -50,9 +53,11 @@ def edit(id: int, params: PaymentConfigItem):
         PaymentConfigService.edit_payment_config(params)
         return ResponseSuccess()
     except ValueError as e:
+        logger.info(f'调用堆栈：{traceback.format_exc()}')
         raise HTTPException(status_code=400, detail=f'{e}')
     except Exception as e:
         logger.error(f'编辑支付配置失败：{e}')
+        logger.info(f'调用堆栈：{traceback.format_exc()}')
         raise HTTPException(status_code=500, detail='编辑支付配置失败')
 
 
@@ -63,9 +68,11 @@ def update_status(id: int, params: PaymentConfigItem):
         PaymentConfigService.update_status(params)
         return ResponseSuccess()
     except ValueError as e:
+        logger.info(f'调用堆栈：{traceback.format_exc()}')
         raise HTTPException(status_code=400, detail=f'{e}')
     except Exception as e:
         logger.error(f'编辑支付配置失败：{e}')
+        logger.info(f'调用堆栈：{traceback.format_exc()}')
         raise HTTPException(status_code=500, detail='编辑支付配置失败')
 
 
@@ -75,9 +82,11 @@ def delete(id: int):
         PaymentConfigService.delete_payment_config(id)
         return ResponseSuccess()
     except ValueError as e:
+        logger.info(f'调用堆栈：{traceback.format_exc()}')
         raise HTTPException(status_code=400, detail=f'{e}')
     except Exception as e:
         logger.error(f'删除支付配置失败：{e}')
+        logger.info(f'调用堆栈：{traceback.format_exc()}')
         raise HTTPException(status_code=500, detail='删除支付配置失败')
 
 
@@ -87,7 +96,9 @@ def rebuild_cache():
         PaymentConfigService.rebuild_cache()
         return ResponseSuccess()
     except ValueError as e:
+        logger.info(f'调用堆栈：{traceback.format_exc()}')
         raise HTTPException(status_code=400, detail=f'{e}')
     except Exception as e:
         logger.error(f'重建缓存失败：{e}')
+        logger.info(f'调用堆栈：{traceback.format_exc()}')
         raise HTTPException(status_code=500, detail='重建缓存失败')

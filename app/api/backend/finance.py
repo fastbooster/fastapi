@@ -5,11 +5,12 @@
 # Email: qiuyutang@qq.com
 # Time: 2024/5/21 12:07
 
-from app.core.log import logger
+import traceback
 
 from fastapi import APIRouter, HTTPException, Depends, Request
 from typing import List
 
+from app.core.log import logger
 from app.core.security import check_permission, get_current_user_from_cache
 from app.services import finance as FinanceService
 
@@ -45,9 +46,11 @@ def adjust_balance(params: AdjustForm, request: Request, user_data: dict = Depen
         FinanceService.adjust_balance(params, user_data)
         return ResponseSuccess()
     except ValueError as e:
+        logger.info(f'调用堆栈：{traceback.format_exc()}')
         raise HTTPException(status_code=400, detail=f'{e}')
     except Exception as e:
         logger.error(f'调整余额余额失败：{e}')
+        logger.info(f'调用堆栈：{traceback.format_exc()}')
         raise HTTPException(status_code=500, detail='调整余额余额失败')
 
 
@@ -59,9 +62,11 @@ def adjust_balance(params: AdjustForm, request: Request, user_data: dict = Depen
         FinanceService.adjust_balance_gift(params, user_data)
         return ResponseSuccess()
     except ValueError as e:
+        logger.info(f'调用堆栈：{traceback.format_exc()}')
         raise HTTPException(status_code=400, detail=f'{e}')
     except Exception as e:
         logger.error(f'调整赠送余额余额失败：{e}')
+        logger.info(f'调用堆栈：{traceback.format_exc()}')
         raise HTTPException(status_code=500, detail='调整赠送余额余额失败')
 
 
@@ -72,9 +77,11 @@ def adjust_point(params: AdjustForm, user_data: dict = Depends(get_current_user_
         FinanceService.adjust_point(params, user_data)
         return ResponseSuccess()
     except ValueError as e:
+        logger.info(f'调用堆栈：{traceback.format_exc()}')
         raise HTTPException(status_code=400, detail=f'{e}')
     except Exception as e:
         logger.error(f'调整积分余额失败：{e}')
+        logger.info(f'调用堆栈：{traceback.format_exc()}')
         raise HTTPException(status_code=500, detail='调整积分余额失败')
 
 
@@ -95,9 +102,11 @@ def update_point_recharge_settings(settings: List[PointRechargeSettingItem]):
         FinanceService.update_point_recharge_settings(settings)
         return ResponseSuccess()
     except ValueError as e:
+        logger.info(f'调用堆栈：{traceback.format_exc()}')
         raise HTTPException(status_code=400, detail=f'{e}')
     except Exception as e:
         logger.error(f'更新积分充值设置失败：{e}')
+        logger.info(f'调用堆栈：{traceback.format_exc()}')
         raise HTTPException(status_code=500, detail='更新积分充值设置失败')
 
 
@@ -113,7 +122,9 @@ def update_balance_recharge_settings(settings: List[BalanceRechargeSettingItem])
         FinanceService.update_balance_recharge_settings(settings)
         return ResponseSuccess()
     except ValueError as e:
+        logger.info(f'调用堆栈：{traceback.format_exc()}')
         raise HTTPException(status_code=400, detail=f'{e}')
     except Exception as e:
         logger.error(f'更新余额充值设置失败：{e}')
+        logger.info(f'调用堆栈：{traceback.format_exc()}')
         raise HTTPException(status_code=500, detail='更新余额充值设置失败')

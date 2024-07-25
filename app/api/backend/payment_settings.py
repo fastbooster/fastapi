@@ -5,10 +5,11 @@
 # Email: easelify@gmail.com
 # Time: 2024/07/10 00:57
 
-from app.core.log import logger
+import traceback
 
 from fastapi import APIRouter, HTTPException, Depends
 
+from app.core.log import logger
 from app.core.security import check_permission
 from app.services import payment_settings as PaymentSettingService
 from app.services import system_option as SystemOptionService
@@ -31,9 +32,11 @@ def lists(params: PaymentSettingsSortForm):
         PaymentSettingService.update_sort(params)
         return ResponseSuccess()
     except ValueError as e:
+        logger.info(f'调用堆栈：{traceback.format_exc()}')
         raise HTTPException(status_code=400, detail=f'{e}')
     except Exception as e:
         logger.error(f'更新排序失败：{e}')
+        logger.info(f'调用堆栈：{traceback.format_exc()}')
         raise HTTPException(status_code=500, detail='更新排序失败')
 
 
@@ -55,7 +58,9 @@ def alipay_root_cert(params: OptionItem):
         ))
         return ResponseSuccess()
     except ValueError as e:
+        logger.info(f'调用堆栈：{traceback.format_exc()}')
         raise HTTPException(status_code=400, detail=f'{e}')
     except Exception as e:
         logger.error(f'设置支付宝根证书失败：{e}')
+        logger.info(f'调用堆栈：{traceback.format_exc()}')
         raise HTTPException(status_code=500, detail='设置支付宝根证书失败')

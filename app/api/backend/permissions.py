@@ -5,10 +5,9 @@
 # Email: easelify@gmail.com
 # Time: 2024/07/06 20:43
 
-from app.core.log import logger
-
 from fastapi import APIRouter, HTTPException, Depends
 
+from app.core.log import logger
 from app.core.security import check_permission
 from app.services import permission as PermissionService
 

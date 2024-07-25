@@ -5,6 +5,8 @@
 # Email: easelify@gmail.com
 # Time: 2024/05/17 20:13
 
+import traceback
+
 from fastapi import APIRouter, HTTPException, Depends, Request
 
 from app.core.security import get_current_user_from_cache
@@ -30,9 +32,11 @@ def checkin(request: Request, user_data: dict = Depends(get_current_user_from_ca
         FinanceService.checkin(user_data['id'], ip, user_agent)
         return ResponseSuccess()
     except ValueError as e:
+        logger.info(f'调用堆栈：{traceback.format_exc()}')
         raise HTTPException(status_code=400, detail=f'{e}')
     except Exception as e:
         logger.error(f'签到失败：{e}')
+        logger.info(f'调用堆栈：{traceback.format_exc()}')
         raise HTTPException(status_code=500, detail='签到失败')
 
 
@@ -48,9 +52,11 @@ def add_payment_account(params: PaymentAccountAddForm, user_data: dict = Depends
         FinanceService.add_payment_account(params, user_data['id'])
         return ResponseSuccess()
     except ValueError as e:
+        logger.info(f'调用堆栈：{traceback.format_exc()}')
         raise HTTPException(status_code=400, detail=f'{e}')
     except Exception as e:
         logger.error(f'绑定支付账号失败：{e}')
+        logger.info(f'调用堆栈：{traceback.format_exc()}')
         raise HTTPException(status_code=500, detail='绑定支付账号失败')
 
 
@@ -60,9 +66,11 @@ def add_payment_account(params: PaymentAccountEditForm, user_data: dict = Depend
         FinanceService.edit_payment_account(params, user_data['id'])
         return ResponseSuccess()
     except ValueError as e:
+        logger.info(f'调用堆栈：{traceback.format_exc()}')
         raise HTTPException(status_code=400, detail=f'{e}')
     except Exception as e:
         logger.error(f'编辑支付账号失败：{e}')
+        logger.info(f'调用堆栈：{traceback.format_exc()}')
         raise HTTPException(status_code=500, detail='编辑支付账号失败')
 
 
@@ -72,7 +80,9 @@ def add_payment_account(id: int, user_data: dict = Depends(get_current_user_from
         FinanceService.delete_payment_account(id, user_data['id'])
         return ResponseSuccess()
     except ValueError as e:
+        logger.info(f'调用堆栈：{traceback.format_exc()}')
         raise HTTPException(status_code=400, detail=f'{e}')
     except Exception as e:
         logger.error(f'删除支付账号失败：{e}')
+        logger.info(f'调用堆栈：{traceback.format_exc()}')
         raise HTTPException(status_code=500, detail='删除支付账号失败')

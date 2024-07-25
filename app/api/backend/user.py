@@ -5,10 +5,11 @@
 # Email: easelify@gmail.com
 # Time: 2024/05/17 19:48
 
-from app.core.log import logger
+import traceback
 
 from fastapi import APIRouter, HTTPException, Depends, Request
 
+from app.core.log import logger
 from app.core.security import check_permission, get_current_user_id
 from app.services import user as UserService
 
@@ -44,9 +45,11 @@ def add(params: UserItem, request: Request):
         UserService.add_user(params)
         return ResponseSuccess()
     except ValueError as e:
+        logger.info(f'调用堆栈：{traceback.format_exc()}')
         raise HTTPException(status_code=400, detail=f'{e}')
     except Exception as e:
         logger.error(f'添加用户失败：{e}')
+        logger.info(f'调用堆栈：{traceback.format_exc()}')
         raise HTTPException(status_code=500, detail='添加用户失败')
 
 
@@ -57,9 +60,11 @@ def edit(id: int, params: UserItem):
         UserService.edit_user(params)
         return ResponseSuccess()
     except ValueError as e:
+        logger.info(f'调用堆栈：{traceback.format_exc()}')
         raise HTTPException(status_code=400, detail=f'{e}')
     except Exception as e:
         logger.error(f'编辑用户失败：{e}')
+        logger.info(f'调用堆栈：{traceback.format_exc()}')
         raise HTTPException(status_code=500, detail='编辑用户失败')
 
 
@@ -71,7 +76,9 @@ def delete(id: int, curret_user_id: int = Depends(get_current_user_id)):
         UserService.delete_user(id)
         return ResponseSuccess()
     except ValueError as e:
+        logger.info(f'调用堆栈：{traceback.format_exc()}')
         raise HTTPException(status_code=400, detail=f'{e}')
     except Exception as e:
         logger.error(f'删除用户失败：{e}')
+        logger.info(f'调用堆栈：{traceback.format_exc()}')
         raise HTTPException(status_code=500, detail='删除用户失败')

@@ -5,7 +5,9 @@
 # Email: qiuyutang@qq.com
 # Time: 2024/6/3 17:43
 
+import traceback
 import xmltodict
+
 from app.core.log import logger
 
 from fastapi import APIRouter, HTTPException, Depends, Request
@@ -51,9 +53,11 @@ def point_unifiedorder(params: RechargeForm, request: Request, user_data: dict =
         user_ip = request.client.host if request.client else None
         return FinanceService.point_unifiedorder(params, user_data['id'], user_ip)
     except ValueError as e:
+        logger.info(f'调用堆栈：{traceback.format_exc()}')
         raise HTTPException(status_code=400, detail=f'{e}')
     except Exception as e:
         logger.error(f'积分充值下单失败：{e}')
+        logger.info(f'调用堆栈：{traceback.format_exc()}')
         raise HTTPException(status_code=500, detail='积分充值下单失败')
 
 
@@ -63,9 +67,11 @@ def balance_unifiedorder(params: RechargeForm, request: Request, user_data: dict
         user_ip = request.client.host if request.client else None
         return FinanceService.balance_unifiedorder(params, user_data['id'], user_ip)
     except ValueError as e:
+        logger.info(f'调用堆栈：{traceback.format_exc()}')
         raise HTTPException(status_code=400, detail=f'{e}')
     except Exception as e:
         logger.error(f'余额充值下单失败：{e}')
+        logger.info(f'调用堆栈：{traceback.format_exc()}')
         raise HTTPException(status_code=500, detail='余额充值下单失败')
 
 
@@ -74,9 +80,11 @@ def point_check(trade_no: str, user_data: dict = Depends(get_current_user_from_c
     try:
         return FinanceService.point_check(trade_no, user_data['id'])
     except ValueError as e:
+        logger.info(f'调用堆栈：{traceback.format_exc()}')
         raise HTTPException(status_code=400, detail=f'{e}')
     except Exception as e:
         logger.error(f'检查积分充值结果失败：{e}')
+        logger.info(f'调用堆栈：{traceback.format_exc()}')
         raise HTTPException(status_code=500, detail='检查积分充值结果失败')
 
 
@@ -85,9 +93,11 @@ def balance_check(trade_no: str, user_data: dict = Depends(get_current_user_from
     try:
         return FinanceService.balance_check(trade_no, user_data['id'])
     except ValueError as e:
+        logger.info(f'调用堆栈：{traceback.format_exc()}')
         raise HTTPException(status_code=400, detail=f'{e}')
     except Exception as e:
         logger.error(f'检查余额充值结果失败：{e}')
+        logger.info(f'调用堆栈：{traceback.format_exc()}')
         raise HTTPException(status_code=500, detail='检查余额充值结果失败')
 
 
@@ -96,9 +106,11 @@ def point_scanpay(params: ScanpayForm, user_data: dict = Depends(get_current_use
     try:
         return FinanceService.point_scanpay(params, user_data)
     except ValueError as e:
+        logger.info(f'调用堆栈：{traceback.format_exc()}')
         raise HTTPException(status_code=400, detail=f'{e}')
     except Exception as e:
         logger.error(f'积分充值扫码支付失败：{e}')
+        logger.info(f'调用堆栈：{traceback.format_exc()}')
         raise HTTPException(status_code=500, detail='积分充值扫码支付失败')
 
 
@@ -107,9 +119,11 @@ def balance_scanpay(params: ScanpayForm, user_data: dict = Depends(get_current_u
     try:
         return FinanceService.balance_scanpay(params, user_data)
     except ValueError as e:
+        logger.info(f'调用堆栈：{traceback.format_exc()}')
         raise HTTPException(status_code=400, detail=f'{e}')
     except Exception as e:
         logger.error(f'余额充值扫码支付失败：{e}')
+        logger.info(f'调用堆栈：{traceback.format_exc()}')
         raise HTTPException(status_code=500, detail='余额充值扫码支付失败')
 
 
@@ -118,9 +132,11 @@ def balance_scanpay(params: PayForm, user_data: dict = Depends(get_current_user_
     try:
         return FinanceService.balance_recharge_pay(params, user_data)
     except ValueError as e:
+        logger.info(f'调用堆栈：{traceback.format_exc()}')
         raise HTTPException(status_code=400, detail=f'{e}')
     except Exception as e:
         logger.error(f'余额充值扫码支付失败：{e}')
+        logger.info(f'调用堆栈：{traceback.format_exc()}')
         raise HTTPException(status_code=500, detail='余额充值扫码支付失败')
 
 
@@ -143,4 +159,5 @@ async def point_notify(payment_channel: str, request: Request):
         return PlainTextResponse(response, status_code=200)
     except Exception as e:
         logger.error(f'积分充值结果通知处理失败：{e}')
+        logger.info(f'调用堆栈：{traceback.format_exc()}')
         PlainTextResponse(RESPONSE_WECHAT_FAIL if payment_channel == 'wechat' else RESPONSE_ALIPAY_FAIL, status_code=200)
