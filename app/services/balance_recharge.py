@@ -26,8 +26,6 @@ from app.schemas.finance import SearchQuery, AdjustForm, CheckinType, BalanceTyp
 from app.schemas.config import Settings
 from app.schemas.schemas import ClientType
 from app.tasks.finance import handle_balance, handle_balance_gift, handle_point
-from app.constants.constants import REDIS_SYSTEM_OPTIONS_AUTOLOAD
-from app.services import system_option as SystemOptionService
 from app.core.payment import payment_manager
 
 from app.schemas.balance_recharge import BalanceRechargeSearchQuery, BalanceRechargeItem, BalanceRechargeListResponse

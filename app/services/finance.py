@@ -272,7 +272,7 @@ def edit_payment_account(params: PaymentAccountEditForm, user_id: int) -> bool:
     return True
 
 
-def delete_payment_account(id: int, user_id: int) -> bool:
+def delete_payment_account(id: int, user_id: int) -> None:
     with get_session() as db:
         payment_account_model = db.query(PaymentAccountModel).filter(PaymentAccountModel.id == id,
                                                                      PaymentAccountModel.user_id == user_id).first()
@@ -281,8 +281,6 @@ def delete_payment_account(id: int, user_id: int) -> bool:
 
         db.delete(payment_account_model)
         db.commit()
-
-    return True
 
 
 def get_point_recharge_settings() -> list:

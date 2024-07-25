@@ -56,7 +56,7 @@ def get_payment_config_list(params: PaymentConfigSearchQuery) -> PaymentConfigLi
         return {"total": total, "items": query.all()}
 
 
-def add_payment_config(params: PaymentConfigItem) -> bool:
+def add_payment_config(params: PaymentConfigItem) -> None:
     if params.channel_key == 'balance':
         raise ValueError('余额支付不支持添加支付配置')
     with get_session() as db:
@@ -98,10 +98,9 @@ def add_payment_config(params: PaymentConfigItem) -> bool:
 
         params.id = model.id
         update_cache(params.model_dump())
-    return True
 
 
-def edit_payment_config(params: PaymentConfigItem) -> bool:
+def edit_payment_config(params: PaymentConfigItem) -> None:
     with get_session() as db:
         model = db.query(PaymentConfigModel).filter_by(
             id=params.id).first()
@@ -135,10 +134,8 @@ def edit_payment_config(params: PaymentConfigItem) -> bool:
         params["miniappid"] = old_miniappid
         update_cache(params)
 
-    return True
 
-
-def update_status(params: PaymentConfigItem) -> bool:
+def update_status(params: PaymentConfigItem) -> None:
     with get_session() as db:
         model = db.query(PaymentConfigModel).filter_by(
             id=params.id).first()
@@ -149,10 +146,8 @@ def update_status(params: PaymentConfigItem) -> bool:
         db.commit()
         update_cache(params)
 
-    return True
 
-
-def delete_payment_config(id: int) -> bool:
+def delete_payment_config(id: int) -> None:
     with get_session() as db:
         model = db.query(PaymentConfigModel).filter_by(id=id).first()
         if model is None:
@@ -164,8 +159,6 @@ def delete_payment_config(id: int) -> bool:
         params = model.__dict__
         params.pop('_sa_instance_state')
         update_cache(params, is_delete=True)
-
-    return True
 
 
 def update_cache(params: dict, is_delete: bool = False) -> None:
@@ -220,6 +213,7 @@ def prepare_app_private_key(private_key: str | None) -> str | None:
 
     private_key = '\n'.join([private_key[i:i+64]
                             for i in range(0, len(private_key), 64)])
-    private_key = f'-----BEGIN PRIVATE KEY-----\n{private_key}\n-----END PRIVATE KEY-----\n'
+    private_key = f'-----BEGIN PRIVATE KEY-----\n{
+        private_key}\n-----END PRIVATE KEY-----\n'
 
     return private_key

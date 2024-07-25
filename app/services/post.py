@@ -36,7 +36,8 @@ def get_post_list(params: PostSearchQuery) -> list[PostModel]:
         if params.status > -1:
             query = query.filter_by(status=params.status)
         if params.keywords:
-            query = query.filter(PostModel.keywords.like(f'%{params.keywords}%'))
+            query = query.filter(
+                PostModel.keywords.like(f'%{params.keywords}%'))
         if not export:
             offset = (params.page - 1) * params.size
             query.offset(offset).limit(params.size)
@@ -48,7 +49,8 @@ def get_post_list_frontend(params: PostSearchQuery) -> list[dict]:
         query = db.query(
             PostModel.id, PostModel.pid, PostModel.title, PostModel.subtitle, PostModel.keywords, PostModel.digest,
             PostModel.hero_image_url, PostModel.author, PostModel.view_num, PostModel.collect_num,
-            PostModel.comment_num, PostModel.category_id, PostCategoryModel.name.label('category_name'),
+            PostModel.comment_num, PostModel.category_id, PostCategoryModel.name.label(
+                'category_name'),
             PostModel.created_at
         ).join(PostCategoryModel, PostModel.category_id == PostCategoryModel.id, isouter=True) \
             .filter(PostModel.status == 1) \
@@ -63,7 +65,8 @@ def get_post_list_frontend(params: PostSearchQuery) -> list[dict]:
         if params.category_id > -1:
             query = query.filter(PostModel.category_id == params.category_id)
         if params.keywords:
-            query = query.filter(PostModel.keywords.like(f'%{params.keywords}%'))
+            query = query.filter(
+                PostModel.keywords.like(f'%{params.keywords}%'))
 
         offset = (params.page - 1) * params.size
         query = query.offset(offset).limit(params.size)
@@ -96,16 +99,15 @@ def get_post_frontend(id: int) -> dict | None:
         return None
 
 
-def add_post(params: PostAddForm) -> bool:
+def add_post(params: PostAddForm) -> None:
     with get_session() as db:
         post_model = PostModel(**params.__dict__)
 
         db.add(post_model)
         db.commit()
-    return True
 
 
-def edit_post(params: PostEditForm) -> bool:
+def edit_post(params: PostEditForm) -> None:
     with get_session() as db:
         post_model = db.query(PostModel).filter_by(id=params.id).first()
         if post_model is None:
@@ -116,10 +118,9 @@ def edit_post(params: PostEditForm) -> bool:
                 setattr(post_model, attr, value)
 
         db.commit()
-    return True
 
 
-def delete_post(id: int) -> bool:
+def delete_post(id: int) -> None:
     with get_session() as db:
         post_model = db.query(PostModel).filter_by(id=id).first()
         if post_model is None:
@@ -127,4 +128,3 @@ def delete_post(id: int) -> bool:
 
         db.delete(post_model)
         db.commit()
-    return True

@@ -75,7 +75,7 @@ def get_user_quick_list(params: UserQuickSearchQuery) -> UserQuickListResponse:
         return {"total": len(items), "items": items}
 
 
-def add_user(params: UserItem) -> bool:
+def add_user(params: UserItem) -> None:
     if not params.phone and not params.email:
         raise ValueError('手机或邮箱至少填写一项')
 
@@ -107,10 +107,9 @@ def add_user(params: UserItem) -> bool:
 
         db.add(user_model)
         db.commit()
-    return True
 
 
-def edit_user(params: UserItem) -> bool:
+def edit_user(params: UserItem) -> None:
     with get_session() as db:
         user_model = db.query(UserModel).filter_by(id=params.id).first()
         if user_model is None:
@@ -140,12 +139,10 @@ def edit_user(params: UserItem) -> bool:
             user_model.role_id = params.role_id
 
         db.commit()
-    return True
 
 
-def delete_user(id: int) -> bool:
+def delete_user(id: int) -> None:
     with get_session() as db:
         # TODO: 关联数据删除
         db.query(UserModel).filter_by(id=id).delete()
         db.commit()
-    return True

@@ -47,7 +47,7 @@ def get_space(id: int) -> AdSpaceModel | None:
         return None
 
 
-def add_space(params: SpaceAddForm) -> bool:
+def add_space(params: SpaceAddForm) -> None:
     with get_session() as db:
         space_model = AdSpaceModel(
             name=params.name,
@@ -55,14 +55,11 @@ def add_space(params: SpaceAddForm) -> bool:
             height=params.height,
             status=params.status,
         )
-
         db.add(space_model)
         db.commit()
 
-    return True
 
-
-def edit_space(params: SpaceEditForm) -> bool:
+def edit_space(params: SpaceEditForm) -> None:
     with get_session() as db:
         space_model = db.query(AdSpaceModel).filter_by(id=params.id).first()
         if space_model is None:
@@ -75,10 +72,8 @@ def edit_space(params: SpaceEditForm) -> bool:
 
         db.commit()
 
-    return True
 
-
-def delete_space(id: int) -> bool:
+def delete_space(id: int) -> None:
     with get_session() as db:
         space_model = db.query(AdSpaceModel).filter_by(id=id).first()
         if space_model is None:
@@ -93,8 +88,6 @@ def delete_space(id: int) -> bool:
 
     with get_redis() as redis:
         redis.delete(REDIS_AD_PREFIX + str(id))
-
-    return True
 
 
 def get_ad_list(params: AdSearchQuery) -> list[AdModel]:
@@ -112,6 +105,7 @@ def get_ad_list(params: AdSearchQuery) -> list[AdModel]:
             query.offset(offset).limit(params.size)
         return query.all()
 
+
 def get_ad_list_from_cache(space_id: int) -> list:
     data = []
     with get_redis() as redis:
@@ -125,7 +119,8 @@ def get_ad_list_from_cache(space_id: int) -> list:
                 filtered_items.append(item)
 
         # 按asc_sort_order字段进行排序
-        data = sorted(filtered_items, key=operator.itemgetter('asc_sort_order'))
+        data = sorted(filtered_items,
+                      key=operator.itemgetter('asc_sort_order'))
 
     return data
 
@@ -138,9 +133,10 @@ def get_ad(id: int) -> AdModel | None:
         return None
 
 
-def add_ad(params: AdAddForm) -> bool:
+def add_ad(params: AdAddForm) -> None:
     with get_session() as db:
-        space_model = db.query(AdSpaceModel).filter_by(id=params.space_id).first()
+        space_model = db.query(AdSpaceModel).filter_by(
+            id=params.space_id).first()
         if space_model is None:
             raise ValueError(f'广告位不存在(id={params.space_id})')
 
@@ -154,17 +150,16 @@ def add_ad(params: AdAddForm) -> bool:
         db.commit()
         update_cache(ad_model)
 
-    return True
 
-
-def edit_ad(params: AdEditForm) -> bool:
+def edit_ad(params: AdEditForm) -> None:
     with get_session() as db:
         ad_model = db.query(AdModel).filter_by(id=params.id).first()
         if ad_model is None:
             raise ValueError(f'广告不存在(id={params.id})')
 
         if ad_model.space_id != params.space_id:
-            space_model = db.query(AdSpaceModel).filter_by(id=params.space_id).first()
+            space_model = db.query(AdSpaceModel).filter_by(
+                id=params.space_id).first()
             if space_model is None:
                 raise ValueError(f'广告位不存在(id={params.space_id})')
 
@@ -176,10 +171,8 @@ def edit_ad(params: AdEditForm) -> bool:
         db.commit()
         update_cache(ad_model)
 
-    return True
 
-
-def delete_ad(id: int) -> bool:
+def delete_ad(id: int) -> None:
     with get_session() as db:
         ad_model = db.query(AdModel).filter_by(id=id).first()
         if ad_model is None:
@@ -189,10 +182,8 @@ def delete_ad(id: int) -> bool:
         db.commit()
         update_cache(ad_model, is_delete=True)
 
-    return True
 
-
-def rebuild_cache() -> bool:
+def rebuild_cache() -> None:
     with get_redis() as redis:
         keys = redis.keys(REDIS_AD_PREFIX + '*')
         if keys:
@@ -202,7 +193,6 @@ def rebuild_cache() -> bool:
         if ads:
             for ad in ads:
                 update_cache(ad)
-    return True
 
 
 def update_cache(ad: AdModel, is_delete: bool = False) -> None:

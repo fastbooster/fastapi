@@ -7,7 +7,7 @@
 
 import json
 
-from sqlalchemy.sql.expression import asc, desc
+from sqlalchemy.sql.expression import desc
 
 from app.core.mysql import get_session
 from app.core.redis import get_redis
@@ -36,7 +36,8 @@ def get_option(id: int) -> SystemOptionModel | None:
 def get_option_from_cache(option_name: str) -> OptionItem:
     with get_redis() as redis:
         setting = redis.hget(REDIS_SYSTEM_OPTIONS_AUTOLOAD, option_name)
-        setting = json.loads(setting) if setting else {"option_name": option_name, "option_value": None}
+        setting = json.loads(setting) if setting else {
+            "option_name": option_name, "option_value": None}
     return setting
 
 
@@ -72,7 +73,7 @@ def get_option_list(params: OptionSearchQuery) -> OptionListResponse:
         return {"total": total, "items": query.all()}
 
 
-def add_option(params: OptionItem) -> bool:
+def add_option(params: OptionItem) -> None:
     with get_session() as db:
         exists_count = db.query(SystemOptionModel).filter(
             SystemOptionModel.option_name == params.option_name).count()
@@ -92,10 +93,9 @@ def add_option(params: OptionItem) -> bool:
         db.add(option_model)
         db.commit()
         update_cache(option_model)
-    return True
 
 
-def edit_option(params: OptionItem) -> bool:
+def edit_option(params: OptionItem) -> None:
     with get_session() as db:
         option_model = db.query(SystemOptionModel).filter_by(
             id=params.id).first()
@@ -122,10 +122,9 @@ def edit_option(params: OptionItem) -> bool:
 
         db.commit()
         update_cache(option_model)
-    return True
 
 
-def delete_option(id: int) -> bool:
+def delete_option(id: int) -> None:
     with get_session() as db:
         option_model = db.query(SystemOptionModel).filter_by(id=id).first()
         if option_model is None:
@@ -136,13 +135,13 @@ def delete_option(id: int) -> bool:
         db.delete(option_model)
         db.commit()
         update_cache(option_model, is_delete=True)
-    return True
 
 
-def autoupdate(params: OptionItem):
+def autoupdate(params: OptionItem) -> None:
     '''不存在则插入数据，否则更新选项值'''
     with get_session() as db:
-        option_model = db.query(SystemOptionModel).filter_by(option_name=params.option_name).first()
+        option_model = db.query(SystemOptionModel).filter_by(
+            option_name=params.option_name).first()
         if option_model is None:
             option_model = SystemOptionModel(**params.__dict__)
             db.add(option_model)
@@ -152,7 +151,8 @@ def autoupdate(params: OptionItem):
         db.commit()
 
         # 事物提交后 option_model 会被情况，重新查询
-        option_model = db.query(SystemOptionModel).filter_by(option_name=params.option_name).first()
+        option_model = db.query(SystemOptionModel).filter_by(
+            option_name=params.option_name).first()
         update_cache(option_model)
 
 

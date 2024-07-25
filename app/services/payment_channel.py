@@ -51,7 +51,7 @@ def get_payment_channel_list(params: PaymentChannelSearchQuery) -> PaymentChanne
         return {"total": total, "items": query.all()}
 
 
-def add_payment_channel(params: PaymentChannelItem) -> bool:
+def add_payment_channel(params: PaymentChannelItem) -> None:
     with get_session() as db:
         exists_count = db.query(PaymentChannelModel).filter(
             or_(
@@ -76,10 +76,9 @@ def add_payment_channel(params: PaymentChannelItem) -> bool:
         db.add(model)
         db.commit()
         update_cache(model.to_dict())
-        return True
 
 
-def edit_payment_channel(params: PaymentChannelItem) -> bool:
+def edit_payment_channel(params: PaymentChannelItem) -> None:
     with get_session() as db:
         model = db.query(PaymentChannelModel).filter_by(
             id=params.id).first()
@@ -107,10 +106,9 @@ def edit_payment_channel(params: PaymentChannelItem) -> bool:
         params = model.to_dict()
         db.commit()
         update_cache(params)
-        return True
 
 
-def delete_payment_channel(id: int) -> bool:
+def delete_payment_channel(id: int) -> None:
     with get_session() as db:
         model = db.query(PaymentChannelModel).filter_by(id=id).first()
         if model is None:
@@ -127,7 +125,6 @@ def delete_payment_channel(id: int) -> bool:
         db.delete(model)
         db.commit()
         update_cache(params, is_delete=True)
-        return True
 
 
 def update_cache(params: dict, is_delete: bool = False) -> None:

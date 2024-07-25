@@ -25,7 +25,8 @@ def safe_whitelist_fields(post_category_data: dict) -> dict:
 
 def get_category(id: int) -> PostCategoryModel | None:
     with get_session(read_only=True) as db:
-        post_category = db.query(PostCategoryModel).filter(PostCategoryModel.id == id).first()
+        post_category = db.query(PostCategoryModel).filter(
+            PostCategoryModel.id == id).first()
 
     if post_category is not None:
         return post_category
@@ -38,11 +39,14 @@ def get_category_list(params: CategorySearchQuery) -> list[PostCategoryModel]:
     with get_session(read_only=True) as db:
         query = db.query(PostCategoryModel).order_by(desc('id'))
         if params.name:
-            query = query.filter(PostCategoryModel.name.like(f'%{params.name}%'))
+            query = query.filter(
+                PostCategoryModel.name.like(f'%{params.name}%'))
         if params.alias:
-            query = query.filter(PostCategoryModel.alias.like(f'%{params.alias}%'))
+            query = query.filter(
+                PostCategoryModel.alias.like(f'%{params.alias}%'))
         if params.keywords:
-            query = query.filter(PostCategoryModel.keywords.like(f'%{params.keywords}%'))
+            query = query.filter(
+                PostCategoryModel.keywords.like(f'%{params.keywords}%'))
         if not export:
             offset = (params.page - 1) * params.size
             query.offset(offset).limit(params.size)
@@ -62,12 +66,13 @@ def get_category_list_from_cache() -> list:
                 filtered_items.append(item)
 
         # 按asc_sort_order字段进行排序
-        data = sorted(filtered_items, key=operator.itemgetter('asc_sort_order'))
+        data = sorted(filtered_items,
+                      key=operator.itemgetter('asc_sort_order'))
 
     return data
 
 
-def add_category(params: CategoryAddForm) -> bool:
+def add_category(params: CategoryAddForm) -> None:
     with get_session() as db:
         data_validate(params)
 
@@ -82,12 +87,12 @@ def add_category(params: CategoryAddForm) -> bool:
         db.add(post_category_model)
         db.commit()
         update_cache(post_category_model)
-    return True
 
 
-def edit_category(params: CategoryEditForm) -> bool:
+def edit_category(params: CategoryEditForm) -> None:
     with get_session() as db:
-        post_category_model = db.query(PostCategoryModel).filter_by(id=params.id).first()
+        post_category_model = db.query(
+            PostCategoryModel).filter_by(id=params.id).first()
         if post_category_model is None:
             raise ValueError(f'分类不存在(id={params.id})')
 
@@ -101,30 +106,29 @@ def edit_category(params: CategoryEditForm) -> bool:
 
         db.commit()
         update_cache(post_category_model)
-    return True
 
 
-def delete_category(id: int) -> bool:
+def delete_category(id: int) -> None:
     with get_session() as db:
-        post_category_model = db.query(PostCategoryModel).filter_by(id=id).first()
+        post_category_model = db.query(
+            PostCategoryModel).filter_by(id=id).first()
         if post_category_model is None:
             raise ValueError(f'分类不存在(id={id})')
 
         db.delete(post_category_model)
         db.commit()
         update_cache(post_category_model, is_delete=True)
-    return True
 
 
-def rebuild_cache() -> bool:
+def rebuild_cache() -> None:
     with get_redis() as redis:
         redis.delete(REDIS_POST_CATEGORY)
     with get_session(read_only=True) as db:
-        post_category_models = db.query(PostCategoryModel).order_by(asc('id')).all()
+        post_category_models = db.query(
+            PostCategoryModel).order_by(asc('id')).all()
         if post_category_models:
             for post_category_model in post_category_models:
                 update_cache(post_category_model)
-    return True
 
 
 def update_cache(post_category_model: PostCategoryModel, is_delete: bool = False) -> None:

@@ -39,7 +39,7 @@ def get_role_list(params: RoleSearchQuery) -> RoleListResponse:
         return {"total": total, "items": query.all()}
 
 
-def add_role(params: RoleItem) -> bool:
+def add_role(params: RoleItem) -> None:
     with get_session() as db:
         exists_count = db.query(RoleModel).filter(
             RoleModel.name == params.name).count()
@@ -53,10 +53,9 @@ def add_role(params: RoleItem) -> bool:
 
         db.add(role_model)
         db.commit()
-    return True
 
 
-def edit_role(params: RoleItem) -> bool:
+def edit_role(params: RoleItem) -> None:
     with get_session() as db:
         role_model = db.query(RoleModel).filter_by(id=params.id).first()
         if role_model is None:
@@ -72,19 +71,16 @@ def edit_role(params: RoleItem) -> bool:
 
         db.commit()
 
-    return True
 
-
-def delete_role(id: int) -> bool:
+def delete_role(id: int) -> None:
     with get_session() as db:
         role_model = db.query(RoleModel).filter_by(id=id).first()
         if role_model is None:
             raise ValueError(f'角色不存在(id={id})')
 
         conn = db.connection()
-        conn.execute(text('update user_account set role_id=0 where role_id=:id'), {"id": id})
+        conn.execute(
+            text('update user_account set role_id=0 where role_id=:id'), {"id": id})
 
         db.delete(role_model)
         db.commit()
-
-    return True
