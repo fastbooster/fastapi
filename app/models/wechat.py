@@ -6,10 +6,10 @@
 # Time: 2024/07/25 16:23
 
 from sqlalchemy import text, Text, Index, Column, Integer, SmallInteger, String, DECIMAL, TIMESTAMP
-from app.models.base import Base
+from app.models.base import Base, BaseMixin
 
 
-class WechatModel(Base):
+class WechatModel(Base, BaseMixin):
     __tablename__ = 'wechat_media_platform'
     __table_args__ = {'mysql_engine': 'InnoDB',
                       'mariadb_engine': 'InnoDB', 'comment': '微信媒体平台'}

@@ -10,6 +10,7 @@ from . import payment_channel
 from . import payment_config
 from . import payment_settings
 from . import balance_recharge
+from . import wechat
 
 __all__ = [
     'ad',
@@ -23,4 +24,5 @@ __all__ = [
     'payment_config',
     'payment_settings',
     'balance_recharge',
+    'wechat',
 ]

@@ -47,6 +47,9 @@ REDIS_PAYMENT_CHANNEL = 'payment_channel'
 # [hash] 支付配置
 REDIS_PAYMENT_CONFIG = 'payment_config'
 
+# [hash] 微信媒体平台
+REDIS_WECHAT = 'wechat'
+
 # 接手机号码, 同一个号码30分钟内只能发送10次, 只统计发送成功的次数
 REDIS_SMS_COUNT = 'sms:count:'
 

@@ -116,6 +116,10 @@ def init_permissions():
                     'name': '支付设置',
                     'component_name': 'PaymentSettings',
                 },
+                {
+                    'name': '微信媒体平台',
+                    'component_name': 'WechatList',
+                },
             ]
         },
     ]

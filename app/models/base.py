@@ -12,7 +12,7 @@ Base = declarative_base()
 
 class BaseMixin:
     '''基础混入类，提供一些通用方法'''
-    def from_dict(self, data) -> None:
+    def from_dict(self, data: dict) -> None:
         '''将字典数据导入模型'''
         for field in data:
             if hasattr(self, field):
@@ -25,4 +25,4 @@ class BaseMixin:
 
 
 # 导入所有模型，以支持 alembic 自动追踪
-from app.models import user, finance, cms, system_option, payment_settings
+from app.models import user, finance, cms, system_option, payment_settings, wechat
