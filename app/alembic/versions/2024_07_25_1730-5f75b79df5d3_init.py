@@ -1,8 +1,8 @@
 """Init
 
-Revision ID: 6663bfdf1164
+Revision ID: 5f75b79df5d3
 Revises: 
-Create Date: 2024-07-19 16:24:23.238030
+Create Date: 2024-07-25 17:30:18.075484
 
 """
 from typing import Sequence, Union
@@ -12,7 +12,7 @@ import sqlalchemy as sa
 from sqlalchemy.dialects import mysql
 
 # revision identifiers, used by Alembic.
-revision: str = '6663bfdf1164'
+revision: str = '5f75b79df5d3'
 down_revision: Union[str, None] = None
 branch_labels: Union[str, Sequence[str], None] = None
 depends_on: Union[str, Sequence[str], None] = None
@@ -286,7 +286,7 @@ def upgrade() -> None:
     mysql_engine='InnoDB'
     )
     op.create_index(op.f('ix_user_balance_gift_related_id'), 'user_balance_gift', ['related_id'], unique=False)
-    op.create_index(op.f('ix_user_balance_gift_user_id'), 'user_balance_gift', ['user_id', 'type'], unique=False)
+    op.create_index(op.f('ix_user_balance_gift_user_id'), 'user_balance_gift', ['user_id', 'created_at'], unique=False)
     op.create_table('user_balance_recharge',
     sa.Column('id', sa.Integer(), autoincrement=True, nullable=False, comment='ID'),
     sa.Column('user_id', sa.Integer(), nullable=False, comment='用户ID'),
@@ -322,7 +322,7 @@ def upgrade() -> None:
     op.create_index(op.f('ix_user_balance_recharge_payment_channel'), 'user_balance_recharge', ['payment_channel'], unique=False)
     op.create_index(op.f('ix_user_balance_recharge_payment_status'), 'user_balance_recharge', ['payment_status'], unique=False)
     op.create_index(op.f('ix_user_balance_recharge_trade_no'), 'user_balance_recharge', ['trade_no'], unique=True)
-    op.create_index(op.f('ix_user_balance_recharge_user_id'), 'user_balance_recharge', ['user_id', 'payment_status'], unique=False)
+    op.create_index(op.f('ix_user_balance_recharge_user_id'), 'user_balance_recharge', ['user_id'], unique=False)
     op.create_table('user_checkin',
     sa.Column('id', sa.Integer(), autoincrement=True, nullable=False, comment='ID'),
     sa.Column('user_id', sa.Integer(), nullable=False, comment='用户ID'),
@@ -424,7 +424,7 @@ def upgrade() -> None:
     mysql_engine='InnoDB'
     )
     op.create_index(op.f('ix_user_point_related_id'), 'user_point', ['related_id'], unique=False)
-    op.create_index(op.f('ix_user_point_user_id'), 'user_point', ['user_id', 'created_at'], unique=False)
+    op.create_index(op.f('ix_user_point_user_id'), 'user_point', ['user_id', 'type'], unique=False)
     op.create_table('user_point_recharge',
     sa.Column('id', sa.Integer(), autoincrement=True, nullable=False, comment='ID'),
     sa.Column('user_id', sa.Integer(), nullable=False, comment='用户ID'),
