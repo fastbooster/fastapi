@@ -18,6 +18,7 @@ from app.schemas.schemas import StatusType, PaginationParams
 class WechatType(Enum):
     APP = 'app'  # 小程序
     OFFIACCOUNT = 'offiaccount'  # 公众号 (服务号/订阅号)
+    CROP = 'crop'  # 企业号
 
 
 class WechatItem(BaseModel):
