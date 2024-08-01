@@ -6,6 +6,7 @@
 # Time: 2024/05/20 21:50
 
 
+import os
 from datetime import timedelta
 from dotenv import load_dotenv
 from celery import Celery
@@ -13,7 +14,9 @@ from celery.schedules import crontab
 from app.core.redis import get_redis_url
 
 load_dotenv()
-redis_url = get_redis_url(db_index=2)
+db_index = int(os.getenv('REDIS_DB_FINANCE')) if os.getenv(
+    'REDIS_DB_FINANCE') else 2
+redis_url = get_redis_url(db_index=db_index)
 app = Celery('tasks', broker=redis_url, backend=redis_url)
 
 app.conf.update(

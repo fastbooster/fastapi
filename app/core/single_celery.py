@@ -5,12 +5,15 @@
 # Email: qiuyutang@qq.com
 # Time: 2024/5/24 16:36
 
+import os
 from dotenv import load_dotenv
 from celery import Celery
 from app.core.redis import get_redis_url
 
 load_dotenv()
-redis_url = get_redis_url(db_index=1)
+db_index = int(os.getenv('REDIS_DB_FINANCE')) if os.getenv(
+    'REDIS_DB_FINANCE') else 1
+redis_url = get_redis_url(db_index=db_index)
 app_single = Celery('single_worker', broker=redis_url, backend=redis_url)
 
 app_single.conf.update(
