@@ -6,7 +6,7 @@
 # Time: 2024/05/15 22:12
 
 from sqlalchemy import text, Text, Index, Column, Integer, SmallInteger, String, TIMESTAMP
-from app.models.base import Base
+from app.models.base import Base, BaseMixin
 
 
 class RoleModel(Base):
@@ -53,7 +53,7 @@ class PermissionModel(Base):
         return f"<PermissionModel(id={self.id}, name='{self.name}')>"
 
 
-class UserModel(Base):
+class UserModel(Base, BaseMixin):
     __tablename__ = 'user_account'
     __table_args__ = {'mysql_engine': 'InnoDB',
                       'mariadb_engine': 'InnoDB', 'comment': '用户表'}

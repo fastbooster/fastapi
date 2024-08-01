@@ -19,6 +19,7 @@ from app.models.user import UserModel
 from app.models.user import RoleModel
 from app.models.user import LoginlogModel
 from app.services import user as UserService
+from app.schemas.auth import AuthSuccessResponse
 from app.schemas.schemas import ResponseSuccess
 from app.schemas.user import ChangePwdForm
 from app.core.redis import get_redis
@@ -30,7 +31,7 @@ from app.constants.constants import REDIS_AUTH_TTL, REDIS_AUTH_USER_PREFIX
 router = APIRouter()
 
 
-@router.post("/token", summary="用户登录")
+@router.post("/token", response_model=AuthSuccessResponse, summary="用户登录")
 def authorize(request: Request, form: OAuth2PasswordRequestForm = Depends()):
     user_data = authenticate_user_by_password(
         password=form.password, phone=form.username, email=form.username)
@@ -65,11 +66,10 @@ def authorize(request: Request, form: OAuth2PasswordRequestForm = Depends()):
         db.add(loginlog)
         db.commit()
 
-    return {
-        'token_type': 'bearer',
-        'access_token': access_token,
-        'user_data': UserService.safe_whitelist_fields(user_data),
-    }
+    return AuthSuccessResponse(
+        access_token=access_token,
+        user_data=UserService.safe_whitelist_fields(user_data),
+    )
 
 
 @router.post("/logout", summary="用户登出")

@@ -28,6 +28,8 @@ class JoinFromType(Enum):
     FRONTEND_PORTAL = 1000  # 门户
     FRONTEND_WXOA = 1001  # 微信公众号
     FRONTEND_WXMP = 1002  # 微信小程序
+    FRONTEND_ANDROID = 1004  # 安卓APP
+    FRONTEND_IOS = 1004  # iOS APP
     BACKEND_CONSOLE = 2000  # 控制台命令行
     BACKEND_ADMIN = 2001  # 后台管理
 

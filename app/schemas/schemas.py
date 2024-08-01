@@ -6,9 +6,8 @@
 # Time: 2024/05/19 10:06
 
 from typing import Optional
-
 from fastapi import Query
-from pydantic import BaseModel
+from pydantic import BaseModel, Field
 from enum import Enum
 
 

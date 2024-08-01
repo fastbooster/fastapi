@@ -5,6 +5,8 @@
 # Email: easelify@gmail.com
 # Time: 2024/05/17 16:50
 
+import time
+import datetime
 import secrets
 
 from sqlalchemy.sql.expression import asc, desc, or_
@@ -13,7 +15,7 @@ from app.core.security import encode_password
 from app.core.mysql import get_session
 from app.models.user import UserModel
 
-from app.schemas.user import UserSearchQuery, UserQuickSearchQuery, UserItem, UserListResponse, UserQuickListResponse
+from app.schemas.user import GenderType, JoinFromType, UserSearchQuery, UserQuickSearchQuery, UserItem, UserListResponse, UserQuickListResponse
 
 
 def safe_whitelist_fields(user_data: dict) -> dict:
@@ -146,3 +148,53 @@ def delete_user(id: int) -> None:
         # TODO: 关联数据删除
         db.query(UserModel).filter_by(id=id).delete()
         db.commit()
+
+
+def autoreg_from_wechatoauth2(userinfo: dict, session: dict, ip: str = None) -> int:
+    '''微信OAuth2授权后, 自动注册或更新用户, 返回用户id'''
+    with get_session() as db:
+        # 微信返回: 0未知, 1男, 2女
+        sexes = [GenderType.UNKNOWN.value,
+                 GenderType.MALE.value, GenderType.FEMALE.value]
+        if userinfo['sex'] not in sexes:
+            gender = GenderType.UNKNOWN.value
+        else:
+            gender = sexes[userinfo['sex']]
+
+        user = db.query(UserModel).filter(
+            UserModel.wechat_openid == userinfo['openid']).first()
+        if user is not None:
+            user.avatar = userinfo['headimgurl']
+            user.nickname = userinfo['nickname']
+            user.gender = gender
+            user.wechat_refresh_token = session['refresh_token']
+            user.wechat_access_token = session['access_token']
+            user.wechat_access_token_expired_at = int(
+                time.time()) + session['expires_in']
+            db.commit()
+        else:
+            password_salt = secrets.token_urlsafe(32)
+            user = UserModel(
+                phone=None,
+                email=None,
+                avatar=userinfo['headimgurl'],
+                nickname=userinfo['nickname'],
+                password_salt=password_salt,
+                password_hash=None,  # 微信自动注册用户暂不设置密码
+                role_id=0,
+                gender=gender,
+                join_from=JoinFromType.FRONTEND_WXOA.value,
+                join_ip=ip,
+                join_at=datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S'),
+                wechat_openid=session['openid'],
+                wechat_unionid=session.get('unionid', None),
+                wechat_refresh_token=session['refresh_token'],
+                wechat_access_token=session['access_token'],
+                wechat_access_token_expired_at=int(
+                    time.time()) + session['expires_in']
+            )
+            db.add(user)
+            db.commit()
+
+        user = db.query(UserModel).filter(UserModel.id == user.id).first()
+        return user.to_dict()
