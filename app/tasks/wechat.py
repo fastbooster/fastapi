@@ -7,7 +7,10 @@
 
 from celery import shared_task
 
+from app.core.celery import app
+from app.core.log import logger
 
-@shared_task
+
+@app.task
 def refresh_access_token():
     pass

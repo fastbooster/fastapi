@@ -5,13 +5,12 @@
 # Email: qiuyutang@qq.com
 # Time: 2024/5/24 16:36
 
-import os
 from dotenv import load_dotenv
 from celery import Celery
+from app.core.redis import get_redis_url
 
 load_dotenv()
-redis_url = f'redis://:{os.getenv('REDIS_PWD')}@{os.getenv('REDIS_HOST')}:{os.getenv('REDIS_PORT')}/{os.getenv('REDIS_DB')}'
-
+redis_url = get_redis_url(db_index=1)
 app_single = Celery('single_worker', broker=redis_url, backend=redis_url)
 
 app_single.conf.update(

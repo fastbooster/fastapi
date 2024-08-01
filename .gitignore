@@ -15,6 +15,7 @@ app.egg-info
 .coverage
 .DS_Store
 Thumbs.db
+--loglevel=*.db
 celerybeat-schedule.db
 config.yaml
 

@@ -31,3 +31,11 @@ pool = redis.ConnectionPool(Connection, max_connections, **REDIS_CONFIG)
 def get_redis():
     r = redis.Redis(connection_pool=pool)
     yield r
+
+
+def get_redis_url(db_index: int = -1) -> str:
+    if db_index == -1:
+        db_index = os.getenv("REDIS_DB") if os.getenv("REDIS_DB") else 0
+    redis_url = f'redis://:{os.getenv("REDIS_PWD")}@{os.getenv('REDIS_HOST')}:{
+        os.getenv("REDIS_PORT")}/{db_index}'
+    return redis_url
