@@ -62,6 +62,7 @@ def authorize(request: Request, form: OAuth2PasswordRequestForm = Depends()):
             nickname=user_data['nickname'],
             ip=request.client.host if request.client else None,
             user_agent=str(request.headers.get('User-Agent')),
+            memo='账号密码登录（auth/token）'
         )
         db.add(loginlog)
         db.commit()

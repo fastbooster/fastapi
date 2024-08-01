@@ -102,6 +102,7 @@ def code2user_post(params: WechatOAuth2CallbackForm, request: Request):
             nickname=user_data['nickname'],
             ip=request.client.host if request.client else None,
             user_agent=str(request.headers.get('User-Agent')),
+            memo=f'微信媒体平台（appid={params.get_appid()}）登录',
         )
         db.add(loginlog)
         db.commit()

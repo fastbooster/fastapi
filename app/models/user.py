@@ -142,6 +142,7 @@ class LoginlogModel(Base):
     nickname = Column(String(50), comment='昵称')
     ip = Column(String(50), comment='IP地址')
     user_agent = Column(String(500), comment='浏览器信息')
+    memo = Column(String(255), comment='备注')
     created_at = Column(TIMESTAMP, server_default=text(
         'CURRENT_TIMESTAMP'), comment='创建时间')
 

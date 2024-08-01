@@ -348,6 +348,7 @@ def upgrade() -> None:
     sa.Column('nickname', sa.String(length=50), nullable=True, comment='昵称'),
     sa.Column('ip', sa.String(length=50), nullable=True, comment='IP地址'),
     sa.Column('user_agent', sa.String(length=500), nullable=True, comment='浏览器信息'),
+    sa.Column('memo', sa.String(length=255), nullable=True, comment='备注'),
     sa.Column('created_at', sa.TIMESTAMP(), server_default=sa.text('CURRENT_TIMESTAMP'), nullable=True, comment='创建时间'),
     sa.PrimaryKeyConstraint('id'),
     comment='登录日志',
