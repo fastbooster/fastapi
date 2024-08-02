@@ -8,8 +8,12 @@
 import os
 import redis
 from redis import Connection
-
 from contextlib import contextmanager
+from dotenv import load_dotenv
+
+
+# 必须单独导入，否则在 Celery 的 tasks 中无法正确获取配置
+load_dotenv()
 
 redis_port_env = os.getenv("REDIS_PORT")
 redis_db_env = os.getenv("REDIS_DB")
