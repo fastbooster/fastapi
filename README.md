@@ -232,6 +232,9 @@ python app/utils/init_payment_channel.py
    
    ```shell
    ./start_celery.sh
+   ./start_stop.sh
+
+   # 使用 docker 部署时，可以无需手动启动，详见 docker-compose-full.yml 配置
    ```
 
 ### 参考文档列表
