@@ -27,3 +27,5 @@ aliyun-python-sdk-core-v3~=2.13.33
 aliyun-python-sdk-dysmsapi~=2.1.2
 python-alipay-sdk~=3.3.0
 celery~=5.4.0
+pyyaml~=6.0.1
+email_validator~=2.2.0
