@@ -81,7 +81,7 @@ def get_db(read_only: bool = False):
     except Exception as e:
         # https://docs.sqlalchemy.org/en/13/faq/sessions.html#this-session-s-transaction-has-been-rolled-back-due-to-a-previous-exception-during-flush-or-similar
         db.rollback()
-        logger.error(f"get_db(read_only={read_only}) 数据库操作发生异常，事物已回滚：{e}")
+        logger.error(f"get_db(read_only={read_only}) 数据库操作发生异常，事务已回滚：{e}")
         raise
     finally:
         if db is not None and db.is_active:
@@ -100,7 +100,7 @@ def get_session(read_only: bool = False):
     except Exception as e:
         # https://docs.sqlalchemy.org/en/13/faq/sessions.html#this-session-s-transaction-has-been-rolled-back-due-to-a-previous-exception-during-flush-or-similar
         session.rollback()
-        logger.error(f"get_session(read_only={read_only}) 数据库操作发生异常，事物已回滚：{e}")
+        logger.error(f"get_session(read_only={read_only}) 数据库操作发生异常，事务已回滚：{e}")
         raise
     finally:
         if session is not None and session.is_active:
