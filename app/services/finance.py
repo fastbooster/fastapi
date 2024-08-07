@@ -46,7 +46,7 @@ def get_balance_list(params: SearchQuery) -> list[BalanceModel]:
             query = query.filter_by(type=params.type)
         if not export:
             offset = (params.page - 1) * params.size
-            query.offset(offset).limit(params.size)
+            query = query.offset(offset).limit(params.size)
         return query.all()
 
 
@@ -60,7 +60,7 @@ def get_balance_gift_list(params: SearchQuery) -> list[BalanceGiftModel]:
             query = query.filter_by(type=params.type)
         if not export:
             offset = (params.page - 1) * params.size
-            query.offset(offset).limit(params.size)
+            query = query.offset(offset).limit(params.size)
         return query.all()
 
 
@@ -74,7 +74,7 @@ def get_point_list(params: SearchQuery) -> list[PointModel]:
             query = query.filter_by(type=params.type)
         if not export:
             offset = (params.page - 1) * params.size
-            query.offset(offset).limit(params.size)
+            query = query.offset(offset).limit(params.size)
         return query.all()
 
 
@@ -200,7 +200,7 @@ def get_payment_account_list(params: PaymentAccountSearchQuery) -> list[PaymentA
             query = query.filter(PaymentAccountModel.account.like(f'%{params.account}%'))
         if not export:
             offset = (params.page - 1) * params.size
-            query.offset(offset).limit(params.size)
+            query = query.offset(offset).limit(params.size)
         return query.all()
 
 

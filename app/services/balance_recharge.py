@@ -73,7 +73,7 @@ def get_balance_recharge_list(params: BalanceRechargeSearchQuery) -> BalanceRech
         if not export:
             total = query.count()
             offset = (params.page - 1) * params.size
-            query.offset(offset).limit(params.size)
+            query = query.offset(offset).limit(params.size)
         items = query.all()
 
     return {"total": total, "items": items}

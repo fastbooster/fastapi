@@ -47,7 +47,7 @@ def get_wechat_list(params: WechatSearchQuery) -> WechatListResponse:
         if not export:
             total = query.count()
             offset = (params.page - 1) * params.size
-            query.offset(offset).limit(params.size)
+            query = query.offset(offset).limit(params.size)
         return {"total": total, "items": query.all()}
 
 

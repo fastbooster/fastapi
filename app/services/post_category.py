@@ -49,7 +49,7 @@ def get_category_list(params: CategorySearchQuery) -> list[PostCategoryModel]:
                 PostCategoryModel.keywords.like(f'%{params.keywords}%'))
         if not export:
             offset = (params.page - 1) * params.size
-            query.offset(offset).limit(params.size)
+            query = query.offset(offset).limit(params.size)
         return query.all()
 
 

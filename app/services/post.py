@@ -40,7 +40,7 @@ def get_post_list(params: PostSearchQuery) -> list[PostModel]:
                 PostModel.keywords.like(f'%{params.keywords}%'))
         if not export:
             offset = (params.page - 1) * params.size
-            query.offset(offset).limit(params.size)
+            query = query.offset(offset).limit(params.size)
         return query.all()
 
 

@@ -52,7 +52,7 @@ def get_payment_config_list(params: PaymentConfigSearchQuery) -> PaymentConfigLi
         if not export:
             total = query.count()
             offset = (params.page - 1) * params.size
-            query.offset(offset).limit(params.size)
+            query = query.offset(offset).limit(params.size)
         return {"total": total, "items": query.all()}
 
 

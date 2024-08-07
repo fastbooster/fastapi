@@ -56,7 +56,7 @@ def get_user_list(params: UserSearchQuery) -> UserListResponse:
         if not export:
             total = query.count()
             offset = (params.page - 1) * params.size
-            query.offset(offset).limit(params.size)
+            query = query.offset(offset).limit(params.size)
         return {"total": total, "items": query.all()}
 
 

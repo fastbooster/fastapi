@@ -35,7 +35,7 @@ def get_space_list(params: SpaceSearchQuery) -> list[AdSpaceModel]:
             query = query.filter_by(status=params.status)
         if not export:
             offset = (params.page - 1) * params.size
-            query.offset(offset).limit(params.size)
+            query = query.offset(offset).limit(params.size)
         return query.all()
 
 
@@ -102,7 +102,7 @@ def get_ad_list(params: AdSearchQuery) -> list[AdModel]:
             query = query.filter_by(status=params.status)
         if not export:
             offset = (params.page - 1) * params.size
-            query.offset(offset).limit(params.size)
+            query = query.offset(offset).limit(params.size)
         return query.all()
 
 
