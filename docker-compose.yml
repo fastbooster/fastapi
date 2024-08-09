@@ -12,4 +12,7 @@ services:
     ports:
       - "${RUNTIME_PORT}:${RUNTIME_PORT}"
 
+    volumes:
+      - ./public:/app/public
+
     command: python start.py
