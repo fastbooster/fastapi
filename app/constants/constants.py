@@ -12,10 +12,10 @@ from wechatpy.pay.utils import dict_to_xml
 ROOT_PATH = os.path.abspath(os.path.dirname(os.path.dirname(os.path.dirname(__file__))))
 
 # 应用文件存储目录
-UPLOAD_PATH = ROOT_PATH + '/public'
+UPLOAD_PATH = os.path.join(ROOT_PATH, 'public')
 
-# 应用文件存储目录
-RUNTIME_PATH = ROOT_PATH + '/runtime'
+# 运行时目录
+RUNTIME_PATH = os.path.join(ROOT_PATH, 'runtime')
 
 # 结果返回给微信服务器时的成功返回数据
 RESPONSE_WECHAT_SUCCESS = dict_to_xml({'return_code': 'SUCCESS', 'return_msg': 'OK'})
