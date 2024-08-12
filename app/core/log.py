@@ -28,19 +28,19 @@ def get_logger():
     # formatter = '{time:YYYY-MM-DD HH:mm:ss} | {level}: {message}'
     # 添加控制台输出的格式,sys.stdout为输出到屏幕;关于这些配置还需要自定义请移步官网查看相关参数说明
     logger.add(sys.stdout,
-               format='<green>{time:YYYYMMDD HH:mm:ss}</green> | '  # 颜色>时间
+               format='<green>{time:YYYYMMDD HH:mm:ss.SSS}</green> | '  # 颜色>时间
                       '{process.name} | '  # 进程名
-                      '{thread.name} | '  # 进程名
+                      '{thread.name} | '  # 线程名
                       '<cyan>{module}</cyan>.<cyan>{function}</cyan>'  # 模块名.方法名
                       ':<cyan>{line}</cyan> | '  # 行号
                       '<level>{level}</level>: '  # 等级
-                      '{message} {extra}',  # 日志内容
+                      '{message} {extra}',  # 日志内
                )
     # 日志写入文件
     logger.add(os.path.join(log_path, log_name),  # 写入目录指定文件
-               format='{time:YYYYMMDD HH:mm:ss} - '  # 时间
+               format='{time:YYYYMMDD HH:mm:ss.SSS} - '  # 时间
                       '{process.name} | '  # 进程名
-                      '{thread.name} | '  # 进程名
+                      '{thread.name} | '  # 线程名
                       '{module}.{function}:{line} | '  # 模块名.方法名:行号
                       '{level}: {message} {extra}',  # 等级 日志内容
                encoding='utf-8',
