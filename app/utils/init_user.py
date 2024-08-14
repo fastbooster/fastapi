@@ -5,13 +5,14 @@
 # Email: easelify@gmail.com
 # Time: 2024/05/17 20:59
 
+import datetime
+import hashlib
 import os
 import secrets
-import hashlib
+
 import pymysql
-import datetime
-from loguru import logger
 from dotenv import load_dotenv
+from loguru import logger
 
 load_dotenv()
 
@@ -43,6 +44,7 @@ def has_user() -> bool:
             result = cursor.fetchone()
             if result is None:
                 return False
+            print(result)
             if result['total'] > 0:
                 logger.info(f'发现 {result["total"]} 个用户！')
                 return True

@@ -6,9 +6,10 @@
 # Time: 2024/5/29 13:30
 
 import os
+
 import pymysql
-from loguru import logger
 from dotenv import load_dotenv
+from loguru import logger
 
 load_dotenv()
 
@@ -20,7 +21,6 @@ MYSQL_CONFIG = {
     'password': os.getenv("DB_PWD"),
     'database': os.getenv("DB_NAME"),
     'charset': os.getenv("DB_CHARSET"),
-    'cursorclass': pymysql.cursors.DictCursor
 }
 
 
@@ -39565,14 +39565,19 @@ def init_city():
     connection = pymysql.connect(**MYSQL_CONFIG)
 
     try:
-        sql = 'INSERT INTO cms_city (id, pid, name, level, pinyin, prefix, weight, is_hot ,status) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s)'
+        sql = '''INSERT INTO cms_city (id, pid, name, level, pinyin, prefix, weight, is_hot ,status) 
+            VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s)
+        '''
         with connection.cursor() as cursor:
             cursor.execute('truncate table cms_city')
             logger.success(f'清空城市表成功！')
 
             # 导入到数据库表
             for city in cities:
-                cursor.execute(sql, (city['id'], city['pid'], city['name'], city['level'], city['pinyin'], city['prefix'], city['weight'], city['is_hot'], city['status']))
+                cursor.execute(sql, (
+                    city['id'], city['pid'], city['name'], city['level'], city['pinyin'], city['prefix'],
+                    city['weight'],
+                    city['is_hot'], city['status']))
 
         connection.commit()
 

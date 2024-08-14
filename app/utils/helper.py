@@ -6,22 +6,7 @@
 # Time: 2024/05/15 21:12
 
 import calendar
-import hashlib
-import json
-import os
-import random
-import time
 import datetime
-from typing import Type
-
-import numpy as np
-from fastapi import status, HTTPException
-from fastapi.responses import JSONResponse
-from sqlalchemy import text, or_
-from sqlalchemy.orm import Session, Query
-from sqlalchemy.sql.expression import asc
-from starlette.middleware.base import BaseHTTPMiddleware
-from starlette.requests import Request
 
 
 def get_last_day_of_month_by_year(year: int) -> list:
@@ -37,7 +22,7 @@ def get_last_day_of_month_by_year(year: int) -> list:
 
 
 def serialize_datetime(obj):
-    '''JSON序列化datetime类时间'''
+    """JSON序列化datetime类时间"""
     if isinstance(obj, datetime.datetime):
         return obj.isoformat()
     raise TypeError("Type not serializable")

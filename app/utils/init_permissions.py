@@ -6,9 +6,10 @@
 # Time: 2024/05/17 09:39
 
 import os
+
 import pymysql
-from loguru import logger
 from dotenv import load_dotenv
+from loguru import logger
 
 load_dotenv()
 
