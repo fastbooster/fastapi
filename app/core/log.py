@@ -19,7 +19,7 @@ def get_logger():
     log_path = os.path.join(RUNTIME_PATH, 'log')
     custom_logger = loguru.logger
     # 清空所有设置
-    logger.remove()
+    custom_logger.remove()
     # 判断日志文件夹是否存在，不存则创建
     if not os.path.exists(log_path):
         os.makedirs(log_path)
