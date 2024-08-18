@@ -6,45 +6,58 @@
 # Time: 2024/5/19 15:20
 
 from datetime import datetime
+from typing import List, Optional
 
-from typing import List, Union, Optional
-
-from pydantic import BaseModel, validator, Field
+from pydantic import BaseModel, Field
 
 from app.schemas.schemas import PaginationParams
 
 
-class OptionItem(BaseModel):
-    id: Optional[int] = 0
-    option_name: str
-    option_value: Optional[str] = None
-    richtext: Optional[int] = 0
-    position: Optional[int] = 0
-    autoload: Optional[int] = 0
-    lock: Optional[int] = 0
-    memo: Optional[str] = None
-    created_at: Optional[datetime] = None
-    updated_at: Optional[datetime] = None
-
-    @validator('richtext', 'autoload', 'lock')
-    def validate_boolean_fields(cls, value):
-        if value not in (0, 1):
-            return 0
-        return value
-
-    @validator('position')
-    def validate_position(cls, value):
-        if value is not None and value < 0:
-            return 0
-        return value
+class SystemOptionBase(BaseModel):
+    """基础数据模型"""
+    option_name: str = Field(pattern=r"^[a-zA-Z0-9-_]{1,50}$", description="选项名称")
+    option_value: Optional[str] = Field(None, description="选项值")
+    richtext: Optional[int] = Field(0, ge=0, le=1, description="是否为富文本")
+    position: Optional[int] = Field(0, description="位置")
+    autoload: Optional[int] = Field(0, ge=0, le=1, description="是否自动加载")
+    lock: Optional[int] = Field(0, ge=0, le=1, description="是否锁定")
+    public: Optional[int] = Field(0, ge=0, le=1, description="是否公开")
+    memo: Optional[str] = Field(None, description="备注")
 
 
-class OptionListResponse(BaseModel):
+class SystemOptionForm(SystemOptionBase):
+    """表单模型"""
+    pass
+
+
+class SystemOptionItem(SystemOptionBase):
+    """数据库全量字段模型"""
+    id: int = Field(description="ID")
+    created_at: datetime = Field(None, description="创建时间")
+    updated_at: datetime = Field(None, description="更新时间")
+
+
+class SystemOptionResponse(BaseModel):
+    """响应数据模型"""
     total: int
-    items: List[OptionItem]
+    items: List[SystemOptionItem]
 
 
-class OptionSearchQuery(PaginationParams):
-    option_name: Optional[str] = None
-    memo: Optional[str] = None
-    locked: Optional[str] = Field(None, description="锁定状态：yes/no")
+class SystemOptionPublicItem(BaseModel):
+    """公开数据模型"""
+    option_name: str = Field(description='选项名称')
+    option_value: str = Field(description='选项值')
+
+
+class SystemOptionPublicResponse(BaseModel):
+    """公开响应模型"""
+    total: int
+    items: List[SystemOptionPublicItem]
+
+
+class SearchQuery(PaginationParams):
+    """查询参数"""
+    option_name: Optional[str] = Field(None, description="选项名称")
+    memo: Optional[str] = Field(None, description="备注")
+    locked: Optional[int] = Field(None, ge=0, le=1, description="锁定状态")
+    public: Optional[int] = Field(None, ge=0, le=1, description="是否公开")

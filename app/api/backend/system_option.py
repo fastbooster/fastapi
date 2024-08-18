@@ -11,31 +11,33 @@ from fastapi import APIRouter, HTTPException, Depends
 
 from app.core.log import logger
 from app.core.security import check_permission
-from app.services import system_option as OptionService
-
 from app.schemas.schemas import ResponseSuccess
-from app.schemas.system_option import OptionItem, OptionSearchQuery, OptionListResponse
+from app.schemas.system_option import SearchQuery, SystemOptionForm, SystemOptionItem, SystemOptionResponse
+from app.services import system_option
 
 router = APIRouter()
 
 
-@router.get("/options", response_model=OptionListResponse, dependencies=[Depends(check_permission('SystemOption'))], summary="系统选项列表")
-def lists(params: OptionSearchQuery = Depends()):
-    return OptionService.get_option_list(params)
+@router.get("/options", response_model=SystemOptionResponse, dependencies=[Depends(check_permission('SystemOption'))],
+            summary="系统选项列表")
+def lists(params: SearchQuery = Depends()):
+    return system_option.get_option_list(params)
 
 
-@router.get("/options/{id}", response_model=OptionItem, dependencies=[Depends(check_permission('SystemOption'))], summary="系统选项详情",)
+@router.get("/options/{id}", response_model=SystemOptionItem, dependencies=[Depends(check_permission('SystemOption'))],
+            summary="系统选项详情", )
 def detail(id: int):
-    option = OptionService.get_option(id)
-    if not option:
+    current_model = system_option.get_option(id)
+    if not current_model:
         raise HTTPException(status_code=404, detail="系统选项不存在")
-    return option
+    return current_model
 
 
-@router.post("/options", response_model=ResponseSuccess, dependencies=[Depends(check_permission('SystemOption'))], summary="添加系统选项")
-def add(params: OptionItem):
+@router.post("/options", response_model=ResponseSuccess, dependencies=[Depends(check_permission('SystemOption'))],
+             summary="添加系统选项")
+def add(params: SystemOptionForm):
     try:
-        OptionService.add_option(params)
+        system_option.add_option(params)
         return ResponseSuccess()
     except ValueError as e:
         logger.info(f'调用堆栈：{traceback.format_exc()}')
@@ -46,11 +48,11 @@ def add(params: OptionItem):
         raise HTTPException(status_code=500, detail='添加系统选项失败')
 
 
-@router.put("/options/{id}", response_model=ResponseSuccess, dependencies=[Depends(check_permission('SystemOption'))], summary="编辑系统选项")
-def edit(id: int, params: OptionItem):
+@router.put("/options/{id}", response_model=ResponseSuccess, dependencies=[Depends(check_permission('SystemOption'))],
+            summary="编辑系统选项")
+def edit(id: int, params: SystemOptionForm):
     try:
-        params.id = id
-        OptionService.edit_option(params)
+        system_option.edit_option(id, params)
         return ResponseSuccess()
     except ValueError as e:
         logger.info(f'调用堆栈：{traceback.format_exc()}')
@@ -61,10 +63,11 @@ def edit(id: int, params: OptionItem):
         raise HTTPException(status_code=500, detail='编辑系统选项失败')
 
 
-@router.delete("/options/{id}", response_model=ResponseSuccess, dependencies=[Depends(check_permission('SystemOption'))], summary="删除系统选项",)
+@router.delete("/options/{id}", response_model=ResponseSuccess,
+               dependencies=[Depends(check_permission('SystemOption'))], summary="删除系统选项", )
 def delete(id: int):
     try:
-        OptionService.delete_option(id)
+        system_option.delete_option(id)
         return ResponseSuccess()
     except ValueError as e:
         logger.info(f'调用堆栈：{traceback.format_exc()}')
@@ -75,10 +78,11 @@ def delete(id: int):
         raise HTTPException(status_code=500, detail='删除系统选项失败')
 
 
-@router.post("/options/rebuild_cache", response_model=ResponseSuccess, dependencies=[Depends(check_permission('SystemOption'))], summary="重建系统选项缓存",)
+@router.post("/options/rebuild_cache", response_model=ResponseSuccess,
+             dependencies=[Depends(check_permission('SystemOption'))], summary="重建系统选项缓存", )
 def rebuild_cache():
     try:
-        OptionService.rebuild_cache()
+        system_option.rebuild_cache()
         return ResponseSuccess()
     except ValueError as e:
         logger.info(f'调用堆栈：{traceback.format_exc()}')

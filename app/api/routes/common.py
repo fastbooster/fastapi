@@ -5,12 +5,12 @@
 # Email: qiuyutang@qq.com
 # Time: 2024/5/20 09:51
 
-from app.core.log import logger
 from fastapi import APIRouter, Depends, UploadFile, File, HTTPException
 
-from app.schemas.schemas import ResponseSuccess
-
+from app.core.log import logger
 from app.core.security import get_current_user_from_cache
+from app.schemas.schemas import ResponseSuccess
+from app.schemas.system_option import SystemOptionPublicItem
 from app.services import upload, sms, system_option, city, ad
 
 router = APIRouter()
@@ -22,7 +22,8 @@ async def upload_file(file: UploadFile = File(...), related_type: str = 'files',
     return await upload.upload_file(file, related_type, related_id, user_data)
 
 
-@router.post('/send_sms', response_model=ResponseSuccess, summary='发送短信验证码, 用于非登陆的情况下, 比如注册、登录、找回密码等')
+@router.post('/send_sms', response_model=ResponseSuccess,
+             summary='发送短信验证码, 用于非登陆的情况下, 比如注册、登录、找回密码等')
 async def send_sms(phone: str):
     try:
         await sms.send_sms(phone, 0)
@@ -46,12 +47,12 @@ async def send_sms(phone: str, user_data: dict = Depends(get_current_user_from_c
         raise HTTPException(status_code=500, detail='发送短信验证码失败')
 
 
-@router.get('/option/{option_name}', summary='获取系统配置')
+@router.get('/options/{option_name}', response_model=SystemOptionPublicItem, summary='获取系统配置')
 async def get_option(option_name: str):
     option = system_option.get_option_by_name(option_name)
-    if not option:
+    if option is None or option.public != 1:
         raise HTTPException(status_code=404, detail="系统选项不存在")
-    return system_option.safe_whitelist_fields(option.__dict__)
+    return option
 
 
 @router.get('/city/{pid}', summary='获取指定上级行政地区的下级行政地区')

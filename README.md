@@ -13,12 +13,12 @@
 |   |-- |-- backend         // 后端路由
 |   |-- constants           // 常量目录
 |   |-- core                // 核心组件目录
-|   |-- models              // 模型目录 (SQLAlchemy ORM)
+|   |-- models              // DB模型目录 (SQLAlchemy ORM)
 |   |-- schemas             // 表单目录 (pydantic schemas)
 |   |-- services            // 服务类 (CRUD+)
 |   |-- tasks               // 异步任务 (Celery)
 |   |-- utils               // 助手工具
-|-- public                  // Web根目录，用于提供静态文件访问
+|-- public                  // Web根目录, 用于提供静态文件访问
 |-- docker                  // Docker镜像配置卷
 |-- volumes                 // Docker容器数据卷
 |-- scripts                 // 助手脚本目录

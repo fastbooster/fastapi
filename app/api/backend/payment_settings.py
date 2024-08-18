@@ -15,7 +15,7 @@ from app.services import payment_settings as PaymentSettingService
 from app.services import system_option as SystemOptionService
 
 from app.schemas.schemas import ResponseSuccess
-from app.schemas.system_option import OptionItem
+from app.schemas.system_option import SystemOptionItem
 from app.schemas.payment_settings import PaymentSettingsSortForm, PaymentSettingListResponse
 
 router = APIRouter()
@@ -40,16 +40,16 @@ def lists(params: PaymentSettingsSortForm):
         raise HTTPException(status_code=500, detail='更新排序失败')
 
 
-@router.get("/payment_settings/alipay_root_cert", response_model=OptionItem, dependencies=[Depends(check_permission('PaymentSettings'))], summary="获取支付宝根证书")
+@router.get("/payment_settings/alipay_root_cert", response_model=SystemOptionItem, dependencies=[Depends(check_permission('PaymentSettings'))], summary="获取支付宝根证书")
 def get_point_recharge_settings():
     option = SystemOptionService.get_option_by_name("alipay_root_cert")
     return option if option is not None else {"option_name": "alipay_root_cert", "option_value": None}
 
 
 @router.put("/payment_settings/alipay_root_cert", response_model=ResponseSuccess, dependencies=[Depends(check_permission('PaymentSettings'))], summary="设置支付宝根证书")
-def alipay_root_cert(params: OptionItem):
+def alipay_root_cert(params: SystemOptionItem):
     try:
-        SystemOptionService.autoupdate(OptionItem(
+        SystemOptionService.autoupdate(SystemOptionItem(
             option_name='alipay_root_cert',
             option_value=params.option_value,
             autoload=1,
