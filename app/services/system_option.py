@@ -71,7 +71,8 @@ def add_option(params: SystemOptionForm) -> None:
         if exists_count > 0:
             raise ValueError('该选项名称已存在')
 
-        current_model = SystemOptionModel(**params.__dict__)
+        current_model = SystemOptionModel()
+        current_model.from_dict(params.__dict__)
         db.add(current_model)
         db.commit()
         db.refresh(current_model)
@@ -122,7 +123,8 @@ def autoupdate(params: SystemOptionForm) -> None:
         current_model = db.query(SystemOptionModel).filter_by(
             option_name=params.option_name).first()
         if current_model is None:
-            current_model = SystemOptionModel(**params.__dict__)
+            current_model = SystemOptionModel()
+            current_model.from_dict(params.__dict__)
             db.add(current_model)
         else:
             data_dict = params.__dict__
