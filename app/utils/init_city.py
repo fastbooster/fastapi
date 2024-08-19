@@ -35,7 +35,6 @@ def init_city():
             'prefix': 'B',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2,
@@ -46,7 +45,6 @@ def init_city():
             'prefix': 'T',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3,
@@ -57,7 +55,6 @@ def init_city():
             'prefix': 'S',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 4,
@@ -68,7 +65,6 @@ def init_city():
             'prefix': 'C',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 5,
@@ -79,7 +75,6 @@ def init_city():
             'prefix': 'H',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 6,
@@ -90,7 +85,6 @@ def init_city():
             'prefix': 'S',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 7,
@@ -101,7 +95,6 @@ def init_city():
             'prefix': 'T',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 8,
@@ -112,7 +105,6 @@ def init_city():
             'prefix': 'L',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 9,
@@ -123,7 +115,6 @@ def init_city():
             'prefix': 'J',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 10,
@@ -134,7 +125,6 @@ def init_city():
             'prefix': 'H',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 11,
@@ -145,7 +135,6 @@ def init_city():
             'prefix': 'J',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 12,
@@ -156,7 +145,6 @@ def init_city():
             'prefix': 'Z',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 13,
@@ -167,7 +155,6 @@ def init_city():
             'prefix': 'A',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 14,
@@ -178,7 +165,6 @@ def init_city():
             'prefix': 'F',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 15,
@@ -189,7 +175,6 @@ def init_city():
             'prefix': 'J',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 16,
@@ -200,7 +185,6 @@ def init_city():
             'prefix': 'S',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 17,
@@ -211,7 +195,6 @@ def init_city():
             'prefix': 'H',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 18,
@@ -222,7 +205,6 @@ def init_city():
             'prefix': 'H',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 19,
@@ -233,7 +215,6 @@ def init_city():
             'prefix': 'H',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 20,
@@ -244,7 +225,6 @@ def init_city():
             'prefix': 'G',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 21,
@@ -255,7 +235,6 @@ def init_city():
             'prefix': 'G',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 22,
@@ -266,7 +245,6 @@ def init_city():
             'prefix': 'S',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 24,
@@ -277,7 +255,6 @@ def init_city():
             'prefix': 'G',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 25,
@@ -288,7 +265,6 @@ def init_city():
             'prefix': 'H',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 26,
@@ -299,7 +275,6 @@ def init_city():
             'prefix': 'Y',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 27,
@@ -310,7 +285,6 @@ def init_city():
             'prefix': 'Q',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 28,
@@ -321,7 +295,6 @@ def init_city():
             'prefix': 'S',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 29,
@@ -332,7 +305,6 @@ def init_city():
             'prefix': 'G',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 30,
@@ -343,7 +315,6 @@ def init_city():
             'prefix': 'X',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 31,
@@ -354,7 +325,6 @@ def init_city():
             'prefix': 'N',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 32,
@@ -365,7 +335,6 @@ def init_city():
             'prefix': 'X',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 33,
@@ -376,7 +345,6 @@ def init_city():
             'prefix': 'N',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 34,
@@ -387,7 +355,6 @@ def init_city():
             'prefix': 'A',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 35,
@@ -398,7 +365,6 @@ def init_city():
             'prefix': 'X',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 36,
@@ -409,7 +375,6 @@ def init_city():
             'prefix': 'B',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 37,
@@ -420,7 +385,6 @@ def init_city():
             'prefix': 'T',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 38,
@@ -431,7 +395,6 @@ def init_city():
             'prefix': 'S',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 39,
@@ -442,7 +405,6 @@ def init_city():
             'prefix': 'C',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 40,
@@ -453,7 +415,6 @@ def init_city():
             'prefix': 'S',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 41,
@@ -464,7 +425,6 @@ def init_city():
             'prefix': 'T',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 42,
@@ -475,7 +435,6 @@ def init_city():
             'prefix': 'Q',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 43,
@@ -486,7 +445,6 @@ def init_city():
             'prefix': 'H',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 44,
@@ -497,7 +455,6 @@ def init_city():
             'prefix': 'X',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 45,
@@ -508,7 +465,6 @@ def init_city():
             'prefix': 'B',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 46,
@@ -519,7 +475,6 @@ def init_city():
             'prefix': 'Z',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 47,
@@ -530,7 +485,6 @@ def init_city():
             'prefix': 'C',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 48,
@@ -541,7 +495,6 @@ def init_city():
             'prefix': 'C',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 49,
@@ -552,7 +505,6 @@ def init_city():
             'prefix': 'L',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 50,
@@ -563,7 +515,6 @@ def init_city():
             'prefix': 'H',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 51,
@@ -574,7 +525,6 @@ def init_city():
             'prefix': 'T',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 52,
@@ -585,7 +535,6 @@ def init_city():
             'prefix': 'D',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 53,
@@ -596,7 +545,6 @@ def init_city():
             'prefix': 'Y',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 54,
@@ -607,7 +555,6 @@ def init_city():
             'prefix': 'C',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 55,
@@ -618,7 +565,6 @@ def init_city():
             'prefix': 'J',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 56,
@@ -629,7 +575,6 @@ def init_city():
             'prefix': 'S',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 57,
@@ -640,7 +585,6 @@ def init_city():
             'prefix': 'J',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 58,
@@ -651,7 +595,6 @@ def init_city():
             'prefix': 'Y',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 59,
@@ -662,7 +605,6 @@ def init_city():
             'prefix': 'X',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 60,
@@ -673,7 +615,6 @@ def init_city():
             'prefix': 'L',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 61,
@@ -684,7 +625,6 @@ def init_city():
             'prefix': 'L',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 62,
@@ -695,7 +635,6 @@ def init_city():
             'prefix': 'T',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 63,
@@ -706,7 +645,6 @@ def init_city():
             'prefix': 'G',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 64,
@@ -717,7 +655,6 @@ def init_city():
             'prefix': 'J',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 65,
@@ -728,7 +665,6 @@ def init_city():
             'prefix': 'T',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 66,
@@ -739,7 +675,6 @@ def init_city():
             'prefix': 'T',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 67,
@@ -750,7 +685,6 @@ def init_city():
             'prefix': 'X',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 68,
@@ -761,7 +695,6 @@ def init_city():
             'prefix': 'J',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 69,
@@ -772,7 +705,6 @@ def init_city():
             'prefix': 'T',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 70,
@@ -783,7 +715,6 @@ def init_city():
             'prefix': 'Y',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 71,
@@ -794,7 +725,6 @@ def init_city():
             'prefix': 'T',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 72,
@@ -805,7 +735,6 @@ def init_city():
             'prefix': 'X',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 73,
@@ -816,7 +745,6 @@ def init_city():
             'prefix': 'M',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 74,
@@ -827,7 +755,6 @@ def init_city():
             'prefix': 'T',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 75,
@@ -838,7 +765,6 @@ def init_city():
             'prefix': 'Z',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 76,
@@ -849,7 +775,6 @@ def init_city():
             'prefix': 'N',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 77,
@@ -860,7 +785,6 @@ def init_city():
             'prefix': 'Y',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 78,
@@ -871,7 +795,6 @@ def init_city():
             'prefix': 'J',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 79,
@@ -882,7 +805,6 @@ def init_city():
             'prefix': 'T',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 80,
@@ -893,7 +815,6 @@ def init_city():
             'prefix': 'G',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 81,
@@ -904,7 +825,6 @@ def init_city():
             'prefix': 'P',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 82,
@@ -915,7 +835,6 @@ def init_city():
             'prefix': 'P',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 83,
@@ -926,7 +845,6 @@ def init_city():
             'prefix': 'T',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 84,
@@ -937,7 +855,6 @@ def init_city():
             'prefix': 'H',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 85,
@@ -948,7 +865,6 @@ def init_city():
             'prefix': 'S',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 86,
@@ -959,7 +875,6 @@ def init_city():
             'prefix': 'D',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 87,
@@ -970,7 +885,6 @@ def init_city():
             'prefix': 'A',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 88,
@@ -981,7 +895,6 @@ def init_city():
             'prefix': 'F',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 89,
@@ -992,7 +905,6 @@ def init_city():
             'prefix': 'B',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 90,
@@ -1003,7 +915,6 @@ def init_city():
             'prefix': 'D',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 91,
@@ -1014,7 +925,6 @@ def init_city():
             'prefix': 'J',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 92,
@@ -1025,7 +935,6 @@ def init_city():
             'prefix': 'Y',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 93,
@@ -1036,7 +945,6 @@ def init_city():
             'prefix': 'F',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 94,
@@ -1047,7 +955,6 @@ def init_city():
             'prefix': 'L',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 95,
@@ -1058,7 +965,6 @@ def init_city():
             'prefix': 'P',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 96,
@@ -1069,7 +975,6 @@ def init_city():
             'prefix': 'T',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 97,
@@ -1080,7 +985,6 @@ def init_city():
             'prefix': 'C',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 98,
@@ -1091,7 +995,6 @@ def init_city():
             'prefix': 'H',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 99,
@@ -1102,7 +1005,6 @@ def init_city():
             'prefix': 'C',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 100,
@@ -1113,7 +1015,6 @@ def init_city():
             'prefix': 'J',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 101,
@@ -1124,7 +1025,6 @@ def init_city():
             'prefix': 'S',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 102,
@@ -1135,7 +1035,6 @@ def init_city():
             'prefix': 'L',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 103,
@@ -1146,7 +1045,6 @@ def init_city():
             'prefix': 'T',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 104,
@@ -1157,7 +1055,6 @@ def init_city():
             'prefix': 'B',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 105,
@@ -1168,7 +1065,6 @@ def init_city():
             'prefix': 'S',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 106,
@@ -1179,7 +1075,6 @@ def init_city():
             'prefix': 'B',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 107,
@@ -1190,7 +1085,6 @@ def init_city():
             'prefix': 'Y',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 108,
@@ -1201,7 +1095,6 @@ def init_city():
             'prefix': 'H',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 109,
@@ -1212,7 +1105,6 @@ def init_city():
             'prefix': 'Q',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 110,
@@ -1223,7 +1115,6 @@ def init_city():
             'prefix': 'H',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 111,
@@ -1234,7 +1125,6 @@ def init_city():
             'prefix': 'S',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 112,
@@ -1245,7 +1135,6 @@ def init_city():
             'prefix': 'J',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 113,
@@ -1256,7 +1145,6 @@ def init_city():
             'prefix': 'D',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 114,
@@ -1267,7 +1155,6 @@ def init_city():
             'prefix': 'Y',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 115,
@@ -1278,7 +1165,6 @@ def init_city():
             'prefix': 'M',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 116,
@@ -1289,7 +1175,6 @@ def init_city():
             'prefix': 'J',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 117,
@@ -1300,7 +1185,6 @@ def init_city():
             'prefix': 'Q',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 118,
@@ -1311,7 +1195,6 @@ def init_city():
             'prefix': 'H',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 119,
@@ -1322,7 +1205,6 @@ def init_city():
             'prefix': 'S',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 120,
@@ -1333,7 +1215,6 @@ def init_city():
             'prefix': 'D',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 121,
@@ -1344,7 +1225,6 @@ def init_city():
             'prefix': 'N',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 122,
@@ -1355,7 +1235,6 @@ def init_city():
             'prefix': 'W',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 123,
@@ -1366,7 +1245,6 @@ def init_city():
             'prefix': 'X',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 124,
@@ -1377,7 +1255,6 @@ def init_city():
             'prefix': 'C',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 125,
@@ -1388,7 +1265,6 @@ def init_city():
             'prefix': 'S',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 126,
@@ -1399,7 +1275,6 @@ def init_city():
             'prefix': 'N',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 127,
@@ -1410,7 +1285,6 @@ def init_city():
             'prefix': 'L',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 128,
@@ -1421,7 +1295,6 @@ def init_city():
             'prefix': 'H',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 129,
@@ -1432,7 +1305,6 @@ def init_city():
             'prefix': 'Y',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 130,
@@ -1443,7 +1315,6 @@ def init_city():
             'prefix': 'Y',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 131,
@@ -1454,7 +1325,6 @@ def init_city():
             'prefix': 'Z',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 132,
@@ -1465,7 +1335,6 @@ def init_city():
             'prefix': 'T',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 133,
@@ -1476,7 +1345,6 @@ def init_city():
             'prefix': 'S',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 134,
@@ -1487,7 +1355,6 @@ def init_city():
             'prefix': 'H',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 135,
@@ -1498,7 +1365,6 @@ def init_city():
             'prefix': 'N',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 136,
@@ -1509,7 +1375,6 @@ def init_city():
             'prefix': 'W',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 137,
@@ -1520,7 +1385,6 @@ def init_city():
             'prefix': 'J',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 138,
@@ -1531,7 +1395,6 @@ def init_city():
             'prefix': 'H',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 139,
@@ -1542,7 +1405,6 @@ def init_city():
             'prefix': 'S',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 140,
@@ -1553,7 +1415,6 @@ def init_city():
             'prefix': 'J',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 141,
@@ -1564,7 +1425,6 @@ def init_city():
             'prefix': 'Q',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 142,
@@ -1575,7 +1435,6 @@ def init_city():
             'prefix': 'Z',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 143,
@@ -1586,7 +1445,6 @@ def init_city():
             'prefix': 'T',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 144,
@@ -1597,7 +1455,6 @@ def init_city():
             'prefix': 'L',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 145,
@@ -1608,7 +1465,6 @@ def init_city():
             'prefix': 'H',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 146,
@@ -1619,7 +1475,6 @@ def init_city():
             'prefix': 'W',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 147,
@@ -1630,7 +1485,6 @@ def init_city():
             'prefix': 'B',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 148,
@@ -1641,7 +1495,6 @@ def init_city():
             'prefix': 'H',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 149,
@@ -1652,7 +1505,6 @@ def init_city():
             'prefix': 'M',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 150,
@@ -1663,7 +1515,6 @@ def init_city():
             'prefix': 'H',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 151,
@@ -1674,7 +1525,6 @@ def init_city():
             'prefix': 'T',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 152,
@@ -1685,7 +1535,6 @@ def init_city():
             'prefix': 'A',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 153,
@@ -1696,7 +1545,6 @@ def init_city():
             'prefix': 'H',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 154,
@@ -1707,7 +1555,6 @@ def init_city():
             'prefix': 'C',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 155,
@@ -1718,7 +1565,6 @@ def init_city():
             'prefix': 'F',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 156,
@@ -1729,7 +1575,6 @@ def init_city():
             'prefix': 'S',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 157,
@@ -1740,7 +1585,6 @@ def init_city():
             'prefix': 'C',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 158,
@@ -1751,7 +1595,6 @@ def init_city():
             'prefix': 'L',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 159,
@@ -1762,7 +1605,6 @@ def init_city():
             'prefix': 'B',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 160,
@@ -1773,7 +1615,6 @@ def init_city():
             'prefix': 'C',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 161,
@@ -1784,7 +1625,6 @@ def init_city():
             'prefix': 'X',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 162,
@@ -1795,7 +1635,6 @@ def init_city():
             'prefix': 'F',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 163,
@@ -1806,7 +1645,6 @@ def init_city():
             'prefix': 'X',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 164,
@@ -1817,7 +1655,6 @@ def init_city():
             'prefix': 'P',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 165,
@@ -1828,7 +1665,6 @@ def init_city():
             'prefix': 'S',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 166,
@@ -1839,7 +1675,6 @@ def init_city():
             'prefix': 'Q',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 167,
@@ -1850,7 +1685,6 @@ def init_city():
             'prefix': 'Z',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 168,
@@ -1861,7 +1695,6 @@ def init_city():
             'prefix': 'N',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 169,
@@ -1872,7 +1705,6 @@ def init_city():
             'prefix': 'L',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 170,
@@ -1883,7 +1715,6 @@ def init_city():
             'prefix': 'N',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 171,
@@ -1894,7 +1725,6 @@ def init_city():
             'prefix': 'N',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 172,
@@ -1905,7 +1735,6 @@ def init_city():
             'prefix': 'J',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 173,
@@ -1916,7 +1745,6 @@ def init_city():
             'prefix': 'P',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 174,
@@ -1927,7 +1755,6 @@ def init_city():
             'prefix': 'J',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 175,
@@ -1938,7 +1765,6 @@ def init_city():
             'prefix': 'X',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 176,
@@ -1949,7 +1775,6 @@ def init_city():
             'prefix': 'Y',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 177,
@@ -1960,7 +1785,6 @@ def init_city():
             'prefix': 'G',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 178,
@@ -1971,7 +1795,6 @@ def init_city():
             'prefix': 'J',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 179,
@@ -1982,7 +1805,6 @@ def init_city():
             'prefix': 'Y',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 180,
@@ -1993,7 +1815,6 @@ def init_city():
             'prefix': 'F',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 181,
@@ -2004,7 +1825,6 @@ def init_city():
             'prefix': 'S',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 182,
@@ -2015,7 +1835,6 @@ def init_city():
             'prefix': 'J',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 183,
@@ -2026,7 +1845,6 @@ def init_city():
             'prefix': 'Q',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 184,
@@ -2037,7 +1855,6 @@ def init_city():
             'prefix': 'Z',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 185,
@@ -2048,7 +1865,6 @@ def init_city():
             'prefix': 'Z',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 186,
@@ -2059,7 +1875,6 @@ def init_city():
             'prefix': 'D',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 187,
@@ -2070,7 +1885,6 @@ def init_city():
             'prefix': 'Y',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 188,
@@ -2081,7 +1895,6 @@ def init_city():
             'prefix': 'W',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 189,
@@ -2092,7 +1905,6 @@ def init_city():
             'prefix': 'J',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 190,
@@ -2103,7 +1915,6 @@ def init_city():
             'prefix': 'T',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 191,
@@ -2114,7 +1925,6 @@ def init_city():
             'prefix': 'W',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 192,
@@ -2125,7 +1935,6 @@ def init_city():
             'prefix': 'R',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 193,
@@ -2136,7 +1945,6 @@ def init_city():
             'prefix': 'L',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 194,
@@ -2147,7 +1955,6 @@ def init_city():
             'prefix': 'L',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 195,
@@ -2158,7 +1965,6 @@ def init_city():
             'prefix': 'D',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 196,
@@ -2169,7 +1975,6 @@ def init_city():
             'prefix': 'L',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 197,
@@ -2180,7 +1985,6 @@ def init_city():
             'prefix': 'B',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 198,
@@ -2191,7 +1995,6 @@ def init_city():
             'prefix': 'H',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 199,
@@ -2202,7 +2005,6 @@ def init_city():
             'prefix': 'Z',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 200,
@@ -2213,7 +2015,6 @@ def init_city():
             'prefix': 'K',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 201,
@@ -2224,7 +2025,6 @@ def init_city():
             'prefix': 'L',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 202,
@@ -2235,7 +2035,6 @@ def init_city():
             'prefix': 'P',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 203,
@@ -2246,7 +2045,6 @@ def init_city():
             'prefix': 'A',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 204,
@@ -2257,7 +2055,6 @@ def init_city():
             'prefix': 'H',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 205,
@@ -2268,7 +2065,6 @@ def init_city():
             'prefix': 'X',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 206,
@@ -2279,7 +2075,6 @@ def init_city():
             'prefix': 'J',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 207,
@@ -2290,7 +2085,6 @@ def init_city():
             'prefix': 'P',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 208,
@@ -2301,7 +2095,6 @@ def init_city():
             'prefix': 'X',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 209,
@@ -2312,7 +2105,6 @@ def init_city():
             'prefix': 'L',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 210,
@@ -2323,7 +2115,6 @@ def init_city():
             'prefix': 'S',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 211,
@@ -2334,7 +2125,6 @@ def init_city():
             'prefix': 'N',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 212,
@@ -2345,7 +2135,6 @@ def init_city():
             'prefix': 'S',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 213,
@@ -2356,7 +2145,6 @@ def init_city():
             'prefix': 'X',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 214,
@@ -2367,7 +2155,6 @@ def init_city():
             'prefix': 'Z',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 215,
@@ -2378,7 +2165,6 @@ def init_city():
             'prefix': 'Z',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 216,
@@ -2389,7 +2175,6 @@ def init_city():
             'prefix': 'J',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 217,
@@ -2400,7 +2185,6 @@ def init_city():
             'prefix': 'W',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 218,
@@ -2411,7 +2195,6 @@ def init_city():
             'prefix': 'H',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 219,
@@ -2422,7 +2205,6 @@ def init_city():
             'prefix': 'S',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 220,
@@ -2433,7 +2215,6 @@ def init_city():
             'prefix': 'J',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 221,
@@ -2444,7 +2225,6 @@ def init_city():
             'prefix': 'Y',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 222,
@@ -2455,7 +2235,6 @@ def init_city():
             'prefix': 'X',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 223,
@@ -2466,7 +2245,6 @@ def init_city():
             'prefix': 'E',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 224,
@@ -2477,7 +2255,6 @@ def init_city():
             'prefix': 'J',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 225,
@@ -2488,7 +2265,6 @@ def init_city():
             'prefix': 'X',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 226,
@@ -2499,7 +2275,6 @@ def init_city():
             'prefix': 'H',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 227,
@@ -2510,7 +2285,6 @@ def init_city():
             'prefix': 'X',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 228,
@@ -2521,7 +2295,6 @@ def init_city():
             'prefix': 'S',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 229,
@@ -2532,7 +2305,6 @@ def init_city():
             'prefix': 'X',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 230,
@@ -2543,7 +2315,6 @@ def init_city():
             'prefix': 'T',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 231,
@@ -2554,7 +2325,6 @@ def init_city():
             'prefix': 'Q',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 232,
@@ -2565,7 +2335,6 @@ def init_city():
             'prefix': 'S',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 233,
@@ -2576,7 +2345,6 @@ def init_city():
             'prefix': 'E',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 234,
@@ -2587,7 +2355,6 @@ def init_city():
             'prefix': 'C',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 235,
@@ -2598,7 +2365,6 @@ def init_city():
             'prefix': 'Z',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 236,
@@ -2609,7 +2375,6 @@ def init_city():
             'prefix': 'X',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 237,
@@ -2620,7 +2385,6 @@ def init_city():
             'prefix': 'H',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 238,
@@ -2631,7 +2395,6 @@ def init_city():
             'prefix': 'S',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 239,
@@ -2642,7 +2405,6 @@ def init_city():
             'prefix': 'Y',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 240,
@@ -2653,7 +2415,6 @@ def init_city():
             'prefix': 'C',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 241,
@@ -2664,7 +2425,6 @@ def init_city():
             'prefix': 'Z',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 242,
@@ -2675,7 +2435,6 @@ def init_city():
             'prefix': 'Y',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 243,
@@ -2686,7 +2445,6 @@ def init_city():
             'prefix': 'C',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 244,
@@ -2697,7 +2455,6 @@ def init_city():
             'prefix': 'Y',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 245,
@@ -2708,7 +2465,6 @@ def init_city():
             'prefix': 'H',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 246,
@@ -2719,7 +2475,6 @@ def init_city():
             'prefix': 'L',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 247,
@@ -2730,7 +2485,6 @@ def init_city():
             'prefix': 'X',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 248,
@@ -2741,7 +2495,6 @@ def init_city():
             'prefix': 'G',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 249,
@@ -2752,7 +2505,6 @@ def init_city():
             'prefix': 'S',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 250,
@@ -2763,7 +2515,6 @@ def init_city():
             'prefix': 'Z',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 251,
@@ -2774,7 +2525,6 @@ def init_city():
             'prefix': 'S',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 252,
@@ -2785,7 +2535,6 @@ def init_city():
             'prefix': 'S',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 253,
@@ -2796,7 +2545,6 @@ def init_city():
             'prefix': 'F',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 254,
@@ -2807,7 +2555,6 @@ def init_city():
             'prefix': 'J',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 255,
@@ -2818,7 +2565,6 @@ def init_city():
             'prefix': 'Z',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 256,
@@ -2829,7 +2575,6 @@ def init_city():
             'prefix': 'M',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 257,
@@ -2840,7 +2585,6 @@ def init_city():
             'prefix': 'Z',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 258,
@@ -2851,7 +2595,6 @@ def init_city():
             'prefix': 'H',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 259,
@@ -2862,7 +2605,6 @@ def init_city():
             'prefix': 'M',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 260,
@@ -2873,7 +2615,6 @@ def init_city():
             'prefix': 'S',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 261,
@@ -2884,7 +2625,6 @@ def init_city():
             'prefix': 'H',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 262,
@@ -2895,7 +2635,6 @@ def init_city():
             'prefix': 'Y',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 263,
@@ -2906,7 +2645,6 @@ def init_city():
             'prefix': 'Q',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 264,
@@ -2917,7 +2655,6 @@ def init_city():
             'prefix': 'D',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 265,
@@ -2928,7 +2665,6 @@ def init_city():
             'prefix': 'Z',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 266,
@@ -2939,7 +2675,6 @@ def init_city():
             'prefix': 'C',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 267,
@@ -2950,7 +2685,6 @@ def init_city():
             'prefix': 'J',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 268,
@@ -2961,7 +2695,6 @@ def init_city():
             'prefix': 'Y',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 269,
@@ -2972,7 +2705,6 @@ def init_city():
             'prefix': 'L',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 270,
@@ -2983,7 +2715,6 @@ def init_city():
             'prefix': 'J',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 271,
@@ -2994,7 +2725,6 @@ def init_city():
             'prefix': 'B',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 272,
@@ -3005,7 +2735,6 @@ def init_city():
             'prefix': 'T',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 273,
@@ -3016,7 +2745,6 @@ def init_city():
             'prefix': 'J',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 274,
@@ -3027,7 +2755,6 @@ def init_city():
             'prefix': 'W',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 275,
@@ -3038,7 +2765,6 @@ def init_city():
             'prefix': 'Z',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 276,
@@ -3049,7 +2775,6 @@ def init_city():
             'prefix': 'P',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 277,
@@ -3060,7 +2785,6 @@ def init_city():
             'prefix': 'J',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 278,
@@ -3071,7 +2795,6 @@ def init_city():
             'prefix': 'Q',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 279,
@@ -3082,7 +2805,6 @@ def init_city():
             'prefix': 'D',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 280,
@@ -3093,7 +2815,6 @@ def init_city():
             'prefix': 'L',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 281,
@@ -3104,7 +2825,6 @@ def init_city():
             'prefix': 'L',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 282,
@@ -3115,7 +2835,6 @@ def init_city():
             'prefix': 'G',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 283,
@@ -3126,7 +2845,6 @@ def init_city():
             'prefix': 'C',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 284,
@@ -3137,7 +2855,6 @@ def init_city():
             'prefix': 'Z',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 285,
@@ -3148,7 +2865,6 @@ def init_city():
             'prefix': 'P',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 286,
@@ -3159,7 +2875,6 @@ def init_city():
             'prefix': 'L',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 287,
@@ -3170,7 +2885,6 @@ def init_city():
             'prefix': 'D',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 288,
@@ -3181,7 +2895,6 @@ def init_city():
             'prefix': 'M',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 289,
@@ -3192,7 +2905,6 @@ def init_city():
             'prefix': 'G',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 290,
@@ -3203,7 +2915,6 @@ def init_city():
             'prefix': 'S',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 291,
@@ -3214,7 +2925,6 @@ def init_city():
             'prefix': 'N',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 292,
@@ -3225,7 +2935,6 @@ def init_city():
             'prefix': 'L',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 293,
@@ -3236,7 +2945,6 @@ def init_city():
             'prefix': 'N',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 294,
@@ -3247,7 +2955,6 @@ def init_city():
             'prefix': 'M',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 295,
@@ -3258,7 +2965,6 @@ def init_city():
             'prefix': 'Y',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 296,
@@ -3269,7 +2975,6 @@ def init_city():
             'prefix': 'G',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 297,
@@ -3280,7 +2985,6 @@ def init_city():
             'prefix': 'D',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 298,
@@ -3291,7 +2995,6 @@ def init_city():
             'prefix': 'Y',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 299,
@@ -3302,7 +3005,6 @@ def init_city():
             'prefix': 'B',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 300,
@@ -3313,7 +3015,6 @@ def init_city():
             'prefix': 'Z',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 301,
@@ -3324,7 +3025,6 @@ def init_city():
             'prefix': 'A',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 302,
@@ -3335,7 +3035,6 @@ def init_city():
             'prefix': 'G',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 303,
@@ -3346,7 +3045,6 @@ def init_city():
             'prefix': 'L',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 304,
@@ -3357,7 +3055,6 @@ def init_city():
             'prefix': 'G',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 305,
@@ -3368,7 +3065,6 @@ def init_city():
             'prefix': 'L',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 306,
@@ -3379,7 +3075,6 @@ def init_city():
             'prefix': 'Z',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 307,
@@ -3390,7 +3085,6 @@ def init_city():
             'prefix': 'A',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 308,
@@ -3401,7 +3095,6 @@ def init_city():
             'prefix': 'T',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 309,
@@ -3412,7 +3105,6 @@ def init_city():
             'prefix': 'B',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 310,
@@ -3423,7 +3115,6 @@ def init_city():
             'prefix': 'Q',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 311,
@@ -3434,7 +3125,6 @@ def init_city():
             'prefix': 'Q',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 312,
@@ -3445,7 +3135,6 @@ def init_city():
             'prefix': 'Q',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 313,
@@ -3456,7 +3145,6 @@ def init_city():
             'prefix': 'H',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 314,
@@ -3467,7 +3155,6 @@ def init_city():
             'prefix': 'S',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 315,
@@ -3478,7 +3165,6 @@ def init_city():
             'prefix': 'W',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 316,
@@ -3489,7 +3175,6 @@ def init_city():
             'prefix': 'Q',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 317,
@@ -3500,7 +3185,6 @@ def init_city():
             'prefix': 'D',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 318,
@@ -3511,7 +3195,6 @@ def init_city():
             'prefix': 'W',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 319,
@@ -3522,7 +3205,6 @@ def init_city():
             'prefix': 'W',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 320,
@@ -3533,7 +3215,6 @@ def init_city():
             'prefix': 'D',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 321,
@@ -3544,7 +3225,6 @@ def init_city():
             'prefix': 'C',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 322,
@@ -3555,7 +3235,6 @@ def init_city():
             'prefix': 'D',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 323,
@@ -3566,7 +3245,6 @@ def init_city():
             'prefix': 'T',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 324,
@@ -3577,7 +3255,6 @@ def init_city():
             'prefix': 'L',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 325,
@@ -3588,7 +3265,6 @@ def init_city():
             'prefix': 'B',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 326,
@@ -3599,7 +3275,6 @@ def init_city():
             'prefix': 'C',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 327,
@@ -3610,7 +3285,6 @@ def init_city():
             'prefix': 'L',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 328,
@@ -3621,7 +3295,6 @@ def init_city():
             'prefix': 'L',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 329,
@@ -3632,7 +3305,6 @@ def init_city():
             'prefix': 'B',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 330,
@@ -3643,7 +3315,6 @@ def init_city():
             'prefix': 'Q',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 331,
@@ -3654,7 +3325,6 @@ def init_city():
             'prefix': 'K',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 332,
@@ -3665,7 +3335,6 @@ def init_city():
             'prefix': 'Q',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 333,
@@ -3676,7 +3345,6 @@ def init_city():
             'prefix': 'Y',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 334,
@@ -3687,7 +3355,6 @@ def init_city():
             'prefix': 'B',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 335,
@@ -3698,7 +3365,6 @@ def init_city():
             'prefix': 'Z',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 336,
@@ -3709,7 +3375,6 @@ def init_city():
             'prefix': 'L',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 337,
@@ -3720,7 +3385,6 @@ def init_city():
             'prefix': 'S',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 338,
@@ -3731,7 +3395,6 @@ def init_city():
             'prefix': 'L',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 339,
@@ -3742,7 +3405,6 @@ def init_city():
             'prefix': 'W',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 340,
@@ -3753,7 +3415,6 @@ def init_city():
             'prefix': 'H',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 341,
@@ -3764,7 +3425,6 @@ def init_city():
             'prefix': 'X',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 342,
@@ -3775,7 +3435,6 @@ def init_city():
             'prefix': 'C',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 343,
@@ -3786,7 +3445,6 @@ def init_city():
             'prefix': 'D',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 344,
@@ -3797,7 +3455,6 @@ def init_city():
             'prefix': 'D',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 345,
@@ -3808,7 +3465,6 @@ def init_city():
             'prefix': 'N',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 346,
@@ -3819,7 +3475,6 @@ def init_city():
             'prefix': 'D',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 347,
@@ -3830,7 +3485,6 @@ def init_city():
             'prefix': 'X',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 348,
@@ -3841,7 +3495,6 @@ def init_city():
             'prefix': 'H',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 349,
@@ -3852,7 +3505,6 @@ def init_city():
             'prefix': 'H',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 350,
@@ -3863,7 +3515,6 @@ def init_city():
             'prefix': 'H',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 351,
@@ -3874,7 +3525,6 @@ def init_city():
             'prefix': 'H',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 352,
@@ -3885,7 +3535,6 @@ def init_city():
             'prefix': 'G',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 353,
@@ -3896,7 +3545,6 @@ def init_city():
             'prefix': 'Y',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 354,
@@ -3907,7 +3555,6 @@ def init_city():
             'prefix': 'H',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 355,
@@ -3918,7 +3565,6 @@ def init_city():
             'prefix': 'X',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 356,
@@ -3929,7 +3575,6 @@ def init_city():
             'prefix': 'T',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 357,
@@ -3940,7 +3585,6 @@ def init_city():
             'prefix': 'B',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 358,
@@ -3951,7 +3595,6 @@ def init_city():
             'prefix': 'X',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 359,
@@ -3962,7 +3605,6 @@ def init_city():
             'prefix': 'W',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 360,
@@ -3973,7 +3615,6 @@ def init_city():
             'prefix': 'Y',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 361,
@@ -3984,7 +3625,6 @@ def init_city():
             'prefix': 'H',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 362,
@@ -3995,7 +3635,6 @@ def init_city():
             'prefix': 'Y',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 363,
@@ -4006,7 +3645,6 @@ def init_city():
             'prefix': 'A',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 364,
@@ -4017,7 +3655,6 @@ def init_city():
             'prefix': 'S',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 365,
@@ -4028,7 +3665,6 @@ def init_city():
             'prefix': 'N',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 366,
@@ -4039,7 +3675,6 @@ def init_city():
             'prefix': 'L',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 367,
@@ -4050,7 +3685,6 @@ def init_city():
             'prefix': 'G',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 368,
@@ -4061,7 +3695,6 @@ def init_city():
             'prefix': 'B',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 369,
@@ -4072,7 +3705,6 @@ def init_city():
             'prefix': 'F',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 370,
@@ -4083,7 +3715,6 @@ def init_city():
             'prefix': 'Q',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 371,
@@ -4094,7 +3725,6 @@ def init_city():
             'prefix': 'G',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 372,
@@ -4105,7 +3735,6 @@ def init_city():
             'prefix': 'Y',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 373,
@@ -4116,7 +3745,6 @@ def init_city():
             'prefix': 'B',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 374,
@@ -4127,7 +3755,6 @@ def init_city():
             'prefix': 'H',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 375,
@@ -4138,7 +3765,6 @@ def init_city():
             'prefix': 'H',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 376,
@@ -4149,7 +3775,6 @@ def init_city():
             'prefix': 'L',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 377,
@@ -4160,7 +3785,6 @@ def init_city():
             'prefix': 'C',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 378,
@@ -4171,7 +3795,6 @@ def init_city():
             'prefix': 'L',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 379,
@@ -4182,7 +3805,6 @@ def init_city():
             'prefix': 'N',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 380,
@@ -4193,7 +3815,6 @@ def init_city():
             'prefix': 'C',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 381,
@@ -4204,7 +3825,6 @@ def init_city():
             'prefix': 'S',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 382,
@@ -4215,7 +3835,6 @@ def init_city():
             'prefix': 'R',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 383,
@@ -4226,7 +3845,6 @@ def init_city():
             'prefix': 'A',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 384,
@@ -4237,7 +3855,6 @@ def init_city():
             'prefix': 'L',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 385,
@@ -4248,7 +3865,6 @@ def init_city():
             'prefix': 'Y',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 386,
@@ -4259,7 +3875,6 @@ def init_city():
             'prefix': 'S',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 387,
@@ -4270,7 +3885,6 @@ def init_city():
             'prefix': 'W',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 388,
@@ -4281,7 +3895,6 @@ def init_city():
             'prefix': 'G',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 389,
@@ -4292,7 +3905,6 @@ def init_city():
             'prefix': 'Z',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 390,
@@ -4303,7 +3915,6 @@ def init_city():
             'prefix': 'W',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 391,
@@ -4314,7 +3925,6 @@ def init_city():
             'prefix': 'K',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 392,
@@ -4325,7 +3935,6 @@ def init_city():
             'prefix': 'S',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 393,
@@ -4336,7 +3945,6 @@ def init_city():
             'prefix': 'A',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 394,
@@ -4347,7 +3955,6 @@ def init_city():
             'prefix': 'T',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 395,
@@ -4358,7 +3965,6 @@ def init_city():
             'prefix': 'W',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 396,
@@ -4369,7 +3975,6 @@ def init_city():
             'prefix': 'T',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 397,
@@ -4380,7 +3985,6 @@ def init_city():
             'prefix': 'A',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 398,
@@ -4391,7 +3995,6 @@ def init_city():
             'prefix': 'K',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 399,
@@ -4402,7 +4005,6 @@ def init_city():
             'prefix': 'H',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 400,
@@ -4413,7 +4015,6 @@ def init_city():
             'prefix': 'H',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 401,
@@ -4424,7 +4025,6 @@ def init_city():
             'prefix': 'A',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 402,
@@ -4435,7 +4035,6 @@ def init_city():
             'prefix': 'K',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 403,
@@ -4446,7 +4045,6 @@ def init_city():
             'prefix': 'C',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 404,
@@ -4457,7 +4055,6 @@ def init_city():
             'prefix': 'F',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 405,
@@ -4468,7 +4065,6 @@ def init_city():
             'prefix': 'M',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 406,
@@ -4479,7 +4075,6 @@ def init_city():
             'prefix': 'B',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 407,
@@ -4490,7 +4085,6 @@ def init_city():
             'prefix': 'Y',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 408,
@@ -4501,7 +4095,6 @@ def init_city():
             'prefix': 'K',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 409,
@@ -4512,7 +4105,6 @@ def init_city():
             'prefix': 'T',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 410,
@@ -4523,7 +4115,6 @@ def init_city():
             'prefix': 'W',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 411,
@@ -4534,7 +4125,6 @@ def init_city():
             'prefix': 'A',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 412,
@@ -4545,7 +4135,6 @@ def init_city():
             'prefix': 'H',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 413,
@@ -4556,7 +4145,6 @@ def init_city():
             'prefix': 'B',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 414,
@@ -4567,7 +4155,6 @@ def init_city():
             'prefix': 'W',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 415,
@@ -4578,7 +4165,6 @@ def init_city():
             'prefix': 'C',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 416,
@@ -4589,7 +4175,6 @@ def init_city():
             'prefix': 'T',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 417,
@@ -4600,7 +4185,6 @@ def init_city():
             'prefix': 'E',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 418,
@@ -4611,7 +4195,6 @@ def init_city():
             'prefix': 'H',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 419,
@@ -4622,7 +4205,6 @@ def init_city():
             'prefix': 'B',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 420,
@@ -4633,7 +4215,6 @@ def init_city():
             'prefix': 'W',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 421,
@@ -4644,7 +4225,6 @@ def init_city():
             'prefix': 'X',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 422,
@@ -4655,7 +4235,6 @@ def init_city():
             'prefix': 'X',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 423,
@@ -4666,7 +4245,6 @@ def init_city():
             'prefix': 'A',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 424,
@@ -4677,7 +4255,6 @@ def init_city():
             'prefix': 'A',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 425,
@@ -4688,7 +4265,6 @@ def init_city():
             'prefix': 'X',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 426,
@@ -4699,7 +4275,6 @@ def init_city():
             'prefix': 'P',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 427,
@@ -4710,7 +4285,6 @@ def init_city():
             'prefix': 'K',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 428,
@@ -4721,7 +4295,6 @@ def init_city():
             'prefix': 'B',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 429,
@@ -4732,7 +4305,6 @@ def init_city():
             'prefix': 'I',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 430,
@@ -4743,7 +4315,6 @@ def init_city():
             'prefix': 'B',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 431,
@@ -4754,7 +4325,6 @@ def init_city():
             'prefix': 'H',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 432,
@@ -4765,7 +4335,6 @@ def init_city():
             'prefix': 'W',
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 433,
@@ -4776,7 +4345,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 434,
@@ -4787,7 +4355,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 435,
@@ -4798,7 +4365,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 436,
@@ -4809,7 +4375,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 437,
@@ -4820,7 +4385,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 438,
@@ -4831,7 +4395,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 439,
@@ -4842,7 +4405,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 440,
@@ -4853,7 +4415,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 441,
@@ -4864,7 +4425,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 442,
@@ -4875,7 +4435,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 443,
@@ -4886,7 +4445,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 444,
@@ -4897,7 +4455,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 445,
@@ -4908,7 +4465,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 446,
@@ -4919,7 +4475,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 447,
@@ -4930,7 +4485,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 448,
@@ -4941,7 +4495,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 449,
@@ -4952,7 +4505,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 450,
@@ -4963,7 +4515,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 451,
@@ -4974,7 +4525,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 452,
@@ -4985,7 +4535,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 453,
@@ -4996,7 +4545,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 454,
@@ -5007,7 +4555,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 455,
@@ -5018,7 +4565,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 456,
@@ -5029,7 +4575,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 457,
@@ -5040,7 +4585,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 458,
@@ -5051,7 +4595,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 459,
@@ -5062,7 +4605,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 460,
@@ -5073,7 +4615,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 461,
@@ -5084,7 +4625,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 462,
@@ -5095,7 +4635,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 463,
@@ -5106,7 +4645,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 464,
@@ -5117,7 +4655,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 465,
@@ -5128,7 +4665,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 466,
@@ -5139,7 +4675,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 467,
@@ -5150,7 +4685,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 468,
@@ -5161,7 +4695,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 469,
@@ -5172,7 +4705,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 470,
@@ -5183,7 +4715,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 471,
@@ -5194,7 +4725,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 472,
@@ -5205,7 +4735,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 473,
@@ -5216,7 +4745,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 474,
@@ -5227,7 +4755,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 475,
@@ -5238,7 +4765,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 476,
@@ -5249,7 +4775,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 477,
@@ -5260,7 +4785,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 478,
@@ -5271,7 +4795,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 479,
@@ -5282,7 +4805,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 480,
@@ -5293,7 +4815,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 481,
@@ -5304,7 +4825,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 482,
@@ -5315,7 +4835,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 483,
@@ -5326,7 +4845,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 484,
@@ -5337,7 +4855,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 485,
@@ -5348,7 +4865,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 486,
@@ -5359,7 +4875,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 487,
@@ -5370,7 +4885,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 488,
@@ -5381,7 +4895,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 489,
@@ -5392,7 +4905,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 490,
@@ -5403,7 +4915,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 491,
@@ -5414,7 +4925,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 492,
@@ -5425,7 +4935,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 493,
@@ -5436,7 +4945,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 494,
@@ -5447,7 +4955,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 495,
@@ -5458,7 +4965,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 496,
@@ -5469,7 +4975,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 497,
@@ -5480,7 +4985,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 498,
@@ -5491,7 +4995,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 499,
@@ -5502,7 +5005,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 500,
@@ -5513,7 +5015,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 501,
@@ -5524,7 +5025,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 502,
@@ -5535,7 +5035,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 503,
@@ -5546,7 +5045,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 504,
@@ -5557,7 +5055,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 505,
@@ -5568,7 +5065,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 506,
@@ -5579,7 +5075,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 507,
@@ -5590,7 +5085,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 508,
@@ -5601,7 +5095,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 509,
@@ -5612,7 +5105,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 510,
@@ -5623,7 +5115,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 511,
@@ -5634,7 +5125,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 512,
@@ -5645,7 +5135,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 513,
@@ -5656,7 +5145,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 514,
@@ -5667,7 +5155,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 515,
@@ -5678,7 +5165,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 516,
@@ -5689,7 +5175,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 517,
@@ -5700,7 +5185,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 518,
@@ -5711,7 +5195,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 519,
@@ -5722,7 +5205,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 520,
@@ -5733,7 +5215,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 521,
@@ -5744,7 +5225,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 522,
@@ -5755,7 +5235,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 523,
@@ -5766,7 +5245,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 524,
@@ -5777,7 +5255,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 525,
@@ -5788,7 +5265,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 526,
@@ -5799,7 +5275,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 527,
@@ -5810,7 +5285,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 528,
@@ -5821,7 +5295,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 529,
@@ -5832,7 +5305,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 530,
@@ -5843,7 +5315,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 531,
@@ -5854,7 +5325,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 532,
@@ -5865,7 +5335,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 533,
@@ -5876,7 +5345,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 534,
@@ -5887,7 +5355,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 535,
@@ -5898,7 +5365,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 536,
@@ -5909,7 +5375,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 537,
@@ -5920,7 +5385,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 538,
@@ -5931,7 +5395,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 539,
@@ -5942,7 +5405,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 540,
@@ -5953,7 +5415,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 541,
@@ -5964,7 +5425,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 542,
@@ -5975,7 +5435,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 543,
@@ -5986,7 +5445,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 544,
@@ -5997,7 +5455,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 545,
@@ -6008,7 +5465,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 546,
@@ -6019,7 +5475,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 547,
@@ -6030,7 +5485,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 548,
@@ -6041,7 +5495,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 549,
@@ -6052,7 +5505,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 550,
@@ -6063,7 +5515,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 551,
@@ -6074,7 +5525,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 552,
@@ -6085,7 +5535,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 553,
@@ -6096,7 +5545,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 554,
@@ -6107,7 +5555,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 555,
@@ -6118,7 +5565,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 556,
@@ -6129,7 +5575,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 557,
@@ -6140,7 +5585,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 558,
@@ -6151,7 +5595,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 559,
@@ -6162,7 +5605,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 560,
@@ -6173,7 +5615,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 561,
@@ -6184,7 +5625,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 562,
@@ -6195,7 +5635,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 563,
@@ -6206,7 +5645,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 564,
@@ -6217,7 +5655,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 565,
@@ -6228,7 +5665,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 566,
@@ -6239,7 +5675,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 567,
@@ -6250,7 +5685,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 568,
@@ -6261,7 +5695,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 569,
@@ -6272,7 +5705,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 570,
@@ -6283,7 +5715,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 571,
@@ -6294,7 +5725,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 572,
@@ -6305,7 +5735,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 573,
@@ -6316,7 +5745,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 574,
@@ -6327,7 +5755,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 575,
@@ -6338,7 +5765,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 576,
@@ -6349,7 +5775,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 577,
@@ -6360,7 +5785,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 578,
@@ -6371,7 +5795,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 579,
@@ -6382,7 +5805,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 580,
@@ -6393,7 +5815,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 581,
@@ -6404,7 +5825,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 582,
@@ -6415,7 +5835,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 583,
@@ -6426,7 +5845,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 584,
@@ -6437,7 +5855,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 585,
@@ -6448,7 +5865,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 586,
@@ -6459,7 +5875,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 587,
@@ -6470,7 +5885,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 588,
@@ -6481,7 +5895,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 589,
@@ -6492,7 +5905,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 590,
@@ -6503,7 +5915,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 591,
@@ -6514,7 +5925,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 592,
@@ -6525,7 +5935,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 593,
@@ -6536,7 +5945,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 594,
@@ -6547,7 +5955,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 595,
@@ -6558,7 +5965,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 596,
@@ -6569,7 +5975,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 597,
@@ -6580,7 +5985,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 598,
@@ -6591,7 +5995,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 599,
@@ -6602,7 +6005,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 600,
@@ -6613,7 +6015,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 601,
@@ -6624,7 +6025,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 602,
@@ -6635,7 +6035,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 603,
@@ -6646,7 +6045,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 604,
@@ -6657,7 +6055,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 605,
@@ -6668,7 +6065,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 606,
@@ -6679,7 +6075,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 607,
@@ -6690,7 +6085,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 608,
@@ -6701,7 +6095,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 609,
@@ -6712,7 +6105,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 610,
@@ -6723,7 +6115,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 611,
@@ -6734,7 +6125,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 612,
@@ -6745,7 +6135,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 613,
@@ -6756,7 +6145,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 614,
@@ -6767,7 +6155,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 615,
@@ -6778,7 +6165,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 616,
@@ -6789,7 +6175,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 617,
@@ -6800,7 +6185,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 618,
@@ -6811,7 +6195,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 619,
@@ -6822,7 +6205,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 620,
@@ -6833,7 +6215,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 621,
@@ -6844,7 +6225,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 622,
@@ -6855,7 +6235,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 623,
@@ -6866,7 +6245,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 624,
@@ -6877,7 +6255,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 625,
@@ -6888,7 +6265,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 626,
@@ -6899,7 +6275,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 627,
@@ -6910,7 +6285,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 628,
@@ -6921,7 +6295,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 629,
@@ -6932,7 +6305,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 630,
@@ -6943,7 +6315,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 631,
@@ -6954,7 +6325,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 632,
@@ -6965,7 +6335,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 633,
@@ -6976,7 +6345,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 634,
@@ -6987,7 +6355,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 635,
@@ -6998,7 +6365,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 636,
@@ -7009,7 +6375,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 637,
@@ -7020,7 +6385,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 638,
@@ -7031,7 +6395,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 639,
@@ -7042,7 +6405,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 640,
@@ -7053,7 +6415,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 641,
@@ -7064,7 +6425,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 642,
@@ -7075,7 +6435,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 643,
@@ -7086,7 +6445,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 644,
@@ -7097,7 +6455,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 645,
@@ -7108,7 +6465,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 646,
@@ -7119,7 +6475,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 647,
@@ -7130,7 +6485,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 648,
@@ -7141,7 +6495,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 649,
@@ -7152,7 +6505,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 650,
@@ -7163,7 +6515,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 651,
@@ -7174,7 +6525,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 652,
@@ -7185,7 +6535,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 653,
@@ -7196,7 +6545,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 654,
@@ -7207,7 +6555,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 655,
@@ -7218,7 +6565,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 656,
@@ -7229,7 +6575,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 657,
@@ -7240,7 +6585,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 658,
@@ -7251,7 +6595,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 659,
@@ -7262,7 +6605,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 660,
@@ -7273,7 +6615,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 661,
@@ -7284,7 +6625,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 662,
@@ -7295,7 +6635,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 663,
@@ -7306,7 +6645,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 664,
@@ -7317,7 +6655,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 665,
@@ -7328,7 +6665,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 666,
@@ -7339,7 +6675,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 667,
@@ -7350,7 +6685,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 668,
@@ -7361,7 +6695,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 669,
@@ -7372,7 +6705,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 670,
@@ -7383,7 +6715,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 671,
@@ -7394,7 +6725,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 672,
@@ -7405,7 +6735,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 673,
@@ -7416,7 +6745,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 674,
@@ -7427,7 +6755,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 675,
@@ -7438,7 +6765,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 676,
@@ -7449,7 +6775,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 677,
@@ -7460,7 +6785,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 678,
@@ -7471,7 +6795,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 679,
@@ -7482,7 +6805,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 680,
@@ -7493,7 +6815,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 681,
@@ -7504,7 +6825,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 682,
@@ -7515,7 +6835,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 683,
@@ -7526,7 +6845,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 684,
@@ -7537,7 +6855,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 685,
@@ -7548,7 +6865,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 686,
@@ -7559,7 +6875,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 687,
@@ -7570,7 +6885,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 688,
@@ -7581,7 +6895,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 689,
@@ -7592,7 +6905,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 690,
@@ -7603,7 +6915,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 691,
@@ -7614,7 +6925,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 692,
@@ -7625,7 +6935,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 693,
@@ -7636,7 +6945,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 694,
@@ -7647,7 +6955,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 695,
@@ -7658,7 +6965,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 696,
@@ -7669,7 +6975,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 697,
@@ -7680,7 +6985,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 698,
@@ -7691,7 +6995,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 699,
@@ -7702,7 +7005,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 700,
@@ -7713,7 +7015,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 701,
@@ -7724,7 +7025,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 702,
@@ -7735,7 +7035,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 703,
@@ -7746,7 +7045,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 704,
@@ -7757,7 +7055,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 705,
@@ -7768,7 +7065,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 706,
@@ -7779,7 +7075,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 707,
@@ -7790,7 +7085,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 708,
@@ -7801,7 +7095,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 709,
@@ -7812,7 +7105,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 710,
@@ -7823,7 +7115,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 711,
@@ -7834,7 +7125,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 712,
@@ -7845,7 +7135,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 713,
@@ -7856,7 +7145,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 714,
@@ -7867,7 +7155,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 715,
@@ -7878,7 +7165,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 716,
@@ -7889,7 +7175,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 717,
@@ -7900,7 +7185,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 718,
@@ -7911,7 +7195,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 719,
@@ -7922,7 +7205,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 720,
@@ -7933,7 +7215,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 721,
@@ -7944,7 +7225,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 722,
@@ -7955,7 +7235,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 723,
@@ -7966,7 +7245,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 724,
@@ -7977,7 +7255,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 725,
@@ -7988,7 +7265,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 726,
@@ -7999,7 +7275,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 727,
@@ -8010,7 +7285,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 728,
@@ -8021,7 +7295,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 729,
@@ -8032,7 +7305,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 730,
@@ -8043,7 +7315,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 731,
@@ -8054,7 +7325,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 732,
@@ -8065,7 +7335,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 733,
@@ -8076,7 +7345,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 734,
@@ -8087,7 +7355,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 735,
@@ -8098,7 +7365,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 736,
@@ -8109,7 +7375,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 737,
@@ -8120,7 +7385,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 738,
@@ -8131,7 +7395,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 739,
@@ -8142,7 +7405,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 740,
@@ -8153,7 +7415,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 741,
@@ -8164,7 +7425,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 742,
@@ -8175,7 +7435,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 743,
@@ -8186,7 +7445,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 744,
@@ -8197,7 +7455,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 745,
@@ -8208,7 +7465,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 746,
@@ -8219,7 +7475,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 747,
@@ -8230,7 +7485,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 748,
@@ -8241,7 +7495,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 749,
@@ -8252,7 +7505,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 750,
@@ -8263,7 +7515,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 751,
@@ -8274,7 +7525,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 752,
@@ -8285,7 +7535,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 753,
@@ -8296,7 +7545,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 754,
@@ -8307,7 +7555,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 755,
@@ -8318,7 +7565,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 756,
@@ -8329,7 +7575,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 757,
@@ -8340,7 +7585,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 758,
@@ -8351,7 +7595,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 759,
@@ -8362,7 +7605,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 760,
@@ -8373,7 +7615,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 761,
@@ -8384,7 +7625,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 762,
@@ -8395,7 +7635,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 763,
@@ -8406,7 +7645,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 764,
@@ -8417,7 +7655,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 765,
@@ -8428,7 +7665,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 766,
@@ -8439,7 +7675,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 767,
@@ -8450,7 +7685,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 768,
@@ -8461,7 +7695,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 769,
@@ -8472,7 +7705,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 770,
@@ -8483,7 +7715,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 771,
@@ -8494,7 +7725,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 772,
@@ -8505,7 +7735,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 773,
@@ -8516,7 +7745,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 774,
@@ -8527,7 +7755,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 775,
@@ -8538,7 +7765,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 776,
@@ -8549,7 +7775,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 777,
@@ -8560,7 +7785,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 778,
@@ -8571,7 +7795,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 779,
@@ -8582,7 +7805,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 780,
@@ -8593,7 +7815,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 781,
@@ -8604,7 +7825,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 782,
@@ -8615,7 +7835,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 783,
@@ -8626,7 +7845,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 784,
@@ -8637,7 +7855,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 785,
@@ -8648,7 +7865,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 786,
@@ -8659,7 +7875,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 787,
@@ -8670,7 +7885,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 788,
@@ -8681,7 +7895,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 789,
@@ -8692,7 +7905,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 790,
@@ -8703,7 +7915,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 791,
@@ -8714,7 +7925,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 792,
@@ -8725,7 +7935,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 793,
@@ -8736,7 +7945,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 794,
@@ -8747,7 +7955,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 795,
@@ -8758,7 +7965,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 796,
@@ -8769,7 +7975,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 797,
@@ -8780,7 +7985,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 798,
@@ -8791,7 +7995,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 799,
@@ -8802,7 +8005,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 800,
@@ -8813,7 +8015,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 801,
@@ -8824,7 +8025,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 802,
@@ -8835,7 +8035,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 803,
@@ -8846,7 +8045,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 804,
@@ -8857,7 +8055,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 805,
@@ -8868,7 +8065,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 806,
@@ -8879,7 +8075,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 807,
@@ -8890,7 +8085,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 808,
@@ -8901,7 +8095,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 809,
@@ -8912,7 +8105,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 810,
@@ -8923,7 +8115,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 811,
@@ -8934,7 +8125,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 812,
@@ -8945,7 +8135,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 813,
@@ -8956,7 +8145,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 814,
@@ -8967,7 +8155,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 815,
@@ -8978,7 +8165,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 816,
@@ -8989,7 +8175,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 817,
@@ -9000,7 +8185,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 818,
@@ -9011,7 +8195,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 819,
@@ -9022,7 +8205,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 820,
@@ -9033,7 +8215,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 821,
@@ -9044,7 +8225,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 822,
@@ -9055,7 +8235,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 823,
@@ -9066,7 +8245,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 824,
@@ -9077,7 +8255,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 825,
@@ -9088,7 +8265,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 826,
@@ -9099,7 +8275,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 827,
@@ -9110,7 +8285,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 828,
@@ -9121,7 +8295,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 829,
@@ -9132,7 +8305,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 830,
@@ -9143,7 +8315,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 831,
@@ -9154,7 +8325,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 832,
@@ -9165,7 +8335,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 833,
@@ -9176,7 +8345,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 834,
@@ -9187,7 +8355,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 835,
@@ -9198,7 +8365,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 836,
@@ -9209,7 +8375,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 837,
@@ -9220,7 +8385,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 838,
@@ -9231,7 +8395,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 839,
@@ -9242,7 +8405,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 840,
@@ -9253,7 +8415,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 841,
@@ -9264,7 +8425,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 842,
@@ -9275,7 +8435,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 843,
@@ -9286,7 +8445,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 844,
@@ -9297,7 +8455,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 845,
@@ -9308,7 +8465,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 846,
@@ -9319,7 +8475,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 847,
@@ -9330,7 +8485,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 848,
@@ -9341,7 +8495,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 849,
@@ -9352,7 +8505,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 850,
@@ -9363,7 +8515,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 851,
@@ -9374,7 +8525,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 852,
@@ -9385,7 +8535,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 853,
@@ -9396,7 +8545,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 854,
@@ -9407,7 +8555,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 855,
@@ -9418,7 +8565,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 856,
@@ -9429,7 +8575,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 857,
@@ -9440,7 +8585,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 858,
@@ -9451,7 +8595,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 859,
@@ -9462,7 +8605,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 860,
@@ -9473,7 +8615,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 861,
@@ -9484,7 +8625,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 862,
@@ -9495,7 +8635,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 863,
@@ -9506,7 +8645,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 864,
@@ -9517,7 +8655,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 865,
@@ -9528,7 +8665,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 866,
@@ -9539,7 +8675,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 867,
@@ -9550,7 +8685,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 868,
@@ -9561,7 +8695,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 869,
@@ -9572,7 +8705,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 870,
@@ -9583,7 +8715,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 871,
@@ -9594,7 +8725,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 872,
@@ -9605,7 +8735,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 873,
@@ -9616,7 +8745,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 874,
@@ -9627,7 +8755,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 875,
@@ -9638,7 +8765,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 876,
@@ -9649,7 +8775,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 877,
@@ -9660,7 +8785,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 878,
@@ -9671,7 +8795,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 879,
@@ -9682,7 +8805,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 880,
@@ -9693,7 +8815,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 881,
@@ -9704,7 +8825,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 882,
@@ -9715,7 +8835,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 883,
@@ -9726,7 +8845,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 884,
@@ -9737,7 +8855,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 885,
@@ -9748,7 +8865,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 886,
@@ -9759,7 +8875,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 887,
@@ -9770,7 +8885,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 888,
@@ -9781,7 +8895,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 889,
@@ -9792,7 +8905,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 890,
@@ -9803,7 +8915,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 891,
@@ -9814,7 +8925,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 892,
@@ -9825,7 +8935,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 893,
@@ -9836,7 +8945,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 894,
@@ -9847,7 +8955,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 895,
@@ -9858,7 +8965,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 896,
@@ -9869,7 +8975,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 897,
@@ -9880,7 +8985,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 898,
@@ -9891,7 +8995,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 899,
@@ -9902,7 +9005,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 900,
@@ -9913,7 +9015,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 901,
@@ -9924,7 +9025,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 902,
@@ -9935,7 +9035,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 903,
@@ -9946,7 +9045,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 904,
@@ -9957,7 +9055,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 905,
@@ -9968,7 +9065,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 906,
@@ -9979,7 +9075,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 907,
@@ -9990,7 +9085,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 908,
@@ -10001,7 +9095,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 909,
@@ -10012,7 +9105,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 910,
@@ -10023,7 +9115,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 911,
@@ -10034,7 +9125,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 912,
@@ -10045,7 +9135,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 913,
@@ -10056,7 +9145,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 914,
@@ -10067,7 +9155,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 915,
@@ -10078,7 +9165,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 916,
@@ -10089,7 +9175,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 917,
@@ -10100,7 +9185,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 918,
@@ -10111,7 +9195,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 919,
@@ -10122,7 +9205,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 920,
@@ -10133,7 +9215,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 921,
@@ -10144,7 +9225,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 922,
@@ -10155,7 +9235,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 923,
@@ -10166,7 +9245,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 924,
@@ -10177,7 +9255,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 925,
@@ -10188,7 +9265,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 926,
@@ -10199,7 +9275,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 927,
@@ -10210,7 +9285,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 928,
@@ -10221,7 +9295,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 929,
@@ -10232,7 +9305,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 930,
@@ -10243,7 +9315,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 931,
@@ -10254,7 +9325,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 932,
@@ -10265,7 +9335,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 933,
@@ -10276,7 +9345,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 934,
@@ -10287,7 +9355,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 935,
@@ -10298,7 +9365,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 936,
@@ -10309,7 +9375,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 937,
@@ -10320,7 +9385,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 938,
@@ -10331,7 +9395,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 939,
@@ -10342,7 +9405,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 940,
@@ -10353,7 +9415,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 941,
@@ -10364,7 +9425,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 942,
@@ -10375,7 +9435,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 943,
@@ -10386,7 +9445,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 944,
@@ -10397,7 +9455,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 945,
@@ -10408,7 +9465,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 946,
@@ -10419,7 +9475,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 947,
@@ -10430,7 +9485,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 948,
@@ -10441,7 +9495,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 949,
@@ -10452,7 +9505,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 950,
@@ -10463,7 +9515,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 951,
@@ -10474,7 +9525,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 952,
@@ -10485,7 +9535,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 953,
@@ -10496,7 +9545,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 954,
@@ -10507,7 +9555,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 955,
@@ -10518,7 +9565,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 956,
@@ -10529,7 +9575,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 957,
@@ -10540,7 +9585,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 958,
@@ -10551,7 +9595,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 959,
@@ -10562,7 +9605,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 960,
@@ -10573,7 +9615,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 961,
@@ -10584,7 +9625,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 962,
@@ -10595,7 +9635,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 963,
@@ -10606,7 +9645,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 964,
@@ -10617,7 +9655,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 965,
@@ -10628,7 +9665,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 966,
@@ -10639,7 +9675,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 967,
@@ -10650,7 +9685,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 968,
@@ -10661,7 +9695,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 969,
@@ -10672,7 +9705,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 970,
@@ -10683,7 +9715,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 971,
@@ -10694,7 +9725,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 972,
@@ -10705,7 +9735,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 973,
@@ -10716,7 +9745,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 974,
@@ -10727,7 +9755,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 975,
@@ -10738,7 +9765,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 976,
@@ -10749,7 +9775,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 977,
@@ -10760,7 +9785,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 978,
@@ -10771,7 +9795,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 979,
@@ -10782,7 +9805,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 980,
@@ -10793,7 +9815,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 981,
@@ -10804,7 +9825,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 982,
@@ -10815,7 +9835,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 983,
@@ -10826,7 +9845,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 984,
@@ -10837,7 +9855,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 985,
@@ -10848,7 +9865,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 986,
@@ -10859,7 +9875,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 987,
@@ -10870,7 +9885,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 988,
@@ -10881,7 +9895,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 989,
@@ -10892,7 +9905,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 990,
@@ -10903,7 +9915,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 991,
@@ -10914,7 +9925,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 992,
@@ -10925,7 +9935,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 993,
@@ -10936,7 +9945,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 994,
@@ -10947,7 +9955,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 995,
@@ -10958,7 +9965,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 996,
@@ -10969,7 +9975,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 997,
@@ -10980,7 +9985,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 998,
@@ -10991,7 +9995,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 999,
@@ -11002,7 +10005,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1000,
@@ -11013,7 +10015,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1001,
@@ -11024,7 +10025,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1002,
@@ -11035,7 +10035,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1003,
@@ -11046,7 +10045,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1004,
@@ -11057,7 +10055,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1005,
@@ -11068,7 +10065,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1006,
@@ -11079,7 +10075,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1007,
@@ -11090,7 +10085,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1008,
@@ -11101,7 +10095,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1009,
@@ -11112,7 +10105,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1010,
@@ -11123,7 +10115,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1011,
@@ -11134,7 +10125,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1012,
@@ -11145,7 +10135,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1013,
@@ -11156,7 +10145,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1014,
@@ -11167,7 +10155,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1015,
@@ -11178,7 +10165,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1016,
@@ -11189,7 +10175,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1017,
@@ -11200,7 +10185,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1018,
@@ -11211,7 +10195,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1019,
@@ -11222,7 +10205,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1020,
@@ -11233,7 +10215,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1021,
@@ -11244,7 +10225,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1022,
@@ -11255,7 +10235,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1023,
@@ -11266,7 +10245,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1024,
@@ -11277,7 +10255,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1025,
@@ -11288,7 +10265,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1026,
@@ -11299,7 +10275,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1027,
@@ -11310,7 +10285,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1028,
@@ -11321,7 +10295,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1029,
@@ -11332,7 +10305,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1030,
@@ -11343,7 +10315,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1031,
@@ -11354,7 +10325,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1032,
@@ -11365,7 +10335,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1033,
@@ -11376,7 +10345,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1034,
@@ -11387,7 +10355,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1035,
@@ -11398,7 +10365,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1036,
@@ -11409,7 +10375,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1037,
@@ -11420,7 +10385,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1038,
@@ -11431,7 +10395,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1039,
@@ -11442,7 +10405,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1040,
@@ -11453,7 +10415,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1041,
@@ -11464,7 +10425,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1042,
@@ -11475,7 +10435,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1043,
@@ -11486,7 +10445,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1044,
@@ -11497,7 +10455,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1045,
@@ -11508,7 +10465,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1046,
@@ -11519,7 +10475,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1047,
@@ -11530,7 +10485,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1048,
@@ -11541,7 +10495,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1049,
@@ -11552,7 +10505,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1050,
@@ -11563,7 +10515,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1051,
@@ -11574,7 +10525,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1052,
@@ -11585,7 +10535,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1053,
@@ -11596,7 +10545,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1054,
@@ -11607,7 +10555,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1055,
@@ -11618,7 +10565,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1056,
@@ -11629,7 +10575,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1057,
@@ -11640,7 +10585,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1058,
@@ -11651,7 +10595,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1059,
@@ -11662,7 +10605,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1060,
@@ -11673,7 +10615,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1061,
@@ -11684,7 +10625,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1062,
@@ -11695,7 +10635,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1063,
@@ -11706,7 +10645,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1064,
@@ -11717,7 +10655,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1065,
@@ -11728,7 +10665,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1066,
@@ -11739,7 +10675,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1067,
@@ -11750,7 +10685,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1068,
@@ -11761,7 +10695,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1069,
@@ -11772,7 +10705,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1070,
@@ -11783,7 +10715,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1071,
@@ -11794,7 +10725,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1072,
@@ -11805,7 +10735,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1073,
@@ -11816,7 +10745,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1074,
@@ -11827,7 +10755,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1075,
@@ -11838,7 +10765,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1076,
@@ -11849,7 +10775,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1077,
@@ -11860,7 +10785,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1078,
@@ -11871,7 +10795,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1079,
@@ -11882,7 +10805,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1080,
@@ -11893,7 +10815,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1081,
@@ -11904,7 +10825,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1082,
@@ -11915,7 +10835,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1083,
@@ -11926,7 +10845,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1084,
@@ -11937,7 +10855,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1085,
@@ -11948,7 +10865,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1086,
@@ -11959,7 +10875,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1087,
@@ -11970,7 +10885,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1088,
@@ -11981,7 +10895,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1089,
@@ -11992,7 +10905,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1090,
@@ -12003,7 +10915,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1091,
@@ -12014,7 +10925,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1092,
@@ -12025,7 +10935,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1093,
@@ -12036,7 +10945,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1094,
@@ -12047,7 +10955,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1095,
@@ -12058,7 +10965,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1096,
@@ -12069,7 +10975,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1097,
@@ -12080,7 +10985,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1098,
@@ -12091,7 +10995,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1099,
@@ -12102,7 +11005,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1100,
@@ -12113,7 +11015,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1101,
@@ -12124,7 +11025,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1102,
@@ -12135,7 +11035,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1103,
@@ -12146,7 +11045,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1104,
@@ -12157,7 +11055,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1105,
@@ -12168,7 +11065,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1106,
@@ -12179,7 +11075,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1107,
@@ -12190,7 +11085,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1108,
@@ -12201,7 +11095,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1109,
@@ -12212,7 +11105,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1110,
@@ -12223,7 +11115,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1111,
@@ -12234,7 +11125,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1112,
@@ -12245,7 +11135,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1113,
@@ -12256,7 +11145,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1114,
@@ -12267,7 +11155,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1115,
@@ -12278,7 +11165,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1116,
@@ -12289,7 +11175,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1117,
@@ -12300,7 +11185,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1118,
@@ -12311,7 +11195,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1119,
@@ -12322,7 +11205,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1120,
@@ -12333,7 +11215,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1121,
@@ -12344,7 +11225,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1122,
@@ -12355,7 +11235,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1123,
@@ -12366,7 +11245,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1124,
@@ -12377,7 +11255,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1125,
@@ -12388,7 +11265,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1126,
@@ -12399,7 +11275,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1127,
@@ -12410,7 +11285,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1128,
@@ -12421,7 +11295,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1129,
@@ -12432,7 +11305,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1130,
@@ -12443,7 +11315,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1131,
@@ -12454,7 +11325,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1132,
@@ -12465,7 +11335,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1133,
@@ -12476,7 +11345,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1134,
@@ -12487,7 +11355,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1135,
@@ -12498,7 +11365,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1136,
@@ -12509,7 +11375,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1137,
@@ -12520,7 +11385,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1138,
@@ -12531,7 +11395,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1139,
@@ -12542,7 +11405,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1140,
@@ -12553,7 +11415,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1141,
@@ -12564,7 +11425,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1142,
@@ -12575,7 +11435,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1143,
@@ -12586,7 +11445,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1144,
@@ -12597,7 +11455,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1145,
@@ -12608,7 +11465,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1146,
@@ -12619,7 +11475,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1147,
@@ -12630,7 +11485,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1148,
@@ -12641,7 +11495,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1149,
@@ -12652,7 +11505,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1150,
@@ -12663,7 +11515,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1151,
@@ -12674,7 +11525,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1152,
@@ -12685,7 +11535,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1153,
@@ -12696,7 +11545,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1154,
@@ -12707,7 +11555,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1155,
@@ -12718,7 +11565,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1156,
@@ -12729,7 +11575,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1157,
@@ -12740,7 +11585,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1158,
@@ -12751,7 +11595,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1159,
@@ -12762,7 +11605,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1160,
@@ -12773,7 +11615,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1161,
@@ -12784,7 +11625,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1162,
@@ -12795,7 +11635,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1163,
@@ -12806,7 +11645,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1164,
@@ -12817,7 +11655,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1165,
@@ -12828,7 +11665,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1166,
@@ -12839,7 +11675,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1167,
@@ -12850,7 +11685,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1168,
@@ -12861,7 +11695,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1169,
@@ -12872,7 +11705,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1170,
@@ -12883,7 +11715,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1171,
@@ -12894,7 +11725,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1172,
@@ -12905,7 +11735,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1173,
@@ -12916,7 +11745,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1174,
@@ -12927,7 +11755,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1175,
@@ -12938,7 +11765,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1176,
@@ -12949,7 +11775,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1177,
@@ -12960,7 +11785,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1178,
@@ -12971,7 +11795,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1179,
@@ -12982,7 +11805,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1180,
@@ -12993,7 +11815,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1181,
@@ -13004,7 +11825,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1182,
@@ -13015,7 +11835,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1183,
@@ -13026,7 +11845,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1184,
@@ -13037,7 +11855,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1185,
@@ -13048,7 +11865,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1186,
@@ -13059,7 +11875,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1187,
@@ -13070,7 +11885,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1188,
@@ -13081,7 +11895,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1189,
@@ -13092,7 +11905,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1190,
@@ -13103,7 +11915,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1191,
@@ -13114,7 +11925,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1192,
@@ -13125,7 +11935,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1193,
@@ -13136,7 +11945,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1194,
@@ -13147,7 +11955,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1195,
@@ -13158,7 +11965,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1196,
@@ -13169,7 +11975,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1197,
@@ -13180,7 +11985,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1198,
@@ -13191,7 +11995,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1199,
@@ -13202,7 +12005,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1200,
@@ -13213,7 +12015,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1201,
@@ -13224,7 +12025,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1202,
@@ -13235,7 +12035,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1203,
@@ -13246,7 +12045,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1204,
@@ -13257,7 +12055,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1205,
@@ -13268,7 +12065,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1206,
@@ -13279,7 +12075,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1207,
@@ -13290,7 +12085,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1208,
@@ -13301,7 +12095,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1209,
@@ -13312,7 +12105,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1210,
@@ -13323,7 +12115,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1211,
@@ -13334,7 +12125,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1212,
@@ -13345,7 +12135,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1213,
@@ -13356,7 +12145,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1214,
@@ -13367,7 +12155,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1215,
@@ -13378,7 +12165,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1216,
@@ -13389,7 +12175,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1217,
@@ -13400,7 +12185,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1218,
@@ -13411,7 +12195,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1219,
@@ -13422,7 +12205,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1220,
@@ -13433,7 +12215,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1221,
@@ -13444,7 +12225,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1222,
@@ -13455,7 +12235,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1223,
@@ -13466,7 +12245,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1224,
@@ -13477,7 +12255,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1225,
@@ -13488,7 +12265,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1226,
@@ -13499,7 +12275,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1227,
@@ -13510,7 +12285,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1228,
@@ -13521,7 +12295,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1229,
@@ -13532,7 +12305,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1230,
@@ -13543,7 +12315,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1231,
@@ -13554,7 +12325,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1232,
@@ -13565,7 +12335,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1233,
@@ -13576,7 +12345,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1234,
@@ -13587,7 +12355,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1235,
@@ -13598,7 +12365,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1236,
@@ -13609,7 +12375,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1237,
@@ -13620,7 +12385,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1238,
@@ -13631,7 +12395,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1239,
@@ -13642,7 +12405,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1240,
@@ -13653,7 +12415,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1241,
@@ -13664,7 +12425,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1242,
@@ -13675,7 +12435,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1243,
@@ -13686,7 +12445,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1244,
@@ -13697,7 +12455,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1245,
@@ -13708,7 +12465,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1246,
@@ -13719,7 +12475,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1247,
@@ -13730,7 +12485,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1248,
@@ -13741,7 +12495,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1249,
@@ -13752,7 +12505,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1250,
@@ -13763,7 +12515,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1251,
@@ -13774,7 +12525,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1252,
@@ -13785,7 +12535,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1253,
@@ -13796,7 +12545,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1254,
@@ -13807,7 +12555,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1255,
@@ -13818,7 +12565,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1256,
@@ -13829,7 +12575,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1257,
@@ -13840,7 +12585,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1258,
@@ -13851,7 +12595,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1259,
@@ -13862,7 +12605,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1260,
@@ -13873,7 +12615,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1261,
@@ -13884,7 +12625,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1262,
@@ -13895,7 +12635,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1263,
@@ -13906,7 +12645,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1264,
@@ -13917,7 +12655,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1265,
@@ -13928,7 +12665,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1266,
@@ -13939,7 +12675,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1267,
@@ -13950,7 +12685,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1268,
@@ -13961,7 +12695,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1269,
@@ -13972,7 +12705,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1270,
@@ -13983,7 +12715,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1271,
@@ -13994,7 +12725,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1272,
@@ -14005,7 +12735,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1273,
@@ -14016,7 +12745,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1274,
@@ -14027,7 +12755,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1275,
@@ -14038,7 +12765,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1276,
@@ -14049,7 +12775,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1277,
@@ -14060,7 +12785,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1278,
@@ -14071,7 +12795,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1279,
@@ -14082,7 +12805,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1280,
@@ -14093,7 +12815,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1281,
@@ -14104,7 +12825,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1282,
@@ -14115,7 +12835,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1283,
@@ -14126,7 +12845,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1284,
@@ -14137,7 +12855,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1285,
@@ -14148,7 +12865,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1286,
@@ -14159,7 +12875,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1287,
@@ -14170,7 +12885,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1288,
@@ -14181,7 +12895,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1289,
@@ -14192,7 +12905,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1290,
@@ -14203,7 +12915,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1291,
@@ -14214,7 +12925,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1292,
@@ -14225,7 +12935,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1293,
@@ -14236,7 +12945,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1294,
@@ -14247,7 +12955,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1295,
@@ -14258,7 +12965,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1296,
@@ -14269,7 +12975,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1297,
@@ -14280,7 +12985,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1298,
@@ -14291,7 +12995,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1299,
@@ -14302,7 +13005,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1300,
@@ -14313,7 +13015,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1301,
@@ -14324,7 +13025,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1302,
@@ -14335,7 +13035,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1303,
@@ -14346,7 +13045,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1304,
@@ -14357,7 +13055,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1305,
@@ -14368,7 +13065,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1306,
@@ -14379,7 +13075,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1307,
@@ -14390,7 +13085,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1308,
@@ -14401,7 +13095,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1309,
@@ -14412,7 +13105,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1310,
@@ -14423,7 +13115,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1311,
@@ -14434,7 +13125,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1312,
@@ -14445,7 +13135,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1313,
@@ -14456,7 +13145,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1314,
@@ -14467,7 +13155,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1315,
@@ -14478,7 +13165,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1316,
@@ -14489,7 +13175,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1317,
@@ -14500,7 +13185,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1318,
@@ -14511,7 +13195,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1319,
@@ -14522,7 +13205,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1320,
@@ -14533,7 +13215,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1321,
@@ -14544,7 +13225,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1322,
@@ -14555,7 +13235,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1323,
@@ -14566,7 +13245,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1324,
@@ -14577,7 +13255,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1325,
@@ -14588,7 +13265,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1326,
@@ -14599,7 +13275,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1327,
@@ -14610,7 +13285,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1328,
@@ -14621,7 +13295,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1329,
@@ -14632,7 +13305,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1330,
@@ -14643,7 +13315,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1331,
@@ -14654,7 +13325,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1332,
@@ -14665,7 +13335,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1333,
@@ -14676,7 +13345,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1334,
@@ -14687,7 +13355,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1335,
@@ -14698,7 +13365,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1336,
@@ -14709,7 +13375,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1337,
@@ -14720,7 +13385,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1338,
@@ -14731,7 +13395,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1339,
@@ -14742,7 +13405,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1340,
@@ -14753,7 +13415,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1341,
@@ -14764,7 +13425,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1342,
@@ -14775,7 +13435,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1343,
@@ -14786,7 +13445,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1344,
@@ -14797,7 +13455,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1345,
@@ -14808,7 +13465,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1346,
@@ -14819,7 +13475,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1347,
@@ -14830,7 +13485,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1348,
@@ -14841,7 +13495,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1349,
@@ -14852,7 +13505,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1350,
@@ -14863,7 +13515,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1351,
@@ -14874,7 +13525,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1352,
@@ -14885,7 +13535,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1353,
@@ -14896,7 +13545,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1354,
@@ -14907,7 +13555,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1355,
@@ -14918,7 +13565,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1356,
@@ -14929,7 +13575,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1357,
@@ -14940,7 +13585,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1358,
@@ -14951,7 +13595,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1359,
@@ -14962,7 +13605,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1360,
@@ -14973,7 +13615,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1361,
@@ -14984,7 +13625,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1362,
@@ -14995,7 +13635,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1363,
@@ -15006,7 +13645,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1364,
@@ -15017,7 +13655,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1365,
@@ -15028,7 +13665,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1366,
@@ -15039,7 +13675,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1367,
@@ -15050,7 +13685,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1368,
@@ -15061,7 +13695,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1369,
@@ -15072,7 +13705,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1370,
@@ -15083,7 +13715,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1371,
@@ -15094,7 +13725,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1372,
@@ -15105,7 +13735,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1373,
@@ -15116,7 +13745,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1374,
@@ -15127,7 +13755,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1375,
@@ -15138,7 +13765,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1376,
@@ -15149,7 +13775,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1377,
@@ -15160,7 +13785,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1378,
@@ -15171,7 +13795,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1379,
@@ -15182,7 +13805,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1380,
@@ -15193,7 +13815,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1381,
@@ -15204,7 +13825,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1382,
@@ -15215,7 +13835,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1383,
@@ -15226,7 +13845,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1384,
@@ -15237,7 +13855,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1385,
@@ -15248,7 +13865,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1386,
@@ -15259,7 +13875,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1387,
@@ -15270,7 +13885,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1388,
@@ -15281,7 +13895,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1389,
@@ -15292,7 +13905,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1390,
@@ -15303,7 +13915,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1391,
@@ -15314,7 +13925,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1392,
@@ -15325,7 +13935,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1393,
@@ -15336,7 +13945,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1394,
@@ -15347,7 +13955,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1395,
@@ -15358,7 +13965,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1396,
@@ -15369,7 +13975,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1397,
@@ -15380,7 +13985,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1398,
@@ -15391,7 +13995,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1399,
@@ -15402,7 +14005,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1400,
@@ -15413,7 +14015,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1401,
@@ -15424,7 +14025,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1402,
@@ -15435,7 +14035,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1403,
@@ -15446,7 +14045,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1404,
@@ -15457,7 +14055,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1405,
@@ -15468,7 +14065,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1406,
@@ -15479,7 +14075,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1407,
@@ -15490,7 +14085,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1408,
@@ -15501,7 +14095,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1409,
@@ -15512,7 +14105,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1410,
@@ -15523,7 +14115,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1411,
@@ -15534,7 +14125,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1412,
@@ -15545,7 +14135,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1413,
@@ -15556,7 +14145,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1414,
@@ -15567,7 +14155,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1415,
@@ -15578,7 +14165,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1416,
@@ -15589,7 +14175,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1417,
@@ -15600,7 +14185,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1418,
@@ -15611,7 +14195,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1419,
@@ -15622,7 +14205,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1420,
@@ -15633,7 +14215,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1421,
@@ -15644,7 +14225,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1422,
@@ -15655,7 +14235,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1423,
@@ -15666,7 +14245,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1424,
@@ -15677,7 +14255,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1425,
@@ -15688,7 +14265,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1426,
@@ -15699,7 +14275,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1427,
@@ -15710,7 +14285,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1428,
@@ -15721,7 +14295,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1429,
@@ -15732,7 +14305,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1430,
@@ -15743,7 +14315,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1431,
@@ -15754,7 +14325,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1432,
@@ -15765,7 +14335,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1433,
@@ -15776,7 +14345,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1434,
@@ -15787,7 +14355,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1435,
@@ -15798,7 +14365,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1436,
@@ -15809,7 +14375,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1437,
@@ -15820,7 +14385,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1438,
@@ -15831,7 +14395,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1439,
@@ -15842,7 +14405,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1440,
@@ -15853,7 +14415,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1441,
@@ -15864,7 +14425,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1442,
@@ -15875,7 +14435,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1443,
@@ -15886,7 +14445,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1444,
@@ -15897,7 +14455,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1445,
@@ -15908,7 +14465,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1446,
@@ -15919,7 +14475,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1447,
@@ -15930,7 +14485,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1448,
@@ -15941,7 +14495,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1449,
@@ -15952,7 +14505,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1450,
@@ -15963,7 +14515,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1451,
@@ -15974,7 +14525,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1452,
@@ -15985,7 +14535,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1453,
@@ -15996,7 +14545,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1454,
@@ -16007,7 +14555,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1455,
@@ -16018,7 +14565,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1456,
@@ -16029,7 +14575,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1457,
@@ -16040,7 +14585,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1458,
@@ -16051,7 +14595,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1459,
@@ -16062,7 +14605,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1460,
@@ -16073,7 +14615,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1461,
@@ -16084,7 +14625,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1462,
@@ -16095,7 +14635,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1463,
@@ -16106,7 +14645,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1464,
@@ -16117,7 +14655,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1465,
@@ -16128,7 +14665,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1466,
@@ -16139,7 +14675,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1467,
@@ -16150,7 +14685,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1468,
@@ -16161,7 +14695,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1469,
@@ -16172,7 +14705,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1470,
@@ -16183,7 +14715,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1471,
@@ -16194,7 +14725,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1472,
@@ -16205,7 +14735,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1473,
@@ -16216,7 +14745,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1474,
@@ -16227,7 +14755,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1475,
@@ -16238,7 +14765,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1476,
@@ -16249,7 +14775,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1477,
@@ -16260,7 +14785,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1478,
@@ -16271,7 +14795,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1479,
@@ -16282,7 +14805,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1480,
@@ -16293,7 +14815,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1481,
@@ -16304,7 +14825,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1482,
@@ -16315,7 +14835,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1483,
@@ -16326,7 +14845,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1484,
@@ -16337,7 +14855,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1485,
@@ -16348,7 +14865,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1486,
@@ -16359,7 +14875,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1487,
@@ -16370,7 +14885,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1488,
@@ -16381,7 +14895,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1489,
@@ -16392,7 +14905,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1490,
@@ -16403,7 +14915,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1491,
@@ -16414,7 +14925,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1492,
@@ -16425,7 +14935,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1493,
@@ -16436,7 +14945,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1494,
@@ -16447,7 +14955,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1495,
@@ -16458,7 +14965,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1496,
@@ -16469,7 +14975,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1497,
@@ -16480,7 +14985,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1498,
@@ -16491,7 +14995,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1499,
@@ -16502,7 +15005,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1500,
@@ -16513,7 +15015,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1501,
@@ -16524,7 +15025,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1502,
@@ -16535,7 +15035,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1503,
@@ -16546,7 +15045,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1504,
@@ -16557,7 +15055,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1505,
@@ -16568,7 +15065,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1506,
@@ -16579,7 +15075,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1507,
@@ -16590,7 +15085,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1508,
@@ -16601,7 +15095,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1509,
@@ -16612,7 +15105,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1510,
@@ -16623,7 +15115,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1511,
@@ -16634,7 +15125,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1512,
@@ -16645,7 +15135,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1513,
@@ -16656,7 +15145,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1514,
@@ -16667,7 +15155,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1515,
@@ -16678,7 +15165,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1516,
@@ -16689,7 +15175,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1517,
@@ -16700,7 +15185,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1518,
@@ -16711,7 +15195,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1519,
@@ -16722,7 +15205,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1520,
@@ -16733,7 +15215,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1521,
@@ -16744,7 +15225,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1522,
@@ -16755,7 +15235,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1523,
@@ -16766,7 +15245,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1524,
@@ -16777,7 +15255,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1525,
@@ -16788,7 +15265,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1526,
@@ -16799,7 +15275,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1527,
@@ -16810,7 +15285,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1528,
@@ -16821,7 +15295,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1529,
@@ -16832,7 +15305,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1530,
@@ -16843,7 +15315,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1531,
@@ -16854,7 +15325,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1532,
@@ -16865,7 +15335,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1533,
@@ -16876,7 +15345,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1534,
@@ -16887,7 +15355,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1535,
@@ -16898,7 +15365,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1536,
@@ -16909,7 +15375,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1537,
@@ -16920,7 +15385,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1538,
@@ -16931,7 +15395,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1539,
@@ -16942,7 +15405,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1540,
@@ -16953,7 +15415,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1541,
@@ -16964,7 +15425,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1542,
@@ -16975,7 +15435,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1543,
@@ -16986,7 +15445,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1544,
@@ -16997,7 +15455,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1545,
@@ -17008,7 +15465,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1546,
@@ -17019,7 +15475,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1547,
@@ -17030,7 +15485,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1548,
@@ -17041,7 +15495,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1549,
@@ -17052,7 +15505,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1550,
@@ -17063,7 +15515,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1551,
@@ -17074,7 +15525,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1552,
@@ -17085,7 +15535,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1553,
@@ -17096,7 +15545,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1554,
@@ -17107,7 +15555,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1555,
@@ -17118,7 +15565,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1556,
@@ -17129,7 +15575,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1557,
@@ -17140,7 +15585,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1558,
@@ -17151,7 +15595,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1559,
@@ -17162,7 +15605,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1560,
@@ -17173,7 +15615,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1561,
@@ -17184,7 +15625,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1562,
@@ -17195,7 +15635,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1563,
@@ -17206,7 +15645,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1564,
@@ -17217,7 +15655,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1565,
@@ -17228,7 +15665,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1566,
@@ -17239,7 +15675,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1567,
@@ -17250,7 +15685,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1568,
@@ -17261,7 +15695,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1569,
@@ -17272,7 +15705,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1570,
@@ -17283,7 +15715,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1571,
@@ -17294,7 +15725,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1572,
@@ -17305,7 +15735,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1573,
@@ -17316,7 +15745,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1574,
@@ -17327,7 +15755,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1575,
@@ -17338,7 +15765,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1576,
@@ -17349,7 +15775,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1577,
@@ -17360,7 +15785,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1578,
@@ -17371,7 +15795,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1579,
@@ -17382,7 +15805,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1580,
@@ -17393,7 +15815,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1581,
@@ -17404,7 +15825,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1582,
@@ -17415,7 +15835,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1583,
@@ -17426,7 +15845,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1584,
@@ -17437,7 +15855,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1585,
@@ -17448,7 +15865,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1586,
@@ -17459,7 +15875,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1587,
@@ -17470,7 +15885,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1588,
@@ -17481,7 +15895,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1589,
@@ -17492,7 +15905,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1590,
@@ -17503,7 +15915,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1591,
@@ -17514,7 +15925,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1592,
@@ -17525,7 +15935,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1593,
@@ -17536,7 +15945,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1594,
@@ -17547,7 +15955,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1595,
@@ -17558,7 +15965,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1596,
@@ -17569,7 +15975,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1597,
@@ -17580,7 +15985,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1598,
@@ -17591,7 +15995,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1599,
@@ -17602,7 +16005,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1600,
@@ -17613,7 +16015,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1601,
@@ -17624,7 +16025,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1602,
@@ -17635,7 +16035,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1603,
@@ -17646,7 +16045,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1604,
@@ -17657,7 +16055,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1605,
@@ -17668,7 +16065,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1606,
@@ -17679,7 +16075,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1607,
@@ -17690,7 +16085,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1608,
@@ -17701,7 +16095,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1609,
@@ -17712,7 +16105,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1610,
@@ -17723,7 +16115,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1611,
@@ -17734,7 +16125,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1612,
@@ -17745,7 +16135,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1613,
@@ -17756,7 +16145,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1614,
@@ -17767,7 +16155,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1615,
@@ -17778,7 +16165,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1616,
@@ -17789,7 +16175,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1617,
@@ -17800,7 +16185,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1618,
@@ -17811,7 +16195,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1619,
@@ -17822,7 +16205,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1620,
@@ -17833,7 +16215,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1621,
@@ -17844,7 +16225,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1622,
@@ -17855,7 +16235,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1623,
@@ -17866,7 +16245,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1624,
@@ -17877,7 +16255,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1625,
@@ -17888,7 +16265,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1626,
@@ -17899,7 +16275,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1627,
@@ -17910,7 +16285,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1628,
@@ -17921,7 +16295,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1629,
@@ -17932,7 +16305,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1630,
@@ -17943,7 +16315,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1631,
@@ -17954,7 +16325,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1632,
@@ -17965,7 +16335,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1633,
@@ -17976,7 +16345,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1634,
@@ -17987,7 +16355,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1635,
@@ -17998,7 +16365,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1636,
@@ -18009,7 +16375,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1637,
@@ -18020,7 +16385,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1638,
@@ -18031,7 +16395,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1639,
@@ -18042,7 +16405,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1640,
@@ -18053,7 +16415,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1641,
@@ -18064,7 +16425,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1642,
@@ -18075,7 +16435,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1643,
@@ -18086,7 +16445,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1644,
@@ -18097,7 +16455,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1645,
@@ -18108,7 +16465,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1646,
@@ -18119,7 +16475,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1647,
@@ -18130,7 +16485,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1648,
@@ -18141,7 +16495,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1649,
@@ -18152,7 +16505,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1650,
@@ -18163,7 +16515,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1651,
@@ -18174,7 +16525,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1652,
@@ -18185,7 +16535,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1653,
@@ -18196,7 +16545,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1654,
@@ -18207,7 +16555,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1655,
@@ -18218,7 +16565,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1656,
@@ -18229,7 +16575,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1657,
@@ -18240,7 +16585,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1658,
@@ -18251,7 +16595,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1659,
@@ -18262,7 +16605,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1660,
@@ -18273,7 +16615,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1661,
@@ -18284,7 +16625,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1662,
@@ -18295,7 +16635,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1663,
@@ -18306,7 +16645,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1664,
@@ -18317,7 +16655,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1665,
@@ -18328,7 +16665,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1666,
@@ -18339,7 +16675,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1667,
@@ -18350,7 +16685,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1668,
@@ -18361,7 +16695,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1669,
@@ -18372,7 +16705,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1670,
@@ -18383,7 +16715,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1671,
@@ -18394,7 +16725,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1672,
@@ -18405,7 +16735,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1673,
@@ -18416,7 +16745,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1674,
@@ -18427,7 +16755,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1675,
@@ -18438,7 +16765,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1676,
@@ -18449,7 +16775,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1677,
@@ -18460,7 +16785,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1678,
@@ -18471,7 +16795,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1679,
@@ -18482,7 +16805,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1680,
@@ -18493,7 +16815,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1681,
@@ -18504,7 +16825,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1682,
@@ -18515,7 +16835,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1683,
@@ -18526,7 +16845,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1684,
@@ -18537,7 +16855,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1685,
@@ -18548,7 +16865,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1686,
@@ -18559,7 +16875,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1687,
@@ -18570,7 +16885,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1688,
@@ -18581,7 +16895,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1689,
@@ -18592,7 +16905,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1690,
@@ -18603,7 +16915,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1691,
@@ -18614,7 +16925,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1692,
@@ -18625,7 +16935,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1693,
@@ -18636,7 +16945,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1694,
@@ -18647,7 +16955,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1695,
@@ -18658,7 +16965,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1696,
@@ -18669,7 +16975,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1697,
@@ -18680,7 +16985,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1698,
@@ -18691,7 +16995,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1699,
@@ -18702,7 +17005,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1700,
@@ -18713,7 +17015,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1701,
@@ -18724,7 +17025,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1702,
@@ -18735,7 +17035,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1703,
@@ -18746,7 +17045,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1704,
@@ -18757,7 +17055,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1705,
@@ -18768,7 +17065,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1706,
@@ -18779,7 +17075,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1707,
@@ -18790,7 +17085,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1708,
@@ -18801,7 +17095,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1709,
@@ -18812,7 +17105,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1710,
@@ -18823,7 +17115,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1711,
@@ -18834,7 +17125,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1712,
@@ -18845,7 +17135,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1713,
@@ -18856,7 +17145,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1714,
@@ -18867,7 +17155,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1715,
@@ -18878,7 +17165,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1716,
@@ -18889,7 +17175,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1717,
@@ -18900,7 +17185,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1718,
@@ -18911,7 +17195,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1719,
@@ -18922,7 +17205,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1720,
@@ -18933,7 +17215,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1721,
@@ -18944,7 +17225,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1722,
@@ -18955,7 +17235,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1723,
@@ -18966,7 +17245,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1724,
@@ -18977,7 +17255,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1725,
@@ -18988,7 +17265,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1726,
@@ -18999,7 +17275,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1727,
@@ -19010,7 +17285,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1728,
@@ -19021,7 +17295,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1729,
@@ -19032,7 +17305,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1730,
@@ -19043,7 +17315,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1731,
@@ -19054,7 +17325,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1732,
@@ -19065,7 +17335,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1733,
@@ -19076,7 +17345,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1734,
@@ -19087,7 +17355,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1735,
@@ -19098,7 +17365,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1736,
@@ -19109,7 +17375,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1737,
@@ -19120,7 +17385,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1738,
@@ -19131,7 +17395,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1739,
@@ -19142,7 +17405,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1740,
@@ -19153,7 +17415,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1741,
@@ -19164,7 +17425,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1742,
@@ -19175,7 +17435,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1743,
@@ -19186,7 +17445,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1744,
@@ -19197,7 +17455,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1745,
@@ -19208,7 +17465,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1746,
@@ -19219,7 +17475,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1747,
@@ -19230,7 +17485,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1748,
@@ -19241,7 +17495,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1749,
@@ -19252,7 +17505,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1750,
@@ -19263,7 +17515,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1751,
@@ -19274,7 +17525,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1752,
@@ -19285,7 +17535,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1753,
@@ -19296,7 +17545,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1754,
@@ -19307,7 +17555,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1755,
@@ -19318,7 +17565,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1756,
@@ -19329,7 +17575,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1757,
@@ -19340,7 +17585,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1758,
@@ -19351,7 +17595,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1759,
@@ -19362,7 +17605,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1760,
@@ -19373,7 +17615,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1761,
@@ -19384,7 +17625,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1762,
@@ -19395,7 +17635,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1763,
@@ -19406,7 +17645,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1764,
@@ -19417,7 +17655,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1765,
@@ -19428,7 +17665,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1766,
@@ -19439,7 +17675,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1767,
@@ -19450,7 +17685,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1768,
@@ -19461,7 +17695,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1769,
@@ -19472,7 +17705,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1770,
@@ -19483,7 +17715,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1771,
@@ -19494,7 +17725,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1772,
@@ -19505,7 +17735,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1773,
@@ -19516,7 +17745,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1774,
@@ -19527,7 +17755,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1775,
@@ -19538,7 +17765,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1776,
@@ -19549,7 +17775,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1777,
@@ -19560,7 +17785,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1778,
@@ -19571,7 +17795,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1779,
@@ -19582,7 +17805,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1780,
@@ -19593,7 +17815,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1781,
@@ -19604,7 +17825,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1782,
@@ -19615,7 +17835,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1783,
@@ -19626,7 +17845,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1784,
@@ -19637,7 +17855,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1785,
@@ -19648,7 +17865,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1786,
@@ -19659,7 +17875,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1787,
@@ -19670,7 +17885,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1788,
@@ -19681,7 +17895,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1789,
@@ -19692,7 +17905,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1790,
@@ -19703,7 +17915,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1791,
@@ -19714,7 +17925,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1792,
@@ -19725,7 +17935,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1793,
@@ -19736,7 +17945,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1794,
@@ -19747,7 +17955,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1795,
@@ -19758,7 +17965,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1796,
@@ -19769,7 +17975,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1797,
@@ -19780,7 +17985,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1798,
@@ -19791,7 +17995,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1799,
@@ -19802,7 +18005,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1800,
@@ -19813,7 +18015,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1801,
@@ -19824,7 +18025,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1802,
@@ -19835,7 +18035,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1803,
@@ -19846,7 +18045,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1804,
@@ -19857,7 +18055,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1805,
@@ -19868,7 +18065,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1806,
@@ -19879,7 +18075,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1807,
@@ -19890,7 +18085,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1808,
@@ -19901,7 +18095,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1809,
@@ -19912,7 +18105,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1810,
@@ -19923,7 +18115,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1811,
@@ -19934,7 +18125,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1812,
@@ -19945,7 +18135,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1813,
@@ -19956,7 +18145,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1814,
@@ -19967,7 +18155,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1815,
@@ -19978,7 +18165,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1816,
@@ -19989,7 +18175,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1817,
@@ -20000,7 +18185,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1818,
@@ -20011,7 +18195,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1819,
@@ -20022,7 +18205,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1820,
@@ -20033,7 +18215,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1821,
@@ -20044,7 +18225,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1822,
@@ -20055,7 +18235,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1823,
@@ -20066,7 +18245,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1824,
@@ -20077,7 +18255,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1825,
@@ -20088,7 +18265,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1826,
@@ -20099,7 +18275,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1827,
@@ -20110,7 +18285,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1828,
@@ -20121,7 +18295,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1829,
@@ -20132,7 +18305,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1830,
@@ -20143,7 +18315,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1831,
@@ -20154,7 +18325,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1832,
@@ -20165,7 +18335,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1833,
@@ -20176,7 +18345,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1834,
@@ -20187,7 +18355,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1835,
@@ -20198,7 +18365,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1836,
@@ -20209,7 +18375,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1837,
@@ -20220,7 +18385,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1838,
@@ -20231,7 +18395,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1839,
@@ -20242,7 +18405,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1840,
@@ -20253,7 +18415,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1841,
@@ -20264,7 +18425,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1842,
@@ -20275,7 +18435,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1843,
@@ -20286,7 +18445,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1844,
@@ -20297,7 +18455,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1845,
@@ -20308,7 +18465,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1846,
@@ -20319,7 +18475,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1847,
@@ -20330,7 +18485,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1848,
@@ -20341,7 +18495,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1849,
@@ -20352,7 +18505,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1850,
@@ -20363,7 +18515,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1851,
@@ -20374,7 +18525,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1852,
@@ -20385,7 +18535,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1853,
@@ -20396,7 +18545,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1854,
@@ -20407,7 +18555,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1855,
@@ -20418,7 +18565,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1856,
@@ -20429,7 +18575,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1857,
@@ -20440,7 +18585,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1858,
@@ -20451,7 +18595,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1859,
@@ -20462,7 +18605,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1860,
@@ -20473,7 +18615,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1861,
@@ -20484,7 +18625,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1862,
@@ -20495,7 +18635,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1863,
@@ -20506,7 +18645,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1864,
@@ -20517,7 +18655,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1865,
@@ -20528,7 +18665,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1866,
@@ -20539,7 +18675,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1867,
@@ -20550,7 +18685,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1868,
@@ -20561,7 +18695,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1869,
@@ -20572,7 +18705,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1870,
@@ -20583,7 +18715,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1871,
@@ -20594,7 +18725,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1872,
@@ -20605,7 +18735,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1873,
@@ -20616,7 +18745,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1874,
@@ -20627,7 +18755,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1875,
@@ -20638,7 +18765,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1876,
@@ -20649,7 +18775,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1877,
@@ -20660,7 +18785,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1878,
@@ -20671,7 +18795,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1879,
@@ -20682,7 +18805,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1880,
@@ -20693,7 +18815,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1881,
@@ -20704,7 +18825,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1882,
@@ -20715,7 +18835,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1883,
@@ -20726,7 +18845,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1884,
@@ -20737,7 +18855,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1885,
@@ -20748,7 +18865,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1886,
@@ -20759,7 +18875,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1887,
@@ -20770,7 +18885,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1888,
@@ -20781,7 +18895,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1889,
@@ -20792,7 +18905,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1890,
@@ -20803,7 +18915,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1891,
@@ -20814,7 +18925,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1892,
@@ -20825,7 +18935,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1893,
@@ -20836,7 +18945,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1894,
@@ -20847,7 +18955,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1895,
@@ -20858,7 +18965,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1896,
@@ -20869,7 +18975,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1897,
@@ -20880,7 +18985,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1898,
@@ -20891,7 +18995,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1899,
@@ -20902,7 +19005,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1900,
@@ -20913,7 +19015,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1901,
@@ -20924,7 +19025,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1902,
@@ -20935,7 +19035,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1903,
@@ -20946,7 +19045,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1904,
@@ -20957,7 +19055,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1905,
@@ -20968,7 +19065,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1906,
@@ -20979,7 +19075,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1907,
@@ -20990,7 +19085,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1908,
@@ -21001,7 +19095,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1909,
@@ -21012,7 +19105,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1910,
@@ -21023,7 +19115,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1911,
@@ -21034,7 +19125,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1912,
@@ -21045,7 +19135,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1913,
@@ -21056,7 +19145,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1914,
@@ -21067,7 +19155,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1915,
@@ -21078,7 +19165,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1916,
@@ -21089,7 +19175,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1917,
@@ -21100,7 +19185,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1918,
@@ -21111,7 +19195,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1919,
@@ -21122,7 +19205,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1920,
@@ -21133,7 +19215,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1921,
@@ -21144,7 +19225,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1922,
@@ -21155,7 +19235,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1923,
@@ -21166,7 +19245,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1924,
@@ -21177,7 +19255,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1925,
@@ -21188,7 +19265,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1926,
@@ -21199,7 +19275,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1927,
@@ -21210,7 +19285,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1928,
@@ -21221,7 +19295,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1929,
@@ -21232,7 +19305,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1930,
@@ -21243,7 +19315,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1931,
@@ -21254,7 +19325,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1932,
@@ -21265,7 +19335,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1933,
@@ -21276,7 +19345,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1934,
@@ -21287,7 +19355,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1935,
@@ -21298,7 +19365,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1936,
@@ -21309,7 +19375,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1937,
@@ -21320,7 +19385,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1938,
@@ -21331,7 +19395,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1939,
@@ -21342,7 +19405,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1940,
@@ -21353,7 +19415,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1941,
@@ -21364,7 +19425,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1942,
@@ -21375,7 +19435,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1943,
@@ -21386,7 +19445,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1944,
@@ -21397,7 +19455,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1945,
@@ -21408,7 +19465,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1946,
@@ -21419,7 +19475,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1947,
@@ -21430,7 +19485,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1948,
@@ -21441,7 +19495,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1949,
@@ -21452,7 +19505,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1950,
@@ -21463,7 +19515,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1951,
@@ -21474,7 +19525,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1952,
@@ -21485,7 +19535,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1953,
@@ -21496,7 +19545,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1954,
@@ -21507,7 +19555,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1955,
@@ -21518,7 +19565,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1956,
@@ -21529,7 +19575,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1957,
@@ -21540,7 +19585,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1958,
@@ -21551,7 +19595,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1959,
@@ -21562,7 +19605,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1960,
@@ -21573,7 +19615,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1961,
@@ -21584,7 +19625,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1962,
@@ -21595,7 +19635,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1963,
@@ -21606,7 +19645,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1964,
@@ -21617,7 +19655,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1965,
@@ -21628,7 +19665,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1966,
@@ -21639,7 +19675,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1967,
@@ -21650,7 +19685,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1968,
@@ -21661,7 +19695,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1969,
@@ -21672,7 +19705,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1970,
@@ -21683,7 +19715,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1971,
@@ -21694,7 +19725,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1972,
@@ -21705,7 +19735,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1973,
@@ -21716,7 +19745,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1974,
@@ -21727,7 +19755,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1975,
@@ -21738,7 +19765,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1976,
@@ -21749,7 +19775,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1977,
@@ -21760,7 +19785,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1978,
@@ -21771,7 +19795,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1979,
@@ -21782,7 +19805,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1980,
@@ -21793,7 +19815,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1981,
@@ -21804,7 +19825,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1982,
@@ -21815,7 +19835,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1983,
@@ -21826,7 +19845,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1984,
@@ -21837,7 +19855,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1985,
@@ -21848,7 +19865,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1986,
@@ -21859,7 +19875,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1987,
@@ -21870,7 +19885,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1988,
@@ -21881,7 +19895,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1989,
@@ -21892,7 +19905,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1990,
@@ -21903,7 +19915,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1991,
@@ -21914,7 +19925,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1992,
@@ -21925,7 +19935,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1993,
@@ -21936,7 +19945,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1994,
@@ -21947,7 +19955,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1995,
@@ -21958,7 +19965,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1996,
@@ -21969,7 +19975,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1997,
@@ -21980,7 +19985,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1998,
@@ -21991,7 +19995,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 1999,
@@ -22002,7 +20005,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2000,
@@ -22013,7 +20015,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2001,
@@ -22024,7 +20025,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2002,
@@ -22035,7 +20035,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2003,
@@ -22046,7 +20045,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2004,
@@ -22057,7 +20055,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2005,
@@ -22068,7 +20065,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2006,
@@ -22079,7 +20075,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2007,
@@ -22090,7 +20085,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2008,
@@ -22101,7 +20095,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2009,
@@ -22112,7 +20105,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2010,
@@ -22123,7 +20115,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2011,
@@ -22134,7 +20125,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2012,
@@ -22145,7 +20135,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2013,
@@ -22156,7 +20145,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2014,
@@ -22167,7 +20155,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2015,
@@ -22178,7 +20165,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2016,
@@ -22189,7 +20175,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2017,
@@ -22200,7 +20185,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2018,
@@ -22211,7 +20195,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2019,
@@ -22222,7 +20205,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2020,
@@ -22233,7 +20215,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2021,
@@ -22244,7 +20225,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2022,
@@ -22255,7 +20235,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2023,
@@ -22266,7 +20245,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2024,
@@ -22277,7 +20255,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2025,
@@ -22288,7 +20265,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2026,
@@ -22299,7 +20275,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2027,
@@ -22310,7 +20285,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2028,
@@ -22321,7 +20295,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2029,
@@ -22332,7 +20305,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2030,
@@ -22343,7 +20315,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2031,
@@ -22354,7 +20325,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2032,
@@ -22365,7 +20335,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2033,
@@ -22376,7 +20345,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2034,
@@ -22387,7 +20355,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2035,
@@ -22398,7 +20365,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2036,
@@ -22409,7 +20375,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2037,
@@ -22420,7 +20385,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2038,
@@ -22431,7 +20395,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2039,
@@ -22442,7 +20405,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2040,
@@ -22453,7 +20415,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2041,
@@ -22464,7 +20425,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2042,
@@ -22475,7 +20435,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2043,
@@ -22486,7 +20445,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2044,
@@ -22497,7 +20455,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2045,
@@ -22508,7 +20465,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2046,
@@ -22519,7 +20475,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2047,
@@ -22530,7 +20485,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2048,
@@ -22541,7 +20495,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2049,
@@ -22552,7 +20505,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2050,
@@ -22563,7 +20515,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2051,
@@ -22574,7 +20525,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2052,
@@ -22585,7 +20535,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2053,
@@ -22596,7 +20545,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2054,
@@ -22607,7 +20555,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2055,
@@ -22618,7 +20565,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2056,
@@ -22629,7 +20575,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2057,
@@ -22640,7 +20585,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2058,
@@ -22651,7 +20595,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2059,
@@ -22662,7 +20605,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2060,
@@ -22673,7 +20615,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2061,
@@ -22684,7 +20625,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2062,
@@ -22695,7 +20635,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2063,
@@ -22706,7 +20645,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2064,
@@ -22717,7 +20655,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2065,
@@ -22728,7 +20665,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2066,
@@ -22739,7 +20675,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2067,
@@ -22750,7 +20685,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2068,
@@ -22761,7 +20695,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2069,
@@ -22772,7 +20705,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2070,
@@ -22783,7 +20715,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2071,
@@ -22794,7 +20725,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2072,
@@ -22805,7 +20735,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2073,
@@ -22816,7 +20745,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2074,
@@ -22827,7 +20755,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2075,
@@ -22838,7 +20765,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2076,
@@ -22849,7 +20775,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2077,
@@ -22860,7 +20785,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2078,
@@ -22871,7 +20795,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2079,
@@ -22882,7 +20805,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2080,
@@ -22893,7 +20815,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2081,
@@ -22904,7 +20825,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2082,
@@ -22915,7 +20835,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2083,
@@ -22926,7 +20845,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2084,
@@ -22937,7 +20855,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2085,
@@ -22948,7 +20865,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2086,
@@ -22959,7 +20875,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2087,
@@ -22970,7 +20885,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2088,
@@ -22981,7 +20895,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2089,
@@ -22992,7 +20905,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2090,
@@ -23003,7 +20915,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2091,
@@ -23014,7 +20925,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2092,
@@ -23025,7 +20935,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2093,
@@ -23036,7 +20945,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2094,
@@ -23047,7 +20955,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2095,
@@ -23058,7 +20965,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2096,
@@ -23069,7 +20975,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2097,
@@ -23080,7 +20985,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2098,
@@ -23091,7 +20995,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2099,
@@ -23102,7 +21005,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2100,
@@ -23113,7 +21015,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2101,
@@ -23124,7 +21025,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2102,
@@ -23135,7 +21035,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2103,
@@ -23146,7 +21045,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2104,
@@ -23157,7 +21055,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2105,
@@ -23168,7 +21065,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2106,
@@ -23179,7 +21075,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2107,
@@ -23190,7 +21085,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2108,
@@ -23201,7 +21095,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2109,
@@ -23212,7 +21105,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2110,
@@ -23223,7 +21115,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2111,
@@ -23234,7 +21125,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2112,
@@ -23245,7 +21135,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2113,
@@ -23256,7 +21145,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2114,
@@ -23267,7 +21155,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2115,
@@ -23278,7 +21165,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2116,
@@ -23289,7 +21175,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2117,
@@ -23300,7 +21185,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2118,
@@ -23311,7 +21195,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2119,
@@ -23322,7 +21205,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2120,
@@ -23333,7 +21215,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2121,
@@ -23344,7 +21225,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2122,
@@ -23355,7 +21235,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2123,
@@ -23366,7 +21245,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2124,
@@ -23377,7 +21255,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2125,
@@ -23388,7 +21265,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2126,
@@ -23399,7 +21275,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2127,
@@ -23410,7 +21285,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2128,
@@ -23421,7 +21295,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2129,
@@ -23432,7 +21305,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2130,
@@ -23443,7 +21315,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2131,
@@ -23454,7 +21325,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2132,
@@ -23465,7 +21335,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2133,
@@ -23476,7 +21345,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2134,
@@ -23487,7 +21355,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2135,
@@ -23498,7 +21365,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2136,
@@ -23509,7 +21375,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2137,
@@ -23520,7 +21385,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2138,
@@ -23531,7 +21395,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2139,
@@ -23542,7 +21405,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2140,
@@ -23553,7 +21415,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2141,
@@ -23564,7 +21425,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2142,
@@ -23575,7 +21435,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2143,
@@ -23586,7 +21445,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2144,
@@ -23597,7 +21455,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2145,
@@ -23608,7 +21465,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2146,
@@ -23619,7 +21475,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2147,
@@ -23630,7 +21485,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2148,
@@ -23641,7 +21495,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2149,
@@ -23652,7 +21505,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2150,
@@ -23663,7 +21515,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2151,
@@ -23674,7 +21525,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2152,
@@ -23685,7 +21535,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2153,
@@ -23696,7 +21545,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2154,
@@ -23707,7 +21555,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2155,
@@ -23718,7 +21565,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2156,
@@ -23729,7 +21575,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2157,
@@ -23740,7 +21585,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2158,
@@ -23751,7 +21595,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2159,
@@ -23762,7 +21605,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2160,
@@ -23773,7 +21615,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2161,
@@ -23784,7 +21625,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2162,
@@ -23795,7 +21635,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2163,
@@ -23806,7 +21645,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2164,
@@ -23817,7 +21655,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2165,
@@ -23828,7 +21665,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2166,
@@ -23839,7 +21675,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2167,
@@ -23850,7 +21685,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2168,
@@ -23861,7 +21695,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2169,
@@ -23872,7 +21705,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2170,
@@ -23883,7 +21715,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2171,
@@ -23894,7 +21725,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2172,
@@ -23905,7 +21735,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2173,
@@ -23916,7 +21745,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2174,
@@ -23927,7 +21755,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2175,
@@ -23938,7 +21765,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2176,
@@ -23949,7 +21775,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2177,
@@ -23960,7 +21785,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2178,
@@ -23971,7 +21795,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2179,
@@ -23982,7 +21805,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2180,
@@ -23993,7 +21815,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2181,
@@ -24004,7 +21825,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2182,
@@ -24015,7 +21835,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2183,
@@ -24026,7 +21845,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2184,
@@ -24037,7 +21855,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2185,
@@ -24048,7 +21865,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2186,
@@ -24059,7 +21875,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2187,
@@ -24070,7 +21885,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2188,
@@ -24081,7 +21895,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2189,
@@ -24092,7 +21905,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2190,
@@ -24103,7 +21915,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2191,
@@ -24114,7 +21925,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2192,
@@ -24125,7 +21935,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2193,
@@ -24136,7 +21945,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2194,
@@ -24147,7 +21955,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2195,
@@ -24158,7 +21965,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2196,
@@ -24169,7 +21975,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2197,
@@ -24180,7 +21985,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2198,
@@ -24191,7 +21995,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2199,
@@ -24202,7 +22005,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2200,
@@ -24213,7 +22015,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2201,
@@ -24224,7 +22025,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2202,
@@ -24235,7 +22035,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2203,
@@ -24246,7 +22045,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2204,
@@ -24257,7 +22055,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2205,
@@ -24268,7 +22065,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2206,
@@ -24279,7 +22075,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2207,
@@ -24290,7 +22085,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2208,
@@ -24301,7 +22095,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2209,
@@ -24312,7 +22105,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2210,
@@ -24323,7 +22115,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2211,
@@ -24334,7 +22125,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2212,
@@ -24345,7 +22135,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2213,
@@ -24356,7 +22145,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2214,
@@ -24367,7 +22155,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2215,
@@ -24378,7 +22165,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2216,
@@ -24389,7 +22175,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2217,
@@ -24400,7 +22185,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2218,
@@ -24411,7 +22195,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2219,
@@ -24422,7 +22205,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2220,
@@ -24433,7 +22215,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2221,
@@ -24444,7 +22225,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2222,
@@ -24455,7 +22235,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2223,
@@ -24466,7 +22245,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2224,
@@ -24477,7 +22255,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2225,
@@ -24488,7 +22265,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2226,
@@ -24499,7 +22275,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2227,
@@ -24510,7 +22285,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2228,
@@ -24521,7 +22295,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2229,
@@ -24532,7 +22305,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2230,
@@ -24543,7 +22315,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2231,
@@ -24554,7 +22325,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2232,
@@ -24565,7 +22335,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2233,
@@ -24576,7 +22345,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2234,
@@ -24587,7 +22355,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2235,
@@ -24598,7 +22365,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2236,
@@ -24609,7 +22375,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2237,
@@ -24620,7 +22385,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2238,
@@ -24631,7 +22395,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2239,
@@ -24642,7 +22405,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2240,
@@ -24653,7 +22415,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2241,
@@ -24664,7 +22425,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2242,
@@ -24675,7 +22435,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2243,
@@ -24686,7 +22445,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2244,
@@ -24697,7 +22455,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2245,
@@ -24708,7 +22465,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2246,
@@ -24719,7 +22475,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2247,
@@ -24730,7 +22485,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2248,
@@ -24741,7 +22495,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2249,
@@ -24752,7 +22505,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2250,
@@ -24763,7 +22515,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2251,
@@ -24774,7 +22525,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2252,
@@ -24785,7 +22535,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2253,
@@ -24796,7 +22545,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2254,
@@ -24807,7 +22555,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2255,
@@ -24818,7 +22565,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2256,
@@ -24829,7 +22575,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2257,
@@ -24840,7 +22585,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2258,
@@ -24851,7 +22595,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2259,
@@ -24862,7 +22605,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2260,
@@ -24873,7 +22615,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2261,
@@ -24884,7 +22625,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2262,
@@ -24895,7 +22635,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2263,
@@ -24906,7 +22645,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2264,
@@ -24917,7 +22655,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2265,
@@ -24928,7 +22665,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2266,
@@ -24939,7 +22675,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2267,
@@ -24950,7 +22685,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2268,
@@ -24961,7 +22695,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2269,
@@ -24972,7 +22705,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2270,
@@ -24983,7 +22715,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2271,
@@ -24994,7 +22725,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2272,
@@ -25005,7 +22735,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2273,
@@ -25016,7 +22745,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2274,
@@ -25027,7 +22755,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2275,
@@ -25038,7 +22765,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2276,
@@ -25049,7 +22775,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2277,
@@ -25060,7 +22785,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2278,
@@ -25071,7 +22795,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2279,
@@ -25082,7 +22805,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2280,
@@ -25093,7 +22815,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2281,
@@ -25104,7 +22825,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2282,
@@ -25115,7 +22835,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2283,
@@ -25126,7 +22845,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2284,
@@ -25137,7 +22855,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2285,
@@ -25148,7 +22865,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2286,
@@ -25159,7 +22875,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2287,
@@ -25170,7 +22885,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2288,
@@ -25181,7 +22895,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2289,
@@ -25192,7 +22905,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2290,
@@ -25203,7 +22915,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2291,
@@ -25214,7 +22925,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2292,
@@ -25225,7 +22935,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2293,
@@ -25236,7 +22945,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2294,
@@ -25247,7 +22955,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2295,
@@ -25258,7 +22965,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2296,
@@ -25269,7 +22975,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2297,
@@ -25280,7 +22985,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2298,
@@ -25291,7 +22995,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2299,
@@ -25302,7 +23005,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2300,
@@ -25313,7 +23015,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2301,
@@ -25324,7 +23025,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2302,
@@ -25335,7 +23035,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2303,
@@ -25346,7 +23045,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2304,
@@ -25357,7 +23055,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2305,
@@ -25368,7 +23065,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2306,
@@ -25379,7 +23075,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2307,
@@ -25390,7 +23085,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2308,
@@ -25401,7 +23095,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2309,
@@ -25412,7 +23105,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2310,
@@ -25423,7 +23115,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2311,
@@ -25434,7 +23125,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2312,
@@ -25445,7 +23135,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2313,
@@ -25456,7 +23145,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2314,
@@ -25467,7 +23155,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2315,
@@ -25478,7 +23165,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2316,
@@ -25489,7 +23175,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2317,
@@ -25500,7 +23185,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2318,
@@ -25511,7 +23195,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2319,
@@ -25522,7 +23205,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2320,
@@ -25533,7 +23215,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2321,
@@ -25544,7 +23225,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2322,
@@ -25555,7 +23235,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2323,
@@ -25566,7 +23245,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2324,
@@ -25577,7 +23255,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2325,
@@ -25588,7 +23265,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2326,
@@ -25599,7 +23275,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2327,
@@ -25610,7 +23285,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2328,
@@ -25621,7 +23295,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2329,
@@ -25632,7 +23305,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2330,
@@ -25643,7 +23315,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2331,
@@ -25654,7 +23325,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2332,
@@ -25665,7 +23335,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2333,
@@ -25676,7 +23345,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2334,
@@ -25687,7 +23355,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2335,
@@ -25698,7 +23365,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2336,
@@ -25709,7 +23375,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2337,
@@ -25720,7 +23385,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2338,
@@ -25731,7 +23395,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2339,
@@ -25742,7 +23405,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2340,
@@ -25753,7 +23415,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2341,
@@ -25764,7 +23425,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2342,
@@ -25775,7 +23435,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2343,
@@ -25786,7 +23445,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2344,
@@ -25797,7 +23455,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2345,
@@ -25808,7 +23465,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2346,
@@ -25819,7 +23475,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2347,
@@ -25830,7 +23485,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2348,
@@ -25841,7 +23495,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2349,
@@ -25852,7 +23505,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2350,
@@ -25863,7 +23515,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2351,
@@ -25874,7 +23525,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2352,
@@ -25885,7 +23535,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2353,
@@ -25896,7 +23545,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2354,
@@ -25907,7 +23555,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2355,
@@ -25918,7 +23565,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2356,
@@ -25929,7 +23575,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2357,
@@ -25940,7 +23585,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2358,
@@ -25951,7 +23595,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2359,
@@ -25962,7 +23605,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2360,
@@ -25973,7 +23615,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2361,
@@ -25984,7 +23625,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2362,
@@ -25995,7 +23635,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2363,
@@ -26006,7 +23645,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2364,
@@ -26017,7 +23655,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2365,
@@ -26028,7 +23665,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2366,
@@ -26039,7 +23675,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2367,
@@ -26050,7 +23685,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2368,
@@ -26061,7 +23695,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2369,
@@ -26072,7 +23705,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2370,
@@ -26083,7 +23715,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2371,
@@ -26094,7 +23725,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2372,
@@ -26105,7 +23735,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2373,
@@ -26116,7 +23745,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2374,
@@ -26127,7 +23755,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2375,
@@ -26138,7 +23765,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2376,
@@ -26149,7 +23775,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2377,
@@ -26160,7 +23785,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2378,
@@ -26171,7 +23795,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2379,
@@ -26182,7 +23805,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2380,
@@ -26193,7 +23815,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2381,
@@ -26204,7 +23825,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2382,
@@ -26215,7 +23835,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2383,
@@ -26226,7 +23845,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2384,
@@ -26237,7 +23855,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2385,
@@ -26248,7 +23865,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2386,
@@ -26259,7 +23875,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2387,
@@ -26270,7 +23885,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2388,
@@ -26281,7 +23895,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2389,
@@ -26292,7 +23905,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2390,
@@ -26303,7 +23915,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2391,
@@ -26314,7 +23925,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2392,
@@ -26325,7 +23935,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2393,
@@ -26336,7 +23945,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2394,
@@ -26347,7 +23955,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2395,
@@ -26358,7 +23965,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2396,
@@ -26369,7 +23975,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2397,
@@ -26380,7 +23985,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2398,
@@ -26391,7 +23995,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2399,
@@ -26402,7 +24005,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2400,
@@ -26413,7 +24015,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2401,
@@ -26424,7 +24025,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2402,
@@ -26435,7 +24035,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2403,
@@ -26446,7 +24045,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2404,
@@ -26457,7 +24055,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2405,
@@ -26468,7 +24065,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2406,
@@ -26479,7 +24075,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2407,
@@ -26490,7 +24085,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2408,
@@ -26501,7 +24095,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2409,
@@ -26512,7 +24105,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2410,
@@ -26523,7 +24115,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2411,
@@ -26534,7 +24125,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2412,
@@ -26545,7 +24135,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2413,
@@ -26556,7 +24145,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2414,
@@ -26567,7 +24155,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2415,
@@ -26578,7 +24165,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2416,
@@ -26589,7 +24175,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2417,
@@ -26600,7 +24185,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2418,
@@ -26611,7 +24195,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2419,
@@ -26622,7 +24205,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2420,
@@ -26633,7 +24215,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2421,
@@ -26644,7 +24225,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2422,
@@ -26655,7 +24235,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2423,
@@ -26666,7 +24245,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2424,
@@ -26677,7 +24255,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2425,
@@ -26688,7 +24265,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2426,
@@ -26699,7 +24275,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2427,
@@ -26710,7 +24285,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2428,
@@ -26721,7 +24295,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2429,
@@ -26732,7 +24305,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2430,
@@ -26743,7 +24315,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2431,
@@ -26754,7 +24325,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2432,
@@ -26765,7 +24335,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2433,
@@ -26776,7 +24345,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2434,
@@ -26787,7 +24355,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2435,
@@ -26798,7 +24365,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2436,
@@ -26809,7 +24375,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2437,
@@ -26820,7 +24385,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2438,
@@ -26831,7 +24395,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2439,
@@ -26842,7 +24405,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2440,
@@ -26853,7 +24415,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2441,
@@ -26864,7 +24425,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2442,
@@ -26875,7 +24435,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2443,
@@ -26886,7 +24445,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2444,
@@ -26897,7 +24455,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2445,
@@ -26908,7 +24465,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2446,
@@ -26919,7 +24475,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2447,
@@ -26930,7 +24485,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2448,
@@ -26941,7 +24495,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2449,
@@ -26952,7 +24505,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2450,
@@ -26963,7 +24515,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2451,
@@ -26974,7 +24525,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2452,
@@ -26985,7 +24535,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2453,
@@ -26996,7 +24545,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2454,
@@ -27007,7 +24555,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2455,
@@ -27018,7 +24565,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2456,
@@ -27029,7 +24575,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2457,
@@ -27040,7 +24585,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2458,
@@ -27051,7 +24595,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2459,
@@ -27062,7 +24605,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2460,
@@ -27073,7 +24615,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2461,
@@ -27084,7 +24625,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2462,
@@ -27095,7 +24635,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2463,
@@ -27106,7 +24645,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2464,
@@ -27117,7 +24655,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2465,
@@ -27128,7 +24665,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2466,
@@ -27139,7 +24675,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2467,
@@ -27150,7 +24685,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2468,
@@ -27161,7 +24695,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2469,
@@ -27172,7 +24705,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2470,
@@ -27183,7 +24715,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2471,
@@ -27194,7 +24725,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2472,
@@ -27205,7 +24735,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2473,
@@ -27216,7 +24745,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2474,
@@ -27227,7 +24755,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2475,
@@ -27238,7 +24765,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2476,
@@ -27249,7 +24775,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2477,
@@ -27260,7 +24785,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2478,
@@ -27271,7 +24795,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2479,
@@ -27282,7 +24805,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2480,
@@ -27293,7 +24815,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2481,
@@ -27304,7 +24825,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2482,
@@ -27315,7 +24835,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2483,
@@ -27326,7 +24845,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2484,
@@ -27337,7 +24855,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2485,
@@ -27348,7 +24865,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2486,
@@ -27359,7 +24875,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2487,
@@ -27370,7 +24885,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2488,
@@ -27381,7 +24895,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2489,
@@ -27392,7 +24905,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2490,
@@ -27403,7 +24915,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2491,
@@ -27414,7 +24925,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2492,
@@ -27425,7 +24935,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2493,
@@ -27436,7 +24945,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2494,
@@ -27447,7 +24955,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2495,
@@ -27458,7 +24965,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2496,
@@ -27469,7 +24975,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2497,
@@ -27480,7 +24985,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2498,
@@ -27491,7 +24995,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2499,
@@ -27502,7 +25005,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2500,
@@ -27513,7 +25015,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2501,
@@ -27524,7 +25025,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2502,
@@ -27535,7 +25035,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2503,
@@ -27546,7 +25045,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2504,
@@ -27557,7 +25055,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2505,
@@ -27568,7 +25065,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2506,
@@ -27579,7 +25075,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2507,
@@ -27590,7 +25085,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2508,
@@ -27601,7 +25095,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2509,
@@ -27612,7 +25105,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2510,
@@ -27623,7 +25115,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2511,
@@ -27634,7 +25125,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2512,
@@ -27645,7 +25135,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2513,
@@ -27656,7 +25145,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2514,
@@ -27667,7 +25155,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2515,
@@ -27678,7 +25165,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2516,
@@ -27689,7 +25175,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2517,
@@ -27700,7 +25185,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2518,
@@ -27711,7 +25195,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2519,
@@ -27722,7 +25205,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2520,
@@ -27733,7 +25215,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2521,
@@ -27744,7 +25225,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2522,
@@ -27755,7 +25235,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2523,
@@ -27766,7 +25245,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2524,
@@ -27777,7 +25255,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2525,
@@ -27788,7 +25265,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2526,
@@ -27799,7 +25275,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2527,
@@ -27810,7 +25285,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2528,
@@ -27821,7 +25295,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2529,
@@ -27832,7 +25305,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2530,
@@ -27843,7 +25315,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2531,
@@ -27854,7 +25325,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2532,
@@ -27865,7 +25335,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2533,
@@ -27876,7 +25345,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2534,
@@ -27887,7 +25355,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2535,
@@ -27898,7 +25365,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2536,
@@ -27909,7 +25375,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2537,
@@ -27920,7 +25385,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2538,
@@ -27931,7 +25395,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2539,
@@ -27942,7 +25405,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2540,
@@ -27953,7 +25415,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2541,
@@ -27964,7 +25425,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2542,
@@ -27975,7 +25435,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2543,
@@ -27986,7 +25445,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2544,
@@ -27997,7 +25455,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2545,
@@ -28008,7 +25465,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2546,
@@ -28019,7 +25475,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2547,
@@ -28030,7 +25485,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2548,
@@ -28041,7 +25495,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2549,
@@ -28052,7 +25505,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2550,
@@ -28063,7 +25515,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2551,
@@ -28074,7 +25525,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2552,
@@ -28085,7 +25535,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2553,
@@ -28096,7 +25545,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2554,
@@ -28107,7 +25555,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2555,
@@ -28118,7 +25565,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2556,
@@ -28129,7 +25575,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2557,
@@ -28140,7 +25585,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2558,
@@ -28151,7 +25595,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2559,
@@ -28162,7 +25605,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2560,
@@ -28173,7 +25615,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2561,
@@ -28184,7 +25625,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2562,
@@ -28195,7 +25635,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2563,
@@ -28206,7 +25645,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2564,
@@ -28217,7 +25655,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2565,
@@ -28228,7 +25665,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2566,
@@ -28239,7 +25675,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2567,
@@ -28250,7 +25685,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2568,
@@ -28261,7 +25695,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2569,
@@ -28272,7 +25705,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2570,
@@ -28283,7 +25715,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2571,
@@ -28294,7 +25725,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2572,
@@ -28305,7 +25735,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2573,
@@ -28316,7 +25745,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2574,
@@ -28327,7 +25755,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2575,
@@ -28338,7 +25765,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2576,
@@ -28349,7 +25775,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2577,
@@ -28360,7 +25785,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2578,
@@ -28371,7 +25795,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2579,
@@ -28382,7 +25805,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2580,
@@ -28393,7 +25815,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2581,
@@ -28404,7 +25825,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2582,
@@ -28415,7 +25835,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2583,
@@ -28426,7 +25845,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2584,
@@ -28437,7 +25855,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2585,
@@ -28448,7 +25865,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2586,
@@ -28459,7 +25875,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2587,
@@ -28470,7 +25885,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2588,
@@ -28481,7 +25895,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2589,
@@ -28492,7 +25905,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2590,
@@ -28503,7 +25915,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2591,
@@ -28514,7 +25925,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2592,
@@ -28525,7 +25935,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2593,
@@ -28536,7 +25945,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2594,
@@ -28547,7 +25955,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2595,
@@ -28558,7 +25965,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2596,
@@ -28569,7 +25975,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2597,
@@ -28580,7 +25985,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2598,
@@ -28591,7 +25995,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2599,
@@ -28602,7 +26005,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2600,
@@ -28613,7 +26015,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2601,
@@ -28624,7 +26025,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2602,
@@ -28635,7 +26035,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2603,
@@ -28646,7 +26045,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2604,
@@ -28657,7 +26055,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2605,
@@ -28668,7 +26065,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2606,
@@ -28679,7 +26075,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2607,
@@ -28690,7 +26085,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2608,
@@ -28701,7 +26095,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2609,
@@ -28712,7 +26105,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2610,
@@ -28723,7 +26115,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2611,
@@ -28734,7 +26125,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2612,
@@ -28745,7 +26135,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2613,
@@ -28756,7 +26145,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2614,
@@ -28767,7 +26155,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2615,
@@ -28778,7 +26165,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2616,
@@ -28789,7 +26175,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2617,
@@ -28800,7 +26185,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2618,
@@ -28811,7 +26195,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2619,
@@ -28822,7 +26205,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2620,
@@ -28833,7 +26215,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2621,
@@ -28844,7 +26225,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2622,
@@ -28855,7 +26235,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2623,
@@ -28866,7 +26245,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2624,
@@ -28877,7 +26255,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2625,
@@ -28888,7 +26265,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2626,
@@ -28899,7 +26275,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2627,
@@ -28910,7 +26285,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2628,
@@ -28921,7 +26295,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2629,
@@ -28932,7 +26305,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2630,
@@ -28943,7 +26315,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2631,
@@ -28954,7 +26325,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2632,
@@ -28965,7 +26335,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2633,
@@ -28976,7 +26345,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2634,
@@ -28987,7 +26355,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2635,
@@ -28998,7 +26365,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2636,
@@ -29009,7 +26375,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2637,
@@ -29020,7 +26385,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2638,
@@ -29031,7 +26395,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2639,
@@ -29042,7 +26405,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2640,
@@ -29053,7 +26415,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2641,
@@ -29064,7 +26425,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2642,
@@ -29075,7 +26435,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2643,
@@ -29086,7 +26445,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2644,
@@ -29097,7 +26455,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2645,
@@ -29108,7 +26465,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2646,
@@ -29119,7 +26475,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2647,
@@ -29130,7 +26485,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2648,
@@ -29141,7 +26495,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2649,
@@ -29152,7 +26505,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2650,
@@ -29163,7 +26515,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2651,
@@ -29174,7 +26525,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2652,
@@ -29185,7 +26535,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2653,
@@ -29196,7 +26545,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2654,
@@ -29207,7 +26555,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2655,
@@ -29218,7 +26565,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2656,
@@ -29229,7 +26575,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2657,
@@ -29240,7 +26585,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2658,
@@ -29251,7 +26595,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2659,
@@ -29262,7 +26605,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2660,
@@ -29273,7 +26615,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2661,
@@ -29284,7 +26625,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2662,
@@ -29295,7 +26635,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2663,
@@ -29306,7 +26645,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2664,
@@ -29317,7 +26655,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2665,
@@ -29328,7 +26665,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2666,
@@ -29339,7 +26675,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2667,
@@ -29350,7 +26685,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2668,
@@ -29361,7 +26695,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2669,
@@ -29372,7 +26705,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2670,
@@ -29383,7 +26715,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2671,
@@ -29394,7 +26725,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2672,
@@ -29405,7 +26735,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2673,
@@ -29416,7 +26745,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2674,
@@ -29427,7 +26755,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2675,
@@ -29438,7 +26765,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2676,
@@ -29449,7 +26775,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2677,
@@ -29460,7 +26785,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2678,
@@ -29471,7 +26795,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2679,
@@ -29482,7 +26805,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2680,
@@ -29493,7 +26815,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2681,
@@ -29504,7 +26825,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2682,
@@ -29515,7 +26835,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2683,
@@ -29526,7 +26845,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2684,
@@ -29537,7 +26855,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2685,
@@ -29548,7 +26865,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2686,
@@ -29559,7 +26875,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2687,
@@ -29570,7 +26885,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2688,
@@ -29581,7 +26895,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2689,
@@ -29592,7 +26905,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2690,
@@ -29603,7 +26915,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2691,
@@ -29614,7 +26925,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2692,
@@ -29625,7 +26935,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2693,
@@ -29636,7 +26945,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2694,
@@ -29647,7 +26955,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2695,
@@ -29658,7 +26965,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2696,
@@ -29669,7 +26975,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2697,
@@ -29680,7 +26985,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2698,
@@ -29691,7 +26995,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2699,
@@ -29702,7 +27005,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2700,
@@ -29713,7 +27015,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2701,
@@ -29724,7 +27025,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2722,
@@ -29735,7 +27035,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2723,
@@ -29746,7 +27045,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2724,
@@ -29757,7 +27055,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2725,
@@ -29768,7 +27065,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2726,
@@ -29779,7 +27075,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2727,
@@ -29790,7 +27085,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2728,
@@ -29801,7 +27095,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2729,
@@ -29812,7 +27105,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2730,
@@ -29823,7 +27115,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2731,
@@ -29834,7 +27125,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2732,
@@ -29845,7 +27135,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2733,
@@ -29856,7 +27145,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2734,
@@ -29867,7 +27155,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2735,
@@ -29878,7 +27165,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2736,
@@ -29889,7 +27175,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2737,
@@ -29900,7 +27185,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2738,
@@ -29911,7 +27195,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2739,
@@ -29922,7 +27205,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2740,
@@ -29933,7 +27215,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2741,
@@ -29944,7 +27225,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2742,
@@ -29955,7 +27235,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2743,
@@ -29966,7 +27245,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2744,
@@ -29977,7 +27255,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2745,
@@ -29988,7 +27265,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2746,
@@ -29999,7 +27275,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2747,
@@ -30010,7 +27285,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2748,
@@ -30021,7 +27295,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2749,
@@ -30032,7 +27305,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2750,
@@ -30043,7 +27315,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2751,
@@ -30054,7 +27325,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2752,
@@ -30065,7 +27335,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2753,
@@ -30076,7 +27345,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2754,
@@ -30087,7 +27355,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2755,
@@ -30098,7 +27365,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2756,
@@ -30109,7 +27375,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2757,
@@ -30120,7 +27385,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2758,
@@ -30131,7 +27395,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2759,
@@ -30142,7 +27405,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2760,
@@ -30153,7 +27415,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2761,
@@ -30164,7 +27425,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2762,
@@ -30175,7 +27435,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2763,
@@ -30186,7 +27445,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2764,
@@ -30197,7 +27455,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2765,
@@ -30208,7 +27465,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2766,
@@ -30219,7 +27475,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2767,
@@ -30230,7 +27485,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2768,
@@ -30241,7 +27495,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2769,
@@ -30252,7 +27505,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2770,
@@ -30263,7 +27515,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2771,
@@ -30274,7 +27525,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2772,
@@ -30285,7 +27535,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2773,
@@ -30296,7 +27545,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2774,
@@ -30307,7 +27555,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2775,
@@ -30318,7 +27565,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2776,
@@ -30329,7 +27575,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2777,
@@ -30340,7 +27585,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2778,
@@ -30351,7 +27595,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2779,
@@ -30362,7 +27605,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2780,
@@ -30373,7 +27615,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2781,
@@ -30384,7 +27625,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2782,
@@ -30395,7 +27635,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2783,
@@ -30406,7 +27645,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2784,
@@ -30417,7 +27655,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2785,
@@ -30428,7 +27665,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2786,
@@ -30439,7 +27675,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2787,
@@ -30450,7 +27685,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2788,
@@ -30461,7 +27695,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2789,
@@ -30472,7 +27705,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2790,
@@ -30483,7 +27715,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2791,
@@ -30494,7 +27725,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2792,
@@ -30505,7 +27735,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2793,
@@ -30516,7 +27745,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2794,
@@ -30527,7 +27755,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2795,
@@ -30538,7 +27765,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2796,
@@ -30549,7 +27775,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2797,
@@ -30560,7 +27785,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2798,
@@ -30571,7 +27795,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2799,
@@ -30582,7 +27805,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2800,
@@ -30593,7 +27815,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2801,
@@ -30604,7 +27825,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2802,
@@ -30615,7 +27835,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2803,
@@ -30626,7 +27845,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2804,
@@ -30637,7 +27855,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2805,
@@ -30648,7 +27865,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2806,
@@ -30659,7 +27875,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2807,
@@ -30670,7 +27885,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2808,
@@ -30681,7 +27895,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2809,
@@ -30692,7 +27905,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2810,
@@ -30703,7 +27915,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2811,
@@ -30714,7 +27925,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2812,
@@ -30725,7 +27935,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2813,
@@ -30736,7 +27945,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2814,
@@ -30747,7 +27955,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2815,
@@ -30758,7 +27965,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2816,
@@ -30769,7 +27975,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2817,
@@ -30780,7 +27985,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2818,
@@ -30791,7 +27995,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2819,
@@ -30802,7 +28005,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2820,
@@ -30813,7 +28015,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2821,
@@ -30824,7 +28025,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2822,
@@ -30835,7 +28035,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2823,
@@ -30846,7 +28045,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2824,
@@ -30857,7 +28055,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2825,
@@ -30868,7 +28065,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2826,
@@ -30879,7 +28075,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2827,
@@ -30890,7 +28085,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2828,
@@ -30901,7 +28095,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2829,
@@ -30912,7 +28105,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2830,
@@ -30923,7 +28115,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2831,
@@ -30934,7 +28125,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2832,
@@ -30945,7 +28135,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2833,
@@ -30956,7 +28145,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2834,
@@ -30967,7 +28155,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2835,
@@ -30978,7 +28165,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2836,
@@ -30989,7 +28175,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2837,
@@ -31000,7 +28185,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2838,
@@ -31011,7 +28195,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2839,
@@ -31022,7 +28205,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2840,
@@ -31033,7 +28215,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2841,
@@ -31044,7 +28225,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2842,
@@ -31055,7 +28235,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2843,
@@ -31066,7 +28245,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2844,
@@ -31077,7 +28255,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2845,
@@ -31088,7 +28265,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2846,
@@ -31099,7 +28275,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2847,
@@ -31110,7 +28285,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2848,
@@ -31121,7 +28295,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2849,
@@ -31132,7 +28305,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2850,
@@ -31143,7 +28315,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2851,
@@ -31154,7 +28325,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2852,
@@ -31165,7 +28335,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2853,
@@ -31176,7 +28345,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2854,
@@ -31187,7 +28355,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2855,
@@ -31198,7 +28365,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2856,
@@ -31209,7 +28375,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2857,
@@ -31220,7 +28385,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2858,
@@ -31231,7 +28395,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2859,
@@ -31242,7 +28405,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2860,
@@ -31253,7 +28415,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2861,
@@ -31264,7 +28425,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2862,
@@ -31275,7 +28435,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2863,
@@ -31286,7 +28445,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2864,
@@ -31297,7 +28455,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2865,
@@ -31308,7 +28465,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2866,
@@ -31319,7 +28475,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2867,
@@ -31330,7 +28485,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2868,
@@ -31341,7 +28495,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2869,
@@ -31352,7 +28505,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2870,
@@ -31363,7 +28515,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2871,
@@ -31374,7 +28525,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2872,
@@ -31385,7 +28535,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2873,
@@ -31396,7 +28545,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2874,
@@ -31407,7 +28555,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2875,
@@ -31418,7 +28565,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2876,
@@ -31429,7 +28575,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2877,
@@ -31440,7 +28585,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2878,
@@ -31451,7 +28595,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2879,
@@ -31462,7 +28605,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2880,
@@ -31473,7 +28615,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2881,
@@ -31484,7 +28625,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2882,
@@ -31495,7 +28635,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2883,
@@ -31506,7 +28645,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2884,
@@ -31517,7 +28655,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2885,
@@ -31528,7 +28665,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2886,
@@ -31539,7 +28675,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2887,
@@ -31550,7 +28685,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2888,
@@ -31561,7 +28695,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2889,
@@ -31572,7 +28705,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2890,
@@ -31583,7 +28715,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2891,
@@ -31594,7 +28725,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2892,
@@ -31605,7 +28735,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2893,
@@ -31616,7 +28745,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2894,
@@ -31627,7 +28755,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2895,
@@ -31638,7 +28765,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2896,
@@ -31649,7 +28775,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2897,
@@ -31660,7 +28785,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2898,
@@ -31671,7 +28795,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2899,
@@ -31682,7 +28805,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2900,
@@ -31693,7 +28815,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2901,
@@ -31704,7 +28825,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2902,
@@ -31715,7 +28835,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2903,
@@ -31726,7 +28845,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2904,
@@ -31737,7 +28855,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2905,
@@ -31748,7 +28865,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2906,
@@ -31759,7 +28875,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2907,
@@ -31770,7 +28885,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2908,
@@ -31781,7 +28895,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2909,
@@ -31792,7 +28905,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2910,
@@ -31803,7 +28915,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2911,
@@ -31814,7 +28925,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2912,
@@ -31825,7 +28935,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2913,
@@ -31836,7 +28945,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2914,
@@ -31847,7 +28955,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2915,
@@ -31858,7 +28965,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2916,
@@ -31869,7 +28975,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2917,
@@ -31880,7 +28985,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2918,
@@ -31891,7 +28995,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2919,
@@ -31902,7 +29005,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2920,
@@ -31913,7 +29015,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2921,
@@ -31924,7 +29025,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2922,
@@ -31935,7 +29035,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2923,
@@ -31946,7 +29045,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2924,
@@ -31957,7 +29055,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2925,
@@ -31968,7 +29065,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2926,
@@ -31979,7 +29075,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2927,
@@ -31990,7 +29085,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2928,
@@ -32001,7 +29095,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2929,
@@ -32012,7 +29105,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2930,
@@ -32023,7 +29115,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2931,
@@ -32034,7 +29125,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2932,
@@ -32045,7 +29135,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2933,
@@ -32056,7 +29145,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2934,
@@ -32067,7 +29155,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2935,
@@ -32078,7 +29165,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2936,
@@ -32089,7 +29175,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2937,
@@ -32100,7 +29185,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2938,
@@ -32111,7 +29195,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2939,
@@ -32122,7 +29205,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2940,
@@ -32133,7 +29215,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2941,
@@ -32144,7 +29225,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2942,
@@ -32155,7 +29235,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2943,
@@ -32166,7 +29245,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2944,
@@ -32177,7 +29255,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2945,
@@ -32188,7 +29265,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2946,
@@ -32199,7 +29275,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2947,
@@ -32210,7 +29285,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2948,
@@ -32221,7 +29295,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2949,
@@ -32232,7 +29305,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2950,
@@ -32243,7 +29315,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2951,
@@ -32254,7 +29325,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2952,
@@ -32265,7 +29335,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2953,
@@ -32276,7 +29345,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2954,
@@ -32287,7 +29355,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2955,
@@ -32298,7 +29365,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2956,
@@ -32309,7 +29375,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2957,
@@ -32320,7 +29385,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2958,
@@ -32331,7 +29395,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2959,
@@ -32342,7 +29405,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2960,
@@ -32353,7 +29415,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2961,
@@ -32364,7 +29425,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2962,
@@ -32375,7 +29435,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2963,
@@ -32386,7 +29445,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2964,
@@ -32397,7 +29455,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2965,
@@ -32408,7 +29465,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2966,
@@ -32419,7 +29475,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2967,
@@ -32430,7 +29485,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2968,
@@ -32441,7 +29495,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2969,
@@ -32452,7 +29505,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2970,
@@ -32463,7 +29515,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2971,
@@ -32474,7 +29525,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2972,
@@ -32485,7 +29535,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2973,
@@ -32496,7 +29545,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2974,
@@ -32507,7 +29555,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2975,
@@ -32518,7 +29565,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2976,
@@ -32529,7 +29575,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2977,
@@ -32540,7 +29585,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2978,
@@ -32551,7 +29595,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2979,
@@ -32562,7 +29605,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2980,
@@ -32573,7 +29615,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2981,
@@ -32584,7 +29625,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2982,
@@ -32595,7 +29635,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2983,
@@ -32606,7 +29645,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2984,
@@ -32617,7 +29655,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2985,
@@ -32628,7 +29665,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2986,
@@ -32639,7 +29675,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2987,
@@ -32650,7 +29685,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2988,
@@ -32661,7 +29695,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2989,
@@ -32672,7 +29705,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2990,
@@ -32683,7 +29715,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2991,
@@ -32694,7 +29725,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2992,
@@ -32705,7 +29735,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2993,
@@ -32716,7 +29745,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2994,
@@ -32727,7 +29755,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2995,
@@ -32738,7 +29765,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2996,
@@ -32749,7 +29775,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2997,
@@ -32760,7 +29785,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2998,
@@ -32771,7 +29795,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 2999,
@@ -32782,7 +29805,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3000,
@@ -32793,7 +29815,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3001,
@@ -32804,7 +29825,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3002,
@@ -32815,7 +29835,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3003,
@@ -32826,7 +29845,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3004,
@@ -32837,7 +29855,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3005,
@@ -32848,7 +29865,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3006,
@@ -32859,7 +29875,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3007,
@@ -32870,7 +29885,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3008,
@@ -32881,7 +29895,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3009,
@@ -32892,7 +29905,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3010,
@@ -32903,7 +29915,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3011,
@@ -32914,7 +29925,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3012,
@@ -32925,7 +29935,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3013,
@@ -32936,7 +29945,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3014,
@@ -32947,7 +29955,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3015,
@@ -32958,7 +29965,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3016,
@@ -32969,7 +29975,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3017,
@@ -32980,7 +29985,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3018,
@@ -32991,7 +29995,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3019,
@@ -33002,7 +30005,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3020,
@@ -33013,7 +30015,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3021,
@@ -33024,7 +30025,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3022,
@@ -33035,7 +30035,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3023,
@@ -33046,7 +30045,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3024,
@@ -33057,7 +30055,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3025,
@@ -33068,7 +30065,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3026,
@@ -33079,7 +30075,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3027,
@@ -33090,7 +30085,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3028,
@@ -33101,7 +30095,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3029,
@@ -33112,7 +30105,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3030,
@@ -33123,7 +30115,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3031,
@@ -33134,7 +30125,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3032,
@@ -33145,7 +30135,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3033,
@@ -33156,7 +30145,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3034,
@@ -33167,7 +30155,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3035,
@@ -33178,7 +30165,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3036,
@@ -33189,7 +30175,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3037,
@@ -33200,7 +30185,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3038,
@@ -33211,7 +30195,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3039,
@@ -33222,7 +30205,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3040,
@@ -33233,7 +30215,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3041,
@@ -33244,7 +30225,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3042,
@@ -33255,7 +30235,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3043,
@@ -33266,7 +30245,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3044,
@@ -33277,7 +30255,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3045,
@@ -33288,7 +30265,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3046,
@@ -33299,7 +30275,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3047,
@@ -33310,7 +30285,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3048,
@@ -33321,7 +30295,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3049,
@@ -33332,7 +30305,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3050,
@@ -33343,7 +30315,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3051,
@@ -33354,7 +30325,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3052,
@@ -33365,7 +30335,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3053,
@@ -33376,7 +30345,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3054,
@@ -33387,7 +30355,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3055,
@@ -33398,7 +30365,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3056,
@@ -33409,7 +30375,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3057,
@@ -33420,7 +30385,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3058,
@@ -33431,7 +30395,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3059,
@@ -33442,7 +30405,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3060,
@@ -33453,7 +30415,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3061,
@@ -33464,7 +30425,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3062,
@@ -33475,7 +30435,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3063,
@@ -33486,7 +30445,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3064,
@@ -33497,7 +30455,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3065,
@@ -33508,7 +30465,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3066,
@@ -33519,7 +30475,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3067,
@@ -33530,7 +30485,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3068,
@@ -33541,7 +30495,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3069,
@@ -33552,7 +30505,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3070,
@@ -33563,7 +30515,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3071,
@@ -33574,7 +30525,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3072,
@@ -33585,7 +30535,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3073,
@@ -33596,7 +30545,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3074,
@@ -33607,7 +30555,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3075,
@@ -33618,7 +30565,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3076,
@@ -33629,7 +30575,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3077,
@@ -33640,7 +30585,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3078,
@@ -33651,7 +30595,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3079,
@@ -33662,7 +30605,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3080,
@@ -33673,7 +30615,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3081,
@@ -33684,7 +30625,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3082,
@@ -33695,7 +30635,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3083,
@@ -33706,7 +30645,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3084,
@@ -33717,7 +30655,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3085,
@@ -33728,7 +30665,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3086,
@@ -33739,7 +30675,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3087,
@@ -33750,7 +30685,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3088,
@@ -33761,7 +30695,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3089,
@@ -33772,7 +30705,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3090,
@@ -33783,7 +30715,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3091,
@@ -33794,7 +30725,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3092,
@@ -33805,7 +30735,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3093,
@@ -33816,7 +30745,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3094,
@@ -33827,7 +30755,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3095,
@@ -33838,7 +30765,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3096,
@@ -33849,7 +30775,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3097,
@@ -33860,7 +30785,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3098,
@@ -33871,7 +30795,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3099,
@@ -33882,7 +30805,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3100,
@@ -33893,7 +30815,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3101,
@@ -33904,7 +30825,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3102,
@@ -33915,7 +30835,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3103,
@@ -33926,7 +30845,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3104,
@@ -33937,7 +30855,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3105,
@@ -33948,7 +30865,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3106,
@@ -33959,7 +30875,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3107,
@@ -33970,7 +30885,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3108,
@@ -33981,7 +30895,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3109,
@@ -33992,7 +30905,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3110,
@@ -34003,7 +30915,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3111,
@@ -34014,7 +30925,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3112,
@@ -34025,7 +30935,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3113,
@@ -34036,7 +30945,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3114,
@@ -34047,7 +30955,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3115,
@@ -34058,7 +30965,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3116,
@@ -34069,7 +30975,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3117,
@@ -34080,7 +30985,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3118,
@@ -34091,7 +30995,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3119,
@@ -34102,7 +31005,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3120,
@@ -34113,7 +31015,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3121,
@@ -34124,7 +31025,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3122,
@@ -34135,7 +31035,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3123,
@@ -34146,7 +31045,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3124,
@@ -34157,7 +31055,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3125,
@@ -34168,7 +31065,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3126,
@@ -34179,7 +31075,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3127,
@@ -34190,7 +31085,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3128,
@@ -34201,7 +31095,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3129,
@@ -34212,7 +31105,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3130,
@@ -34223,7 +31115,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3131,
@@ -34234,7 +31125,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3132,
@@ -34245,7 +31135,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3133,
@@ -34256,7 +31145,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3134,
@@ -34267,7 +31155,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3135,
@@ -34278,7 +31165,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3136,
@@ -34289,7 +31175,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3137,
@@ -34300,7 +31185,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3138,
@@ -34311,7 +31195,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3139,
@@ -34322,7 +31205,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3140,
@@ -34333,7 +31215,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3141,
@@ -34344,7 +31225,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3142,
@@ -34355,7 +31235,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3143,
@@ -34366,7 +31245,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3144,
@@ -34377,7 +31255,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3145,
@@ -34388,7 +31265,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3146,
@@ -34399,7 +31275,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3147,
@@ -34410,7 +31285,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3148,
@@ -34421,7 +31295,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3149,
@@ -34432,7 +31305,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3150,
@@ -34443,7 +31315,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3151,
@@ -34454,7 +31325,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3152,
@@ -34465,7 +31335,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3153,
@@ -34476,7 +31345,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3154,
@@ -34487,7 +31355,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3155,
@@ -34498,7 +31365,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3156,
@@ -34509,7 +31375,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3157,
@@ -34520,7 +31385,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3158,
@@ -34531,7 +31395,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3159,
@@ -34542,7 +31405,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3160,
@@ -34553,7 +31415,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3161,
@@ -34564,7 +31425,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3162,
@@ -34575,7 +31435,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3163,
@@ -34586,7 +31445,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3164,
@@ -34597,7 +31455,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3165,
@@ -34608,7 +31465,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3166,
@@ -34619,7 +31475,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3167,
@@ -34630,7 +31485,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3168,
@@ -34641,7 +31495,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3169,
@@ -34652,7 +31505,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3170,
@@ -34663,7 +31515,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3171,
@@ -34674,7 +31525,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3172,
@@ -34685,7 +31535,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3173,
@@ -34696,7 +31545,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3174,
@@ -34707,7 +31555,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3175,
@@ -34718,7 +31565,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3176,
@@ -34729,7 +31575,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3177,
@@ -34740,7 +31585,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3178,
@@ -34751,7 +31595,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3179,
@@ -34762,7 +31605,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3180,
@@ -34773,7 +31615,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3181,
@@ -34784,7 +31625,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3182,
@@ -34795,7 +31635,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3183,
@@ -34806,7 +31645,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3184,
@@ -34817,7 +31655,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3185,
@@ -34828,7 +31665,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3186,
@@ -34839,7 +31675,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3187,
@@ -34850,7 +31685,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3188,
@@ -34861,7 +31695,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3189,
@@ -34872,7 +31705,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3190,
@@ -34883,7 +31715,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3191,
@@ -34894,7 +31725,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3192,
@@ -34905,7 +31735,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3193,
@@ -34916,7 +31745,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3194,
@@ -34927,7 +31755,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3195,
@@ -34938,7 +31765,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3196,
@@ -34949,7 +31775,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3197,
@@ -34960,7 +31785,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3198,
@@ -34971,7 +31795,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3199,
@@ -34982,7 +31805,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3200,
@@ -34993,7 +31815,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3201,
@@ -35004,7 +31825,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3202,
@@ -35015,7 +31835,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3203,
@@ -35026,7 +31845,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3204,
@@ -35037,7 +31855,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3205,
@@ -35048,7 +31865,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3206,
@@ -35059,7 +31875,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3207,
@@ -35070,7 +31885,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3208,
@@ -35081,7 +31895,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3209,
@@ -35092,7 +31905,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3210,
@@ -35103,7 +31915,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3211,
@@ -35114,7 +31925,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3212,
@@ -35125,7 +31935,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3213,
@@ -35136,7 +31945,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3214,
@@ -35147,7 +31955,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3215,
@@ -35158,7 +31965,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3216,
@@ -35169,7 +31975,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3217,
@@ -35180,7 +31985,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3218,
@@ -35191,7 +31995,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3219,
@@ -35202,7 +32005,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3220,
@@ -35213,7 +32015,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3221,
@@ -35224,7 +32025,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3222,
@@ -35235,7 +32035,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3223,
@@ -35246,7 +32045,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3224,
@@ -35257,7 +32055,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3225,
@@ -35268,7 +32065,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3226,
@@ -35279,7 +32075,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3227,
@@ -35290,7 +32085,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3228,
@@ -35301,7 +32095,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3229,
@@ -35312,7 +32105,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3230,
@@ -35323,7 +32115,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3231,
@@ -35334,7 +32125,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3232,
@@ -35345,7 +32135,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3233,
@@ -35356,7 +32145,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3234,
@@ -35367,7 +32155,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3235,
@@ -35378,7 +32165,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3236,
@@ -35389,7 +32175,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3237,
@@ -35400,7 +32185,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3238,
@@ -35411,7 +32195,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3239,
@@ -35422,7 +32205,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3240,
@@ -35433,7 +32215,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3241,
@@ -35444,7 +32225,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3242,
@@ -35455,7 +32235,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3243,
@@ -35466,7 +32245,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3244,
@@ -35477,7 +32255,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3245,
@@ -35488,7 +32265,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3246,
@@ -35499,7 +32275,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3247,
@@ -35510,7 +32285,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3248,
@@ -35521,7 +32295,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3249,
@@ -35532,7 +32305,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3250,
@@ -35543,7 +32315,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3251,
@@ -35554,7 +32325,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3252,
@@ -35565,7 +32335,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3253,
@@ -35576,7 +32345,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3254,
@@ -35587,7 +32355,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3255,
@@ -35598,7 +32365,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3256,
@@ -35609,7 +32375,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3257,
@@ -35620,7 +32385,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3258,
@@ -35631,7 +32395,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3259,
@@ -35642,7 +32405,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3260,
@@ -35653,7 +32415,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3261,
@@ -35664,7 +32425,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3262,
@@ -35675,7 +32435,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3263,
@@ -35686,7 +32445,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3264,
@@ -35697,7 +32455,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3265,
@@ -35708,7 +32465,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3266,
@@ -35719,7 +32475,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3267,
@@ -35730,7 +32485,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3268,
@@ -35741,7 +32495,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3269,
@@ -35752,7 +32505,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3270,
@@ -35763,7 +32515,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3271,
@@ -35774,7 +32525,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3272,
@@ -35785,7 +32535,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3273,
@@ -35796,7 +32545,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3274,
@@ -35807,7 +32555,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3275,
@@ -35818,7 +32565,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3276,
@@ -35829,7 +32575,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3277,
@@ -35840,7 +32585,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3278,
@@ -35851,7 +32595,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3279,
@@ -35862,7 +32605,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3280,
@@ -35873,7 +32615,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3281,
@@ -35884,7 +32625,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3282,
@@ -35895,7 +32635,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3283,
@@ -35906,7 +32645,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3284,
@@ -35917,7 +32655,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3285,
@@ -35928,7 +32665,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3286,
@@ -35939,7 +32675,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3287,
@@ -35950,7 +32685,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3288,
@@ -35961,7 +32695,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3289,
@@ -35972,7 +32705,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3290,
@@ -35983,7 +32715,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3291,
@@ -35994,7 +32725,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3292,
@@ -36005,7 +32735,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3293,
@@ -36016,7 +32745,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3294,
@@ -36027,7 +32755,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3295,
@@ -36038,7 +32765,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3296,
@@ -36049,7 +32775,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3297,
@@ -36060,7 +32785,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3298,
@@ -36071,7 +32795,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3299,
@@ -36082,7 +32805,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3300,
@@ -36093,7 +32815,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3301,
@@ -36104,7 +32825,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3302,
@@ -36115,7 +32835,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3303,
@@ -36126,7 +32845,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3304,
@@ -36137,7 +32855,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3305,
@@ -36148,7 +32865,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3306,
@@ -36159,7 +32875,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3307,
@@ -36170,7 +32885,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3308,
@@ -36181,7 +32895,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3309,
@@ -36192,7 +32905,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3310,
@@ -36203,7 +32915,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3311,
@@ -36214,7 +32925,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3312,
@@ -36225,7 +32935,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3313,
@@ -36236,7 +32945,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3314,
@@ -36247,7 +32955,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3315,
@@ -36258,7 +32965,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3316,
@@ -36269,7 +32975,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3317,
@@ -36280,7 +32985,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3318,
@@ -36291,7 +32995,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3319,
@@ -36302,7 +33005,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3320,
@@ -36313,7 +33015,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3321,
@@ -36324,7 +33025,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3322,
@@ -36335,7 +33035,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3323,
@@ -36346,7 +33045,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3324,
@@ -36357,7 +33055,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3325,
@@ -36368,7 +33065,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3326,
@@ -36379,7 +33075,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3327,
@@ -36390,7 +33085,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3328,
@@ -36401,7 +33095,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3329,
@@ -36412,7 +33105,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3330,
@@ -36423,7 +33115,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3331,
@@ -36434,7 +33125,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3332,
@@ -36445,7 +33135,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3333,
@@ -36456,7 +33145,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3334,
@@ -36467,7 +33155,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3335,
@@ -36478,7 +33165,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3336,
@@ -36489,7 +33175,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3337,
@@ -36500,7 +33185,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3338,
@@ -36511,7 +33195,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3339,
@@ -36522,7 +33205,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3340,
@@ -36533,7 +33215,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3341,
@@ -36544,7 +33225,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3342,
@@ -36555,7 +33235,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3343,
@@ -36566,7 +33245,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3344,
@@ -36577,7 +33255,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3345,
@@ -36588,7 +33265,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3346,
@@ -36599,7 +33275,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3347,
@@ -36610,7 +33285,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3348,
@@ -36621,7 +33295,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3349,
@@ -36632,7 +33305,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3350,
@@ -36643,7 +33315,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3351,
@@ -36654,7 +33325,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3352,
@@ -36665,7 +33335,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3353,
@@ -36676,7 +33345,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3354,
@@ -36687,7 +33355,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3355,
@@ -36698,7 +33365,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3356,
@@ -36709,7 +33375,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3357,
@@ -36720,7 +33385,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3358,
@@ -36731,7 +33395,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3359,
@@ -36742,7 +33405,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3360,
@@ -36753,7 +33415,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3361,
@@ -36764,7 +33425,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3362,
@@ -36775,7 +33435,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3363,
@@ -36786,7 +33445,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3364,
@@ -36797,7 +33455,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3365,
@@ -36808,7 +33465,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3366,
@@ -36819,7 +33475,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3367,
@@ -36830,7 +33485,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3368,
@@ -36841,7 +33495,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3369,
@@ -36852,7 +33505,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3370,
@@ -36863,7 +33515,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3371,
@@ -36874,7 +33525,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3372,
@@ -36885,7 +33535,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3373,
@@ -36896,7 +33545,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3374,
@@ -36907,7 +33555,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3375,
@@ -36918,7 +33565,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3376,
@@ -36929,7 +33575,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3377,
@@ -36940,7 +33585,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3378,
@@ -36951,7 +33595,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3379,
@@ -36962,7 +33605,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3380,
@@ -36973,7 +33615,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3381,
@@ -36984,7 +33625,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3382,
@@ -36995,7 +33635,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3383,
@@ -37006,7 +33645,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3384,
@@ -37017,7 +33655,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3385,
@@ -37028,7 +33665,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3386,
@@ -37039,7 +33675,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3387,
@@ -37050,7 +33685,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3388,
@@ -37061,7 +33695,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3389,
@@ -37072,7 +33705,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3390,
@@ -37083,7 +33715,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3391,
@@ -37094,7 +33725,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3392,
@@ -37105,7 +33735,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3393,
@@ -37116,7 +33745,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3394,
@@ -37127,7 +33755,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3395,
@@ -37138,7 +33765,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3396,
@@ -37149,7 +33775,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3397,
@@ -37160,7 +33785,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3398,
@@ -37171,7 +33795,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3399,
@@ -37182,7 +33805,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3400,
@@ -37193,7 +33815,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3401,
@@ -37204,7 +33825,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3402,
@@ -37215,7 +33835,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3403,
@@ -37226,7 +33845,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3404,
@@ -37237,7 +33855,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3405,
@@ -37248,7 +33865,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3406,
@@ -37259,7 +33875,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3407,
@@ -37270,7 +33885,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3408,
@@ -37281,7 +33895,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3409,
@@ -37292,7 +33905,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3410,
@@ -37303,7 +33915,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3411,
@@ -37314,7 +33925,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3412,
@@ -37325,7 +33935,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3413,
@@ -37336,7 +33945,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3414,
@@ -37347,7 +33955,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3415,
@@ -37358,7 +33965,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3416,
@@ -37369,7 +33975,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3417,
@@ -37380,7 +33985,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3418,
@@ -37391,7 +33995,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3419,
@@ -37402,7 +34005,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3420,
@@ -37413,7 +34015,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3421,
@@ -37424,7 +34025,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3422,
@@ -37435,7 +34035,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3423,
@@ -37446,7 +34045,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3424,
@@ -37457,7 +34055,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3425,
@@ -37468,7 +34065,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3426,
@@ -37479,7 +34075,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3427,
@@ -37490,7 +34085,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3428,
@@ -37501,7 +34095,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3429,
@@ -37512,7 +34105,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3430,
@@ -37523,7 +34115,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3431,
@@ -37534,7 +34125,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3432,
@@ -37545,7 +34135,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3433,
@@ -37556,7 +34145,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3434,
@@ -37567,7 +34155,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3435,
@@ -37578,7 +34165,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3436,
@@ -37589,7 +34175,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3437,
@@ -37600,7 +34185,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3438,
@@ -37611,7 +34195,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3439,
@@ -37622,7 +34205,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3440,
@@ -37633,7 +34215,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3441,
@@ -37644,7 +34225,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3442,
@@ -37655,7 +34235,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3443,
@@ -37666,7 +34245,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3444,
@@ -37677,7 +34255,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3445,
@@ -37688,7 +34265,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3446,
@@ -37699,7 +34275,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3447,
@@ -37710,7 +34285,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3448,
@@ -37721,7 +34295,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3449,
@@ -37732,7 +34305,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3450,
@@ -37743,7 +34315,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3451,
@@ -37754,7 +34325,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3452,
@@ -37765,7 +34335,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3453,
@@ -37776,7 +34345,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3454,
@@ -37787,7 +34355,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3455,
@@ -37798,7 +34365,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3456,
@@ -37809,7 +34375,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3457,
@@ -37820,7 +34385,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3458,
@@ -37831,7 +34395,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3459,
@@ -37842,7 +34405,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3460,
@@ -37853,7 +34415,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3461,
@@ -37864,7 +34425,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3462,
@@ -37875,7 +34435,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3463,
@@ -37886,7 +34445,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3464,
@@ -37897,7 +34455,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3465,
@@ -37908,7 +34465,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3466,
@@ -37919,7 +34475,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3467,
@@ -37930,7 +34485,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3468,
@@ -37941,7 +34495,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3469,
@@ -37952,7 +34505,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3470,
@@ -37963,7 +34515,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3471,
@@ -37974,7 +34525,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3472,
@@ -37985,7 +34535,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3473,
@@ -37996,7 +34545,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3474,
@@ -38007,7 +34555,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3475,
@@ -38018,7 +34565,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3476,
@@ -38029,7 +34575,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3477,
@@ -38040,7 +34585,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3478,
@@ -38051,7 +34595,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3479,
@@ -38062,7 +34605,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3480,
@@ -38073,7 +34615,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3481,
@@ -38084,7 +34625,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3482,
@@ -38095,7 +34635,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3483,
@@ -38106,7 +34645,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3484,
@@ -38117,7 +34655,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3485,
@@ -38128,7 +34665,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3486,
@@ -38139,7 +34675,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3487,
@@ -38150,7 +34685,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3488,
@@ -38161,7 +34695,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3489,
@@ -38172,7 +34705,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3490,
@@ -38183,7 +34715,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3491,
@@ -38194,7 +34725,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3492,
@@ -38205,7 +34735,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3493,
@@ -38216,7 +34745,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3494,
@@ -38227,7 +34755,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3495,
@@ -38238,7 +34765,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3496,
@@ -38249,7 +34775,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3497,
@@ -38260,7 +34785,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3498,
@@ -38271,7 +34795,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3499,
@@ -38282,7 +34805,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3500,
@@ -38293,7 +34815,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3501,
@@ -38304,7 +34825,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3502,
@@ -38315,7 +34835,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3503,
@@ -38326,7 +34845,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3504,
@@ -38337,7 +34855,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3505,
@@ -38348,7 +34865,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3506,
@@ -38359,7 +34875,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3507,
@@ -38370,7 +34885,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3508,
@@ -38381,7 +34895,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3509,
@@ -38392,7 +34905,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3510,
@@ -38403,7 +34915,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3511,
@@ -38414,7 +34925,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3512,
@@ -38425,7 +34935,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3513,
@@ -38436,7 +34945,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3514,
@@ -38447,7 +34955,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3515,
@@ -38458,7 +34965,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3516,
@@ -38469,7 +34975,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3517,
@@ -38480,7 +34985,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3518,
@@ -38491,7 +34995,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3519,
@@ -38502,7 +35005,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3520,
@@ -38513,7 +35015,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3521,
@@ -38524,7 +35025,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3522,
@@ -38535,7 +35035,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3523,
@@ -38546,7 +35045,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3524,
@@ -38557,7 +35055,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3525,
@@ -38568,7 +35065,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3526,
@@ -38579,7 +35075,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3527,
@@ -38590,7 +35085,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3528,
@@ -38601,7 +35095,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3529,
@@ -38612,7 +35105,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3530,
@@ -38623,7 +35115,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3531,
@@ -38634,7 +35125,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3532,
@@ -38645,7 +35135,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3533,
@@ -38656,7 +35145,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3534,
@@ -38667,7 +35155,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3535,
@@ -38678,7 +35165,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3536,
@@ -38689,7 +35175,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3537,
@@ -38700,7 +35185,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3538,
@@ -38711,7 +35195,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3539,
@@ -38722,7 +35205,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3540,
@@ -38733,7 +35215,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3541,
@@ -38744,7 +35225,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3542,
@@ -38755,7 +35235,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3543,
@@ -38766,7 +35245,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3544,
@@ -38777,7 +35255,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3545,
@@ -38788,7 +35265,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3546,
@@ -38799,7 +35275,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3547,
@@ -38810,7 +35285,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3548,
@@ -38821,7 +35295,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3549,
@@ -38832,7 +35305,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3550,
@@ -38843,7 +35315,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3551,
@@ -38854,7 +35325,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3552,
@@ -38865,7 +35335,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3553,
@@ -38876,7 +35345,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3554,
@@ -38887,7 +35355,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3555,
@@ -38898,7 +35365,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3556,
@@ -38909,7 +35375,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3557,
@@ -38920,7 +35385,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3558,
@@ -38931,7 +35395,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3559,
@@ -38942,7 +35405,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3560,
@@ -38953,7 +35415,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3561,
@@ -38964,7 +35425,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3562,
@@ -38975,7 +35435,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3563,
@@ -38986,7 +35445,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3564,
@@ -38997,7 +35455,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3565,
@@ -39008,7 +35465,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3566,
@@ -39019,7 +35475,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3567,
@@ -39030,7 +35485,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3568,
@@ -39041,7 +35495,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3569,
@@ -39052,7 +35505,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3570,
@@ -39063,7 +35515,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3571,
@@ -39074,7 +35525,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3572,
@@ -39085,7 +35535,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3573,
@@ -39096,7 +35545,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3574,
@@ -39107,7 +35555,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3575,
@@ -39118,7 +35565,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3576,
@@ -39129,7 +35575,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3577,
@@ -39140,7 +35585,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3578,
@@ -39151,7 +35595,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3579,
@@ -39162,7 +35605,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3580,
@@ -39173,7 +35615,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3581,
@@ -39184,7 +35625,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3582,
@@ -39195,7 +35635,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3583,
@@ -39206,7 +35645,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3584,
@@ -39217,7 +35655,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3585,
@@ -39228,7 +35665,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3586,
@@ -39239,7 +35675,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3587,
@@ -39250,7 +35685,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3588,
@@ -39261,7 +35695,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3589,
@@ -39272,7 +35705,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3590,
@@ -39283,7 +35715,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3591,
@@ -39294,7 +35725,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3592,
@@ -39305,7 +35735,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3593,
@@ -39316,7 +35745,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3594,
@@ -39327,7 +35755,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3595,
@@ -39338,7 +35765,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3596,
@@ -39349,7 +35775,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3597,
@@ -39360,7 +35785,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3598,
@@ -39371,7 +35795,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3599,
@@ -39382,7 +35805,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3600,
@@ -39393,7 +35815,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3601,
@@ -39404,7 +35825,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3602,
@@ -39415,7 +35835,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3603,
@@ -39426,7 +35845,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3604,
@@ -39437,7 +35855,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3605,
@@ -39448,7 +35865,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3606,
@@ -39459,7 +35875,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3607,
@@ -39470,7 +35885,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3608,
@@ -39481,7 +35895,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3609,
@@ -39492,7 +35905,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3610,
@@ -39503,7 +35915,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3611,
@@ -39514,7 +35925,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3612,
@@ -39525,7 +35935,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3613,
@@ -39536,7 +35945,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3614,
@@ -39547,7 +35955,6 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         },
         {
             'id': 3615,
@@ -39558,15 +35965,14 @@ def init_city():
             'prefix': None,
             'weight': 0,
             'is_hot': 0,
-            'status': 1
         }
     ]
 
     connection = pymysql.connect(**MYSQL_CONFIG)
 
     try:
-        sql = '''INSERT INTO cms_city (id, pid, name, level, pinyin, prefix, weight, is_hot ,status) 
-            VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s)
+        sql = '''INSERT INTO cms_city (id, pid, name, level, pinyin, prefix, weight, is_hot) 
+            VALUES (%s, %s, %s, %s, %s, %s, %s, %s)
         '''
         with connection.cursor() as cursor:
             cursor.execute('truncate table cms_city')
@@ -39576,8 +35982,7 @@ def init_city():
             for city in cities:
                 cursor.execute(sql, (
                     city['id'], city['pid'], city['name'], city['level'], city['pinyin'], city['prefix'],
-                    city['weight'],
-                    city['is_hot'], city['status']))
+                    city['weight'], city['is_hot']))
 
         connection.commit()
 

@@ -44,7 +44,6 @@ def has_user() -> bool:
             result = cursor.fetchone()
             if result is None:
                 return False
-            print(result)
             if result['total'] > 0:
                 logger.info(f'发现 {result["total"]} 个用户！')
                 return True

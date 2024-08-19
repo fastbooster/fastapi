@@ -12,7 +12,7 @@ from sqlalchemy.sql.expression import asc, desc
 
 from app.core.mysql import get_session
 from app.core.redis import get_redis
-from app.models.cms import AdSpaceModel, AdModel
+from app.models.cms import AdspaceModel, BannerModel
 from app.constants.constants import REDIS_AD_PREFIX
 from app.schemas.ad import SpaceSearchQuery, SpaceAddForm, SpaceEditForm, AdSearchQuery, AdAddForm, AdEditForm
 
@@ -23,14 +23,14 @@ def safe_whitelist_fields(ad_data: dict) -> dict:
     return {k: v for k, v in ad_data.items() if k in safe_fields}
 
 
-def get_space_list(params: SpaceSearchQuery) -> list[AdSpaceModel]:
+def get_space_list(params: SpaceSearchQuery) -> list[AdspaceModel]:
     export = True if params.export == 1 else False
     with get_session(read_only=True) as db:
-        query = db.query(AdSpaceModel).order_by(desc('id'))
+        query = db.query(AdspaceModel).order_by(desc('id'))
         if params.id > 0:
             query = query.filter_by(id=params.id)
         if params.name:
-            query = query.filter(AdSpaceModel.name.like(f'%{params.name}%'))
+            query = query.filter(AdspaceModel.name.like(f'%{params.name}%'))
         if params.status > -1:
             query = query.filter_by(status=params.status)
         if not export:
@@ -39,9 +39,9 @@ def get_space_list(params: SpaceSearchQuery) -> list[AdSpaceModel]:
         return query.all()
 
 
-def get_space(id: int) -> AdSpaceModel | None:
+def get_space(id: int) -> AdspaceModel | None:
     with get_session(read_only=True) as db:
-        space = db.query(AdSpaceModel).filter(AdSpaceModel.id == id).first()
+        space = db.query(AdspaceModel).filter(AdspaceModel.id == id).first()
         if space is not None:
             return space
         return None
@@ -49,7 +49,7 @@ def get_space(id: int) -> AdSpaceModel | None:
 
 def add_space(params: SpaceAddForm) -> None:
     with get_session() as db:
-        space_model = AdSpaceModel(
+        space_model = AdspaceModel(
             name=params.name,
             width=params.width,
             height=params.height,
@@ -61,7 +61,7 @@ def add_space(params: SpaceAddForm) -> None:
 
 def edit_space(params: SpaceEditForm) -> None:
     with get_session() as db:
-        space_model = db.query(AdSpaceModel).filter_by(id=params.id).first()
+        space_model = db.query(AdspaceModel).filter_by(id=params.id).first()
         if space_model is None:
             raise ValueError(f'广告位不存在(id={params.id})')
 
@@ -75,11 +75,11 @@ def edit_space(params: SpaceEditForm) -> None:
 
 def delete_space(id: int) -> None:
     with get_session() as db:
-        space_model = db.query(AdSpaceModel).filter_by(id=id).first()
+        space_model = db.query(AdspaceModel).filter_by(id=id).first()
         if space_model is None:
             raise ValueError(f'广告位不存在(id={id})')
 
-        exists_count = db.query(AdModel).filter(AdModel.space_id == id).count()
+        exists_count = db.query(BannerModel).filter(BannerModel.space_id == id).count()
         if exists_count > 0:
             raise ValueError('请先清除广告资源')
 
@@ -90,10 +90,10 @@ def delete_space(id: int) -> None:
         redis.delete(REDIS_AD_PREFIX + str(id))
 
 
-def get_ad_list(params: AdSearchQuery) -> list[AdModel]:
+def get_ad_list(params: AdSearchQuery) -> list[BannerModel]:
     export = True if params.export == 1 else False
     with get_session(read_only=True) as db:
-        query = db.query(AdModel).order_by(asc('asc_sort_order'), desc('id'))
+        query = db.query(BannerModel).order_by(asc('asc_sort_order'), desc('id'))
         if params.id > 0:
             query = query.filter_by(id=params.id)
         if params.space_id > 0:
@@ -125,9 +125,9 @@ def get_ad_list_from_cache(space_id: int) -> list:
     return data
 
 
-def get_ad(id: int) -> AdModel | None:
+def get_ad(id: int) -> BannerModel | None:
     with get_session(read_only=True) as db:
-        ad = db.query(AdModel).filter(AdModel.id == id).first()
+        ad = db.query(BannerModel).filter(BannerModel.id == id).first()
         if ad is not None:
             return ad
         return None
@@ -135,12 +135,12 @@ def get_ad(id: int) -> AdModel | None:
 
 def add_ad(params: AdAddForm) -> None:
     with get_session() as db:
-        space_model = db.query(AdSpaceModel).filter_by(
+        space_model = db.query(AdspaceModel).filter_by(
             id=params.space_id).first()
         if space_model is None:
             raise ValueError(f'广告位不存在(id={params.space_id})')
 
-        ad_model = AdModel()
+        ad_model = BannerModel()
         for attr, value in params.__dict__.items():
             if hasattr(ad_model, attr):
                 value = params.position.value if attr == 'position' else value
@@ -153,12 +153,12 @@ def add_ad(params: AdAddForm) -> None:
 
 def edit_ad(params: AdEditForm) -> None:
     with get_session() as db:
-        ad_model = db.query(AdModel).filter_by(id=params.id).first()
+        ad_model = db.query(BannerModel).filter_by(id=params.id).first()
         if ad_model is None:
             raise ValueError(f'广告不存在(id={params.id})')
 
         if ad_model.space_id != params.space_id:
-            space_model = db.query(AdSpaceModel).filter_by(
+            space_model = db.query(AdspaceModel).filter_by(
                 id=params.space_id).first()
             if space_model is None:
                 raise ValueError(f'广告位不存在(id={params.space_id})')
@@ -174,7 +174,7 @@ def edit_ad(params: AdEditForm) -> None:
 
 def delete_ad(id: int) -> None:
     with get_session() as db:
-        ad_model = db.query(AdModel).filter_by(id=id).first()
+        ad_model = db.query(BannerModel).filter_by(id=id).first()
         if ad_model is None:
             raise ValueError(f'广告不存在(id={id})')
 
@@ -189,13 +189,13 @@ def rebuild_cache() -> None:
         if keys:
             redis.delete(*keys)
     with get_session(read_only=True) as db:
-        ads = db.query(AdModel).order_by(asc('id')).all()
+        ads = db.query(BannerModel).order_by(asc('id')).all()
         if ads:
             for ad in ads:
                 update_cache(ad)
 
 
-def update_cache(ad: AdModel, is_delete: bool = False) -> None:
+def update_cache(ad: BannerModel, is_delete: bool = False) -> None:
     with get_redis() as redis:
         if is_delete or ad.status == 0:
             redis.hdel(REDIS_AD_PREFIX + str(ad.space_id), ad.id)
