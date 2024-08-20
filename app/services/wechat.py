@@ -6,22 +6,19 @@
 # Time: 2024/07/25 17:36
 
 import json
-from datetime import datetime
 
-from sqlalchemy import or_
 from sqlalchemy.sql.expression import asc, desc
 
+from app.constants.constants import REDIS_WECHAT
 from app.core.mysql import get_session
 from app.core.redis import get_redis
-
-from app.constants.constants import REDIS_WECHAT
-
 from app.models.wechat import WechatModel
-from app.schemas.schemas import StatusType, MysqlBoolType
-from app.schemas.wechat import WechatType, WechatItem, WechatSearchQuery, WechatListResponse
+from app.schemas.schemas import StatusType
+from app.schemas.wechat import WechatType, WechatForm, SearchQuery
+from app.utils.helper import serialize_datetime
 
 
-def get_wechat(id: int) -> WechatModel | None:
+def get(id: int) -> WechatModel | None:
     with get_session(read_only=True) as db:
         item = db.query(WechatModel).filter(
             WechatModel.id == id).first()
@@ -30,7 +27,7 @@ def get_wechat(id: int) -> WechatModel | None:
         return None
 
 
-def get_wechat_list(params: WechatSearchQuery) -> WechatListResponse:
+def lists(params: SearchQuery) -> dict:
     total = -1
     export = True if params.export == 1 else False
     with get_session(read_only=True) as db:
@@ -51,85 +48,72 @@ def get_wechat_list(params: WechatSearchQuery) -> WechatListResponse:
         return {"total": total, "items": query.all()}
 
 
-def add_wechat(params: WechatItem) -> None:
+def add(params: WechatForm) -> None:
     with get_session() as db:
         exists_count = db.query(WechatModel).filter(
             WechatModel.appid == params.appid).count()
         if exists_count > 0:
             raise ValueError('appid已存在')
 
-        fields = params.model_dump()
-        fields.pop('id')
-        fields.pop('created_at')
-        fields.pop('updated_at')
-        fields['status'] = params.status.value
-        fields['type'] = params.type.value
-        model = WechatModel(**fields)
-        db.add(model)
+        if isinstance(params.type, WechatType):
+            params.type = params.type.value
+        if isinstance(params.status, StatusType):
+            params.status = params.status.value
+
+        current_model = WechatModel()
+        current_model.from_dict(params.__dict__)
+        db.add(current_model)
         db.commit()
-
-        fields['id'] = model.id
-        fields['created_at'] = model.created_at
-        fields['updated_at'] = model.updated_at
-        update_cache(fields)
+        db.refresh(current_model)
+        update_cache(current_model)
 
 
-def edit_wechat(params: WechatItem) -> None:
+def update(id: int, params: WechatForm) -> None:
     with get_session() as db:
-        model = db.query(WechatModel).filter_by(
-            id=params.id).first()
-        if model is None:
-            raise ValueError(f'微信媒体平台不存在(id={params.id})')
+        current_model = db.query(WechatModel).filter_by(id=id).first()
+        if current_model is None:
+            raise ValueError(f'微信媒体平台不存在(id={id})')
 
-        exists_count = db.query(WechatModel).filter(
-            WechatModel.appid == params.appid, WechatModel.id != params.id).count()
-        if exists_count > 0:
-            raise ValueError('appid已存在')
+        # exists_count = db.query(WechatModel).filter(WechatModel.appid == params.appid, WechatModel.id != id).count()
+        # if exists_count > 0:
+        #     raise ValueError('appid已存在')
+
+        if isinstance(params.type, WechatType):
+            params.type = params.type.value
+        if isinstance(params.status, StatusType):
+            params.status = params.status.value
 
         # 禁止修改 appid 防止缓存溢出
-        fields = params.model_dump()
-        fields.pop('appid')
-        fields.pop('id')
-        fields.pop('created_at')
-        fields.pop('updated_at')
-        fields['status'] = params.status.value
-        fields['type'] = params.type.value
+        old_appid = current_model.appid
+        current_model.from_dict(params.__dict__)
+        current_model.appid = old_appid
 
-        model.from_dict(fields)
         db.commit()
+        db.refresh(current_model)
 
-        fields['appid'] = model.appid
-        fields['created_at'] = model.created_at
-        fields['updated_at'] = model.updated_at
-        update_cache(fields)
+        update_cache(current_model)
 
 
-def delete_wechat(id: int) -> None:
+def delete(id: int) -> None:
     with get_session() as db:
-        model = db.query(WechatModel).filter_by(id=id).first()
-        if model is None:
+        current_model = db.query(WechatModel).filter_by(id=id).first()
+        if current_model is None:
             raise ValueError(f'微信媒体平台不存在(id={id})')
-        params = model.to_dict()
-        db.delete(model)
+        db.delete(current_model)
         db.commit()
-        update_cache(params, is_delete=True)
+        update_cache(current_model, is_delete=True)
 
 
-def update_cache(params: dict, is_delete: bool = False) -> None:
-    '''注意：模型的 appid 字堵不能修改，否则在删除时无法清理缓存，可能缓存会溢出'''
-    if isinstance(params["type"], WechatType):
-        params["type"] = params["type"].value
-    if isinstance(params["status"], StatusType):
-        params["status"] = params["status"].value
-    if isinstance(params["created_at"], datetime):
-        params["created_at"] = params["created_at"].isoformat()
-    if isinstance(params["updated_at"], datetime):
-        params["updated_at"] = params["updated_at"].isoformat()
+def update_cache(current_model: WechatModel, is_delete: bool = False) -> None:
+    """注意：修改模型时候 appid 字堵不能修改，否则在删除时无法清理缓存，可能缓存会溢出"""
     with get_redis() as redis:
-        if is_delete == False:
-            redis.hset(REDIS_WECHAT, params["appid"], json.dumps(params))
+        if not is_delete:
+            params = current_model.to_dict()
+            params['created_at'] = serialize_datetime(params['created_at'])
+            params['updated_at'] = serialize_datetime(params['updated_at'])
+            redis.hset(REDIS_WECHAT, current_model.appid, json.dumps(params))
         else:
-            redis.hdel(REDIS_WECHAT, params["appid"])
+            redis.hdel(REDIS_WECHAT, current_model.appid)
 
 
 def rebuild_cache() -> None:
@@ -137,15 +121,8 @@ def rebuild_cache() -> None:
         with get_redis() as redis:
             items = db.query(WechatModel).order_by(asc('id')).all()
             redis.delete(REDIS_WECHAT)
-            for item in items:
-                params = item.__dict__
-                params.pop("_sa_instance_state")
-                if isinstance(params["type"], WechatType):
-                    params["type"] = params["type"].value
-                if isinstance(params["status"], StatusType):
-                    params["status"] = params["status"].value
-                if isinstance(params["created_at"], datetime):
-                    params["created_at"] = params["created_at"].isoformat()
-                if isinstance(params["updated_at"], datetime):
-                    params["updated_at"] = params["updated_at"].isoformat()
-                redis.hset(REDIS_WECHAT, params["appid"], json.dumps(params))
+            for current_model in items:
+                params = current_model.to_dict()
+                params['created_at'] = serialize_datetime(params['created_at'])
+                params['updated_at'] = serialize_datetime(params['updated_at'])
+                redis.hset(REDIS_WECHAT, current_model.appid, json.dumps(params))

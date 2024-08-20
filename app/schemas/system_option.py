@@ -26,7 +26,7 @@ class SystemOptionBase(BaseModel):
 
 
 class SystemOptionForm(SystemOptionBase):
-    """表单模型"""
+    """表单数据模型"""
     pass
 
 
@@ -56,7 +56,7 @@ class SystemOptionPublicResponse(BaseModel):
 
 
 class SearchQuery(PaginationParams):
-    """查询参数"""
+    """搜索查询参数"""
     option_name: Optional[str] = Field(None, description="选项名称")
     memo: Optional[str] = Field(None, description="备注")
     locked: Optional[int] = Field(None, ge=0, le=1, description="锁定状态")
