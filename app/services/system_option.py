@@ -16,7 +16,7 @@ from app.models.system_option import SystemOptionModel
 from app.schemas.system_option import SystemOptionForm, SystemOptionItem, SearchQuery
 
 
-def get_option(id: int) -> SystemOptionModel | None:
+def get(id: int) -> SystemOptionModel | None:
     with get_session(read_only=True) as db:
         current_model = db.query(SystemOptionModel).filter(
             SystemOptionModel.id == id).first()
@@ -25,7 +25,7 @@ def get_option(id: int) -> SystemOptionModel | None:
         return None
 
 
-def get_option_from_cache(option_name: str) -> SystemOptionItem:
+def get_from_cache(option_name: str) -> SystemOptionItem:
     with get_redis() as redis:
         current_model = redis.hget(REDIS_SYSTEM_OPTIONS_AUTOLOAD, option_name)
         current_model = json.loads(current_model) if current_model else {
@@ -33,7 +33,7 @@ def get_option_from_cache(option_name: str) -> SystemOptionItem:
         return current_model
 
 
-def get_option_by_name(option_name: str) -> SystemOptionModel | None:
+def get_by_name(option_name: str) -> SystemOptionModel | None:
     with get_session(read_only=True) as db:
         current_model = db.query(SystemOptionModel).filter(
             SystemOptionModel.option_name == option_name).first()
@@ -42,7 +42,7 @@ def get_option_by_name(option_name: str) -> SystemOptionModel | None:
         return None
 
 
-def get_option_list(params: SearchQuery) -> dict:
+def lists(params: SearchQuery) -> dict:
     total = -1
     export = True if params.export == 1 else False
     with get_session(read_only=True) as db:
@@ -64,7 +64,7 @@ def get_option_list(params: SearchQuery) -> dict:
         return {"total": total, "items": query.all()}
 
 
-def add_option(params: SystemOptionForm) -> None:
+def add(params: SystemOptionForm) -> None:
     with get_session() as db:
         exists_count = db.query(SystemOptionModel).filter(
             SystemOptionModel.option_name == params.option_name).count()
@@ -79,7 +79,7 @@ def add_option(params: SystemOptionForm) -> None:
         update_cache(current_model)
 
 
-def edit_option(id: int, params: SystemOptionForm) -> None:
+def update(id: int, params: SystemOptionForm) -> None:
     with get_session() as db:
         current_model = db.query(SystemOptionModel).filter_by(
             id=id).first()
@@ -104,7 +104,7 @@ def edit_option(id: int, params: SystemOptionForm) -> None:
         update_cache(current_model)
 
 
-def delete_option(id: int) -> None:
+def delete(id: int) -> None:
     with get_session() as db:
         current_model = db.query(SystemOptionModel).filter_by(id=id).first()
         if current_model is None:

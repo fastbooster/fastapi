@@ -42,7 +42,7 @@ def lists(params: PaymentSettingsSortForm):
 
 @router.get("/payment_settings/alipay_root_cert", response_model=SystemOptionItem, dependencies=[Depends(check_permission('PaymentSettings'))], summary="获取支付宝根证书")
 def get_point_recharge_settings():
-    option = SystemOptionService.get_option_by_name("alipay_root_cert")
+    option = SystemOptionService.get_by_name("alipay_root_cert")
     return option if option is not None else {"option_name": "alipay_root_cert", "option_value": None}
 
 

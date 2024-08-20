@@ -21,13 +21,13 @@ router = APIRouter()
 @router.get("/options", response_model=SystemOptionResponse, dependencies=[Depends(check_permission('SystemOption'))],
             summary="系统选项列表")
 def lists(params: SearchQuery = Depends()):
-    return system_option.get_option_list(params)
+    return system_option.lists(params)
 
 
 @router.get("/options/{id}", response_model=SystemOptionItem, dependencies=[Depends(check_permission('SystemOption'))],
             summary="系统选项详情", )
 def detail(id: int):
-    current_model = system_option.get_option(id)
+    current_model = system_option.get(id)
     if not current_model:
         raise HTTPException(status_code=404, detail="系统选项不存在")
     return current_model
@@ -37,7 +37,7 @@ def detail(id: int):
              summary="添加系统选项")
 def add(params: SystemOptionForm):
     try:
-        system_option.add_option(params)
+        system_option.add(params)
         return ResponseSuccess()
     except ValueError as e:
         logger.info(f'调用堆栈：{traceback.format_exc()}')
@@ -52,7 +52,7 @@ def add(params: SystemOptionForm):
             summary="编辑系统选项")
 def edit(id: int, params: SystemOptionForm):
     try:
-        system_option.edit_option(id, params)
+        system_option.update(id, params)
         return ResponseSuccess()
     except ValueError as e:
         logger.info(f'调用堆栈：{traceback.format_exc()}')
@@ -67,7 +67,7 @@ def edit(id: int, params: SystemOptionForm):
                dependencies=[Depends(check_permission('SystemOption'))], summary="删除系统选项", )
 def delete(id: int):
     try:
-        system_option.delete_option(id)
+        system_option.delete(id)
         return ResponseSuccess()
     except ValueError as e:
         logger.info(f'调用堆栈：{traceback.format_exc()}')

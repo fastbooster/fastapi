@@ -49,7 +49,7 @@ async def send_sms(phone: str, user_data: dict = Depends(get_current_user_from_c
 
 @router.get('/options/{option_name}', response_model=SystemOptionPublicItem, summary='获取系统配置')
 async def get_option(option_name: str):
-    option = system_option.get_option_by_name(option_name)
+    option = system_option.get_by_name(option_name)
     if option is None or option.public != 1:
         raise HTTPException(status_code=404, detail="系统选项不存在")
     return option
