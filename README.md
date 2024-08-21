@@ -237,6 +237,24 @@ python app/utils/init_payment_channel.py
    # 使用 docker 部署时，可以无需手动启动，详见 docker-compose-full.yml 配置
    ```
 
+### 代码生成
+
+在 ``./app/models`` 目录下创建模型文件，并将其导入到 ``./app/models/base.py``, 生成代码命令如下：
+
+```shell
+python app/gen/main.py -h                          
+usage: main.py [-h] -n NAME [-t {schema,service,route,all}]
+
+FastBooster Generator
+
+options:
+  -h, --help            show this help message and exit
+  -n NAME, --name NAME  model name, e.g.: user.UserModel
+  -t {schema,service,route,all}, --target {schema,service,route,all}
+                        generate target, default: all
+```
+
+
 ### 参考文档列表
 
 1. [FastAPI](https://fastapi.tiangolo.com/)
