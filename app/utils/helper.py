@@ -7,6 +7,7 @@
 
 import calendar
 import datetime
+import re
 
 
 def get_last_day_of_month_by_year(year: int) -> list:
@@ -28,5 +29,47 @@ def serialize_datetime(obj):
     raise TypeError("Type not serializable")
 
 
-def model_to_dict(instance):
-    return {c.key: getattr(instance, c.key) for c in instance.__table__.columns}
+def camel_to_snake(name):
+    # 找到大写字母并在前面加上下划线，然后将其转换为小写
+    s1 = re.sub('(.)([A-Z][a-z]+)', r'\1_\2', name)
+    # 处理连续的大写字母
+    return re.sub('([a-z0-9])([A-Z])', r'\1_\2', s1).lower()
+
+
+def snake_to_camel(name):
+    # 分割字符串并将每个单词首字母大写，然后合并
+    return ''.join(word.capitalize() for word in name.split('_'))
+
+
+def pluralize(word: str) -> str:
+    # 不规则复数
+    irregulars = {
+        "man": "men",
+        "woman": "women",
+        "child": "children",
+        "tooth": "teeth",
+        "foot": "feet",
+        "mouse": "mice",
+        "goose": "geese",
+        "person": "people"
+    }
+
+    # 如果单词在不规则复数词典中，直接返回不规则复数
+    if word in irregulars:
+        return irregulars[word]
+
+    # 规则 1: 以 s, x, z, ch, sh 结尾，加 es
+    if re.search(r'(s|x|z|ch|sh)$', word):
+        return word + 'es'
+
+    # 规则 2: 以辅音字母加 y 结尾，将 y 变为 ies
+    elif re.search(r'[^aeiou]y$', word):
+        return word[:-1] + 'ies'
+
+    # 规则 3: 以 f 或 fe 结尾，将 f 变为 ves
+    elif re.search(r'(f|fe)$', word):
+        return re.sub(r'(f|fe)$', 'ves', word)
+
+    # 规则 4: 其他情况下，直接加 s
+    else:
+        return word + 's'
