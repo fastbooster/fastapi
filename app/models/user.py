@@ -17,7 +17,7 @@ class RoleModel(Base, BaseMixin):
         'mysql_collate': 'utf8mb4_unicode_ci',
         'mysql_engine': 'InnoDB',
         'mariadb_engine': 'InnoDB',
-        'comment': '角色表'
+        'comment': '角色'
     }
 
     id = Column(Integer, primary_key=True, autoincrement=True, comment='ID')
@@ -38,7 +38,7 @@ class PermissionModel(Base, BaseMixin):
         'mysql_collate': 'utf8mb4_unicode_ci',
         'mysql_engine': 'InnoDB',
         'mariadb_engine': 'InnoDB',
-        'comment': '权限表'
+        'comment': '权限'
     }
 
     id = Column(Integer, primary_key=True, autoincrement=True, comment='ID')
@@ -62,7 +62,7 @@ class UserModel(Base, BaseMixin):
         'mysql_collate': 'utf8mb4_unicode_ci',
         'mysql_engine': 'InnoDB',
         'mariadb_engine': 'InnoDB',
-        'comment': '用户表'
+        'comment': '用户'
     }
 
     id = Column(Integer, primary_key=True, autoincrement=True, comment='ID')

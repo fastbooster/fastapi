@@ -42,7 +42,7 @@ class PostModel(Base):
         'mysql_collate': 'utf8mb4_unicode_ci',
         'mysql_engine': 'InnoDB',
         'mariadb_engine': 'InnoDB',
-        'comment': '文章表'
+        'comment': '文章'
     }
 
     id = Column(Integer, primary_key=True, autoincrement=True, comment='ID')
@@ -112,7 +112,7 @@ class CityModel(Base):
         'mysql_collate': 'utf8mb4_unicode_ci',
         'mysql_engine': 'InnoDB',
         'mariadb_engine': 'InnoDB',
-        'comment': '城市表'
+        'comment': '城市'
     }
 
     id = Column(Integer, primary_key=True, autoincrement=True, comment='ID')
