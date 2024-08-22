@@ -11,31 +11,31 @@ from fastapi import APIRouter, HTTPException, Depends
 
 from app.core.log import logger
 from app.core.security import check_permission
-from app.services import role as RoleService
+from app.services import role
 
 from app.schemas.schemas import ResponseSuccess
-from app.schemas.role import RoleItem, RoleSearchQuery, RoleListResponse
+from app.schemas.role import RoleForm, RoleItem, SearchQuery, RoleListResponse
 
 router = APIRouter()
 
 
 @router.get("/roles", response_model=RoleListResponse, dependencies=[Depends(check_permission('RoleList'))], summary="角色列表")
-def lists(params: RoleSearchQuery = Depends()):
-    return RoleService.get_role_list(params)
+def lists(params: SearchQuery = Depends()):
+    return role.lists(params)
 
 
 @router.get("/roles/{id}", response_model=RoleItem, dependencies=[Depends(check_permission('RoleList'))], summary="角色详情",)
 def detail(id: int):
-    role = RoleService.get_role(id)
-    if not role:
+    current_role = role.get(id)
+    if not current_role:
         raise HTTPException(status_code=404, detail="角色不存在")
-    return role
+    return current_role
 
 
 @router.post("/roles", response_model=ResponseSuccess, dependencies=[Depends(check_permission('RoleList'))], summary="添加角色")
-def add(params: RoleItem):
+def add(params: RoleForm):
     try:
-        RoleService.add_role(params)
+        role.add(params)
         return ResponseSuccess()
     except ValueError as e:
         logger.info(f'调用堆栈：{traceback.format_exc()}')
@@ -47,10 +47,9 @@ def add(params: RoleItem):
 
 
 @router.put("/roles/{id}", response_model=ResponseSuccess, dependencies=[Depends(check_permission('RoleList'))], summary="编辑角色")
-def edit(id: int, params: RoleItem):
+def update(id: int, params: RoleForm):
     try:
-        params.id = id
-        RoleService.edit_role(params)
+        role.update(id, params)
         return ResponseSuccess()
     except ValueError as e:
         logger.info(f'调用堆栈：{traceback.format_exc()}')
@@ -64,7 +63,7 @@ def edit(id: int, params: RoleItem):
 @router.delete("/roles/{id}", response_model=ResponseSuccess, dependencies=[Depends(check_permission('RoleList'))], summary="删除角色",)
 def delete(id: int):
     try:
-        RoleService.delete_role(id)
+        role.delete(id)
         return ResponseSuccess()
     except ValueError as e:
         logger.info(f'调用堆栈：{traceback.format_exc()}')

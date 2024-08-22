@@ -10,12 +10,11 @@ from sqlalchemy import text
 from sqlalchemy.sql.expression import desc
 
 from app.core.mysql import get_session
-
 from app.models.user import RoleModel
-from app.schemas.role import RoleItem, RoleSearchQuery, RoleListResponse
+from app.schemas.role import RoleForm, SearchQuery
 
 
-def get_role(id: int) -> RoleModel | None:
+def get(id: int) -> RoleModel | None:
     with get_session(read_only=True) as db:
         role = db.query(RoleModel).filter(RoleModel.id == id).first()
 
@@ -25,7 +24,7 @@ def get_role(id: int) -> RoleModel | None:
     return None
 
 
-def get_role_list(params: RoleSearchQuery) -> RoleListResponse:
+def lists(params: SearchQuery) -> dict:
     total = -1
     export = True if params.export == 1 else False
     with get_session(read_only=True) as db:
@@ -39,48 +38,40 @@ def get_role_list(params: RoleSearchQuery) -> RoleListResponse:
         return {"total": total, "items": query.all()}
 
 
-def add_role(params: RoleItem) -> None:
+def add(params: RoleForm) -> None:
     with get_session() as db:
         exists_count = db.query(RoleModel).filter(
             RoleModel.name == params.name).count()
         if exists_count > 0:
             raise ValueError('该角色名称已存在')
-
-        role_model = RoleModel(
-            name=params.name,
-            permissions=params.permissions,
-        )
-
-        db.add(role_model)
+        current_model = RoleModel()
+        current_model.from_dict(params.__dict__)
+        db.add(current_model)
         db.commit()
 
 
-def edit_role(params: RoleItem) -> None:
+def update(id: int, params: RoleForm) -> None:
     with get_session() as db:
-        role_model = db.query(RoleModel).filter_by(id=params.id).first()
-        if role_model is None:
-            raise ValueError(f'角色不存在(id={params.id})')
+        current_model = db.query(RoleModel).filter_by(id=id).first()
+        if current_model is None:
+            raise ValueError(f'角色不存在(id={id})')
 
-        exists_count = db.query(RoleModel).filter(RoleModel.name == params.name,
-                                                  RoleModel.id != params.id).count()
+        exists_count = db.query(RoleModel).filter(RoleModel.name == params.name, RoleModel.id != id).count()
         if exists_count > 0:
             raise ValueError('该角色名称已存在')
 
-        role_model.name = params.name
-        role_model.permissions = params.permissions
-
+        current_model.from_dict(params.__dict__)
         db.commit()
 
 
-def delete_role(id: int) -> None:
+def delete(id: int) -> None:
     with get_session() as db:
-        role_model = db.query(RoleModel).filter_by(id=id).first()
-        if role_model is None:
+        current_model = db.query(RoleModel).filter_by(id=id).first()
+        if current_model is None:
             raise ValueError(f'角色不存在(id={id})')
 
         conn = db.connection()
-        conn.execute(
-            text('update user_account set role_id=0 where role_id=:id'), {"id": id})
+        conn.execute(text('update user_account set role_id=0 where role_id=:id'), {"id": id})
 
-        db.delete(role_model)
+        db.delete(current_model)
         db.commit()
