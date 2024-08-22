@@ -50,7 +50,7 @@ def add(params: SystemOptionForm):
 
 @router.put("/options/{id}", response_model=ResponseSuccess, dependencies=[Depends(check_permission('SystemOption'))],
             summary="编辑系统选项")
-def edit(id: int, params: SystemOptionForm):
+def update(id: int, params: SystemOptionForm):
     try:
         system_option.update(id, params)
         return ResponseSuccess()

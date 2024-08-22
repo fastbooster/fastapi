@@ -8,21 +8,19 @@
 from sqlalchemy.sql.expression import asc
 
 from app.core.mysql import get_session
-
 from app.models.user import PermissionModel
-from app.schemas.permission import PermissionListResponse
 
 
-def get_permission(id: int) -> PermissionModel | None:
+def get(id: int) -> PermissionModel | None:
     with get_session(read_only=True) as db:
         permission = db.query(PermissionModel).filter(
             PermissionModel.id == id).first()
-    if permission is not None:
-        return permission
-    return None
+        if permission is not None:
+            return permission
+        return None
 
 
-def get_permission_list() -> PermissionListResponse:
+def lists() -> dict:
     with get_session(read_only=True) as db:
         items = db.query(PermissionModel).order_by(
             asc(PermissionModel.id)).all()
@@ -40,5 +38,4 @@ def get_permission_list() -> PermissionListResponse:
                 if children:
                     final_item_dict["children"] = children
                 final_items.append(final_item_dict)
-
         return {"total": len(final_items), "items": final_items}

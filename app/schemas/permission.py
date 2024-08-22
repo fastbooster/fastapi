@@ -1,32 +1,66 @@
 #!/usr/bin/env python
 # -*- encoding: utf-8 -*-
 # File: permission.py
-# Author: Super Junior
-# Email: easelify@gmail.com
-# Time: 2024/07/06 19:49
+# Author: FastBooster Generator
+# Time: 2024-08-22 12:22
 
 from datetime import datetime
-
 from typing import List, Optional
 
-from pydantic import BaseModel
+from pydantic import BaseModel, Field
+
+from app.schemas.schemas import PaginationParams
 
 
-class PermissionItem(BaseModel):
-    id: Optional[int] = 0
-    pid: Optional[int] = 0
-    name: str
-    icon: Optional[str] = None
-    component_name: Optional[str] = None
-    asc_sort_order: Optional[int] = 0
-    created_at: Optional[datetime] = None
-    updated_at: Optional[datetime] = None
+class PermissionBase(BaseModel):
+    """基础数据模型"""
+    pid: Optional[int] = Field(None, description='上级ID')
+    name: Optional[str] = Field(None, description='名称')
+    icon: Optional[str] = Field(None, description='图标')
+    component_name: Optional[str] = Field(None, description='路由组件名称')
+    asc_sort_order: Optional[int] = Field(None, description='排序')
 
 
-class PermissionParentItem(PermissionItem):
+class PermissionForm(PermissionBase):
+    """表单数据模型"""
+    pass
+
+
+class PermissionItem(PermissionBase):
+    """数据库全量字段模型"""
+    id: int = Field(description="ID")
+    created_at: datetime = Field(None, description="创建时间")
+    updated_at: datetime = Field(None, description="更新时间")
+
+
+class PermissionPublicItem(BaseModel):
+    """公开数据模型"""
+    pass
+
+
+class PermissionNestedItem(PermissionItem):
+    """嵌套模型"""
     children: Optional[List[PermissionItem]] = None
 
 
-class PermissionListResponse(BaseModel):
+class PermissionNestResponse(BaseModel):
+    """嵌套响应模型"""
     total: int
-    items: List[PermissionParentItem]
+    items: List[PermissionNestedItem]
+
+
+class PermissionListResponse(BaseModel):
+    """响应数据模型"""
+    total: int
+    items: List[PermissionItem]
+
+
+class PermissionPublicListResponse(BaseModel):
+    """公开响应模型"""
+    total: int
+    items: List[PermissionPublicItem]
+
+
+class SearchQuery(PaginationParams):
+    """搜索查询参数"""
+    pass
