@@ -35,7 +35,7 @@ def generate_schema(module_name: str, model_name: str):
     schema_file = os.path.join(schema_path, file_name)
     create_time = datetime.now().strftime('%Y-%m-%d %H:%M')
     model = model_name.replace('Model', '')
-    route = pluralize(model).lower()
+    route = pluralize(snake_name).lower()
 
     module = importlib.import_module(f'app.models.{module_name}')
     model_class = getattr(module, model_name)
@@ -127,7 +127,7 @@ def generate_service(module_name: str, model_name: str):
     service_file = os.path.join(service_path, file_name)
     create_time = datetime.now().strftime('%Y-%m-%d %H:%M')
     model = model_name.replace('Model', '')
-    route = pluralize(model).lower()
+    route = pluralize(snake_name).lower()
 
     module = importlib.import_module(f'app.models.{module_name}')
     model_class = getattr(module, model_name)
@@ -163,7 +163,7 @@ def generate_route(module_name: str, model_name: str):
     backend_route_file = os.path.join(backend_route_path, file_name)
     create_time = datetime.now().strftime('%Y-%m-%d %H:%M')
     model = model_name.replace('Model', '')
-    route = pluralize(model).lower()
+    route = pluralize(snake_name).lower()
 
     module = importlib.import_module(f'app.models.{module_name}')
     model_class = getattr(module, model_name)
