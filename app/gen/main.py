@@ -94,6 +94,8 @@ def generate_schema(module_name: str, model_name: str):
     inspector = inspect(model_class)
     columns = []
     for column in inspector.columns:
+        if column.name in ('id', 'created_at', 'updated_at'):
+            continue
         column_type = str(column.type).split("(")[0].lower()
         columns.append({
             'name': column.name,
