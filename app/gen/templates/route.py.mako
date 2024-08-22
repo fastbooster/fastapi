@@ -25,14 +25,13 @@ def lists(params: SearchQuery = Depends()):
 @router.get("/${route}/{id}", response_model=${model}Item, dependencies=[Depends(check_permission('${model}List'))],
             summary="${name}详情", )
 def detail(id: int):
-    item = ${snake_name}.get(id)
-    if not item:
+    current_model = ${snake_name}.get(id)
+    if not current_model:
         raise HTTPException(status_code=404, detail="${name}不存在")
-    return item
+    return current_model
 
 
-@router.post("/${route}", response_model=ResponseSuccess, dependencies=[Depends(check_permission('${model}List'))],
-             summary="添加${name}")
+@router.post("/${route}", response_model=ResponseSuccess, dependencies=[Depends(check_permission('${model}List'))], summary="添加${name}")
 def add(params: ${model}Form):
     try:
         ${snake_name}.add(params)
@@ -46,8 +45,7 @@ def add(params: ${model}Form):
         raise HTTPException(status_code=500, detail='添加${name}失败')
 
 
-@router.put("/${route}/{id}", response_model=ResponseSuccess, dependencies=[Depends(check_permission('${model}List'))],
-            summary="编辑${name}")
+@router.put("/${route}/{id}", response_model=ResponseSuccess, dependencies=[Depends(check_permission('${model}List'))], summary="编辑${name}")
 def update(id: int, params: ${model}Form):
     try:
         ${snake_name}.update(id, params)

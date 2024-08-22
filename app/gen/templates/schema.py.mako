@@ -28,8 +28,8 @@ class ${model}Form(${model}Base):
 class ${model}Item(${model}Base):
     """数据库全量字段模型"""
     id: int = Field(description="ID")
-    created_at: datetime = Field(None, description="创建时间")
-    updated_at: datetime = Field(None, description="更新时间")
+    created_at: datetime = Field(description="创建时间")
+    updated_at: datetime = Field(description="更新时间")
 
 
 class ${model}PublicItem(BaseModel):

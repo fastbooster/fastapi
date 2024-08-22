@@ -17,10 +17,9 @@ from app.schemas.${snake_name} import ${model}Form, SearchQuery
 
 def get(id: int) -> ${model_name} | None:
     with get_session(read_only=True) as db:
-        item = db.query(${model_name}).filter(
-            ${model_name}.id == id).first()
-        if item is not None:
-            return item
+        current_model = db.query(${model_name}).filter(${model_name}.id == id).first()
+        if current_model is not None:
+            return current_model
         return None
 
 
