@@ -1,6 +1,7 @@
 
 from . import ad
 from . import post
+from . import post_category
 from . import finance
 from . import role
 from . import permissions
@@ -15,6 +16,7 @@ from . import wechat
 __all__ = [
     'ad',
     'post',
+    'post_category',
     'finance',
     'role',
     'permissions',

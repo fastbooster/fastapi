@@ -1,44 +1,56 @@
 #!/usr/bin/env python
 # -*- encoding: utf-8 -*-
 # File: post_category.py
-# Author: DON
-# Email: qiuyutang@qq.com
-# Time: 2024/5/20 16:56
+# Author: FastBooster Generator
+# Time: 2024-08-22 15:32
 
-from typing import Optional
+from datetime import datetime
+from typing import List, Optional
 
-from pydantic import BaseModel, validator
+from pydantic import BaseModel, Field
 
-from app.schemas.schemas import PaginationParams
-
-
-class CategorySearchQuery(PaginationParams):
-    id: Optional[int] = 0
-    name: Optional[str] = None
-    alias: Optional[str] = None
-    keywords: Optional[str] = None
-    status: Optional[int] = -1
+from app.schemas.schemas import StatusType, PaginationParams
 
 
-class CategoryAddForm(BaseModel):
-    name: str
-    alias: str
-    keywords: Optional[str] = None
-    asc_sort_order: Optional[int] = 0
-    status: Optional[int] = 1
-
-    @validator('status')
-    def validate_boolean_fields(cls, value):
-        if value not in (0, 1):
-            return 0
-        return value
-
-    @validator('asc_sort_order')
-    def validate_position(cls, value):
-        if value is not None and value < 0:
-            return 0
-        return value
+class PostCategoryBase(BaseModel):
+    """基础数据模型"""
+    name: Optional[str] = Field(None, description='名称')
+    alias: Optional[str] = Field(None, description='URL别名')
+    keywords: Optional[str] = Field(None, description='关键字')
+    asc_sort_order: Optional[int] = Field(None, description='排序')
+    status: Optional[StatusType] = Field(None, description='状态: enabled/disabled')
 
 
-class CategoryEditForm(CategoryAddForm):
-    id: int
+class PostCategoryForm(PostCategoryBase):
+    """表单数据模型"""
+    pass
+
+
+class PostCategoryItem(PostCategoryBase):
+    """数据库全量字段模型"""
+    id: int = Field(description="ID")
+    created_at: datetime = Field(description="创建时间")
+    updated_at: datetime = Field(description="更新时间")
+
+
+class PostCategoryPublicItem(PostCategoryBase):
+    """公开数据模型"""
+    pass
+
+
+class PostCategoryListResponse(BaseModel):
+    """响应数据模型"""
+    total: int
+    items: List[PostCategoryItem]
+
+
+class PostCategoryPublicListResponse(BaseModel):
+    """公开响应模型"""
+    total: int
+    items: List[PostCategoryPublicItem]
+
+
+class SearchQuery(PaginationParams):
+    """搜索查询参数"""
+    name: Optional[str] = Field(None, description='名称')
+    status: Optional[StatusType] = Field(None, description='状态: enabled/disabled')

@@ -25,6 +25,7 @@ api_router.include_router(frontend.balance_recharge.router, prefix="/frontend", 
 # 后端路由
 api_router.include_router(backend.ad.router, prefix="/backend", tags=['backend_ad'])
 api_router.include_router(backend.post.router, prefix="/backend", tags=['backend_post'])
+api_router.include_router(backend.post_category.router, prefix="/backend", tags=['backend_post_category'])
 api_router.include_router(backend.finance.router, prefix="/backend", tags=['backend_finance'])
 api_router.include_router(backend.role.router, prefix="/backend", tags=['backend_role'])
 api_router.include_router(backend.permissions.router, prefix="/backend", tags=['backend_permission'])
