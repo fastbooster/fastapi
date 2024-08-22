@@ -1,20 +1,17 @@
 #!/usr/bin/env python
 # -*- encoding: utf-8 -*-
 # File: user.py
-# Author: Super Junior
-# Email: easelify@gmail.com
-# Time: 2024/05/15 22:15
+# Author: FastBooster Generator
+# Time: 2024-08-22 21:06
 
 import re
-
-from app.core.log import logger
-
-from enum import Enum
 from datetime import datetime
-from typing import List, Optional, Union, Any
-from pydantic import BaseModel, Field, EmailStr, validator
+from enum import Enum
+from typing import List, Optional
 
-from app.schemas.schemas import PaginationParams
+from pydantic import BaseModel, Field, EmailStr, field_validator
+
+from app.schemas.schemas import StatusType, PaginationParams
 
 
 class GenderType(Enum):
@@ -24,7 +21,8 @@ class GenderType(Enum):
 
 
 class JoinFromType(Enum):
-    '''注册来源'''
+    """注册来源"""
+    DEFAULT = 0  # 未知
     FRONTEND_PORTAL = 1000  # 门户
     FRONTEND_WXOA = 1001  # 微信公众号
     FRONTEND_WXMP = 1002  # 微信小程序
@@ -34,98 +32,118 @@ class JoinFromType(Enum):
     BACKEND_ADMIN = 2001  # 后台管理
 
 
-class ChangePwdForm(BaseModel):
-    """修改密码表单"""
-    old_pwd: str
-    new_pwd: str
+class UserBase(BaseModel):
+    """基础数据模型"""
+    pid: Optional[int] = Field(None, description='所属上级')
+    agent_id: Optional[int] = Field(None, description='所属代理')
+    phone_code: Optional[str] = Field(None, description='手机代码')
+    phone: Optional[str] = Field(None, description='手机')
+    email: Optional[EmailStr] = Field(None, description='邮箱')
+    nickname: Optional[str] = Field(None, description='昵称')
+    gender: Optional[GenderType] = Field(None, description='性别')
+    avatar: Optional[str] = Field(None, description='头像')
+    promotion_code: Optional[str] = Field(None, description='推广码')
+    password_salt: Optional[str] = Field(None, description='密码盐')
+    password_hash: Optional[str] = Field(None, description='密码哈希')
+    role_id: Optional[int] = Field(None, description='角色ID')
+    is_admin: Optional[int] = Field(None, description='是否管理员')
+    is_robot: Optional[int] = Field(None, description='是否机器人')
+    status: Optional[StatusType] = Field(None, description='状态: enabled/disabled')
+    auto_memo: Optional[str] = Field(None, description='自动备注')
+    back_memo: Optional[str] = Field(None, description='后台备注')
+    wechat_openid: Optional[str] = Field(None, description='OpenID')
+    wechat_unionid: Optional[str] = Field(None, description='UnionID')
+    wechat_refresh_token: Optional[str] = Field(None, description='微信RefreshToken')
+    wechat_access_token: Optional[str] = Field(None, description='微信AccessToken')
+    wechat_access_token_expired_at: Optional[int] = Field(None, description='微信AccessToken过期时间')
+    join_from: Optional[JoinFromType] = Field(None, description='注册来源')
+    join_ip: Optional[str] = Field(None, description='注册IP')
+    join_at: Optional[datetime] = Field(None, description='注册时间')
 
 
-class UserQuickSearchQuery(BaseModel):
-    keyword: int | str = Field(None, description="关键字")
-    limit: Optional[int] = Field(10, ge=1, le=100, description="数量")
+class UserForm(UserBase):
+    """表单数据模型"""
+    phone: Optional[str] = Field(None, description='与 email 二者必填其一')
+    email: Optional[EmailStr] = Field(None, description='与 phone 二者必填其一')
+    password: Optional[str] = Field(None, min_length=6, description="明文密码")
 
-
-class UserSearchQuery(PaginationParams):
-    id: Optional[int | str] = Field(None, description="ID")
-    pid: Optional[int | str] = Field(None, description="上级ID")
-    role_id: Optional[int | str] = Field(None, description="角色ID")
-    status: Optional[int | str] = Field(None, description="状态")
-    nickname: Optional[str] = None
-    phone: Optional[str] = None
-    email: Optional[str] = None
-
-    @validator("id", "pid", "role_id", "status")
-    def validate_int(cls, v: Any) -> int | None:
-        '''
-        允许字符串类型，因为前端传过来的 id 可能是字符串，这里统一转换为 int
-        如果转换失败，则返回 None，并记录日志
-        '''
-        if isinstance(v, str):
-            try:
-                return int(v)
-            except ValueError:
-                logger.info(f'尝试将GET参数转换为整型失败: {type(v)}')
-                return None
-        if isinstance(v, (int, float)) and isinstance(int(v), int):
-            return int(v)
-        return v if isinstance(v, int) else None
-
-
-class BaseUserForm(BaseModel):
-    phone: str = Field(None, description="手机")
-    email: EmailStr = Field(None, description="邮箱")
-    password: Optional[str] = None
-
-    @validator("phone")
-    def validate_cell_phone_number(cls, v):
-        if not v:
-            return None
-        match = re.match(r'^1\d{10}$', v)
-        if len(v) != 11:
-            raise ValueError('手机号码长度必须为 11 位')
-        elif match is None:
-            raise ValueError('手机号码格式不正确')
-        return v
-
-    @validator("password")
+    # noinspection PyNestedDecorators
+    @field_validator("password", mode="before")
+    @classmethod
     def validate_password_strength(cls, v):
         if not v:
             return None
-        if len(v) < 6:
-            raise ValueError('密码不能少于 6 位')
         if not re.search("[0-9]", v) or not re.search("[a-zA-Z]", v):
             raise ValueError('密码必须包含数字和字母')
         return v
 
 
-class UserItem(BaseUserForm):
-    id: Optional[int] = 0
-    pid: Optional[int] = 0
-    agent_id: Optional[int] = 0
-    phone_code: Optional[str] = '86'
-    phone: Optional[str] = Field(None, description='与 email 二者必填其一')
-    email: Optional[Union[EmailStr, str]] = Field(
-        None, description='与 phone 二者必填其一')
-    nickname: Optional[str] = None
-    password: Optional[str] = Field(None, description='明文密码，用于注册用户')
-    gender: Optional[GenderType] = GenderType.UNKNOWN
-    avatar: Optional[str] = None
-    promotion_code: Optional[str] = None
-    status: Optional[int] = 1
-    role_id: Optional[int] = 0
-    auto_memo: Optional[str] = None
-    back_memo: Optional[str] = None
-    wechat_openid: Optional[str] = None
+class UserItem(UserBase):
+    """数据库全量字段模型"""
+    id: int = Field(description="ID")
+    created_at: datetime = Field(description="创建时间")
+    updated_at: datetime = Field(description="更新时间")
+
+
+class UserPublicItem(BaseModel):
+    """公开数据模型"""
+    phone_code: Optional[str] = Field(None, description='手机代码')
+    phone: Optional[str] = Field(None, description='手机')
+    email: Optional[EmailStr] = Field(None, description='邮箱')
+    nickname: Optional[str] = Field(None, description='昵称')
+    gender: Optional[GenderType] = Field(None, description='性别')
+    avatar: Optional[str] = Field(None, description='头像')
+    promotion_code: Optional[str] = Field(None, description='推广码')
+    status: Optional[StatusType] = Field(None, description='状态: enabled/disabled')
+    wechat_openid: Optional[str] = Field(None, description='OpenID')
+    wechat_unionid: Optional[str] = Field(None, description='UnionID')
     join_from: Optional[JoinFromType] = Field(None, description='注册来源')
-    join_ip: str = Field(None, description='注册IP')
-    join_at: Optional[datetime] = None
-    created_at: Optional[datetime] = None
-    updated_at: Optional[datetime] = None
+    join_ip: Optional[str] = Field(None, description='注册IP')
+    join_at: Optional[datetime] = Field(None, description='注册时间')
 
 
 class UserListResponse(BaseModel):
+    """响应数据模型"""
     total: int
     items: List[UserItem]
+
+
+class UserPublicListResponse(BaseModel):
+    """公开响应模型"""
+    total: int
+    items: List[UserPublicItem]
+
+
+class SearchQuery(PaginationParams):
+    """搜索查询参数"""
+    id: Optional[int] = None
+    pid: Optional[int] = None
+    role_id: Optional[int] = None
+    status: Optional[int] = None
+    nickname: Optional[str] = None
+    phone: Optional[str] = None
+    email: Optional[str] = None
+
+
+class ChangePwdForm(BaseModel):
+    """修改密码表单"""
+    old_pwd: str = Field(description='旧密码')
+    new_pwd: str = Field(min_length=6, description='新密码')
+
+    # noinspection PyNestedDecorators
+    @field_validator("new_pwd", mode="before")
+    @classmethod
+    def validate_password_strength(cls, v):
+        if not v:
+            return None
+        if not re.search("[0-9]", v) or not re.search("[a-zA-Z]", v):
+            raise ValueError('密码必须包含数字和字母')
+        return v
+
+
+class SimpleSearchQuery(BaseModel):
+    keyword: int | str = Field(None, description="关键字")
+    limit: Optional[int] = Field(10, ge=1, le=100, description="数量")
 
 
 class UserSimpleItem(BaseModel):
@@ -135,6 +153,6 @@ class UserSimpleItem(BaseModel):
     email: Optional[EmailStr] = Field(None, description="邮箱")
 
 
-class UserQuickListResponse(BaseModel):
+class UserSimpleListResponse(BaseModel):
     total: int
     items: List[UserSimpleItem]

@@ -1,48 +1,48 @@
 #!/usr/bin/env python
 # -*- encoding: utf-8 -*-
 # File: user.py
-# Author: Super Junior
-# Email: easelify@gmail.com
-# Time: 2024/05/17 19:48
+# Author: FastBooster Generator
+# Time: 2024-08-22 21:06
 
 import traceback
 
-from fastapi import APIRouter, HTTPException, Depends, Request
+from fastapi import APIRouter, HTTPException, Depends
 
 from app.core.log import logger
-from app.core.security import check_permission, get_current_user_id
-from app.services import user as UserService
-
+from app.core.security import check_permission
 from app.schemas.schemas import ResponseSuccess
-from app.schemas.user import UserSearchQuery, UserQuickSearchQuery, UserItem, UserListResponse, UserQuickListResponse, JoinFromType
+from app.schemas.user import UserForm, UserItem, SearchQuery, SimpleSearchQuery, UserListResponse, UserSimpleListResponse
+from app.services import user
 
 router = APIRouter()
 
 
-@router.get("/users", response_model=UserListResponse, dependencies=[Depends(check_permission('UserList'))], summary="用户列表")
-def lists(params: UserSearchQuery = Depends()):
-    return UserService.get_user_list(params)
+@router.get("/users", response_model=UserListResponse, dependencies=[Depends(check_permission('UserList'))],
+            summary="用户列表")
+def lists(params: SearchQuery = Depends()):
+    return user.lists(params)
 
 
-@router.get("/users/quick_search", response_model=UserQuickListResponse, dependencies=[Depends(check_permission('UserList'))], summary="用户快速搜索，用于前端下拉列表")
-def lists(params: UserQuickSearchQuery = Depends()):
-    return UserService.get_user_quick_list(params)
+@router.get("/users/quick_search", response_model=UserSimpleListResponse,
+            dependencies=[Depends(check_permission('UserList'))], summary="用户快速搜索，用于前端下拉列表")
+def quick_search(params: SimpleSearchQuery = Depends()):
+    return user.simple_lists(params)
 
 
-@router.get("/users/{id}", response_model=UserItem, dependencies=[Depends(check_permission('UserList'))], summary="用户详情",)
+@router.get("/users/{id}", response_model=UserItem, dependencies=[Depends(check_permission('UserList'))],
+            summary="用户详情", )
 def detail(id: int):
-    user = UserService.get_user(id)
-    if not user:
+    current_model = user.get(id)
+    if not current_model:
         raise HTTPException(status_code=404, detail="用户不存在")
-    return user
+    return current_model
 
 
-@router.post("/users", response_model=ResponseSuccess, dependencies=[Depends(check_permission('UserList'))], summary="添加用户")
-def add(params: UserItem, request: Request):
+@router.post("/users", response_model=ResponseSuccess, dependencies=[Depends(check_permission('UserList'))],
+             summary="添加用户")
+def add(params: UserForm):
     try:
-        params.join_from = JoinFromType.BACKEND_ADMIN
-        params.join_ip = request.client.host
-        UserService.add_user(params)
+        user.add(params)
         return ResponseSuccess()
     except ValueError as e:
         logger.info(f'调用堆栈：{traceback.format_exc()}')
@@ -53,11 +53,11 @@ def add(params: UserItem, request: Request):
         raise HTTPException(status_code=500, detail='添加用户失败')
 
 
-@router.put("/users/{id}", response_model=ResponseSuccess, dependencies=[Depends(check_permission('UserList'))], summary="编辑用户")
-def edit(id: int, params: UserItem):
+@router.put("/users/{id}", response_model=ResponseSuccess, dependencies=[Depends(check_permission('UserList'))],
+            summary="编辑用户")
+def update(id: int, params: UserForm):
     try:
-        params.id = id
-        UserService.edit_user(params)
+        user.update(id, params)
         return ResponseSuccess()
     except ValueError as e:
         logger.info(f'调用堆栈：{traceback.format_exc()}')
@@ -68,12 +68,11 @@ def edit(id: int, params: UserItem):
         raise HTTPException(status_code=500, detail='编辑用户失败')
 
 
-@router.delete("/users/{id}", response_model=ResponseSuccess, dependencies=[Depends(check_permission('UserList'))], summary="删除用户",)
-def delete(id: int, curret_user_id: int = Depends(get_current_user_id)):
-    if id == curret_user_id:
-        raise HTTPException(status_code=403, detail='不能删除自己')
+@router.delete("/users/{id}", response_model=ResponseSuccess, dependencies=[Depends(check_permission('UserList'))],
+               summary="删除用户")
+def delete(id: int):
     try:
-        UserService.delete_user(id)
+        user.delete(id)
         return ResponseSuccess()
     except ValueError as e:
         logger.info(f'调用堆栈：{traceback.format_exc()}')
