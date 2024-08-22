@@ -5,26 +5,27 @@
 # Email: easelify@gmail.com
 # Time: 2024/05/19 10:06
 
-from typing import Optional
-from fastapi import Query
-from pydantic import BaseModel, Field
 from enum import Enum
+from typing import Optional
+
+from fastapi import Query
+from pydantic import BaseModel
 
 
 class StatusType(Enum):
-    '''状态类型'''
+    """状态类型"""
     ENABLED = 'enabled'
     DISABLED = 'disabled'
 
 
 class MysqlBoolType(Enum):
-    '''自定义 mysql 布尔类型，使用字符串替代 0/1, 避免接口数据验证不方便'''
+    """自定义 mysql 布尔类型，使用字符串替代 0/1"""
     YES = 'yes'
     NO = 'no'
 
 
 class ClientType(Enum):
-    '''自定义客户端类型'''
+    """自定义客户端类型"""
     PC_BROWSER = 'pc_browser'
     MOBILE_BROWSER = 'mobile_browser'
     WECHAT_BROWSER = 'wechat_browser'

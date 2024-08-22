@@ -18,14 +18,13 @@ api_router.include_router(routes.wechat.router, prefix="/auth", tags=["auth"])
 api_router.include_router(routes.common.router, prefix="/common", tags=["commons"])
 
 # 前端路由
-api_router.include_router(frontend.cms.router, prefix="/frontend", tags=['frontend_cms'])
 api_router.include_router(frontend.finance.router, prefix="/frontend", tags=['frontend_finance'])
 api_router.include_router(frontend.user.router, prefix="/frontend", tags=['frontend_user'])
 api_router.include_router(frontend.balance_recharge.router, prefix="/frontend", tags=['frontend_balance_recharge'])
 
 # 后端路由
 api_router.include_router(backend.ad.router, prefix="/backend", tags=['backend_ad'])
-api_router.include_router(backend.cms.router, prefix="/backend", tags=['backend_cms'])
+api_router.include_router(backend.post.router, prefix="/backend", tags=['backend_post'])
 api_router.include_router(backend.finance.router, prefix="/backend", tags=['backend_finance'])
 api_router.include_router(backend.role.router, prefix="/backend", tags=['backend_role'])
 api_router.include_router(backend.permissions.router, prefix="/backend", tags=['backend_permission'])

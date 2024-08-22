@@ -8,10 +8,10 @@
 from sqlalchemy import text, Column, Integer, SmallInteger, String, DECIMAL, TIMESTAMP
 from sqlalchemy.dialects.mysql import MEDIUMTEXT
 
-from app.models.base import Base
+from app.models.base import Base, BaseMixin
 
 
-class PostCategoryModel(Base):
+class PostCategoryModel(Base, BaseMixin):
     __tablename__ = 'cms_post_category'
     __table_args__ = {
         'mysql_charset': 'utf8mb4',
@@ -35,7 +35,7 @@ class PostCategoryModel(Base):
         return f"<PostCategoryModel(id={self.id}, name='{self.name}')>"
 
 
-class PostModel(Base):
+class PostModel(Base, BaseMixin):
     __tablename__ = 'cms_post'
     __table_args__ = {
         'mysql_charset': 'utf8mb4',
@@ -80,7 +80,7 @@ class PostModel(Base):
         return f"<PostModel(id={self.id}, title='{self.title}')>"
 
 
-class MediaModel(Base):
+class MediaModel(Base, BaseMixin):
     __tablename__ = 'cms_media'
     __table_args__ = {
         'mysql_engine': 'InnoDB',
@@ -105,7 +105,7 @@ class MediaModel(Base):
         return f"<MediaModel(id={self.id}, oss_url='{self.oss_url}')>"
 
 
-class CityModel(Base):
+class CityModel(Base, BaseMixin):
     __tablename__ = 'cms_city'
     __table_args__ = {
         'mysql_charset': 'utf8mb4',
@@ -128,7 +128,7 @@ class CityModel(Base):
         return f"<CityModel(id={self.id}, name='{self.name}')>"
 
 
-class AdspaceModel(Base):
+class AdspaceModel(Base, BaseMixin):
     __tablename__ = 'cms_adspace'
     __table_args__ = {
         'mysql_charset': 'utf8mb4',
@@ -151,7 +151,7 @@ class AdspaceModel(Base):
         return f"<AdCategoryModel(id={self.id}, name='{self.name}')>"
 
 
-class BannerModel(Base):
+class BannerModel(Base, BaseMixin):
     __tablename__ = 'cms_banner'
     __table_args__ = {
         'mysql_charset': 'utf8mb4',
