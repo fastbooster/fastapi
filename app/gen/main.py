@@ -39,7 +39,13 @@ def generate_schema(module_name: str, model_name: str):
 
     module = importlib.import_module(f'app.models.{module_name}')
     model_class = getattr(module, model_name)
-    comment = model_class.__table_args__[-1]['comment']
+    if isinstance(model_class.__table_args__, tuple):
+        comment = model_class.__table_args__[-1]['comment']
+    elif isinstance(model_class.__table_args__, dict):
+        comment = model_class.__table_args__['comment']
+    else:
+        logger.error('未知的表属性，请检查模型设置')
+        return
     name = comment if comment else model
 
     maps = {
