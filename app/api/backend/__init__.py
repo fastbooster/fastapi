@@ -1,5 +1,6 @@
 
 from . import adspace
+from . import banner
 from . import post
 from . import post_category
 from . import finance
@@ -15,6 +16,7 @@ from . import wechat
 
 __all__ = [
     'adspace',
+    'banner',
     'post',
     'post_category',
     'finance',
