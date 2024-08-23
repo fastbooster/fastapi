@@ -10,7 +10,7 @@ from typing import List, Optional
 
 from pydantic import BaseModel, Field
 
-from app.schemas.schemas import PaginationParams
+from app.schemas.schemas import StatusType, MysqlBoolType, PaginationParams
 
 
 class ${model}Base(BaseModel):
