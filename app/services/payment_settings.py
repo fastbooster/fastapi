@@ -17,7 +17,7 @@ from app.models.payment_settings import PaymentChannelModel, PaymentConfigModel
 from app.schemas.schemas import StatusType
 from app.schemas.payment_settings import PaymentSettingsSortForm, PaymentSettingItem, PaymentSettingListResponse, PaymentSettingOutItem, PaymentSettingOutListResponse
 from app.schemas.payment_channel import PaymentChannelPublicItem
-from app.schemas.payment_config import PaymentConfigOutItem
+from app.schemas.payment_config import PaymentConfigPublicItem
 
 from app.services import payment_config as PaymentConfigService, payment_channel as PaymentChannelService
 
@@ -50,7 +50,7 @@ def get_payment_settings_from_cache() -> PaymentSettingOutListResponse:
                     continue
                 if config["id"] not in exists_config_ids and config["channel_id"] == channel["id"]:
                     exists_config_ids.append(config["id"])
-                    item["children"].append(PaymentConfigOutItem(**config))
+                    item["children"].append(PaymentConfigPublicItem(**config))
             if len(item["children"]) == 0:
                 continue
             items.append(item)

@@ -10,13 +10,13 @@ from typing import List, Optional
 from pydantic import BaseModel
 
 from app.schemas.payment_channel import PaymentChannelPublicItem, PaymentChannelItem
-from app.schemas.payment_config import PaymentConfigOutItem, PaymentConfigSafeItem
+from app.schemas.payment_config import PaymentConfigPublicItem, PaymentConfigItem
 
 
 class PaymentSettingItem(BaseModel):
     '''支付设置，模型全量数据'''
     channel: PaymentChannelItem
-    children: Optional[List[PaymentConfigSafeItem]]
+    children: Optional[List[PaymentConfigItem]]
 
 
 class PaymentSettingListResponse(BaseModel):
@@ -28,7 +28,7 @@ class PaymentSettingListResponse(BaseModel):
 class PaymentSettingOutItem(BaseModel):
     '''支付设置，精简数据'''
     channel: PaymentChannelPublicItem
-    children: Optional[List[PaymentConfigOutItem]]
+    children: Optional[List[PaymentConfigPublicItem]]
 
 
 class PaymentSettingOutListResponse(BaseModel):
