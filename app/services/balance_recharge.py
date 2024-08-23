@@ -1,37 +1,34 @@
 #!/usr/bin/env python
 # -*- encoding: utf-8 -*-
 # File: balance_recharge.py
-# Author: Super Junior
-# Email: easelify@gmail.com
-# Time: 2024/07/16 15:51
+# Author: FastBooster Generator
+# Time: 2024-08-23 22:09
 
 
 import json
 import time
-from datetime import datetime, timedelta
-
-from sqlalchemy.sql.expression import desc, text
-from typing import List, Optional
+import uuid
+from datetime import datetime
+from typing import Optional
 from urllib.parse import urlencode
 
-from app.core.mysql import get_session
-from app.core.redis import get_redis
+from sqlalchemy.sql.expression import desc, text
+
+from app.constants.constants import REDIS_SYSTEM_OPTIONS_AUTOLOAD
 from app.core.log import logger
-from app.models.finance import BalanceModel, BalanceGiftModel, PointModel, ChenckinModel, PaymentAccountModel, \
-    PointRechargeModel, BalanceRechargeModel
-from app.models.system_option import SystemOptionModel
-from app.schemas.finance import SearchQuery, AdjustForm, CheckinType, BalanceType, PointType, PaymentAccountSearchQuery, \
-    PaymentAccountFrontendSearchQuery, PaymentAccountAddForm, PaymentAccountEditForm, PointRechargeSettingItem, \
-    BalanceRechargeSettingItem, PaymentStatusType, RechargeForm, PayForm, ScanpayForm, PaymentChannelType
-from app.schemas.config import Settings
-from app.schemas.schemas import ClientType
-from app.tasks.finance import handle_balance, handle_balance_gift, handle_point
+from app.core.mysql import get_session
 from app.core.payment import payment_manager
+from app.core.redis import get_redis
+from app.models.finance import BalanceModel, BalanceGiftModel, BalanceRechargeModel
+from app.schemas.balance_recharge import BalanceRechargeForm
+from app.schemas.balance_recharge import SearchQuery
+from app.schemas.config import Settings
+from app.schemas.finance import BalanceType, PaymentStatusType, RechargeForm, PayForm, PaymentChannelType
+from app.schemas.schemas import ClientType
+from app.tasks.finance import handle_balance, handle_balance_gift
 
-from app.schemas.balance_recharge import BalanceRechargeSearchQuery, BalanceRechargeItem, BalanceRechargeListResponse
 
-
-def get_balance_recharge(id: Optional[int] = 0, trade_no: Optional[str] = None) -> BalanceRechargeModel | None:
+def get(id: Optional[int] = 0, trade_no: Optional[str] = None) -> BalanceRechargeModel | None:
     with get_session(read_only=True) as db:
         if id > 0:
             return db.query(BalanceRechargeModel).filter(BalanceRechargeModel.id == id).first()
@@ -41,7 +38,7 @@ def get_balance_recharge(id: Optional[int] = 0, trade_no: Optional[str] = None) 
             raise ValueError('id 和 trade_no 至少传入一项')
 
 
-def get_balance_recharge_list(params: BalanceRechargeSearchQuery) -> BalanceRechargeListResponse:
+def lists(params: SearchQuery) -> dict:
     total = -1
     export = True if params.export == 1 else False
     with get_session(read_only=True) as db:
@@ -74,17 +71,119 @@ def get_balance_recharge_list(params: BalanceRechargeSearchQuery) -> BalanceRech
             total = query.count()
             offset = (params.page - 1) * params.size
             query = query.offset(offset).limit(params.size)
-        items = query.all()
+        return {"total": total, "items": query.all()}
 
-    return {"total": total, "items": items}
+
+def add(params: BalanceRechargeForm) -> None:
+    with get_session() as db:
+        if isinstance(params.payment_status, PaymentStatusType):
+            params.payment_status = params.payment_status.value
+        if isinstance(params.payment_channel, PaymentChannelType):
+            params.payment_channel = params.payment_channel.value
+        current_model = BalanceRechargeModel()
+        current_model.from_dict(params.__dict__)
+        db.add(current_model)
+        db.commit()
+
+
+def update(id: int, params: BalanceRechargeForm) -> None:
+    with get_session() as db:
+        current_model = db.query(BalanceRechargeModel).filter_by(id=id).first()
+        if current_model is None:
+            raise ValueError(f'余额充值日志不存在(id={id})')
+        if isinstance(params.payment_status, PaymentStatusType):
+            params.payment_status = params.payment_status.value
+        if isinstance(params.payment_channel, PaymentChannelType):
+            params.payment_channel = params.payment_channel.value
+        current_model.from_dict(params.__dict__)
+        db.commit()
+
+
+def delete(id: int) -> None:
+    with get_session() as db:
+        current_model = db.query(BalanceRechargeModel).filter_by(id=id).first()
+        if current_model is None:
+            raise ValueError(f'余额充值日志不存在(id={id})')
+        db.delete(current_model)
+        db.commit()
+
+
+def get_recharge_settings() -> list:
+    with get_redis() as redis:
+        setting = redis.hget(REDIS_SYSTEM_OPTIONS_AUTOLOAD, 'balance_recharge_settings')
+        setting = json.loads(setting) if setting else []
+    return setting
+
+
+def check_order(trade_no: str, user_id: int) -> BalanceRechargeModel:
+    with get_session(read_only=True) as db:
+        current_model = db.query(BalanceRechargeModel).filter_by(trade_no=trade_no).first()
+        if current_model is None or current_model.user_id != user_id:
+            raise ValueError('订单不存在')
+    return current_model
+
+
+def unifiedorder(params: RechargeForm, user_id: int, user_ip: str) -> dict:
+    settings = Settings()
+    if not settings.ENDPOINT.portal or not settings.ENDPOINT.pay or not settings.ENDPOINT.mp:
+        raise ValueError('端点未配置')
+
+    recharge_settings = get_recharge_settings()
+    if not recharge_settings:
+        raise ValueError('余额充值设置未配置')
+
+    if len(recharge_settings) > params.sku_id >= 0:
+        sku = recharge_settings[params.sku_id]
+        if not sku:
+            raise ValueError('SKU不存在')
+    else:
+        raise ValueError('sku_id超出范围')
+
+    if sku['status'] != 1:
+        raise ValueError('当前充值套餐已停用')
+
+    # 自定义充值时计算可以获得的充值余额
+    if sku["exchange_rate"] is not None:
+        sku['price'] = params.price
+        sku['origin_price'] = params.price
+        sku['amount'] = params.price * sku["exchange_rate"]
+
+    trade_no = str(uuid.uuid4()).replace('-', '')
+    with get_session() as db:
+        new_order = BalanceRechargeModel()
+        new_order.from_dict({
+            'user_id': user_id,
+            'trade_no': trade_no,
+            'amount': sku['amount'],
+            'price': sku['price'],
+            'gift_amount': sku['gift_amount'],
+            'auto_memo': json.dumps(sku, default=str),
+            'user_ip': user_ip,
+        })
+        db.add(new_order)
+        db.commit()
+
+    # 返回H5收银台地址, 由前端生成二维码, 用户扫码进入此页面进行支付
+    params = {
+        'order_type': 'balance_recharge',
+        'trade_no': trade_no,
+    }
+
+    return {
+        'trade_no': trade_no,
+        'url': f"{settings.ENDPOINT.mp.rstrip('/')}/checkout?{urlencode(params)}",
+        'original_amount': sku['original_price'],
+        'total_amount': sku['price'],
+        'gift_amount': sku['gift_amount'],
+    }
 
 
 def pay(params: PayForm, user_data: dict) -> dict:
-    '''TODO: 定义返回数据模型'''
+    """TODO: 定义返回数据模型"""
     with get_session() as db:
-        order_model = db.query(BalanceRechargeModel).filter_by(
-            trade_no=params.trade_no).first()
-        if order_model is None or order_model.user_id != user_data['id'] or order_model.payment_status != PaymentStatusType.CREATED.value:
+        order_model = db.query(BalanceRechargeModel).filter_by(trade_no=params.trade_no).first()
+        if order_model is None or order_model.user_id != user_data[
+            'id'] or order_model.payment_status != PaymentStatusType.CREATED.value:
             raise ValueError('订单已失效, 请重新下单')
 
         price = order_model.price
@@ -111,26 +210,19 @@ def pay(params: PayForm, user_data: dict) -> dict:
             out_trade_no=params.trade_no,
             total_fee=int(price * 100),
             spbill_create_ip=user_ip,
-            notify_url=f"{settings.ENDPOINT.pay.rstrip(
-                '/')}/api/v1/frontend/balance_recharges/wechat/notify",
+            notify_url=f"{settings.ENDPOINT.pay.rstrip('/')}/api/v1/frontend/balance_recharges/wechat/notify",
             openid=openid,
         )
         if 'return_code' not in result or result['return_code'] != 'SUCCESS' or result['result_code'] != 'SUCCESS':
             error_msg = result.get('return_msg', '')
             error_code_des = result.get('err_code_des', '')
-            raise ValueError(f"Get Wechat API Error: {error_msg}{
-                             error_code_des}", result, result.get('return_code'))
-
+            raise ValueError(f"Get Wechat API Error: {error_msg}{error_code_des}", result, result.get('return_code'))
         if 'timestamp' not in result:
             result['timestamp'] = str(int(time.time()))
         return result
 
     if params.channel == 'alipay':
-        alipay = payment_manager.get_instance('alipay', params.appid)
-        api_name = 'alipay.trade.wap.pay'
-        product_code = 'FAST_INSTANT_TRADE_PAY'
-        return_url = params.return_url
-        match (params.client):
+        match params.client:
             case ClientType.PC_BROWSER:
                 api_name = 'alipay.trade.page.pay'
                 return_url = settings.ENDPOINT.portal
@@ -138,12 +230,14 @@ def pay(params: PayForm, user_data: dict) -> dict:
                 api_name = 'alipay.trade.wap.pay'
                 return_url = settings.ENDPOINT.mp
             case ClientType.ANDROID_APP | ClientType.IOS_APP:
-                api_name = 'alipay.trade.app.pay'
-                product_code = 'QUICK_MSECURITY_PAY'
+                # api_name = 'alipay.trade.app.pay'
+                # product_code = 'QUICK_MSECURITY_PAY'
                 raise ValueError('尚未支持APP客户端支付')
             case (_):
                 raise ValueError('不支持的客户端类型')
 
+        product_code = 'FAST_INSTANT_TRADE_PAY'
+        alipay = payment_manager.get_instance('alipay', params.appid)
         order_string = alipay.client_api(
             api_name,
             biz_content={
@@ -153,14 +247,13 @@ def pay(params: PayForm, user_data: dict) -> dict:
                 "product_code": product_code,
             },
             return_url=return_url,
-            notify_url=f"{settings.ENDPOINT.pay.rstrip(
-                '/')}/api/v1/frontend/balance_recharges/alipay/notify"
+            notify_url=f"{settings.ENDPOINT.pay.rstrip('/')}/api/v1/frontend/balance_recharges/alipay/notify"
         )
         return {'url': f"{alipay._gateway}?{order_string}"}
 
 
 def notify(payment_channel: str, params: dict, content: str = None) -> bool:
-    '''TODO: 1. 赠送余额入账'''
+    """TODO: 1. 赠送余额入账"""
     logger.info(f'收到异步通知: {payment_channel}', extra=params)
     if payment_channel == PaymentChannelType.ALIPAY.value:
         signature = params.pop('sign')
@@ -199,7 +292,7 @@ def notify(payment_channel: str, params: dict, content: str = None) -> bool:
         if order_model.payment_status not in (
                 PaymentStatusType.CREATED.value, PaymentStatusType.CLOSE.value):
             logger.info(f'订单状态异常: payment_status={
-                        order_model.payment_status}, 不接受异步通知', extra=params)
+            order_model.payment_status}, 不接受异步通知', extra=params)
             return True
 
         order_model.payment_appid = appid
@@ -246,12 +339,11 @@ def notify(payment_channel: str, params: dict, content: str = None) -> bool:
 
 
 def refund(trade_no: str) -> None:
-    '''
-    #### 注意：
+    """
+    ### 注意：
     1. 只支持全额退款
     2. 余额和赠送余额同时全额退款，有任何一个余额不足都不能退款
-    3. TODO: 定义更多入参，memo, ip 等
-    '''
+    3. TODO: 定义更多入参，memo, ip 等"""
     with get_session() as db:
         order = db.query(BalanceRechargeModel).filter_by(
             trade_no=trade_no).first()
@@ -292,7 +384,7 @@ def refund(trade_no: str) -> None:
             order.payment_status = PaymentStatusType.REFUND_SUCCESS.value
         db.commit()
 
-        if refund_status == False:
+        if not refund_status:
             return
 
         task_data = {

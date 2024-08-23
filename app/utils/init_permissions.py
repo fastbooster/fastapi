@@ -83,15 +83,15 @@ def init_permissions():
                 },
                 {
                     'name': '积分充值记录',
-                    'component_name': 'PoitRecharges',
+                    'component_name': 'PoitRechargeList',
                 },
                 {
                     'name': '余额充值记录',
-                    'component_name': 'BalanceRecharges',
+                    'component_name': 'BalanceRechargeList',
                 },
                 {
                     'name': '余额提现记录',
-                    'component_name': 'Withdrawal',
+                    'component_name': 'WithdrawalList',
                 },
             ]
         },

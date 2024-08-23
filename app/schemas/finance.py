@@ -7,14 +7,15 @@
 
 from datetime import datetime
 from enum import Enum
-from pydantic import BaseModel, PositiveInt, validator, Field, HttpUrl
 from typing import List, Optional
+
+from pydantic import BaseModel, PositiveInt, validator, Field, HttpUrl
 
 from app.schemas.schemas import ClientType, PaginationParams
 
 
 class BalanceType(Enum):
-    '''余额类别 正数为收入, 负数为支出/提现'''
+    """余额类别 正数为收入, 负数为支出/提现"""
     RECHARGE = 1  # 充值
     GIFT = 2  # 充值赠送
     WITHDRAW_REFUND = 3  # 提现被拒绝时, 资金返回用户余额
@@ -27,7 +28,7 @@ class BalanceType(Enum):
 
 
 class PointType(Enum):
-    '''积分类别 正数为收入, 负数为支出'''
+    """积分类别 正数为收入, 负数为支出"""
     RECHARGE = 1  # 充值
     GIFT = 2  # 充值赠送
     CHECKIN = 3  # 签到获得积分
@@ -176,14 +177,14 @@ class BalanceRechargeSettingListResponse(BaseModel):
 
 
 class RechargeForm(BaseModel):
-    '''充值表单，余额和积分充值共用此表单'''
+    """充值表单，余额和积分充值共用此表单"""
     sku_id: int = Field(ge=0, description="充值套餐id，从0开始, 来至充值设置")
     price: Optional[float] = Field(
         None, gt=0, description="自定义充值金额，此时根据 exchange_rate 计算出实际到账金额或积分")
 
 
 class PayForm(BaseModel):
-    '''支付表单，所有支付业务在生成订单后，需构造此表单向相应接口提交以唤起支付'''
+    """支付表单，所有支付业务在生成订单后，需构造此表单向相应接口提交以唤起支付"""
     client: ClientType = Field(
         ClientType.PC_BROWSER.value, description="发起支付的客户端类型, 返回结果将挂在此字段下")
     channel: str = Field(
@@ -196,7 +197,7 @@ class PayForm(BaseModel):
 
 
 class ScanpayForm(BaseModel):
-    '''扫码支付表单，PC端页面显示二维码，手机扫码支付，扫码落地页构建此表单向相应接口提交以唤起支付'''
+    """扫码支付表单，PC端页面显示二维码，手机扫码支付，扫码落地页构建此表单向相应接口提交以唤起支付"""
     trade_no: str
     client: Optional[ClientType] = Field(
         ClientType.WECHAT_BROWSER.value, description="发起支付的客户端类型")

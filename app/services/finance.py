@@ -291,14 +291,6 @@ def get_point_recharge_settings() -> list:
     return setting
 
 
-def get_balance_recharge_settings() -> list:
-    with get_redis() as redis:
-        setting = redis.hget(REDIS_SYSTEM_OPTIONS_AUTOLOAD, 'balance_recharge_settings')
-        setting = json.loads(setting) if setting else []
-
-    return setting
-
-
 def update_point_recharge_settings(settings: List[PointRechargeSettingItem]) -> bool:
     with get_session() as db:
         option_model = db.query(SystemOptionModel).filter_by(option_name='point_recharge_settings').first()
@@ -394,78 +386,9 @@ def point_unifiedorder(sku_id: int, user_id: int, user_ip: str) -> dict:
     }
 
 
-def balance_unifiedorder(params: RechargeForm, user_id: int, user_ip: str) -> dict:
-    settings = Settings()
-    if not settings.ENDPOINT.portal or not settings.ENDPOINT.pay or not settings.ENDPOINT.mp:
-        raise ValueError('端点未配置')
-
-    recharge_settings = get_balance_recharge_settings()
-    if not recharge_settings:
-        raise ValueError('余额充值设置未配置')
-
-    if params.sku_id < len(recharge_settings) and params.sku_id >= 0:
-        sku = recharge_settings[params.sku_id]
-        if not sku:
-            raise ValueError('SKU不存在')
-    else:
-        raise ValueError('sku_id超出范围')
-
-    if sku['status'] != 1:
-        raise ValueError('当前充值套餐已停用')
-
-    # 自定义充值时计算可以获得的充值余额
-    if sku["exchange_rate"] is not None:
-        sku['price'] = params.price
-        sku['origin_price'] = params.price
-        sku['amount'] = params.price * sku["exchange_rate"]
-
-    trade_no = str(uuid.uuid4()).replace('-', '')
-    with get_session() as db:
-        order_model = BalanceRechargeModel(
-            user_id=user_id,
-            trade_no=trade_no,
-            amount=sku['amount'],
-            price=sku['price'],
-            gift_amount=sku['gift_amount'],
-            user_ip=user_ip,
-            auto_memo=json.dumps(sku, default=str),
-        )
-        db.add(order_model)
-
-        db.commit()
-
-    # 返回H5收银台地址, 由前端生成二维码, 用户扫码进入此页面进行支付
-    params = {
-        'order_type': 'balance_recharge',
-        'trade_no': trade_no,
-    }
-
-    return {
-        'trade_no': trade_no,
-        'url': f"{settings.ENDPOINT.mp.rstrip('/')}/checkout?{urlencode(params)}",
-        'original_amount': sku['original_price'],
-        'total_amount': sku['price'],
-        'gift_amount': sku['gift_amount'],
-    }
-
-
 def point_check(trade_no: str, user_id: int) -> dict:
     with get_session(read_only=True) as db:
         order_model = db.query(PointRechargeModel).filter_by(trade_no=trade_no).first()
-        if order_model is None or order_model.user_id != user_id:
-            raise ValueError('订单不存在')
-
-    return {
-        # 是否继续发起检测
-        'continue': 1 if order_model.payment_status == PaymentStatusType.CREATED.value else 0,
-        # 订单状态, 前端据此处理显示, 跳转等操作
-        'status': order_model.payment_status,
-    }
-
-
-def balance_check(trade_no: str, user_id: int) -> dict:
-    with get_session(read_only=True) as db:
-        order_model = db.query(BalanceRechargeModel).filter_by(trade_no=trade_no).first()
         if order_model is None or order_model.user_id != user_id:
             raise ValueError('订单不存在')
 
@@ -618,7 +541,7 @@ def point_notify(payment_channel: str, params: dict, content: str = None) -> boo
             logger.info('订单不存在', extra=params)
             return False
         if order_model.payment_status not in (
-        PaymentStatusType.CREATED.value, PaymentStatusType.CLOSE.value):
+                PaymentStatusType.CREATED.value, PaymentStatusType.CLOSE.value):
             logger.info(f'订单状态异常:{order_model.payment_status}', extra=params)
             return True
 

@@ -7,19 +7,19 @@
 
 
 import traceback
-import xmltodict
 
+import xmltodict
 from fastapi import APIRouter, HTTPException, Depends, Request
 from fastapi.responses import PlainTextResponse
 
-from app.core.log import logger
-from app.core.security import get_current_user_from_cache
-from app.services import finance as FinanceService
-from app.services import balance_recharge as BalanceRechargeService
-from app.schemas.finance import PaymentChannelType, RechargeForm, PayForm, ScanpayForm, BalanceRechargeSettingListResponse
-
 from app.constants.constants import RESPONSE_WECHAT_SUCCESS, RESPONSE_WECHAT_FAIL, RESPONSE_ALIPAY_SUCCESS, \
     RESPONSE_ALIPAY_FAIL
+from app.core.log import logger
+from app.core.security import get_current_user_from_cache
+from app.schemas.balance_recharge import BalanceRechargePublicItem
+from app.schemas.finance import PaymentChannelType, RechargeForm, PayForm, ScanpayForm, \
+    BalanceRechargeSettingListResponse
+from app.services import balance_recharge
 
 router = APIRouter()
 
@@ -30,14 +30,15 @@ def lists(user_data: dict = Depends(get_current_user_from_cache)):
 
 
 @router.get('/balance_recharges/{trade_no}', summary='余额充值订单详情')
-def lists(user_data: dict = Depends(get_current_user_from_cache)):
+def detail(user_data: dict = Depends(get_current_user_from_cache)):
     pass
 
 
-@router.get('/balance_recharges/settings', response_model=BalanceRechargeSettingListResponse, summary='余额充值套餐列表')
+@router.get('/balance_recharges/settings', response_model=BalanceRechargeSettingListResponse,
+            summary='余额充值套餐列表')
 def settings():
     # TODO: BUG检测，接口本身不要求登录，但是 get 会要求登录，如果改成 post 则不需要
-    items = FinanceService.get_balance_recharge_settings()
+    items = balance_recharge.get_recharge_settings()
     # 给items每个元素添加一个id字段,其值为元素的索引值
     items = [{'id': i, **item} for i, item in enumerate(items)]
     return {"items": items}
@@ -47,7 +48,7 @@ def settings():
 def unifiedorder(params: RechargeForm, request: Request, user_data: dict = Depends(get_current_user_from_cache)):
     try:
         user_ip = request.client.host if request.client else None
-        return FinanceService.balance_unifiedorder(params, user_data['id'], user_ip)
+        return balance_recharge.unifiedorder(params, user_data['id'], user_ip)
     except ValueError as e:
         logger.info(f'调用堆栈：{traceback.format_exc()}')
         raise HTTPException(status_code=400, detail=f'{e}')
@@ -57,10 +58,11 @@ def unifiedorder(params: RechargeForm, request: Request, user_data: dict = Depen
         raise HTTPException(status_code=500, detail='余额充值下单失败')
 
 
-@router.get('/balance_recharges/{trade_no}/check', summary='余额充值检查订单支付结果')
+@router.get('/balance_recharges/{trade_no}/check', response_model=BalanceRechargePublicItem,
+            summary='余额充值检查订单支付结果')
 def check(trade_no: str, user_data: dict = Depends(get_current_user_from_cache)):
     try:
-        return FinanceService.balance_check(trade_no, user_data['id'])
+        return balance_recharge.check_order(trade_no, user_data['id'])
     except ValueError as e:
         logger.info(f'调用堆栈：{traceback.format_exc()}')
         raise HTTPException(status_code=400, detail=f'{e}')
@@ -73,7 +75,7 @@ def check(trade_no: str, user_data: dict = Depends(get_current_user_from_cache))
 @router.post('/balance_recharges/pay', summary='支付触达 - 选择支付方式')
 def pay(params: PayForm, user_data: dict = Depends(get_current_user_from_cache)):
     try:
-        return BalanceRechargeService.pay(params, user_data)
+        return balance_recharge.pay(params, user_data)
     except ValueError as e:
         logger.info(f'调用堆栈：{traceback.format_exc()}')
         raise HTTPException(status_code=400, detail=f'{e}')
@@ -83,10 +85,11 @@ def pay(params: PayForm, user_data: dict = Depends(get_current_user_from_cache))
         raise HTTPException(status_code=500, detail='余额充值支付失败：')
 
 
-@router.post('/balance_recharges/scanpay', summary='支付触达 - 扫码支付（根据客户端类型(微信/支付宝/移动端浏览器)自动选择支付方式）')
+@router.post('/balance_recharges/scanpay',
+             summary='支付触达 - 扫码支付（根据客户端类型(微信/支付宝/移动端浏览器)自动选择支付方式）')
 def scanpay(params: ScanpayForm, user_data: dict = Depends(get_current_user_from_cache)):
     try:
-        return FinanceService.balance_scanpay(params, user_data)
+        return balance_recharge.scanpay(params, user_data)
     except ValueError as e:
         logger.info(f'调用堆栈：{traceback.format_exc()}')
         raise HTTPException(status_code=400, detail=f'{e}')
@@ -100,8 +103,7 @@ def scanpay(params: ScanpayForm, user_data: dict = Depends(get_current_user_from
 async def notify(payment_channel: str, request: Request):
     try:
         content = None
-        params = dict(request.query_params)
-        match (payment_channel):
+        match payment_channel:
             case (PaymentChannelType.WECHATPAY.value):
                 body = await request.body()
                 content = body.decode("utf-8")
@@ -110,17 +112,14 @@ async def notify(payment_channel: str, request: Request):
                 formdata = await request.form()
                 params = dict(formdata)
             case (_):
-                raise HTTPException(
-                    status_code=400, detail=f'未知的支付渠道: {payment_channel}')
-
-        result = BalanceRechargeService.notify(
-            payment_channel, params, content)
+                raise HTTPException(status_code=400, detail=f'未知的支付渠道: {payment_channel}')
+        result = balance_recharge.notify(payment_channel, params, content)
         response = RESPONSE_WECHAT_SUCCESS if payment_channel == 'wechatpay' else RESPONSE_ALIPAY_SUCCESS
         if not result:
             response = RESPONSE_WECHAT_FAIL if payment_channel == 'wechatpay' else RESPONSE_ALIPAY_FAIL
         return PlainTextResponse(response, status_code=200)
     except Exception as e:
-        PlainTextResponse(RESPONSE_WECHAT_FAIL if payment_channel ==
-                          'wechatpay' else RESPONSE_ALIPAY_FAIL, status_code=200)
+        PlainTextResponse(RESPONSE_WECHAT_FAIL if payment_channel == 'wechatpay' else RESPONSE_ALIPAY_FAIL,
+                          status_code=200)
         logger.error(f'余额充值结果异步通知处理失败：{e}')
         logger.info(f'调用堆栈：{traceback.format_exc()}')
