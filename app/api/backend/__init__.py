@@ -1,5 +1,5 @@
 
-from . import ad
+from . import adspace
 from . import post
 from . import post_category
 from . import finance
@@ -14,7 +14,7 @@ from . import balance_recharge
 from . import wechat
 
 __all__ = [
-    'ad',
+    'adspace',
     'post',
     'post_category',
     'finance',

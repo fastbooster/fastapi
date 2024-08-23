@@ -65,7 +65,11 @@ def init_permissions():
                 },
                 {
                     'name': '广告位列表',
-                    'component_name': 'AdSpaceList',
+                    'component_name': 'AdspaceList',
+                },
+                {
+                    'name': '广告列表',
+                    'component_name': 'BannerList',
                 }
             ]
         },
