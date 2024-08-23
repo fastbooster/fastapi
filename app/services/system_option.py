@@ -140,18 +140,15 @@ def update_cache(current_model: SystemOptionModel, is_delete: bool = False) -> N
     if current_model.autoload == 1:
         with get_redis() as redis:
             if is_delete:
-                redis.hdel(REDIS_SYSTEM_OPTIONS_AUTOLOAD,
-                           current_model.option_name)
+                redis.hdel(REDIS_SYSTEM_OPTIONS_AUTOLOAD, current_model.option_name)
             else:
-                redis.hset(REDIS_SYSTEM_OPTIONS_AUTOLOAD,
-                           current_model.option_name, current_model.option_value)
+                redis.hset(REDIS_SYSTEM_OPTIONS_AUTOLOAD, current_model.option_name, current_model.option_value)
 
 
 def rebuild_cache() -> None:
     with get_session(read_only=True) as db:
+        items = db.query(SystemOptionModel).filter_by(autoload=1).all()
         with get_redis() as redis:
             redis.delete(REDIS_SYSTEM_OPTIONS_AUTOLOAD)
-            items = db.query(SystemOptionModel).filter_by(autoload=1).all()
             for item in items:
-                redis.hset(REDIS_SYSTEM_OPTIONS_AUTOLOAD,
-                           item.option_name, item.option_value)
+                redis.hset(REDIS_SYSTEM_OPTIONS_AUTOLOAD, item.option_name, item.option_value)

@@ -118,11 +118,8 @@ def update_cache(current_model: WechatModel, is_delete: bool = False) -> None:
 
 def rebuild_cache() -> None:
     with get_session(read_only=True) as db:
+        items = db.query(WechatModel).order_by(asc('id')).all()
         with get_redis() as redis:
-            items = db.query(WechatModel).order_by(asc('id')).all()
             redis.delete(REDIS_WECHAT)
             for current_model in items:
-                params = current_model.to_dict()
-                params['created_at'] = serialize_datetime(params['created_at'])
-                params['updated_at'] = serialize_datetime(params['updated_at'])
-                redis.hset(REDIS_WECHAT, current_model.appid, json.dumps(params))
+                update_cache(current_model)
