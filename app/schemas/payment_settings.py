@@ -9,7 +9,7 @@ from typing import List, Optional
 
 from pydantic import BaseModel
 
-from app.schemas.payment_channel import PaymentChannelOutItem, PaymentChannelItem
+from app.schemas.payment_channel import PaymentChannelPublicItem, PaymentChannelItem
 from app.schemas.payment_config import PaymentConfigOutItem, PaymentConfigSafeItem
 
 
@@ -27,7 +27,7 @@ class PaymentSettingListResponse(BaseModel):
 
 class PaymentSettingOutItem(BaseModel):
     '''支付设置，精简数据'''
-    channel: PaymentChannelOutItem
+    channel: PaymentChannelPublicItem
     children: Optional[List[PaymentConfigOutItem]]
 
 

@@ -16,7 +16,7 @@ from app.core.redis import get_redis
 from app.models.payment_settings import PaymentChannelModel, PaymentConfigModel
 from app.schemas.schemas import StatusType
 from app.schemas.payment_settings import PaymentSettingsSortForm, PaymentSettingItem, PaymentSettingListResponse, PaymentSettingOutItem, PaymentSettingOutListResponse
-from app.schemas.payment_channel import PaymentChannelOutItem
+from app.schemas.payment_channel import PaymentChannelPublicItem
 from app.schemas.payment_config import PaymentConfigOutItem
 
 from app.services import payment_config as PaymentConfigService, payment_channel as PaymentChannelService
@@ -43,7 +43,7 @@ def get_payment_settings_from_cache() -> PaymentSettingOutListResponse:
         for channel in channels:
             if channel["status"] != StatusType.ENABLED.value:
                 continue
-            item = {"channel": PaymentChannelOutItem(
+            item = {"channel": PaymentChannelPublicItem(
                 **channel), "children": []}
             for config in configs:
                 if config["status"] != StatusType.ENABLED.value:
