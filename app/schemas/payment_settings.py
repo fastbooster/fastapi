@@ -14,30 +14,30 @@ from app.schemas.payment_config import PaymentConfigPublicItem, PaymentConfigIte
 
 
 class PaymentSettingItem(BaseModel):
-    '''支付设置，模型全量数据'''
+    """支付设置，模型全量数据"""
     channel: PaymentChannelItem
     children: Optional[List[PaymentConfigItem]]
 
 
 class PaymentSettingListResponse(BaseModel):
-    '''支付设置列表，模型全量数据'''
+    """支付设置列表，模型全量数据"""
     total: int
     items: List[PaymentSettingItem]
 
 
 class PaymentSettingOutItem(BaseModel):
-    '''支付设置，精简数据'''
+    """支付设置，精简数据"""
     channel: PaymentChannelPublicItem
     children: Optional[List[PaymentConfigPublicItem]]
 
 
 class PaymentSettingOutListResponse(BaseModel):
-    '''支付设置列表，精简数据'''
+    """支付设置列表，精简数据"""
     total: int
     items: List[PaymentSettingOutItem]
 
 
 class PaymentSettingsSortForm(BaseModel):
-    '''前端排好序，将 id 按顺序传给后端保存'''
+    """前端排好序，将 id 按顺序传给后端保存"""
     channel_ids: List[int]
     config_ids: List[int]

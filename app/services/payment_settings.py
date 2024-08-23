@@ -6,22 +6,19 @@
 # Time: 2024/07/11 10:35
 
 import json
-from typing import List
 
 from sqlalchemy.sql.expression import asc
 
+from app.constants.constants import REDIS_PAYMENT_CHANNEL, REDIS_PAYMENT_CONFIG
 from app.core.mysql import get_session
 from app.core.redis import get_redis
-
 from app.models.payment_settings import PaymentChannelModel, PaymentConfigModel
-from app.schemas.schemas import StatusType
-from app.schemas.payment_settings import PaymentSettingsSortForm, PaymentSettingItem, PaymentSettingListResponse, PaymentSettingOutItem, PaymentSettingOutListResponse
 from app.schemas.payment_channel import PaymentChannelPublicItem
 from app.schemas.payment_config import PaymentConfigPublicItem
-
-from app.services import payment_config as PaymentConfigService, payment_channel as PaymentChannelService
-
-from app.constants.constants import REDIS_PAYMENT_CHANNEL, REDIS_PAYMENT_CONFIG
+from app.schemas.payment_settings import PaymentSettingsSortForm, PaymentSettingItem, PaymentSettingListResponse, \
+    PaymentSettingOutListResponse
+from app.schemas.schemas import StatusType
+from app.services import payment_config, payment_channel
 
 
 def get_payment_settings_from_cache() -> PaymentSettingOutListResponse:
@@ -66,7 +63,7 @@ def get_payment_settings(status: StatusType = None) -> PaymentSettingListRespons
             query = query.filter(PaymentChannelModel.status == status.value)
 
         channels = query.all()
-        if (len(channels) == 0):
+        if len(channels) == 0:
             return None
 
         for channel in channels:
@@ -95,5 +92,5 @@ def update_sort(params: PaymentSettingsSortForm) -> None:
 
         db.commit()
 
-        PaymentConfigService.rebuild_cache()
-        PaymentChannelService.rebuild_cache()
+        payment_config.rebuild_cache()
+        payment_channel.rebuild_cache()

@@ -29,6 +29,9 @@ class SystemOptionForm(SystemOptionBase):
     """表单数据模型"""
     pass
 
+class SystemOptionValueForm(BaseModel):
+    """仅编辑选项值表单模型"""
+    option_value: str = Field(description='选项值')
 
 class SystemOptionItem(SystemOptionBase):
     """数据库全量字段模型"""
