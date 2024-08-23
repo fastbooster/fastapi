@@ -10,31 +10,29 @@ import json
 from fastapi import APIRouter, HTTPException, Depends, Request
 from fastapi.security import OAuth2PasswordRequestForm
 
+from app.constants.constants import REDIS_AUTH_TTL, REDIS_AUTH_USER_PREFIX
+from app.core.mysql import get_session
+from app.core.redis import get_redis
 from app.core.security import (AuthChecker, authenticate_user_by_password, create_access_token,
                                validate_password,
                                encode_password,
                                verify_password,
                                get_current_user)
-from app.models.user import UserModel
-from app.models.user import RoleModel
 from app.models.user import LoginlogModel
-from app.services import user as UserService
+from app.models.user import RoleModel
+from app.models.user import UserModel
 from app.schemas.auth import AuthSuccessResponse
 from app.schemas.schemas import ResponseSuccess
 from app.schemas.user import ChangePwdForm
-from app.core.redis import get_redis
-from app.core.mysql import get_session
+from app.services import user
 from app.utils.helper import serialize_datetime
-
-from app.constants.constants import REDIS_AUTH_TTL, REDIS_AUTH_USER_PREFIX
 
 router = APIRouter()
 
 
 @router.post("/token", response_model=AuthSuccessResponse, summary="用户登录")
 def authorize(request: Request, form: OAuth2PasswordRequestForm = Depends()):
-    user_data = authenticate_user_by_password(
-        password=form.password, phone=form.username, email=form.username)
+    user_data = authenticate_user_by_password(password=form.password, phone=form.username, email=form.username)
     if not user_data:
         raise HTTPException(status_code=401, detail="账号或密码错误")
 
@@ -57,19 +55,20 @@ def authorize(request: Request, form: OAuth2PasswordRequestForm = Depends()):
                   ex=REDIS_AUTH_TTL)
 
     with get_session() as db:
-        loginlog = LoginlogModel(
-            user_id=user_data['id'],
-            nickname=user_data['nickname'],
-            ip=request.client.host if request.client else None,
-            user_agent=str(request.headers.get('User-Agent')),
-            memo='账号密码登录（auth/token）'
-        )
+        loginlog = LoginlogModel()
+        loginlog.from_dict({
+            'user_id': user_data['id'],
+            'nickname': user_data['nickname'],
+            'ip': request.client.host if request.client else None,
+            'user_agent': str(request.headers.get('User-Agent')),
+            'memo': '账号密码登录(auth/token)'
+        })
         db.add(loginlog)
         db.commit()
 
     return AuthSuccessResponse(
         access_token=access_token,
-        user_data=UserService.safe_whitelist_fields(user_data),
+        user_data=user.safe_whitelist_fields(user_data),
     )
 
 
@@ -78,7 +77,8 @@ def logout():
     pass
 
 
-@router.post("/change_password", response_model=ResponseSuccess, summary="修改密码", dependencies=[Depends(AuthChecker())])
+@router.post("/change_password", response_model=ResponseSuccess, summary="修改密码",
+             dependencies=[Depends(AuthChecker())])
 def change_password(form: ChangePwdForm, user_data: dict = Depends(get_current_user)):
     if not validate_password(form.new_pwd):
         raise HTTPException(status_code=400, detail="新密码过于简单，请重新输入")
