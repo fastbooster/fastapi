@@ -2,6 +2,7 @@
 **/__pycache__
 
 runtime
+!runtime/log/.gitkeep
 localtest
 flagged
 htmlcov
