@@ -11,7 +11,7 @@ from sqlalchemy.sql.expression import desc
 
 from app.core.mysql import get_session
 from app.models.${module_name} import ${model_name}
-from app.schemas.schemas import StatusType
+from app.schemas.schemas import StatusType, MysqlBoolType
 from app.schemas.${snake_name} import ${model}Form, SearchQuery
 
 
