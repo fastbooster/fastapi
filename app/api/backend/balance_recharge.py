@@ -34,7 +34,7 @@ def detail(trade_no: str):
 
 
 @router.post('/balance_recharges/{trade_no}/refund', response_model=ResponseSuccess,
-             dependencies=[Depends(check_permission('BalanceRecharges'))], summary='余额充值订单退款')
+             dependencies=[Depends(check_permission('BalanceRechargeList'))], summary='余额充值订单退款')
 def refund(trade_no: str):
     try:
         balance_recharge.refund(trade_no)

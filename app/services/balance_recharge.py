@@ -112,7 +112,7 @@ def get_recharge_settings() -> list:
     with get_redis() as redis:
         setting = redis.hget(REDIS_SYSTEM_OPTIONS_AUTOLOAD, 'balance_recharge_settings')
         setting = json.loads(setting) if setting else []
-    return setting
+        return setting
 
 
 def check_order(trade_no: str, user_id: int) -> BalanceRechargeModel:
