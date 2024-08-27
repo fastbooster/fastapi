@@ -23,7 +23,7 @@ class WechatType(Enum):
 class WechatBase(BaseModel):
     """基础数据模型"""
     type: Optional[WechatType] = Field(None, description='类型')
-    appid: Optional[str] = Field(None, description='AppID')
+    appid: Optional[str] = Field(None, pattern=r"^wx[a-zA-Z0-9]{16}$", description='AppID')
     appname: Optional[str] = Field(None, description='AppName')
     appsecret: Optional[str] = Field(None, description='AppSecret')
     token: Optional[str] = Field(None, description='Token')

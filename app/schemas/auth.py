@@ -16,15 +16,12 @@ from app.constants.constants import REDIS_AUTH_TTL
 
 class WechatOAuth2Form(BaseModel):
     """微信公众号OAuth2认证登录表单"""
-    appid: str = Field(
-        pattern=r"^wx[a-zA-Z0-9]{1,62}$", description="微信公众号APPID")
-    scope: Optional[str] = Field(
-        'snsapi_base',
-        description="scope参数，snsapi_base：不弹出授权页面，直接跳转，只能获取用户openid；snsapi_userinfo：弹出授权页面，可通过 openid 拿到昵称、头像信息")
-    state: Optional[str] = Field(
-        None, description="state参数，用于保持请求和回调的状态，本系统会自动加上 appid 作为前缀")
-    redirect_uri: Optional[str] = Field(
-        None, description="用户在微信侧授权完成后的跳转地址，会携带 code 和 state 参数，用于后续完成用户信息的获取")
+    appid: str = Field(pattern=r"^wx[a-zA-Z0-9]{16}$", description="微信公众号APPID")
+    scope: Optional[str] = Field('snsapi_base',
+                                 description="scope参数，snsapi_base：不弹出授权页面，直接跳转，只能获取用户openid；snsapi_userinfo：弹出授权页面，可通过 openid 拿到昵称、头像信息")
+    state: Optional[str] = Field(None, description="state参数，用于保持请求和回调的状态，本系统会自动加上 appid 作为前缀")
+    redirect_uri: Optional[str] = Field(None,
+                                        description="用户在微信侧授权完成后的跳转地址，会携带 code 和 state 参数，用于后续完成用户信息的获取")
 
 
 class WechatOAuth2Response(BaseModel):
