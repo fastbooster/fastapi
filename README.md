@@ -260,7 +260,7 @@ options:
 1. [FastAPI](https://fastapi.tiangolo.com/)
 2. [RedisPy](https://redis.io/docs/latest/develop/connect/clients/python/)
 3. [Celery](https://docs.celeryq.dev/en/stable/index.html)
-4. [wechatpy](https://www.wechatpy.org/) 微信公众号 Python SDK
+4. [wechatpy](https://www.wechatpy.org/) 微信公众号 Python SDK, [公众号沙箱环境](https://mp.weixin.qq.com/debug/cgi-bin/sandboxinfo?action=showinfo&t=sandbox/index)
 5. [Python Alipay SDK](https://github.com/fzlee/alipay/blob/master/docs/apis.zh-hans.md) with SHA1/SHA256 support
 6. [RESTFul API 接口规范详解](https://cloud.tencent.com/developer/article/2360813)
 7. [RESTFul API 设计最佳实践](https://segmentfault.com/a/1190000011516151)
