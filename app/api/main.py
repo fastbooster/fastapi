@@ -37,3 +37,4 @@ api_router.include_router(backend.payment_config.router, prefix="/backend", tags
 api_router.include_router(backend.payment_settings.router, prefix="/backend", tags=['backend_payment_settings'])
 api_router.include_router(backend.balance_recharge.router, prefix="/backend", tags=['backend_balance_recharge'])
 api_router.include_router(backend.wechat.router, prefix="/backend", tags=['backend_wechat'])
+api_router.include_router(backend.cache.router, prefix="/backend", tags=['backend_cache'])

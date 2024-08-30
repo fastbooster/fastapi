@@ -13,6 +13,7 @@ from . import payment_config
 from . import payment_settings
 from . import balance_recharge
 from . import wechat
+from . import cache
 
 __all__ = [
     'adspace',
@@ -29,4 +30,5 @@ __all__ = [
     'payment_settings',
     'balance_recharge',
     'wechat',
+    'cache',
 ]

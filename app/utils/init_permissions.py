@@ -125,6 +125,10 @@ def init_permissions():
                     'name': '微信媒体平台',
                     'component_name': 'WechatList',
                 },
+                {
+                    'name': '缓存管理',
+                    'component_name': 'CacheList',
+                },
             ]
         },
     ]
