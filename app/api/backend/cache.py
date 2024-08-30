@@ -35,8 +35,8 @@ def detail(key: str):
         raise HTTPException(status_code=500, detail=f'获取缓存详情失败（{e}）')
 
 
-@router.post("/caches/{key}/refresh", response_model=ResponseSuccess, dependencies=[Depends(check_permission('CacheList'))],
-             summary="缓存详情")
+@router.post("/caches/{key}/rebuild", response_model=ResponseSuccess,
+             dependencies=[Depends(check_permission('CacheList'))], summary="重建缓存")
 def rebuild_cache(key: str):
     try:
         cache.rebuild_cache(key)

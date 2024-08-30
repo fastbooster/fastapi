@@ -67,18 +67,15 @@ def detail(key: str):
 
 
 def rebuild_cache(key: str):
-    with get_redis() as redis:
-        if not redis.exists(key):
-            raise KeyError(f'缓存 {key} 不存在')
-        if REDIS_SYSTEM_OPTIONS_AUTOLOAD == key:
-            system_option.rebuild_cache()
-        elif REDIS_PAYMENT_CHANNEL == key:
-            payment_channel.rebuild_cache()
-        elif REDIS_PAYMENT_CONFIG == key:
-            payment_config.rebuild_cache()
-        elif REDIS_WECHAT == key:
-            wechat.rebuild_cache()
-        elif REDIS_POST_CATEGORY == key:
-            post_category.rebuild_cache()
-        else:
-            raise KeyError(f'赞不支持缓存 {key} 重建')
+    if REDIS_SYSTEM_OPTIONS_AUTOLOAD == key:
+        system_option.rebuild_cache()
+    elif REDIS_PAYMENT_CHANNEL == key:
+        payment_channel.rebuild_cache()
+    elif REDIS_PAYMENT_CONFIG == key:
+        payment_config.rebuild_cache()
+    elif REDIS_WECHAT == key:
+        wechat.rebuild_cache()
+    elif REDIS_POST_CATEGORY == key:
+        post_category.rebuild_cache()
+    else:
+        raise KeyError(f'赞不支持缓存 {key} 重建')
