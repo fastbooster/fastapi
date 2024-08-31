@@ -78,4 +78,4 @@ def rebuild_cache(key: str):
     elif REDIS_POST_CATEGORY == key:
         post_category.rebuild_cache()
     else:
-        raise KeyError(f'赞不支持缓存 {key} 重建')
+        raise KeyError(f'暂不支持缓存 {key} 重建')
