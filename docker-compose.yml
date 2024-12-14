@@ -9,6 +9,9 @@ services:
     env_file:
       - .env
 
+    # 如果 mysql, redis 等跑在宿主机上，取消下面注释，切换为 hosts 模式后 ports 配置将不会生效
+    # network_mode: "host"
+
     ports:
       - "${RUNTIME_PORT}:${RUNTIME_PORT}"
 
