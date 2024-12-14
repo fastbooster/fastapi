@@ -8,6 +8,13 @@
 import calendar
 import datetime
 import re
+import os
+
+
+def get_root_path():
+    '''获取项目根目录'''
+    abspath = os.path.dirname(os.path.abspath(__file__))    # 当前文件的绝对路径
+    return abspath.replace(f'{os.path.sep}app{os.path.sep}utils', '') # 剔除多余部分 /app/utils 并返回
 
 
 def get_last_day_of_month_by_year(year: int) -> list:
