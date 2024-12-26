@@ -7,9 +7,11 @@
 
 import os
 from contextlib import contextmanager
+
+from dotenv import load_dotenv
 from sqlalchemy import create_engine
 from sqlalchemy.orm import scoped_session, sessionmaker
-from dotenv import load_dotenv
+
 from app.core.log import logger
 
 load_dotenv()
@@ -26,43 +28,26 @@ load_dotenv()
 pool_size_env = os.getenv("DB_POOL_SIZE")
 db_port_env = os.getenv("DB_PORT")
 pool_size = int(pool_size_env) if pool_size_env else 5
-MYSQL_CONFIG = {
-    'host': os.getenv("DB_HOST"),
-    'port': int(db_port_env) if db_port_env else 3306,
-    'user': os.getenv("DB_USER"),
-    'password': os.getenv("DB_PWD"),
-    'database': os.getenv("DB_NAME"),
-    'charset': os.getenv("DB_CHARSET"),
-}
+MYSQL_CONFIG = {'host': os.getenv("DB_HOST"), 'port': int(db_port_env) if db_port_env else 3306,
+    'user': os.getenv("DB_USER"), 'password': os.getenv("DB_PWD"), 'database': os.getenv("DB_NAME"),
+    'charset': os.getenv("DB_CHARSET"), }
 
 
 def get_url(read_only: bool = False) -> str:
+    if '@' in MYSQL_CONFIG["password"]:
+        raise ValueError("MySQL 密码不能包含 '@' 字符")
     if read_only:
         MYSQL_CONFIG["host"] = os.getenv("DB_HOST_RO")
     return 'mysql+pymysql://{user}:{password}@{host}:{port}/{database}?charset={charset}'.format(**MYSQL_CONFIG)
 
 
-write_engine = create_engine(
-    get_url(read_only=False),
-    pool_pre_ping=True,
-    pool_timeout=30,
-    pool_recycle=-1,
-    pool_size=pool_size,
-    max_overflow=pool_size * 2,
-)
-read_engine = create_engine(
-    get_url(read_only=True),
-    pool_pre_ping=True,
-    pool_timeout=30,
-    pool_recycle=-1,
-    pool_size=pool_size,
-    max_overflow=pool_size * 2,
-)
-WriteSessionFactory = sessionmaker(
-    bind=write_engine, autoflush=False, autocommit=False)
+write_engine = create_engine(get_url(read_only=False), pool_pre_ping=True, pool_timeout=30, pool_recycle=-1,
+    pool_size=pool_size, max_overflow=pool_size * 2, )
+read_engine = create_engine(get_url(read_only=True), pool_pre_ping=True, pool_timeout=30, pool_recycle=-1,
+    pool_size=pool_size, max_overflow=pool_size * 2, )
+WriteSessionFactory = sessionmaker(bind=write_engine, autoflush=False, autocommit=False)
 WriteSession = scoped_session(WriteSessionFactory)
-ReadSessionFactory = sessionmaker(
-    bind=read_engine, autoflush=False, autocommit=False)
+ReadSessionFactory = sessionmaker(bind=read_engine, autoflush=False, autocommit=False)
 ReadSession = scoped_session(ReadSessionFactory)
 
 
