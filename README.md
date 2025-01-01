@@ -218,10 +218,10 @@ python app/utils/init_payment_channel.py
     # 前台启动单worker异步任务（专门用于积分余额动账）
     celery -A app.celery_single_worker worker --loglevel=info
 
-    # 前台启动异步任务（先启动）
+    # 前台启动异步任务 worker, 用于消费已存在的异步任务
     celery -A app.celery_worker worker --loglevel=info
 
-    # 前台启动定时任务（后启动，定时任务的本质是生成异步任务，所以必须先启动异步任务）
+    # 前台启动定时任务生产者，用于生成定时任务
     celery -A app.celery_worker beat -s --loglevel=info
 
     # 停止 celery 任务
