@@ -22,7 +22,14 @@ class BaseMixin:
     def to_dict(self) -> dict:
         """将模型转换为纯粹的字典"""
         if hasattr(self, '__table__'):
-            return {c.key: getattr(self, c.key) for c in self.__table__.columns}
+            result = {}
+            for c in self.__table__.columns:
+                value = getattr(self, c.key)
+                # 解决问题: TypeError: Object of type datetime is not JSON serializable
+                if value is not None and hasattr(value, 'isoformat'):
+                    value = value.isoformat()
+                result[c.key] = value
+            return result
         return {}
 
 
