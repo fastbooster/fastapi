@@ -33,6 +33,10 @@ def serialize_datetime(obj):
     """JSON序列化datetime类时间"""
     if isinstance(obj, datetime.datetime):
         return obj.isoformat()
+    if isinstance(obj, datetime.date):
+        return obj.isoformat()
+    if isinstance(obj, str):
+        return obj
     raise TypeError("Type not serializable")
 
 
