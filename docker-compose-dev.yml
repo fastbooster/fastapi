@@ -5,7 +5,7 @@ services:
     container_name: ${DB_CONTAINER_NAME}
     restart: always
     ports:
-      - ${DB_PORT}:3306
+      - ${DB_EXPOSE_PORT}:3306
     volumes:
       - ./volumes/mysql:/var/lib/mysql
     environment:
@@ -32,7 +32,7 @@ services:
       - ./volumes/redis/:/data
     command: /bin/sh -c "echo 'vm.overcommit_memory = 1' >> /etc/sysctl && redis-server /etc/redis/redis.conf --appendonly yes --requirepass ${REDIS_PWD}"
     ports:
-      - ${REDIS_PORT}:6379
+      - ${REDIS_EXPOSE_PORT}:6379
     networks:
       - fastapi_tier
 
