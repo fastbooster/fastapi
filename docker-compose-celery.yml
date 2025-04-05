@@ -2,7 +2,8 @@
 # 可单独启动，执行后台任务，集群部署时此容器只启动一个实例即可，且 mysql & redis 需要部署在云端
 services:
   celery:
-    container_name: ${CELERY_CONTAINER_NAME}
+    container_name: "${CONTAINER_NAME_PREFIX}-${CELERY_CONTAINER_NAME}"
+    restart: always
     build:
       context: ./
       dockerfile: Dockerfile.celery
@@ -10,7 +11,7 @@ services:
       - .env
     command: /entrypoint.sh
     networks:
-      - fastapi_tier
+      - fastbooster_network
 
 networks:
-  fastapi_tier:
+  fastbooster_network:

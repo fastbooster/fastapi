@@ -2,9 +2,9 @@
 # nginx 在宿主机上配置，因为宿主机一般还会对外提供别的服务，所以这里不使用 docker-compose 部署 nginx
 services:
   mysql:
-    image: mysql:8.0.35
-    container_name: ${DB_CONTAINER_NAME}
+    container_name: "${CONTAINER_NAME_PREFIX}-${DB_CONTAINER_NAME}"
     restart: always
+    image: mysql:8.0.35
     ports:
       - ${DB_EXPOSE_PORT}:3306
     volumes:
@@ -23,11 +23,12 @@ services:
       --lower_case_table_names=1
       --max_allowed_packet=128M
     networks:
-      - fastapi_tier
+      - fastbooster_network
 
   redis:
+    container_name: "${CONTAINER_NAME_PREFIX}-${REDIS_CONTAINER_NAME}"
+    restart: always
     image: redis:7.2.1
-    container_name: ${REDIS_CONTAINER_NAME}
     volumes:
       - ./docker/redis/redis.conf:/etc/redis/redis.conf:ro
       - ./volumes/redis/:/data
@@ -35,10 +36,11 @@ services:
     ports:
       - ${REDIS_EXPOSE_PORT}:6379
     networks:
-      - fastapi_tier
+      - fastbooster_network
 
   fastapi:
-    container_name: ${FASTAPI_CONTAINER_NAME}
+    container_name: "${CONTAINER_NAME_PREFIX}-${FASTAPI_CONTAINER_NAME}"
+    restart: always
     build:
       context: ./
       dockerfile: Dockerfile
@@ -53,10 +55,11 @@ services:
       - mysql
       - redis
     networks:
-      - fastapi_tier
+      - fastbooster_network
 
   celery:
-    container_name: ${CELERY_CONTAINER_NAME}
+    container_name: "${CONTAINER_NAME_PREFIX}-${CELERY_CONTAINER_NAME}"
+    restart: always
     build:
       context: ./
       dockerfile: Dockerfile.celery
@@ -67,7 +70,7 @@ services:
       - mysql
       - redis
     networks:
-      - fastapi_tier
+      - fastbooster_network
 
 networks:
-  fastapi_tier:
+  fastbooster_network:

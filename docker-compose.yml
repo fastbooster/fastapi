@@ -1,7 +1,8 @@
 # 只启动 fastapi 服务, mysq, redis, nginx 服务使用云端
 services:
   fastapi:
-    container_name: ${FASTAPI_CONTAINER_NAME}
+    container_name: "${CONTAINER_NAME_PREFIX}-${FASTAPI_CONTAINER_NAME}"
+    restart: always
     build:
       context: ./
       dockerfile: Dockerfile
