@@ -2,6 +2,7 @@
 # 可单独启动，执行后台任务，集群部署时此容器只启动一个实例即可，且 mysql & redis 需要部署在云端
 services:
   celery:
+    container_name: ${CELERY_CONTAINER_NAME}
     build:
       context: ./
       dockerfile: Dockerfile.celery

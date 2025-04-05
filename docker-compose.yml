@@ -1,7 +1,7 @@
-# 只启动 server 服务, mysq, redis 等服务使用云端
-# 负载均衡和集群部署时可使用此配置
+# 只启动 fastapi 服务, mysq, redis, nginx 服务使用云端
 services:
-  server:
+  fastapi:
+    container_name: ${FASTAPI_CONTAINER_NAME}
     build:
       context: ./
       dockerfile: Dockerfile
