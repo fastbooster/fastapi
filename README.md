@@ -1,118 +1,302 @@
-# FastAPI 接口服务器
+# FastAPI 企业级后端服务
 
+![Python](https://img.shields.io/badge/python-3.12+-blue.svg)
+![FastAPI](https://img.shields.io/badge/FastAPI-0.100+-green.svg)
+![License](https://img.shields.io/badge/license-MIT-blue.svg)
 
-### 目录结构
+一个基于 FastAPI 构建的企业级后端服务，提供完整的用户管理、支付系统、内容管理和权限控制功能。
 
-```shell
-.                           // 根目录
-|-- app                     // 应用目录
-|   |-- alembic             // 数据库迁移工具
-|   |-- api                 // API目录
-|   |-- |-- routes          // 通用路由
-|   |-- |-- frontend        // 前端路由
-|   |-- |-- backend         // 后端路由
-|   |-- constants           // 常量目录
-|   |-- core                // 核心组件目录
-|   |-- models              // DB模型目录 (SQLAlchemy ORM)
-|   |-- schemas             // 表单目录 (pydantic schemas)
-|   |-- services            // 服务类 (CRUD+)
-|   |-- tasks               // 异步任务 (Celery)
-|   |-- utils               // 助手工具
-|-- public                  // Web根目录, 用于提供静态文件访问
-|-- docker                  // Docker镜像配置卷
-|-- volumes                 // Docker容器数据卷
-|-- scripts                 // 助手脚本目录
-|-- restart.sh              // 容器重启脚本
+## ✨ 特性
+
+- 🚀 **高性能**: 基于 FastAPI 和异步编程，支持高并发请求
+- 🔐 **安全认证**: JWT Token 认证，完整的权限管理系统
+- 💳 **支付集成**: 支持微信支付、支付宝等多种支付方式
+- 📊 **数据管理**: SQLAlchemy ORM，Alembic 数据库迁移
+- ⚡ **异步任务**: Celery 分布式任务队列
+- 📝 **自动文档**: OpenAPI 3.0 自动生成 API 文档
+- 🐳 **容器化**: Docker 容器化部署，支持多环境配置
+- 🧪 **代码质量**: 完整的测试覆盖和代码检查
+
+## 🛠 技术栈
+
+### 核心框架
+- **[FastAPI](https://fastapi.tiangolo.com/)** - 现代、快速的 Web 框架
+- **[Pydantic](https://pydantic-docs.helpmanual.io/)** - 数据验证和设置管理
+- **[SQLAlchemy](https://www.sqlalchemy.org/)** - Python SQL 工具包和 ORM
+- **[Alembic](https://alembic.sqlalchemy.org/)** - 数据库迁移工具
+
+### 数据存储
+- **MySQL 8.0+** - 主数据库
+- **Redis 7.2+** - 缓存和会话存储
+
+### 异步任务
+- **[Celery](https://docs.celeryq.dev/)** - 分布式任务队列
+- **Redis** - Celery 消息代理
+
+### 开发工具
+- **Docker** - 容器化部署
+- **Nginx** - 反向代理和静态文件服务
+- **Pytest** - 测试框架
+
+## 🚀 快速开始
+
+### 环境要求
+
+- Python 3.12+
+- MySQL 8.0+
+- Redis 7.2+
+- Docker (可选)
+
+### 本地开发
+
+1. **克隆项目**
+   ```bash
+   git clone <repository-url>
+   cd fastapi
+   ```
+
+2. **配置环境**
+   ```bash
+   # 复制配置文件
+   cp .env.example .env
+   cp config.example.yaml config.yaml
+   
+   # 编辑配置文件，设置数据库连接等
+   vim config.yaml
+   ```
+
+3. **创建虚拟环境**
+   ```bash
+   python -m venv .venv
+   source .venv/bin/activate  # Linux/macOS
+   # 或 .venv\Scripts\activate  # Windows
+   ```
+
+4. **安装依赖**
+   ```bash
+   pip install --upgrade pip
+   pip install -r requirements.txt
+   ```
+
+5. **启动服务依赖 (使用 Docker)**
+   ```bash
+   docker compose -f docker-compose-dev.yml up -d
+   ```
+
+6. **数据库迁移**
+   ```bash
+   alembic upgrade head
+   ```
+
+7. **初始化数据**
+   ```bash
+   python app/utils/init_permissions.py
+   python app/utils/init_role.py
+   python app/utils/init_user.py
+   python app/utils/init_city.py
+   python app/utils/init_payment_channel.py
+   ```
+
+8. **启动应用**
+   ```bash
+   python start.py
+   ```
+
+访问 http://localhost:8000/docs 查看 API 文档。
+
+### Docker 部署
+
+1. **准备配置文件**
+   ```bash
+   cp .env.example .env
+   cp config.example.yaml config.yaml
+   # 编辑配置文件
+   ```
+
+2. **选择部署方式**
+   ```bash
+   # 完整部署 (包含所有服务)
+   docker compose -f docker-compose-full.yml up -d --build
+   
+   # 仅 API 服务 (外部数据库)
+   docker compose -f docker-compose.yml up -d --build
+   
+   # 仅 Celery 任务队列
+   docker compose -f docker-compose-celery.yml up -d --build
+   ```
+
+3. **执行数据库迁移**
+   ```bash
+   docker exec -it <container-name>-server-1 bash
+   alembic upgrade head
+   # 执行初始化脚本...
+   ```
+
+## 📁 项目结构
+
+```
+fastapi/
+├── app/                    # 应用主目录
+│   ├── alembic/           # 数据库迁移文件
+│   ├── api/               # API 路由
+│   │   ├── backend/       # 后台管理 API
+│   │   ├── frontend/      # 前端 API
+│   │   └── routes/        # 通用路由
+│   ├── constants/         # 常量定义
+│   ├── core/              # 核心组件 (数据库、缓存、安全等)
+│   ├── models/            # SQLAlchemy 数据模型
+│   ├── schemas/           # Pydantic 数据模式
+│   ├── services/          # 业务逻辑服务层
+│   ├── tasks/             # Celery 异步任务
+│   └── utils/             # 工具函数
+├── docker/                # Docker 配置文件
+├── public/                # 静态文件目录
+├── scripts/               # 辅助脚本
+├── volumes/               # Docker 数据卷
+├── requirements.txt       # Python 依赖
+├── config.yaml           # 应用配置文件
+└── main.py               # 应用入口点
 ```
 
+## 📖 开发指南
 
-### 本机开发
+### API 开发规范
 
-```shell
-# 如果本机没有安装 mysql & redis, 可以通过 docker 启动服务来代替
-docker compose -p <proj_name> -f docker-compose-dev.yml up -d
+本项目遵循 RESTful API 设计原则：
 
-cp -r ./.env.example .env
-cp -r ./config.example.yaml config.yaml
-python -m venv .venv # 如果已经执行过，此步骤可跳过
-source .venv/bin/activate
-pip install --upgrade pip
-pip install -r requirements.txt
-python start.py
+#### 接口命名约定
+- 使用复数名词：`/api/v1/backend/users`
+- HTTP 方法映射：
+  - `GET` - 获取资源
+  - `POST` - 创建资源
+  - `PUT` - 全量更新资源
+  - `PATCH` - 部分更新资源
+  - `DELETE` - 删除资源
+
+#### 开发流程
+
+1. **创建数据模型** (`app/models/`)
+   ```python
+   # app/models/example.py
+   class ExampleModel(Base):
+       __tablename__ = "examples"
+       id = Column(Integer, primary_key=True)
+       name = Column(String(100), nullable=False)
+   ```
+
+2. **定义数据模式** (`app/schemas/`)
+   ```python
+   # app/schemas/example.py
+   class ExampleCreate(BaseModel):
+       name: str
+   
+   class ExampleResponse(BaseModel):
+       id: int
+       name: str
+   ```
+
+3. **实现服务层** (`app/services/`)
+   ```python
+   # app/services/example.py
+   async def create_example(db: Session, data: ExampleCreate):
+       # 业务逻辑实现
+   ```
+
+4. **创建 API 路由** (`app/api/backend/`)
+   ```python
+   # app/api/backend/example.py
+   @router.post("/", response_model=ExampleResponse)
+   async def create_example(
+       data: ExampleCreate,
+       db: Session = Depends(get_db)
+   ):
+       return await example_service.create_example(db, data)
+   ```
+
+5. **注册路由** (`app/api/main.py`)
+   ```python
+   app.include_router(
+       example_router,
+       prefix="/api/v1/backend/examples",
+       tags=["Examples"]
+   )
+   ```
+
+### 权限控制
+
+使用依赖注入实现权限控制：
+
+```python
+@router.get("/", dependencies=[Depends(check_permission('UserList'))])
+async def get_users():
+    # 需要 UserList 权限才能访问
 ```
 
+### 数据库迁移
 
-### Docker部署
+```bash
+# 生成迁移文件
+alembic revision --autogenerate -m "添加新表"
 
-#### 由于服务器无法访问 Docker Hub，可以在本地导出所需镜像，再上传到服务器上使用
+# 执行迁移
+alembic upgrade head
 
-```shell
-# 下载镜像
-docker pull python:3.12-slim-bullseye
-docker pull mysql:8.0.35
-docker pull redis:7.2.1
-
-# 导出镜像
-docker image save python:3.12-slim-bullseye -o python.image
-docker image save mysql:8.0.35 -o mysql.image
-docker image save redis:7.2.1 -o redis.image
-
-# 将镜像上传到服务器，导入镜像
-docker image load -i python.image
-docker image load -i mysql.image
-docker image load -i redis.image
+# 回滚迁移
+alembic downgrade -1
 ```
 
-#### 选择不同的配置文件启动服务
+### 异步任务
 
-```shell
-# 创建 .env 和 config.yaml 并编辑配置信息
-cp -r ./.env.example .env
-cp -r ./config.example.yaml config.yaml
+```python
+# 定义任务
+@celery_app.task
+def send_email(to: str, subject: str, body: str):
+    # 任务实现
+    pass
 
-# 根据实际情况，选择不同的 docker-compose 文件启动服务
-# docker-compose.yml 仅包含 server(fastapi), 其他服务在云端
-# docker-compose-celery.yml 仅包含 celery, 其他服务在云端
-# docker-compose-dev.yml 包含 mysql, redis, 其他服务如 fastapi, celery 在宿主机启动，方便调试
-# docker-compose-full.yml 包含 server, celery, mysql, redis 单机容器部署
-docker compose -p your_proj_name -f docker-compose.yml up -d --build
-
-# 重建镜像
-# 执行此命令后，如果有修改数据库配置，记得删除 volumes/mysql, redis 目录, 否者可能连接不上数据库
-docker compose -p your_proj_name down
-
-# 如果不删除 volumes/mysql, redis，则需更改目录用户为当前用户，否者容器无法写入 volumes 目录，导致启动失败
-chown -R user:user volumes
-
-# 也可通过重启脚本重新构建镜像
-./restart.sh docker-compose.yml
-./restart.sh docker-compose-celery.yml
-./restart.sh docker-compose-dev.yml
-./restart.sh docker-compose-full.yml
+# 调用任务
+send_email.delay("user@example.com", "主题", "内容")
 ```
 
-#### 进入容器，手动迁移数据库 （TODO：启动容器时自动执行）和初始化必要数据
+### 代码质量
 
-```shell
-docker exec -it your_proj_name-server-1 bash
-# 详见下面的 1. 数据库迁移指南, 2. 初始化必要数据
+```bash
+# 代码检查
+./scripts/lint.sh
+
+# 代码格式化
+./scripts/format.sh
+
+# 运行测试
+./scripts/test.sh
 ```
 
+### 代码生成
 
-### Nginx
+本项目提供代码生成工具，快速创建模板代码：
 
+```bash
+# 生成完整的 CRUD 代码
+python app/gen/main.py -n user.UserModel -t all
+
+# 仅生成 Schema
+python app/gen/main.py -n user.UserModel -t schema
 ```
+
+## 🌐 Nginx 配置
+
+```nginx
 server {
     listen 80;
-    server_name api.intranet.com;
+    server_name api.example.com;
     root /path/to/fastapi/public;
 
-    access_log /var/log/nginx/proj_name.access.log;
-    error_log /var/log/nginx/proj_name.error.log;
+    access_log /var/log/nginx/fastapi.access.log;
+    error_log /var/log/nginx/fastapi.error.log;
 
     location / {
         if (!-e $request_filename) {
-            proxy_pass http://127.0.0.1:<PORT>/;
+            proxy_pass http://127.0.0.1:8000/;
         }
         proxy_buffering off;
         proxy_redirect off;
@@ -120,147 +304,98 @@ server {
         proxy_set_header Upgrade $http_upgrade;
         proxy_set_header Connection "upgrade";
         proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
     }
 }
 ```
 
+## 📚 API 文档
 
-### 数据库迁移指南
+- **Swagger UI**: http://localhost:8000/docs
+- **ReDoc**: http://localhost:8000/redoc
+- **OpenAPI Schema**: http://localhost:8000/openapi.json
 
-```shell
-# 1. 在 ./app/models 目录下创建模型文件，并将其导入到 ./app/models/base.py
+## 🧪 测试
 
-# 2. 生成迁移脚本
-alembic revision --autogenerate -m "message"
+```bash
+# 运行所有测试
+pytest
 
-# 3. 执行迁移脚本
-alembic upgrade head
+# 运行特定测试
+pytest tests/test_user.py
 
-# 4. 回滚迁移脚本
-alembic downgrade base # 重置数据库
-alembic downgrade version_id # 回滚到指定版本
-
-# 5. 查看帮助
-alembic --help
+# 生成覆盖率报告
+pytest --cov=app --cov-report=html
 ```
 
+## 🚀 生产部署
 
-### 初始化必要数据
+### 环境变量配置
 
-TODO: 编写统一交互式初始化脚本
+确保以下环境变量正确设置：
 
-```shell
-# 1. 初始化权限菜单
-# 更新权限菜单后可反复执行此命令
-python app/utils/init_permissions.py
+```bash
+# 数据库配置
+MYSQL_HOST=localhost
+MYSQL_PORT=3306
+MYSQL_USER=fastapi
+MYSQL_PASSWORD=password
+MYSQL_DB=fastapi
 
-# 2. 初始化角色
-python app/utils/init_role.py
+# Redis 配置
+REDIS_HOST=localhost
+REDIS_PORT=6379
+REDIS_PASSWORD=
 
-# 3. 初始化用户
-python app/utils/init_user.py
-
-# 4. 初始化城市
-python app/utils/init_city.py
-
-# 5. 初始化支付渠道
-python app/utils/init_payment_channel.py
+# 应用配置
+SECRET_KEY=your-secret-key
+DEBUG=false
 ```
 
+### 性能优化
 
-### 接口开发指南
+- 启用数据库连接池
+- 配置 Redis 缓存
+- 使用 Nginx 反向代理
+- 启用 gzip 压缩
+- 配置 CDN 加速静态资源
 
-#### 约定
+## 🤝 贡献指南
 
-1. 接口使用 `RESTful API` 风格开发，通过 `HTTP Method` 实现资源访问和管理，API端点命名统一采用 `复数名词`，如：`/api/v1/backend/users`
+1. Fork 本仓库
+2. 创建特性分支 (`git checkout -b feature/amazing-feature`)
+3. 提交更改 (`git commit -m 'Add some amazing feature'`)
+4. 推送到分支 (`git push origin feature/amazing-feature`)
+5. 创建 Pull Request
 
-2. 前端调用接口时，空值字段请勿传入，后端将自动处理为 `None`，例如：`status=''` 时就不要提交此字段
+### 开发规范
 
-| HTTP动词  | 是否幂等 | 约定用法   |
-|---------|------|--------|
-| head    | 是    | 无      |
-| options | 是    | 无      |
-| post    | 否    | 创建资源   |
-| get     | 是    | 获取资源   |
-| put     | 是    | 全量更新资源 |
-| patch   | 否    | 部分更新数据 |
-| delete  | 是    | 删除资源   |
+- 遵循 PEP 8 代码风格
+- 编写单元测试
+- 更新相关文档
+- 通过所有 CI 检查
 
-#### 流程
+## 📄 许可证
 
-1. 创建接口路由文件，如：`./app/api/backend/user.py`
+本项目采用 MIT 许可证 - 查看 [LICENSE](LICENSE) 文件了解详情。
 
-2. 将其加入到包，以方便导入，如：`./app/api/backend/__init__.py`
+## 📞 联系方式
 
-3. 将路由加入到路由组 `./app/api/main.py` 并定义前缀和文档 `tags`
+如有问题或建议，请通过以下方式联系：
 
-4. 后台路由菜单级鉴权，添加依赖注入即可，如：`dependencies=[Depends(check_permission('UserList'))]`
-   这里的 `UserList` 是权限菜单定义的前端组件名称，详见: `./app/utils/init_permissions.py`
+- 创建 [Issue](../../issues)
 
-    参考文档：[Dependencies in path operation decorators](https://fastapi.tiangolo.com/tutorial/dependencies/dependencies-in-path-operation-decorators/)
+## 🙏 致谢
 
-5. 语法检查并修复错误
+感谢以下开源项目：
 
-   ```shell
-   # 进入虚拟环境
-   source .venv/bin/activate
-   
-   # 语法检查
-   ./scripts/lint.sh
-   ```
+- [FastAPI](https://fastapi.tiangolo.com/) - 现代、快速的 Web 框架
+- [SQLAlchemy](https://www.sqlalchemy.org/) - Python SQL 工具包
+- [Celery](https://docs.celeryq.dev/) - 分布式任务队列
+- [Redis](https://redis.io/) - 内存数据结构存储
 
+---
 
-### 异步任务
-
-1. 开发测试
-
-    ```shell
-    # 前台启动单worker异步任务（专门用于积分余额动账）
-    celery -A app.celery_single_worker worker --loglevel=info
-
-    # 前台启动异步任务 worker, 用于消费已存在的异步任务
-    celery -A app.celery_worker worker --loglevel=info
-
-    # 前台启动定时任务生产者，用于生成定时任务
-    celery -A app.celery_worker beat -s --loglevel=info
-
-    # 停止 celery 任务
-    ./stop_celery.sh
-    ```
-
-2. 生产部署
-   
-   ```shell
-   ./start_celery.sh
-   ./start_stop.sh
-
-   # 使用 docker 部署时，可以无需手动启动，详见 docker-compose-full.yml 配置
-   ```
-
-### 代码生成
-
-在 ``./app/models`` 目录下创建模型文件，并将其导入到 ``./app/models/base.py``, 生成代码命令如下：
-
-```shell
-python app/gen/main.py -h                          
-usage: main.py [-h] -n NAME [-t {schema,service,route,all}]
-
-FastBooster Generator
-
-options:
-  -h, --help            show this help message and exit
-  -n NAME, --name NAME  model name, e.g.: user.UserModel
-  -t {schema,service,route,all}, --target {schema,service,route,all}
-                        generate target, default: all
-```
-
-
-### 参考文档列表
-
-1. [FastAPI](https://fastapi.tiangolo.com/)
-2. [RedisPy](https://redis.io/docs/latest/develop/connect/clients/python/)
-3. [Celery](https://docs.celeryq.dev/en/stable/index.html)
-4. [wechatpy](https://www.wechatpy.org/) 微信公众号 Python SDK, [公众号沙箱环境](https://mp.weixin.qq.com/debug/cgi-bin/sandboxinfo?action=showinfo&t=sandbox/index)
-5. [Python Alipay SDK](https://github.com/fzlee/alipay/blob/master/docs/apis.zh-hans.md) with SHA1/SHA256 support
-6. [RESTFul API 接口规范详解](https://cloud.tencent.com/developer/article/2360813)
-7. [RESTFul API 设计最佳实践](https://segmentfault.com/a/1190000011516151)
+⭐ 如果这个项目对您有帮助，请给它一个 Star！
