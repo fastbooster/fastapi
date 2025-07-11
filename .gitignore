@@ -1,25 +1,85 @@
+# Python相关
 *.pyc
-**/__pycache__
+*.pyo
+*.pyd
+**/__pycache__/
+*.so
+*.egg
+*.egg-info/
+.eggs/
+dist/
+build/
+wheels/
+*.manifest
+*.spec
 
-runtime
-!runtime/log/.gitkeep
-localtest
-flagged
-htmlcov
-app.egg-info
-.cache
-.venv
-.idea
+# 虚拟环境
 .env
-.mypy_cache
-.ruff_cache
-.coverage
-.DS_Store
-Thumbs.db
---loglevel=*.db
-celerybeat-schedule.db
-config.yaml
+.venv/
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
 
+# IDE和编辑器
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+.project
+.pydevproject
+
+# 操作系统
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# 测试和覆盖率
+.coverage
+.coverage.*
+htmlcov/
+.tox/
+.cache/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+nosetests.xml
+coverage.xml
+*.cover
+.hypothesis/
+
+# 日志文件
+*.log
+logs/
+
+# 数据库文件
+*.db
+*.sqlite
+*.sqlite3
+celerybeat-schedule.db
+
+# 配置文件
+config.yaml
+.env.local
+.env.development
+.env.test
+.env.production
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# 项目特定
+runtime/
+!runtime/log/.gitkeep
+localtest/
+flagged/
+app.egg-info/
 public/*
 !public/.gitkeep
 volumes/*
@@ -28,3 +88,8 @@ backups/*
 !backups/.gitkeep
 docker/nginx/cert/*
 !docker/nginx/cert/.gitkeep
+
+# 临时文件
+*.tmp
+*.temp
+.tmp/
