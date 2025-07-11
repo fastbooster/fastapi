@@ -1,0 +1,26 @@
+---
+alwaysApply: true
+---
+
+# FastAPI 项目结构指南
+
+这是一个 FastAPI 项目，遵循以下结构约定：
+
+## 主要文件结构
+- `main.py` 或 `app.py` - 应用程序入口点，包含 FastAPI 实例
+- `requirements.txt` 或 `pyproject.toml` - 项目依赖
+- `routers/` - API 路由模块
+- `models/` - 数据模型（Pydantic 模型）
+- `schemas/` - 数据验证模式
+- `database/` - 数据库配置和连接
+- `core/` - 核心配置文件
+- `services/` - 业务逻辑服务
+- `utils/` - 工具函数
+- `tests/` - 测试文件
+
+## 开发约定
+- 使用异步函数 (`async`/`await`) 处理 I/O 操作
+- 遵循 REST API 设计原则
+- 使用 Pydantic 进行数据验证
+- 实现适当的错误处理和状态码
+- 添加 API 文档字符串用于自动生成文档
